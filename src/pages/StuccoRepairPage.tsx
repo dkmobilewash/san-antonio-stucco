@@ -30,6 +30,11 @@ const faqs = [
     answer:
       'Yes. Every stucco repair estimate in San Antonio is free, on-site, and no-obligation. We come to your property, inspect the damaged area in person, check for hidden moisture or substrate issues, and walk you through what we find before we quote a price. You receive a written estimate with a clear scope of work, timeline, and itemized cost. There is no charge to schedule the visit and no pressure to move forward. Call (210) 871-8490 to set up an inspection — most homeowners get on the schedule within a few days.',
   },
+  {
+    question: 'How do I find stucco repair near me in San Antonio?',
+    answer:
+      'San Antonio Stucco provides stucco repair throughout the entire San Antonio metro area with same-day inspections available in most neighborhoods. We serve San Antonio, Boerne, New Braunfels, Schertz, Helotes, Stone Oak, Alamo Heights, Live Oak, Universal City, Leon Valley, and Selma. As a locally owned company, we are never far away. Call (210) 871-8490 and we can usually schedule your free on-site inspection within a few days.',
+  },
 ];
 
 export default function StuccoRepairPage() {
@@ -47,9 +52,9 @@ export default function StuccoRepairPage() {
   );
 
   usePageSEO({
-    title: 'Stucco Repair San Antonio | Crack & Water Damage Experts',
+    title: 'Stucco Repair Near Me in San Antonio, TX | Same-Day Inspections',
     description:
-      'Professional stucco repair in San Antonio. We fix cracks, water damage, holes & more. Fast, affordable, and backed by years of local experience. Free estimates.',
+      'Searching for stucco repair near me? San Antonio Stucco fixes cracks, water damage & more across the SA metro. Licensed, insured & locally owned. Free estimates — call (210) 871-8490.',
     path: '/stucco-repair',
     rawTitle: true,
     jsonLd,
@@ -72,10 +77,10 @@ export default function StuccoRepairPage() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-5">
-            Stucco Repair in San Antonio
+            Stucco Repair Near Me in San Antonio
           </h1>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8 max-w-3xl">
-            Cracks, water damage, holes, and texture mismatches handled by a local crew that knows San Antonio stucco systems. Fast, honest pricing and craftsmanship that lasts. Free, no-pressure estimates throughout the metro area.
+            Looking for stucco repair near you in San Antonio? Our local crew handles cracks, water damage, holes, and texture mismatches across the entire metro area. Fast, honest pricing and craftsmanship that lasts. Free, no-pressure estimates — we come to you.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -216,9 +221,9 @@ export default function StuccoRepairPage() {
       {/* Bottom CTA */}
       <section className="py-20 bg-slate-800">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Need Stucco Repair in San Antonio?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Need Stucco Repair Near You in San Antonio?</h2>
           <p className="text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Get a free, on-site inspection and a clear written estimate. No pressure, no hidden fees, just an honest assessment from a local crew that has been doing this for years.
+            Stop searching for stucco repair near me — you found us. Get a free, on-site inspection and a clear written estimate. No pressure, no hidden fees, just an honest assessment from a local crew that has been doing this for years.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a

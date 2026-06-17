@@ -24,6 +24,8 @@ const homeFAQs = [
   { question: 'Do you offer warranties on stucco work?', answer: 'Yes. All our work is backed by a workmanship guarantee. We stand behind every project and address any issues that arise from our installation or repair work at no additional cost.' },
   { question: 'What areas do you serve besides San Antonio?', answer: 'We serve the entire San Antonio metro including Boerne, New Braunfels, Schertz, Helotes, Stone Oak, Alamo Heights, Live Oak, Universal City, Leon Valley, and Selma.' },
   { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, bubbling or bulging areas, discoloration, moisture stains inside walls, and sections that sound hollow when tapped. We offer free inspections for all San Antonio homeowners.' },
+  { question: 'How do I find a good stucco contractor near me?', answer: 'Look for a licensed and insured contractor with local experience, verifiable reviews, and knowledge of your area climate. San Antonio Stucco serves the entire metro area including Boerne, New Braunfels, Schertz, Helotes, and Stone Oak. Call (210) 871-8490 for a free on-site estimate.' },
+  { question: 'Where can I find stucco repair near me in San Antonio?', answer: 'San Antonio Stucco provides stucco repair throughout the San Antonio metro area with same-day inspections available. We serve all neighborhoods from Alamo Heights to the Westside, plus surrounding cities like Boerne, Schertz, and New Braunfels. Call us or submit a free estimate request online.' },
 ];
 
 export default function HomePage() {
@@ -31,8 +33,8 @@ export default function HomePage() {
     <>
       <SEO
         title="Stucco Contractor in San Antonio, TX | Repair, Installation & EIFS"
-        description="San Antonio's trusted stucco contractor for residential & commercial projects. Expert stucco repair, installation, and EIFS services across the San Antonio, TX area. Free estimates — call today."
-        keywords="san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
+        description="Looking for a stucco contractor near me in San Antonio? Trusted stucco repair, installation & EIFS services for residential & commercial projects. Licensed & insured. Free estimates — call today."
+        keywords="stucco repair near me, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 
       {/* Hero Section */}
@@ -115,10 +117,10 @@ export default function HomePage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-4">
-            Why Choose San Antonio Stucco for Stucco in San Antonio
+            Looking for a Stucco Contractor Near Me in San Antonio?
           </h2>
           <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-            We combine deep local knowledge with professional-grade craftsmanship to deliver stucco systems that look beautiful and perform for decades in the San Antonio climate.
+            When you search for stucco companies near me, you want a local contractor who knows the climate and shows up on time. We combine deep San Antonio knowledge with professional-grade craftsmanship to deliver stucco systems that look beautiful and perform for decades.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">

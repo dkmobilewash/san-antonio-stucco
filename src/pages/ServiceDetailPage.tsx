@@ -167,13 +167,13 @@ export default function ServiceDetailPage() {
       'stucco-painting': 'Stucco Painting San Antonio, TX | Elastomeric Coatings & Color Change | Free Estimates',
     };
     const descriptions: Record<string, string> = {
-      'stucco-installation': 'Professional stucco installation in San Antonio for new builds & additions. Engineered for Texas heat. Licensed & insured contractor. Get your free estimate today!',
+      'stucco-installation': 'Looking for stucco installers near me? Professional stucco installation in San Antonio for new builds & additions. Engineered for Texas heat. Licensed & insured. Free estimates!',
       'stucco-replacement': 'Expert stucco replacement in San Antonio. We remove failing systems & rebuild with modern materials. Licensed & insured. Call for a free on-site evaluation!',
       'residential-stucco': 'Trusted residential stucco contractor in San Antonio. Beautiful, durable home exteriors built for Texas weather. Licensed & insured. Request a free estimate!',
-      'commercial-stucco': 'Commercial stucco services in San Antonio for offices, retail & multi-family. Minimal disruption, professional results. Licensed & insured. Free estimates available!',
+      'commercial-stucco': 'Need a commercial stucco contractor near me? Stucco services in San Antonio for offices, retail & multi-family. Minimal disruption. Licensed & insured. Free estimates!',
       'stucco-remodeling': 'Transform your San Antonio home with expert stucco remodeling. Updated textures, modern finishes & curb appeal. Licensed & insured. Call for a free consultation!',
-      'stucco-repairs': 'Fast, reliable stucco repair in San Antonio. We fix cracks, holes, water damage & more. Licensed & insured contractor. Schedule your free inspection today!',
-      'eifs-synthetic-stucco': 'EIFS and synthetic stucco repair in San Antonio. Expert diagnostics, sealant work & re-coating. Licensed & insured. Call for a free assessment today!',
+      'stucco-repairs': 'Searching for stucco repair near me? Fast, reliable stucco repair across San Antonio. We fix cracks, holes & water damage. Licensed & insured. Free inspections!',
+      'eifs-synthetic-stucco': 'EIFS stucco systems near me — expert synthetic stucco repair in San Antonio. Diagnostics, sealant work & re-coating. Licensed & insured. Free assessments!',
       'stucco-painting': 'Professional stucco painting in San Antonio, TX. Elastomeric coatings, color changes & UV protection for residential & commercial exteriors. Free estimates!',
     };
     return {
