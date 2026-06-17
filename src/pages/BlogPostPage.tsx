@@ -5,6 +5,20 @@ import { blogPosts } from '../data/blog';
 import { usePageSEO } from '../lib/seo';
 import CTASection from '../components/CTASection';
 
+const MONTH_MAP: Record<string, string> = {
+  'January': '01', 'February': '02', 'March': '03', 'April': '04',
+  'May': '05', 'June': '06', 'July': '07', 'August': '08',
+  'September': '09', 'October': '10', 'November': '11', 'December': '12',
+};
+
+function toISODate(dateStr: string): string {
+  const parts = dateStr.split(' ');
+  if (parts.length === 2 && MONTH_MAP[parts[0]]) {
+    return `${parts[1]}-${MONTH_MAP[parts[0]]}-01`;
+  }
+  return dateStr;
+}
+
 export default function BlogPostPage() {
   const { pathname } = useLocation();
   const slug = pathname.replace('/blog/', '');
@@ -12,13 +26,33 @@ export default function BlogPostPage() {
 
   const jsonLd = useMemo(() => {
     if (!post) return undefined;
+    const isoDate = toISODate(post.date);
     return {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: post.title,
-      datePublished: post.date,
-      author: { '@type': 'Organization', name: 'San Antonio Stucco' },
       description: post.excerpt,
+      image: post.image,
+      datePublished: isoDate,
+      dateModified: isoDate,
+      author: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://sanantoniostucco.com/images/logo.png',
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://sanantoniostucco.com/blog/${post.slug}`,
+      },
     };
   }, [post]);
 

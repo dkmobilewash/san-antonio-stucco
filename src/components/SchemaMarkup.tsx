@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { locations } from '../data/locations';
+import { blogPosts } from '../data/blog';
 
 const SITE_URL = 'https://sanantoniostucco.com';
 
@@ -296,7 +298,38 @@ export default function SchemaMarkup() {
       schemas.push(...serviceSchemas, faqSchema);
     }
 
-    const breadcrumbs = BREADCRUMB_MAP[pathname];
+    let breadcrumbs = BREADCRUMB_MAP[pathname];
+
+    if (!breadcrumbs) {
+      const locationSlug = pathname.replace(/^\//, '');
+      const loc = locations.find((l) => l.slug === locationSlug);
+      if (loc) {
+        breadcrumbs = [
+          { name: 'Home', url: SITE_URL },
+          { name: 'Service Areas', url: `${SITE_URL}/service-areas` },
+          { name: loc.name, url: `${SITE_URL}/${loc.slug}` },
+        ];
+      }
+    }
+
+    if (!breadcrumbs && pathname.startsWith('/blog/')) {
+      const blogSlug = pathname.replace('/blog/', '');
+      const post = blogPosts.find((p) => p.slug === blogSlug);
+      if (post) {
+        breadcrumbs = [
+          { name: 'Home', url: SITE_URL },
+          { name: 'Blog', url: `${SITE_URL}/blog` },
+          { name: post.title, url: `${SITE_URL}/blog/${post.slug}` },
+        ];
+      } else if (blogSlug === 'us-largest-plaster-producer-san-antonio') {
+        breadcrumbs = [
+          { name: 'Home', url: SITE_URL },
+          { name: 'Blog', url: `${SITE_URL}/blog` },
+          { name: 'US Largest Plaster Producer', url: `${SITE_URL}/blog/us-largest-plaster-producer-san-antonio` },
+        ];
+      }
+    }
+
     if (breadcrumbs) {
       schemas.push({
         '@context': 'https://schema.org',
