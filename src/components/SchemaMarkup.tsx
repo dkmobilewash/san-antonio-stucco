@@ -269,7 +269,7 @@ export default function SchemaMarkup() {
     scriptRefs.current.forEach((s) => s.remove());
     scriptRefs.current = [];
 
-    const schemas: object[] = [localBusinessSchema];
+    const schemas: object[] = [];
 
     if (pathname === '/') {
       schemas.push(...serviceSchemas, faqSchema);
