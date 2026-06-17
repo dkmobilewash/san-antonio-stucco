@@ -52,6 +52,12 @@ const servicePhotos: Record<string, { src: string; alt: string; caption: string 
     { src: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'EIFS repair and restoration', caption: 'EIFS joint and sealant restoration' },
     { src: 'https://images.pexels.com/photos/2138126/pexels-photo-2138126.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Synthetic stucco maintenance', caption: 'Comprehensive EIFS inspection and repair' },
   ],
+  'stucco-painting': [
+    { src: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Freshly painted stucco home in San Antonio', caption: 'Elastomeric coating applied to a San Antonio home exterior' },
+    { src: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Stucco painting detail showing smooth finish', caption: 'Clean, consistent coverage with UV-stable coating' },
+    { src: 'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Professional stucco painting project', caption: 'Full exterior color change with proper surface preparation' },
+    { src: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Completed stucco painting project', caption: 'Dramatic curb appeal improvement with elastomeric finish' },
+  ],
 };
 
 const blogResources: Record<string, { slug: string; title: string; excerpt: string }[]> = {
@@ -86,6 +92,11 @@ const blogResources: Record<string, { slug: string; title: string; excerpt: stri
     { slug: 'eifs-vs-traditional-stucco-differences', title: 'EIFS vs. Traditional Stucco: What You Need to Know', excerpt: 'Understand the key differences between synthetic and traditional stucco systems.' },
     { slug: 'how-san-antonio-weather-affects-stucco', title: 'How San Antonio Weather Affects Your Stucco', excerpt: 'Learn how heat, humidity, and UV exposure create unique challenges for EIFS systems.' },
   ],
+  'stucco-painting': [
+    { slug: 'protecting-stucco-from-texas-heat', title: 'How to Protect Your Stucco in Texas Heat and Humidity', excerpt: 'Why the right coating matters more than the right color in the San Antonio climate.' },
+    { slug: 'choosing-stucco-colors-and-textures', title: 'Choosing the Right Stucco Color and Texture', excerpt: 'A guide to selecting paint colors that perform well on stucco in South Texas.' },
+    { slug: 'stucco-maintenance-checklist-san-antonio', title: 'Stucco Maintenance Tips for San Antonio Homes', excerpt: 'How regular maintenance extends the life of your stucco paint job.' },
+  ],
 };
 
 export default function ServiceDetailPage() {
@@ -93,9 +104,45 @@ export default function ServiceDetailPage() {
   const slug = location.pathname.replace(/^\//, '');
   const service = services.find((s) => s.slug === slug);
 
+  const servicePricing: Record<string, { low: string; high: string; unit?: string }> = {
+    'stucco-installation': { low: '8', high: '15', unit: 'per sqft' },
+    'stucco-replacement': { low: '10', high: '18', unit: 'per sqft' },
+    'residential-stucco': { low: '8', high: '15', unit: 'per sqft' },
+    'commercial-stucco': { low: '8', high: '18', unit: 'per sqft' },
+    'stucco-remodeling': { low: '5', high: '12', unit: 'per sqft' },
+    'stucco-repairs': { low: '300', high: '5000' },
+    'eifs-synthetic-stucco': { low: '500', high: '15000' },
+    'stucco-painting': { low: '2', high: '5', unit: 'per sqft' },
+  };
+
   const jsonLd = useMemo(() => {
     if (!service) return undefined;
-    return {
+    const pricing = servicePricing[service.slug];
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `${service.name} in San Antonio, TX`,
+      description: service.heroDescription,
+      provider: { '@id': 'https://sanantoniostucco.com/#business' },
+      areaServed: [
+        { '@type': 'City', name: 'San Antonio' },
+        { '@type': 'City', name: 'Boerne' },
+        { '@type': 'City', name: 'New Braunfels' },
+        { '@type': 'City', name: 'Schertz' },
+        { '@type': 'City', name: 'Helotes' },
+      ],
+      serviceType: service.name,
+      url: `https://sanantoniostucco.com/${service.slug}`,
+      ...(pricing && {
+        offers: {
+          '@type': 'AggregateOffer',
+          lowPrice: pricing.low,
+          highPrice: pricing.high,
+          priceCurrency: 'USD',
+        },
+      }),
+    };
+    const faqSchema = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: service.faqs.map((faq) => ({
@@ -104,6 +151,7 @@ export default function ServiceDetailPage() {
         acceptedAnswer: { '@type': 'Answer', text: faq.answer },
       })),
     };
+    return [serviceSchema, faqSchema];
   }, [service]);
 
   const seoMeta = useMemo(() => {
@@ -116,6 +164,7 @@ export default function ServiceDetailPage() {
       'stucco-remodeling': 'Stucco Remodeling San Antonio | Exterior Makeovers & Texture Updates | Free Estimates',
       'stucco-repairs': 'Stucco Repair San Antonio | Crack Repair & Patching | Licensed & Insured',
       'eifs-synthetic-stucco': 'EIFS & Synthetic Stucco San Antonio | Repair & Maintenance | Licensed & Insured',
+      'stucco-painting': 'Stucco Painting San Antonio, TX | Elastomeric Coatings & Color Change | Free Estimates',
     };
     const descriptions: Record<string, string> = {
       'stucco-installation': 'Professional stucco installation in San Antonio for new builds & additions. Engineered for Texas heat. Licensed & insured contractor. Get your free estimate today!',
@@ -125,6 +174,7 @@ export default function ServiceDetailPage() {
       'stucco-remodeling': 'Transform your San Antonio home with expert stucco remodeling. Updated textures, modern finishes & curb appeal. Licensed & insured. Call for a free consultation!',
       'stucco-repairs': 'Fast, reliable stucco repair in San Antonio. We fix cracks, holes, water damage & more. Licensed & insured contractor. Schedule your free inspection today!',
       'eifs-synthetic-stucco': 'EIFS and synthetic stucco repair in San Antonio. Expert diagnostics, sealant work & re-coating. Licensed & insured. Call for a free assessment today!',
+      'stucco-painting': 'Professional stucco painting in San Antonio, TX. Elastomeric coatings, color changes & UV protection for residential & commercial exteriors. Free estimates!',
     };
     return {
       title: titles[service.slug] || `${service.name} San Antonio | Licensed & Insured`,

@@ -133,6 +133,22 @@ const serviceSchemas = [
       priceCurrency: 'USD',
     },
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Stucco Painting in San Antonio',
+    description: 'Professional stucco painting and elastomeric coatings in San Antonio, TX.',
+    provider: { '@id': `${SITE_URL}/#business` },
+    areaServed: { '@type': 'City', name: 'San Antonio' },
+    serviceType: 'Stucco Painting',
+    url: `${SITE_URL}/stucco-painting`,
+    offers: {
+      '@type': 'AggregateOffer',
+      lowPrice: '1500',
+      highPrice: '12000',
+      priceCurrency: 'USD',
+    },
+  },
 ];
 
 const faqSchema = {
@@ -242,6 +258,11 @@ const BREADCRUMB_MAP: Record<string, { name: string; url: string }[]> = {
     { name: 'Home', url: SITE_URL },
     { name: 'Services', url: `${SITE_URL}/services` },
     { name: 'EIFS / Synthetic Stucco', url: `${SITE_URL}/eifs-synthetic-stucco` },
+  ],
+  '/stucco-painting': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Services', url: `${SITE_URL}/services` },
+    { name: 'Stucco Painting', url: `${SITE_URL}/stucco-painting` },
   ],
   '/service-areas': [
     { name: 'Home', url: SITE_URL },
