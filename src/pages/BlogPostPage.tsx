@@ -34,6 +34,9 @@ export default function BlogPostPage() {
       'cost-of-stucco-installation-san-antonio': 'Stucco Installation Cost San Antonio | 2025 Pricing Guide',
       'choosing-stucco-colors-and-textures': 'Choosing Stucco Colors & Textures | San Antonio Design Guide',
       'stucco-vs-other-siding-materials': 'Stucco vs Other Siding | Stucco vs Vinyl, Brick & Fiber Cement in San Antonio',
+      'stucco-repair-near-me-san-antonio-guide': 'Stucco Repair Near Me in San Antonio | What to Know Before You Hire',
+      'stucco-vs-brick-cost-san-antonio': 'Stucco vs Brick Cost in San Antonio | Which Is the Better Investment?',
+      'how-long-does-stucco-last-san-antonio': 'How Long Does Stucco Last in San Antonio? | Lifespan & Maintenance Guide',
     };
     const descriptions: Record<string, string> = {
       'how-san-antonio-weather-affects-stucco': 'Learn how San Antonio heat, humidity & UV damage stucco systems. Expert tips on prevention & when to call a stucco contractor. Read our guide!',
@@ -45,6 +48,9 @@ export default function BlogPostPage() {
       'cost-of-stucco-installation-san-antonio': 'How much does stucco installation cost in San Antonio? Detailed pricing breakdown for 2025. Get a free, no-obligation estimate from local experts!',
       'choosing-stucco-colors-and-textures': 'Choose the perfect stucco color and texture for your San Antonio home. Expert guide on finishes, styles & what works best in Texas. Read now!',
       'stucco-vs-other-siding-materials': 'Stucco vs vinyl, brick, fiber cement & stone veneer for San Antonio homes. Compare cost, durability & climate fit. Free estimates from local stucco experts.',
+      'stucco-repair-near-me-san-antonio-guide': 'Searching for stucco repair near me in San Antonio, TX? Learn what to look for in a contractor, typical repair costs & how to avoid costly mistakes. Read now.',
+      'stucco-vs-brick-cost-san-antonio': 'Stucco vs brick cost comparison for San Antonio, TX homes. Installation pricing, maintenance, durability & which delivers the best long-term value. Read the guide.',
+      'how-long-does-stucco-last-san-antonio': 'How long does stucco last in San Antonio, TX? Lifespan by system type, what shortens it & how to maximize your exterior investment. Expert guide.',
     };
     return {
       title: titles[post.slug] || post.title,
