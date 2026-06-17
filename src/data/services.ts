@@ -21,7 +21,7 @@ export const services: Service[] = [
     slug: 'stucco-installation',
     name: 'Stucco Installation',
     shortDescription: 'Expert stucco installation for new construction and additions throughout San Antonio.',
-    heroHeadline: 'Professional Stucco Installation in San Antonio',
+    heroHeadline: 'Stucco Installation in San Antonio, TX',
     heroDescription: 'New construction stucco systems engineered for South Texas conditions. Proper substrate prep, moisture barriers, and multi-coat application that prevents cracking and water damage for decades.',
     icon: 'Layers',
     overview: [
@@ -96,7 +96,7 @@ export const services: Service[] = [
     slug: 'stucco-replacement',
     name: 'Stucco Replacement',
     shortDescription: 'Complete stucco removal and replacement for damaged or failing exterior systems.',
-    heroHeadline: 'Complete Stucco Replacement in San Antonio',
+    heroHeadline: 'Stucco Replacement in San Antonio, TX',
     heroDescription: 'When repairs are no longer enough, we remove failing stucco to the substrate, address hidden moisture damage, and rebuild your exterior with a system engineered to last decades in the Texas climate.',
     icon: 'RefreshCw',
     overview: [
@@ -180,7 +180,7 @@ export const services: Service[] = [
     slug: 'residential-stucco',
     name: 'Residential Stucco',
     shortDescription: 'Beautiful, durable stucco finishes that protect your home and boost curb appeal.',
-    heroHeadline: 'Residential Stucco Services in San Antonio',
+    heroHeadline: 'Residential Stucco in San Antonio, TX',
     heroDescription: 'Your home deserves an exterior that looks beautiful and performs flawlessly through every San Antonio summer. We deliver residential stucco work that protects your investment and makes your neighbors take notice.',
     icon: 'Home',
     overview: [
@@ -256,7 +256,7 @@ export const services: Service[] = [
     slug: 'commercial-stucco',
     name: 'Commercial Stucco',
     shortDescription: 'Large-scale stucco solutions for commercial buildings, offices, and retail properties.',
-    heroHeadline: 'Commercial Stucco Services in San Antonio',
+    heroHeadline: 'Commercial Stucco in San Antonio, TX',
     heroDescription: 'Your commercial property exterior is your business card. We deliver professional-grade stucco installation, repair, and replacement for offices, retail, restaurants, multi-family, and industrial properties throughout San Antonio.',
     icon: 'Building2',
     overview: [
@@ -330,7 +330,7 @@ export const services: Service[] = [
     slug: 'stucco-remodeling',
     name: 'Stucco Remodeling',
     shortDescription: 'Transform your home\'s exterior with modern stucco finishes and design updates.',
-    heroHeadline: 'Stucco Remodeling in San Antonio',
+    heroHeadline: 'Stucco Remodeling in San Antonio, TX',
     heroDescription: 'Give your home a complete exterior transformation. We modernize outdated stucco finishes, update textures, add architectural details, and deliver the curb appeal you have been envisioning.',
     icon: 'Paintbrush',
     overview: [
@@ -411,7 +411,7 @@ export const services: Service[] = [
     slug: 'stucco-repairs',
     name: 'Stucco Repairs',
     shortDescription: 'Fast, reliable stucco repairs for cracks, chips, delamination, and water damage.',
-    heroHeadline: 'Professional Stucco Repairs in San Antonio',
+    heroHeadline: 'Stucco Repairs in San Antonio, TX',
     heroDescription: 'Cracks are often a symptom, not the whole problem. Our repair specialists diagnose root causes, fix damage properly with compatible materials, and match your existing texture so you would never know we were there.',
     icon: 'Wrench',
     overview: [
@@ -497,7 +497,7 @@ export const services: Service[] = [
     slug: 'eifs-synthetic-stucco',
     name: 'EIFS / Synthetic Stucco',
     shortDescription: 'Expert EIFS repair, maintenance, and replacement for synthetic stucco systems.',
-    heroHeadline: 'EIFS & Synthetic Stucco Services in San Antonio',
+    heroHeadline: 'EIFS & Synthetic Stucco in San Antonio, TX',
     heroDescription: 'Synthetic stucco systems face unique challenges in Texas heat. Our EIFS specialists understand thermal movement, UV degradation, coating breakdown, and hidden moisture issues that general contractors miss.',
     icon: 'Shield',
     overview: [
@@ -584,7 +584,7 @@ export const services: Service[] = [
     slug: 'stucco-painting',
     name: 'Stucco Painting',
     shortDescription: 'Professional stucco painting and elastomeric coatings that protect and refresh your exterior.',
-    heroHeadline: 'Stucco Painting in San Antonio',
+    heroHeadline: 'Stucco Painting in San Antonio, TX',
     heroDescription: 'Revive your stucco exterior with professional-grade paint and elastomeric coatings engineered for Texas UV and heat. We prep, prime, and apply coatings that look great and last years longer than standard house paint.',
     icon: 'Paintbrush',
     overview: [

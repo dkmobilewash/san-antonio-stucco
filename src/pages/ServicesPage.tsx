@@ -19,7 +19,7 @@ export default function ServicesPage() {
       <section className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Stucco Services in San Antonio
+            Our Stucco Services in San Antonio, TX
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             From new installations to specialized EIFS repair, we provide comprehensive stucco services for residential and commercial properties throughout San Antonio. Our work starts with{' '}

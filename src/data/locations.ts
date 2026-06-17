@@ -15,7 +15,7 @@ export const locations: Location[] = [
     slug: 'san-antonio',
     name: 'San Antonio',
     description: 'Serving all neighborhoods throughout San Antonio with professional stucco services.',
-    heroHeadline: 'Stucco Services in San Antonio, TX',
+    heroHeadline: 'Stucco Contractor in San Antonio, TX',
     heroDescription: 'San Antonio\'s leading stucco contractor delivering expert installation, repair, and replacement throughout the city. From Alamo Heights to the Westside, we serve every neighborhood.',
     localInfo: 'As San Antonio\'s trusted stucco experts, we understand the unique challenges our city\'s climate presents. From the intense summer heat that causes thermal expansion to the humidity that tests moisture barriers, we build stucco systems designed specifically for local conditions.',
     painPoints: [
@@ -39,7 +39,7 @@ export const locations: Location[] = [
     slug: 'boerne',
     name: 'Boerne',
     description: 'Expert stucco services for homes and businesses in Boerne and the Hill Country.',
-    heroHeadline: 'Stucco Services in Boerne, TX',
+    heroHeadline: 'Stucco Contractor in Boerne, TX',
     heroDescription: 'Professional stucco installation, repair, and replacement for Boerne properties. We understand Hill Country architecture and deliver finishes that complement the area\'s distinctive style.',
     localInfo: 'Boerne\'s Hill Country setting brings unique considerations for stucco work. The area\'s limestone-rich soil, elevation changes, and blend of traditional and modern architecture require a contractor who understands local building practices and aesthetic preferences.',
     painPoints: [
@@ -62,7 +62,7 @@ export const locations: Location[] = [
     slug: 'new-braunfels',
     name: 'New Braunfels',
     description: 'Trusted stucco contractor serving New Braunfels and Comal County.',
-    heroHeadline: 'Stucco Services in New Braunfels, TX',
+    heroHeadline: 'Stucco Contractor in New Braunfels, TX',
     heroDescription: 'Reliable stucco services for New Braunfels homes and businesses. From Canyon Lake communities to downtown properties, we deliver quality work that lasts in the Texas Hill Country climate.',
     localInfo: 'New Braunfels is one of the fastest-growing cities in Texas, with new construction and renovation projects everywhere. Our team serves both the established neighborhoods and new developments throughout Comal County, delivering stucco systems built for the local climate.',
     painPoints: [
@@ -85,7 +85,7 @@ export const locations: Location[] = [
     slug: 'schertz',
     name: 'Schertz',
     description: 'Quality stucco services for Schertz, Cibolo, and northeast San Antonio communities.',
-    heroHeadline: 'Stucco Services in Schertz, TX',
+    heroHeadline: 'Stucco Contractor in Schertz, TX',
     heroDescription: 'Professional stucco installation and repair for homes and businesses in Schertz and surrounding communities. We deliver the same quality and attention to detail that has made us San Antonio\'s trusted choice.',
     localInfo: 'Schertz and the surrounding communities of Cibolo, Selma, and Universal City are growing rapidly with a mix of established neighborhoods and new developments. We serve both residential and commercial properties throughout the northeast corridor.',
     painPoints: [
@@ -108,7 +108,7 @@ export const locations: Location[] = [
     slug: 'helotes',
     name: 'Helotes',
     description: 'Stucco services for Helotes and the northwest San Antonio Hill Country corridor.',
-    heroHeadline: 'Stucco Services in Helotes, TX',
+    heroHeadline: 'Stucco Contractor in Helotes, TX',
     heroDescription: 'Expert stucco work for Helotes homes and businesses. We understand the Hill Country aesthetic and deliver finishes that enhance your property while standing up to the rugged Texas climate.',
     localInfo: 'Helotes sits at the edge of the Hill Country with a unique blend of rural character and upscale residential development. Properties here often feature custom architecture that demands skilled stucco application and careful attention to design details.',
     painPoints: [
@@ -131,7 +131,7 @@ export const locations: Location[] = [
     slug: 'stone-oak',
     name: 'Stone Oak',
     description: 'Premium stucco services for Stone Oak\'s upscale residential community.',
-    heroHeadline: 'Stucco Services in Stone Oak, San Antonio',
+    heroHeadline: 'Stucco Contractor in Stone Oak, San Antonio',
     heroDescription: 'Elevate your Stone Oak home with premium stucco services. Our expert team delivers the quality and attention to detail that this prestigious community demands, from subtle repairs to complete transformations.',
     localInfo: 'Stone Oak is one of San Antonio\'s most desirable communities, known for its upscale homes and meticulous property standards. Our team provides the premium-level stucco services that homeowners here expect, from precise color matching to flawless finish work.',
     painPoints: [
@@ -155,7 +155,7 @@ export const locations: Location[] = [
     slug: 'alamo-heights',
     name: 'Alamo Heights',
     description: 'Stucco services for Alamo Heights\' historic and distinguished properties.',
-    heroHeadline: 'Stucco Services in Alamo Heights, San Antonio',
+    heroHeadline: 'Stucco Contractor in Alamo Heights, San Antonio',
     heroDescription: 'Preserve and enhance your Alamo Heights property with expert stucco services. We respect the historic character of this distinguished community while delivering modern performance and protection.',
     localInfo: 'Alamo Heights features some of San Antonio\'s most historic and architecturally significant homes. Our team brings the sensitivity and expertise needed to work on distinguished properties, maintaining their character while ensuring modern weather protection.',
     painPoints: [
@@ -180,7 +180,7 @@ export const locations: Location[] = [
     slug: 'live-oak',
     name: 'Live Oak',
     description: 'Professional stucco services for Live Oak homes and commercial properties.',
-    heroHeadline: 'Stucco Services in Live Oak, TX',
+    heroHeadline: 'Stucco Contractor in Live Oak, TX',
     heroDescription: 'Trusted stucco installation, repair, and replacement for Live Oak properties. Our experienced crews deliver quality workmanship that protects your investment from the South Texas climate.',
     localInfo: 'Live Oak is a thriving community in northeast Bexar County with a mix of established neighborhoods and newer developments along the I-35 corridor. Our team serves residential and commercial properties throughout the city, delivering stucco solutions built for long-term performance.',
     painPoints: [
@@ -204,7 +204,7 @@ export const locations: Location[] = [
     slug: 'universal-city',
     name: 'Universal City',
     description: 'Quality stucco services for Universal City and the Randolph AFB community.',
-    heroHeadline: 'Stucco Services in Universal City, TX',
+    heroHeadline: 'Stucco Contractor in Universal City, TX',
     heroDescription: 'Expert stucco services for Universal City homes and businesses. From military families near Randolph AFB to established neighborhoods, we deliver reliable results you can count on.',
     localInfo: 'Universal City is home to many military families and working professionals who need dependable contractors. Located adjacent to Randolph Air Force Base, the community features well-maintained neighborhoods where curb appeal and property condition matter. We provide timely, professional service that respects your schedule.',
     painPoints: [
@@ -228,7 +228,7 @@ export const locations: Location[] = [
     slug: 'leon-valley',
     name: 'Leon Valley',
     description: 'Stucco services for Leon Valley residential and commercial properties.',
-    heroHeadline: 'Stucco Services in Leon Valley, TX',
+    heroHeadline: 'Stucco Contractor in Leon Valley, TX',
     heroDescription: 'Professional stucco installation and repair for Leon Valley properties. We serve both homeowners and business owners in this centrally located community with quality workmanship and honest pricing.',
     localInfo: 'Leon Valley is a well-established community in northwest San Antonio known for its convenient location and mix of residential and commercial properties. Our team understands the area and provides stucco services that meet the needs of both homeowners maintaining their properties and businesses wanting a professional exterior appearance.',
     painPoints: [
@@ -252,7 +252,7 @@ export const locations: Location[] = [
     slug: 'selma',
     name: 'Selma',
     description: 'Trusted stucco contractor serving Selma and the I-35 northeast corridor.',
-    heroHeadline: 'Stucco Services in Selma, TX',
+    heroHeadline: 'Stucco Contractor in Selma, TX',
     heroDescription: 'Reliable stucco services for Selma homes and businesses along the I-35 growth corridor. Our team delivers professional results that stand up to Texas weather and keep your property looking great.',
     localInfo: 'Selma sits along the rapidly growing I-35 northeast corridor between San Antonio and New Braunfels. With new residential and commercial development happening throughout the area, demand for quality stucco contractors has never been higher. We bring San Antonio expertise to this fast-growing community.',
     painPoints: [

@@ -241,6 +241,7 @@ export default function ServiceDetailPage() {
       {/* Overview */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-800 mb-8">About {service.name} in San Antonio</h2>
           <div className="space-y-6">
             {service.overview.map((paragraph, i) => (
               <p key={i} className="text-slate-700 leading-relaxed text-lg">{paragraph}</p>
@@ -293,9 +294,9 @@ export default function ServiceDetailPage() {
       {/* Why Choose Us / Benefits */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco for {service.name}</h2>
           <p className="text-slate-600 mb-8 max-w-2xl">
-            Here is what you get when you work with our team for {service.name.toLowerCase()} in San Antonio:
+            Licensed, insured, and locally owned — here is what you get when you work with our experienced team for {service.name.toLowerCase()} in San Antonio:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.benefits.map((benefit, i) => (
@@ -427,9 +428,9 @@ export default function ServiceDetailPage() {
       {/* Why Professional */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional for {service.name} in San Antonio</h2>
           <p className="text-slate-600 mb-8">
-            Stucco work requires specialized skills, materials, and understanding of building science. Here is why professional service matters:
+            Stucco work requires specialized skills, materials, and understanding of building science. With over 500 completed projects across the San Antonio metro, here is why professional service matters:
           </p>
           <div className="space-y-4">
             {service.whyProfessional.map((reason, i) => (
@@ -446,7 +447,7 @@ export default function ServiceDetailPage() {
       {blogResources[service.slug] && (
         <section className="py-20 bg-slate-50">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Useful Resources</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">{service.name} Resources & Guides</h2>
             <p className="text-slate-600 mb-8">
               Learn more about {service.name.toLowerCase()} and caring for your stucco in San Antonio:
             </p>
@@ -496,7 +497,7 @@ export default function ServiceDetailPage() {
       {service.costTimeline && (
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8">Cost & Timeline Considerations</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {service.name} Cost in San Antonio?</h2>
             <div className="space-y-4">
               {service.costTimeline.map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-xl">
