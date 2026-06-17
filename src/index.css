@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .article-body p {
+    @apply text-slate-700 leading-[1.8] text-[1.05rem] mb-6;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .article-body h2 {
+    @apply text-2xl md:text-[1.75rem] font-bold text-slate-900 mt-14 mb-4 pb-3 border-b-2 border-[#C47A45]/30;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .article-body h3 {
+    @apply text-lg font-semibold text-slate-800 mt-8 mb-3;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
