@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, ArrowRight, Phone } from 'lucide-react';
 import { blogPosts } from '../data/blog';
+import { services } from '../data/services';
 import { usePageSEO } from '../lib/seo';
 import CTASection from '../components/CTASection';
 
@@ -211,26 +212,33 @@ export default function BlogPostPage() {
             </div>
           )}
 
-          <div className="mt-12 p-6 bg-sand-50 border border-sand-200 rounded-2xl">
-            <h3 className="font-bold text-slate-800 mb-2">Need Professional Help?</h3>
-            <p className="text-slate-600 text-sm mb-4">
-              Our team is available for free inspections and estimates on any stucco project in San Antonio.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                to="/quote"
-                className="bg-sand-600 hover:bg-sand-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                Get a Free Estimate <ArrowRight size={14} />
-              </Link>
-              <Link
-                to={post.relatedService}
-                className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                View Related Service <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
+          {(() => {
+            const relatedServiceSlug = post.relatedService.replace(/^\//, '');
+            const relatedService = services.find((s) => s.slug === relatedServiceSlug);
+            const relatedServiceName = relatedService?.name || 'Our Services';
+            return (
+              <div className="mt-12 p-6 bg-sand-50 border border-sand-200 rounded-2xl">
+                <h3 className="font-bold text-slate-800 mb-2">Need Professional Help?</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Our team is available for free inspections and estimates on any stucco project in San Antonio.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    to="/quote"
+                    className="bg-sand-600 hover:bg-sand-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
+                  >
+                    Get a Free Estimate <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    to={post.relatedService}
+                    className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
+                  >
+                    {relatedServiceName} in San Antonio <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </article>
 

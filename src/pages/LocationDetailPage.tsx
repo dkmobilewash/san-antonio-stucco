@@ -140,8 +140,14 @@ export default function LocationDetailPage() {
                 <Link to="/" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
                   San Antonio Stucco Home <ArrowRight size={14} />
                 </Link>
-                <Link to="/stucco-repair" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
-                  San Antonio Stucco Repair <ArrowRight size={14} />
+                <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco repair in San Antonio <ArrowRight size={14} />
+                </Link>
+                <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco installation in San Antonio <ArrowRight size={14} />
+                </Link>
+                <Link to="/stucco-painting" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco painting in San Antonio <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -183,8 +189,8 @@ export default function LocationDetailPage() {
                   <ArrowRight size={18} className="text-sand-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm">{s.name}</h3>
-                  <p className="text-xs text-slate-500">in {location.name}</p>
+                  <h3 className="font-semibold text-slate-800 text-sm">{s.name} in {location.name}</h3>
+                  <p className="text-xs text-slate-500">Professional {s.name.toLowerCase()} services</p>
                 </div>
               </Link>
             ))}

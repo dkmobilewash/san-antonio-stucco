@@ -23,7 +23,16 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-20 bg-gradient-to-br from-slate-50 to-white">
+      <nav className="pt-32 md:pt-40 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <ol className="flex items-center gap-2 text-sm text-slate-500">
+            <li><Link to="/" className="hover:text-sand-600 transition-colors">Home</Link></li>
+            <li>/</li>
+            <li className="text-slate-800 font-medium">About</li>
+          </ol>
+        </div>
+      </nav>
+      <section className="pt-6 pb-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

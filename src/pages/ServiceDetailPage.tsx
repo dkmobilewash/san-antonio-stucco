@@ -60,6 +60,17 @@ const servicePhotos: Record<string, { src: string; alt: string; caption: string 
   ],
 };
 
+const relatedServicesMap: Record<string, string[]> = {
+  'stucco-installation': ['stucco-repairs', 'stucco-painting', 'residential-stucco'],
+  'stucco-replacement': ['stucco-repairs', 'stucco-installation', 'residential-stucco'],
+  'residential-stucco': ['stucco-repairs', 'stucco-painting', 'stucco-remodeling'],
+  'commercial-stucco': ['stucco-installation', 'stucco-repairs', 'eifs-synthetic-stucco'],
+  'stucco-remodeling': ['stucco-painting', 'residential-stucco', 'stucco-replacement'],
+  'stucco-repairs': ['stucco-replacement', 'stucco-painting', 'eifs-synthetic-stucco'],
+  'eifs-synthetic-stucco': ['stucco-repairs', 'stucco-replacement', 'commercial-stucco'],
+  'stucco-painting': ['stucco-remodeling', 'stucco-repairs', 'residential-stucco'],
+};
+
 const blogResources: Record<string, { slug: string; title: string; excerpt: string }[]> = {
   'stucco-installation': [
     { slug: 'how-san-antonio-weather-affects-stucco', title: 'How San Antonio Weather Affects Your Stucco', excerpt: 'Learn why proper installation matters even more in the South Texas climate.' },
@@ -352,10 +363,42 @@ export default function ServiceDetailPage() {
       {/* Testimonials */}
       <TestimonialsSection title={`What Clients Say About Our ${service.name}`} filter={service.name} />
 
+      {/* Related Services */}
+      {relatedServicesMap[service.slug] && (
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Related Stucco Services in San Antonio</h2>
+            <p className="text-slate-600 mb-8">
+              Homeowners who need {service.name.toLowerCase()} often benefit from these related services:
+            </p>
+            <div className="space-y-4">
+              {services.filter((s) => relatedServicesMap[service.slug]?.includes(s.slug)).map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/${s.slug}`}
+                  className="group flex items-start gap-4 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-5 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 bg-sand-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-sand-100 transition-colors">
+                    <Wrench size={20} className="text-sand-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-slate-800 group-hover:text-sand-700 transition-colors mb-1">
+                      {s.name} in San Antonio
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{s.shortDescription}</p>
+                  </div>
+                  <ArrowRight size={18} className="text-slate-400 group-hover:text-sand-600 shrink-0 mt-1 transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* All Services */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Explore Our Stucco Services</h2>
+          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">All Stucco Services in San Antonio</h2>
           <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
             We offer a full range of professional stucco services throughout San Antonio. Browse all our offerings below.
           </p>
@@ -366,10 +409,10 @@ export default function ServiceDetailPage() {
                 to={`/${s.slug}`}
                 className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-sand-200 transition-all"
               >
-                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">{s.name}</h3>
+                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">{s.name} in San Antonio</h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-3">{s.shortDescription}</p>
                 <span className="text-sand-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  {s.name} Details <ArrowRight size={14} />
+                  Learn about {s.name.toLowerCase()} <ArrowRight size={14} />
                 </span>
               </Link>
             ))}

@@ -46,6 +46,17 @@ export default function PlasterArticlePage() {
   return (
     <article className="pt-28 md:pt-36 pb-20 bg-stone-50">
       <div className="max-w-[820px] mx-auto px-6">
+        {/* Breadcrumb */}
+        <nav className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-slate-500">
+            <li><Link to="/" className="hover:text-[#C47A45] transition-colors">Home</Link></li>
+            <li>/</li>
+            <li><Link to="/blog" className="hover:text-[#C47A45] transition-colors">Blog</Link></li>
+            <li>/</li>
+            <li className="text-slate-800 font-medium truncate">US Plaster Production</li>
+          </ol>
+        </nav>
+
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {['Stucco', 'Building Materials', 'San Antonio'].map((tag) => (
