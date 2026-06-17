@@ -30,8 +30,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="San Antonio Stucco Contractor | Repair & Installation | Free Estimates"
-        description="Top-rated stucco contractor in San Antonio. Expert stucco repair, installation & EIFS services. Serving Schertz, Boerne, Helotes & New Braunfels. Call for a free estimate today."
+        title="Stucco Contractor in San Antonio, TX | Repair, Installation & EIFS"
+        description="San Antonio's trusted stucco contractor for residential & commercial projects. Expert stucco repair, installation, and EIFS services across the San Antonio, TX area. Free estimates — call today."
         keywords="san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 
