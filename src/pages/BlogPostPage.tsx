@@ -158,7 +158,7 @@ export default function BlogPostPage() {
           <div className="rounded-2xl overflow-hidden mb-12">
             <img
               src={post.image}
-              alt={post.title}
+              alt={`Featured image for ${post.title} — San Antonio stucco guide`}
               className="w-full h-64 md:h-96 object-cover"
             />
           </div>
@@ -248,7 +248,7 @@ export default function BlogPostPage() {
                   <div className="overflow-hidden">
                     <img
                       src={related.image}
-                      alt={related.title}
+                      alt={`Preview image for ${related.title} — San Antonio stucco tips`}
                       loading="lazy"
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                     />

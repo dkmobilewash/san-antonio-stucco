@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="rounded-2xl overflow-hidden shadow-lg">
               <img
                 src="https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/Stucco-team.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vU3R1Y2NvLXRlYW0ud2VicCIsImlhdCI6MTc3NzU4MjAwMSwiZXhwIjoxODA5MTE4MDAxfQ.EXGNHj8n8waB7LPDpXLLD8jpWeLPbeZi_t784J7Y3Vc"
-                alt="Professional stucco work"
+                alt="San Antonio Stucco team applying exterior stucco finish on a residential home in San Antonio TX"
                 className="w-full h-full object-cover"
               />
             </div>

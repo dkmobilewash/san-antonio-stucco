@@ -41,6 +41,7 @@ export default function Header() {
     { to: '/stucco-remodeling', label: 'Stucco Remodeling' },
     { to: '/stucco-repairs', label: 'Stucco Repairs' },
     { to: '/eifs-synthetic-stucco', label: 'EIFS / Synthetic Stucco' },
+    { to: '/stucco-painting', label: 'Stucco Painting' },
   ];
 
   const areaLinks = locations.map((l) => ({ to: `/${l.slug}`, label: l.name }));

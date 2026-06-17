@@ -35,7 +35,7 @@ export default function BlogPage() {
                 <div className="overflow-hidden">
                   <img
                     src={article.image}
-                    alt={article.title}
+                    alt={`Preview image for ${article.title} — San Antonio stucco insights`}
                     loading="lazy"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />

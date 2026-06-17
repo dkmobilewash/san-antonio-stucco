@@ -202,7 +202,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco project in ${location.name}`}
+                alt={`Residential stucco installation on a home exterior in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
@@ -214,7 +214,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco work in ${location.name}`}
+                alt={`Stucco crack repair on home wall in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
@@ -226,7 +226,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco exterior in ${location.name}`}
+                alt={`Exterior stucco remodel completed on a property in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />

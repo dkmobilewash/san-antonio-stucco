@@ -400,7 +400,7 @@ export default function ServiceDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`${service.name} project`}
+                alt={`${service.name} project on a home exterior in San Antonio TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
