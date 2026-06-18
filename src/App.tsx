@@ -15,6 +15,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PlasterArticlePage from './pages/PlasterArticlePage';
 import StuccoRepairPage from './pages/StuccoRepairPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { services } from './data/services';
 import { locations } from './data/locations';
 
@@ -49,6 +50,7 @@ function AppLayout() {
           {locations.map((l) => (
             <Route key={l.slug} path={`/${l.slug}`} element={<LocationDetailPage />} />
           ))}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

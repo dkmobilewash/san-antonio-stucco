@@ -60,18 +60,18 @@ export default function BlogPostPage() {
   const seoMeta = useMemo(() => {
     if (!post) return { title: 'Post Not Found', description: 'Blog post not found.' };
     const titles: Record<string, string> = {
-      'how-san-antonio-weather-affects-stucco': 'How San Antonio Weather Affects Stucco | Climate & Damage Guide',
-      'signs-your-stucco-needs-repair': 'Signs Your Stucco Needs Repair | San Antonio Stucco Damage Guide',
-      'stucco-repair-vs-replacement-guide': 'Stucco Repair vs. Replacement | San Antonio Homeowner Guide',
-      'eifs-vs-traditional-stucco-differences': 'EIFS vs Traditional Stucco | Differences, Maintenance & Cost Compared',
-      'protecting-stucco-from-texas-heat': 'Protecting Stucco from Texas Heat | San Antonio Maintenance Tips',
-      'stucco-maintenance-checklist-san-antonio': 'Stucco Maintenance Checklist for San Antonio Homes | Expert Tips',
-      'cost-of-stucco-installation-san-antonio': 'Stucco Installation Cost San Antonio | 2025 Pricing Guide',
-      'choosing-stucco-colors-and-textures': 'Choosing Stucco Colors & Textures | San Antonio Design Guide',
-      'stucco-vs-other-siding-materials': 'Stucco vs Other Siding | Stucco vs Vinyl, Brick & Fiber Cement in San Antonio',
-      'stucco-repair-near-me-san-antonio-guide': 'Stucco Repair Near Me in San Antonio | What to Know Before You Hire',
-      'stucco-vs-brick-cost-san-antonio': 'Stucco vs Brick Cost in San Antonio | Which Is the Better Investment?',
-      'how-long-does-stucco-last-san-antonio': 'How Long Does Stucco Last in San Antonio? | Lifespan & Maintenance Guide',
+      'how-san-antonio-weather-affects-stucco': 'How San Antonio Weather Affects Stucco | Damage Guide',
+      'signs-your-stucco-needs-repair': 'Signs Your Stucco Needs Repair | San Antonio Guide',
+      'stucco-repair-vs-replacement-guide': 'Stucco Repair vs Replacement | San Antonio Guide',
+      'eifs-vs-traditional-stucco-differences': 'EIFS vs Traditional Stucco | Cost & Differences',
+      'protecting-stucco-from-texas-heat': 'Protecting Stucco from Texas Heat | Maintenance Tips',
+      'stucco-maintenance-checklist-san-antonio': 'Stucco Maintenance Checklist | San Antonio Tips',
+      'cost-of-stucco-installation-san-antonio': 'Stucco Installation Cost San Antonio | 2025 Pricing',
+      'choosing-stucco-colors-and-textures': 'Stucco Colors & Textures | San Antonio Design Guide',
+      'stucco-vs-other-siding-materials': 'Stucco vs Vinyl, Brick & Fiber Cement | SA Guide',
+      'stucco-repair-near-me-san-antonio-guide': 'Stucco Repair Near Me San Antonio | Hiring Guide',
+      'stucco-vs-brick-cost-san-antonio': 'Stucco vs Brick Cost San Antonio | 2025 Comparison',
+      'how-long-does-stucco-last-san-antonio': 'How Long Does Stucco Last in San Antonio? | Guide',
     };
     const descriptions: Record<string, string> = {
       'how-san-antonio-weather-affects-stucco': 'Learn how San Antonio heat, humidity & UV damage stucco systems. Expert tips on prevention & when to call a stucco contractor. Read our guide!',
