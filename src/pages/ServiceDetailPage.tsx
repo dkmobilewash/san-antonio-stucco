@@ -573,7 +573,7 @@ export default function ServiceDetailPage() {
             {locations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/${loc.slug}`}
+                to={`/${service.slug}/${loc.slug}`}
                 className="flex items-center gap-2 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-3 hover:shadow-sm transition-all"
               >
                 <MapPin size={16} className="text-sand-600" />

@@ -20,6 +20,7 @@ import StuccoRepairSanAntonioPage from './pages/StuccoRepairSanAntonioPage';
 import StuccoInstallationSanAntonioPage from './pages/StuccoInstallationSanAntonioPage';
 import EifsSanAntonioPage from './pages/EifsSanAntonioPage';
 import CommercialStuccoSanAntonioPage from './pages/CommercialStuccoSanAntonioPage';
+import ServiceLocationPage from './pages/ServiceLocationPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { services } from './data/services';
 import { locations } from './data/locations';
@@ -60,6 +61,11 @@ function AppLayout() {
           {locations.map((l) => (
             <Route key={l.slug} path={`/${l.slug}`} element={<LocationDetailPage />} />
           ))}
+          {services.map((s) =>
+            locations.map((l) => (
+              <Route key={`${s.slug}-${l.slug}`} path={`/${s.slug}/${l.slug}`} element={<ServiceLocationPage />} />
+            ))
+          )}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
