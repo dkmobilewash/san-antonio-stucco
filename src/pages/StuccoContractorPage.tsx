@@ -72,7 +72,7 @@ export default function StuccoContractorPage() {
   usePageSEO({
     title: 'Stucco Contractor in San Antonio, TX | San Antonio Stucco',
     description:
-      'Looking for a stucco contractor near me in San Antonio? Licensed & insured with 10+ years experience and 500+ projects. Installation, repair, EIFS & more. Free estimates — call (210) 871-8490.',
+      'Searching for a stucco contractor near me or stucco companies near me in San Antonio? Licensed & insured local stucco company with 10+ years experience. Installation, repair, EIFS & more. Free estimates — (210) 871-8490.',
     path: '/stucco-contractor-san-antonio',
     rawTitle: true,
     jsonLd,
@@ -128,9 +128,9 @@ export default function StuccoContractorPage() {
       {/* Services Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Full-Service Stucco Contractor in San Antonio</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Full-Service Stucco Company in San Antonio</h2>
           <p className="text-slate-700 leading-relaxed text-lg mb-6">
-            Whether you need a fresh stucco exterior on a new home, precision repairs on aging walls, or a complete tear-off and rebuild, San Antonio Stucco has the crew, equipment, and local knowledge to deliver results that last. We do not subcontract our work — every project is completed by our own trained team using materials selected specifically for the South Texas climate.
+            Whether you need a fresh stucco exterior on a new home, precision repairs on aging walls, or a complete tear-off and rebuild, San Antonio Stucco is the stucco contractor near you with the crew, equipment, and local knowledge to deliver results that last. We do not subcontract our work — every project is completed by our own trained team using materials selected specifically for the South Texas climate.
           </p>
           <p className="text-slate-700 leading-relaxed text-lg mb-8">
             San Antonio sits in one of the most demanding environments for exterior building materials in the country. Temperatures regularly exceed 100 degrees, Gulf humidity averages 60 to 70 percent, and UV exposure is among the highest in the state. These conditions punish shortcuts and reward proper technique. Every system we install accounts for thermal cycling, moisture management, and UV resistance from the first layer to the finish coat.
@@ -236,12 +236,43 @@ export default function StuccoContractorPage() {
         </div>
       </section>
 
+      {/* How to Choose */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">How to Choose a Stucco Company Near You in San Antonio</h2>
+          <p className="text-slate-700 leading-relaxed text-lg mb-6">
+            When you search for stucco companies near me or stucco contractors near me, you will find a wide range of options — from solo handymen to large commercial outfits. Not all of them specialize in stucco, and the difference shows up years after the job is done. Here is what to verify before you hire any stucco company in the San Antonio area.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            {[
+              { title: 'Verify License & Insurance', desc: 'Ask for proof of general liability and workers comp coverage. If they cannot provide it, move on. An unlicensed contractor leaves you liable for injuries and code violations.' },
+              { title: 'Check for Stucco-Specific Experience', desc: 'General contractors often treat stucco as just another finish. A dedicated stucco contractor understands lath systems, expansion joints, and moisture barriers — the details that prevent failures.' },
+              { title: 'Ask About Their Crew', desc: 'Do they use their own trained team or subcontract? Subcontracted work is harder to quality-control and often leads to inconsistent results across wall sections.' },
+              { title: 'Request Itemized Estimates', desc: 'A vague lump-sum bid is a red flag. A professional stucco company provides line-item pricing for materials, labor, prep, and cleanup so you can compare bids accurately.' },
+              { title: 'Look for Local Reviews', desc: 'Read Google and Yelp reviews from homeowners in your area. Pay attention to mentions of cleanup, communication, and whether the contractor showed up on time.' },
+              { title: 'Understand the Warranty', desc: 'Ask what the workmanship guarantee covers, for how long, and what happens if a problem appears. Get it in writing before the project starts.' },
+            ].map((item) => (
+              <div key={item.title} className="bg-white border border-slate-200 rounded-xl p-5 flex gap-3 items-start">
+                <CheckCircle size={18} className="text-sand-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-slate-800 mb-1 text-sm">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-slate-700 leading-relaxed text-lg">
+            San Antonio Stucco meets every item on this list. We are the stucco company San Antonio homeowners call when they want the job done right the first time — from neighborhoods like Stone Oak, Alamo Heights, and The Dominion to communities across Boerne, Schertz, and the entire metro.
+          </p>
+        </div>
+      </section>
+
       {/* Service Area + Map */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Stucco Contractor Serving the Greater San Antonio Area</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Stucco Contractor Near Me — Serving the Greater San Antonio Area</h2>
           <p className="text-slate-700 leading-relaxed text-lg mb-8">
-            We provide on-site estimates and complete stucco services throughout San Antonio and the surrounding Hill Country communities. No travel fees, no service area surcharges — the same crews and the same quality everywhere we work.
+            When you search for a stucco contractor near me in San Antonio, you want someone local who will show up. We provide on-site estimates and complete stucco services throughout San Antonio and the surrounding Hill Country communities — from Stone Oak and Alamo Heights to Boerne, New Braunfels, and Helotes. No travel fees, no service area surcharges — the same crews and the same quality everywhere we work.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
             {locations.map((loc) => (
