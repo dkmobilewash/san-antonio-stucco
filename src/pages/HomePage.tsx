@@ -24,15 +24,17 @@ const homeFAQs = [
   { question: 'Do you offer warranties on stucco work?', answer: 'Yes. All our work is backed by a workmanship guarantee. We stand behind every project and address any issues that arise from our installation or repair work at no additional cost.' },
   { question: 'What areas do you serve besides San Antonio?', answer: 'We serve the entire San Antonio metro including Boerne, New Braunfels, Schertz, Helotes, Stone Oak, Alamo Heights, Live Oak, Universal City, Leon Valley, and Selma.' },
   { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, bubbling or bulging areas, discoloration, moisture stains inside walls, and sections that sound hollow when tapped. We offer free inspections for all San Antonio homeowners.' },
+  { question: 'How do I find a good stucco contractor near me?', answer: 'Look for a licensed and insured contractor with local experience, verifiable reviews, and knowledge of your area climate. San Antonio Stucco serves the entire metro area including Boerne, New Braunfels, Schertz, Helotes, and Stone Oak. Call (210) 871-8490 for a free on-site estimate.' },
+  { question: 'Where can I find stucco repair near me in San Antonio?', answer: 'San Antonio Stucco provides stucco repair throughout the San Antonio metro area with same-day inspections available. We serve all neighborhoods from Alamo Heights to the Westside, plus surrounding cities like Boerne, Schertz, and New Braunfels. Call us or submit a free estimate request online.' },
 ];
 
 export default function HomePage() {
   return (
     <>
       <SEO
-        title="San Antonio Stucco Contractor | Repair & Installation | Free Estimates"
-        description="Top-rated stucco contractor in San Antonio. Expert stucco repair, installation & EIFS services. Serving Schertz, Boerne, Helotes & New Braunfels. Call for a free estimate today."
-        keywords="san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
+        title="Stucco Contractor in San Antonio, TX | Repair, Installation & EIFS"
+        description="Looking for a stucco contractor near me in San Antonio? Trusted stucco repair, installation & EIFS services for residential & commercial projects. Licensed & insured. Free estimates — call today."
+        keywords="stucco repair near me, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 
       {/* Hero Section */}
@@ -115,10 +117,10 @@ export default function HomePage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-4">
-            Why Choose San Antonio Stucco for Stucco in San Antonio
+            Looking for a Stucco Contractor Near Me in San Antonio?
           </h2>
           <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-            We combine deep local knowledge with professional-grade craftsmanship to deliver stucco systems that look beautiful and perform for decades in the San Antonio climate.
+            When you search for stucco companies near me, you want a local contractor who knows the climate and shows up on time. We combine deep San Antonio knowledge with professional-grade craftsmanship to deliver stucco systems that look beautiful and perform for decades.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
@@ -145,7 +147,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-slate-800 mb-3 text-lg">Professional Results</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repairs in San Antonio</Link>, quality is never compromised.
+                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation-san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repair-san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
               </p>
             </div>
           </div>
@@ -271,7 +273,7 @@ export default function HomePage() {
               San Antonio sits at the crossroads of extreme environmental conditions that make it one of the most demanding markets for exterior building materials in the United States. Summer temperatures regularly exceed 100 degrees, causing intense thermal cycling that expands and contracts stucco walls daily. Gulf Coast humidity averaging 60-70% drives moisture into every crack and joint, while South Texas UV exposure — among the highest in the country — degrades coatings faster than anywhere else in the state.
             </p>
             <p>
-              These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repairs in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
+              These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repair-san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
             </p>
             <p>
               We also provide <Link to="/boerne" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco in Boerne</Link> and throughout the Hill Country corridor where elevation and rocky terrain add additional challenges. As the leading stucco company in San Antonio, TX, our crews work across the entire metro daily.
@@ -379,12 +381,18 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3">
             <Link
               to="/service-areas"
               className="text-sand-600 hover:text-sand-700 font-medium inline-flex items-center gap-1.5 transition-colors"
             >
               View All Service Areas <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/stucco-contractor-san-antonio"
+              className="text-sand-600 hover:text-sand-700 font-medium inline-flex items-center gap-1.5 transition-colors"
+            >
+              Stucco Contractor in San Antonio <ArrowRight size={16} />
             </Link>
           </div>
         </div>

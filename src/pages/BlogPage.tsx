@@ -17,13 +17,22 @@ export default function BlogPage() {
   return (
     <>
       <section className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <nav className="mb-6">
+            <ol className="flex items-center gap-2 text-sm text-slate-500">
+              <li><Link to="/" className="hover:text-sand-600 transition-colors">Home</Link></li>
+              <li>/</li>
+              <li className="text-slate-800 font-medium">Blog</li>
+            </ol>
+          </nav>
+          <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Stucco Tips & Resources
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Expert advice on stucco maintenance, repair, and installation from San Antonio's trusted stucco professionals.
           </p>
+          </div>
         </div>
       </section>
 
@@ -35,7 +44,7 @@ export default function BlogPage() {
                 <div className="overflow-hidden">
                   <img
                     src={article.image}
-                    alt={article.title}
+                    alt={`Preview image for ${article.title} — San Antonio stucco insights`}
                     loading="lazy"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -78,7 +87,7 @@ export default function BlogPage() {
                 className="group flex items-center gap-3 bg-slate-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 hover:shadow-sm transition-all"
               >
                 <ArrowRight size={16} className="text-sand-600 shrink-0" />
-                <span className="text-sm font-medium text-slate-700 group-hover:text-sand-700 transition-colors">{s.name}</span>
+                <span className="text-sm font-medium text-slate-700 group-hover:text-sand-700 transition-colors">{s.name} in San Antonio</span>
               </Link>
             ))}
           </div>
@@ -100,7 +109,7 @@ export default function BlogPage() {
                 className="flex items-center gap-2 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-3 hover:shadow-sm transition-all"
               >
                 <MapPin size={16} className="text-sand-600" />
-                <span className="text-sm font-medium text-slate-700">{loc.name}</span>
+                <span className="text-sm font-medium text-slate-700">Stucco contractor in {loc.name}</span>
               </Link>
             ))}
           </div>

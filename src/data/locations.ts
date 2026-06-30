@@ -15,7 +15,7 @@ export const locations: Location[] = [
     slug: 'san-antonio',
     name: 'San Antonio',
     description: 'Serving all neighborhoods throughout San Antonio with professional stucco services.',
-    heroHeadline: 'Stucco Services in San Antonio, TX',
+    heroHeadline: 'Stucco Contractor in San Antonio, TX',
     heroDescription: 'San Antonio\'s leading stucco contractor delivering expert installation, repair, and replacement throughout the city. From Alamo Heights to the Westside, we serve every neighborhood.',
     localInfo: 'As San Antonio\'s trusted stucco experts, we understand the unique challenges our city\'s climate presents. From the intense summer heat that causes thermal expansion to the humidity that tests moisture barriers, we build stucco systems designed specifically for local conditions.',
     painPoints: [
@@ -39,7 +39,7 @@ export const locations: Location[] = [
     slug: 'boerne',
     name: 'Boerne',
     description: 'Expert stucco services for homes and businesses in Boerne and the Hill Country.',
-    heroHeadline: 'Stucco Services in Boerne, TX',
+    heroHeadline: 'Stucco Contractor in Boerne, TX',
     heroDescription: 'Professional stucco installation, repair, and replacement for Boerne properties. We understand Hill Country architecture and deliver finishes that complement the area\'s distinctive style.',
     localInfo: 'Boerne\'s Hill Country setting brings unique considerations for stucco work. The area\'s limestone-rich soil, elevation changes, and blend of traditional and modern architecture require a contractor who understands local building practices and aesthetic preferences.',
     painPoints: [
@@ -62,7 +62,7 @@ export const locations: Location[] = [
     slug: 'new-braunfels',
     name: 'New Braunfels',
     description: 'Trusted stucco contractor serving New Braunfels and Comal County.',
-    heroHeadline: 'Stucco Services in New Braunfels, TX',
+    heroHeadline: 'Stucco Contractor in New Braunfels, TX',
     heroDescription: 'Reliable stucco services for New Braunfels homes and businesses. From Canyon Lake communities to downtown properties, we deliver quality work that lasts in the Texas Hill Country climate.',
     localInfo: 'New Braunfels is one of the fastest-growing cities in Texas, with new construction and renovation projects everywhere. Our team serves both the established neighborhoods and new developments throughout Comal County, delivering stucco systems built for the local climate.',
     painPoints: [
@@ -85,7 +85,7 @@ export const locations: Location[] = [
     slug: 'schertz',
     name: 'Schertz',
     description: 'Quality stucco services for Schertz, Cibolo, and northeast San Antonio communities.',
-    heroHeadline: 'Stucco Services in Schertz, TX',
+    heroHeadline: 'Stucco Contractor in Schertz, TX',
     heroDescription: 'Professional stucco installation and repair for homes and businesses in Schertz and surrounding communities. We deliver the same quality and attention to detail that has made us San Antonio\'s trusted choice.',
     localInfo: 'Schertz and the surrounding communities of Cibolo, Selma, and Universal City are growing rapidly with a mix of established neighborhoods and new developments. We serve both residential and commercial properties throughout the northeast corridor.',
     painPoints: [
@@ -108,7 +108,7 @@ export const locations: Location[] = [
     slug: 'helotes',
     name: 'Helotes',
     description: 'Stucco services for Helotes and the northwest San Antonio Hill Country corridor.',
-    heroHeadline: 'Stucco Services in Helotes, TX',
+    heroHeadline: 'Stucco Contractor in Helotes, TX',
     heroDescription: 'Expert stucco work for Helotes homes and businesses. We understand the Hill Country aesthetic and deliver finishes that enhance your property while standing up to the rugged Texas climate.',
     localInfo: 'Helotes sits at the edge of the Hill Country with a unique blend of rural character and upscale residential development. Properties here often feature custom architecture that demands skilled stucco application and careful attention to design details.',
     painPoints: [
@@ -131,7 +131,7 @@ export const locations: Location[] = [
     slug: 'stone-oak',
     name: 'Stone Oak',
     description: 'Premium stucco services for Stone Oak\'s upscale residential community.',
-    heroHeadline: 'Stucco Services in Stone Oak, San Antonio',
+    heroHeadline: 'Stucco Contractor in Stone Oak, San Antonio',
     heroDescription: 'Elevate your Stone Oak home with premium stucco services. Our expert team delivers the quality and attention to detail that this prestigious community demands, from subtle repairs to complete transformations.',
     localInfo: 'Stone Oak is one of San Antonio\'s most desirable communities, known for its upscale homes and meticulous property standards. Our team provides the premium-level stucco services that homeowners here expect, from precise color matching to flawless finish work.',
     painPoints: [
@@ -143,13 +143,19 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Do you work with Stone Oak HOAs?', answer: 'Yes. We are familiar with Stone Oak community standards and work within HOA guidelines. We can provide documentation and color samples for architectural review if needed.' },
       { question: 'Can you match the specific stucco used in my neighborhood?', answer: 'Yes. We maintain a library of common Stone Oak textures and colors, and our crews are experienced at precise matching for repairs and additions in established neighborhoods.' },
+      { question: 'How much does stucco repair cost in Stone Oak?', answer: 'Targeted repairs in Stone Oak typically range from $500 to $3,000 depending on scope. Premium finish matching for HOA compliance may add to the cost. We provide free on-site estimates so you know exactly what to expect.' },
+    ],
+    extendedContent: [
+      'Stone Oak is one of the most sought-after communities in San Antonio, stretching across the rolling terrain north of Loop 1604 between Highway 281 and Bulverde Road. Neighborhoods like The Heights at Stone Oak, Sonterra, Canyon Springs, The Canyons, and Stone Oak Park feature large custom and semi-custom homes with significant stucco exteriors — many exceeding 3,000 square feet of wall surface. These homes demand a higher caliber of stucco work: precise color and texture matching that satisfies HOA architectural review, seamless blending on large unbroken wall planes, and finishes that hold up under the intense north San Antonio sun.',
+      'The Stone Oak area presents specific challenges for stucco. The terrain is hillier than the city core, which means homes sit on sloped lots with uneven soil loading that can stress foundations and push cracks into exterior walls. Larger homes have more surface area exposed to direct sun, accelerating thermal cycling and UV degradation. Many Stone Oak homes built in the early 2000s used EIFS (synthetic stucco) for the design flexibility it offered on custom facades — and those systems are now at the age where sealant failures around windows and impact damage from landscaping equipment create moisture-intrusion risks that require prompt professional attention.',
+      'Whether you need a targeted crack repair that passes HOA inspection, a full EIFS moisture remediation, or a fresh re-coat on a home you are preparing to sell, we bring the same crew quality and materials to Stone Oak that we use on our most demanding custom projects. Our <a href="/stucco-repair">stucco repair specialists</a> inspect Stone Oak properties regularly and can match virtually any existing texture and color in the area. Visit our <a href="/">homepage</a> for the full range of stucco services we provide across the north San Antonio corridor.',
     ],
   },
   {
     slug: 'alamo-heights',
     name: 'Alamo Heights',
     description: 'Stucco services for Alamo Heights\' historic and distinguished properties.',
-    heroHeadline: 'Stucco Services in Alamo Heights, San Antonio',
+    heroHeadline: 'Stucco Contractor in Alamo Heights, San Antonio',
     heroDescription: 'Preserve and enhance your Alamo Heights property with expert stucco services. We respect the historic character of this distinguished community while delivering modern performance and protection.',
     localInfo: 'Alamo Heights features some of San Antonio\'s most historic and architecturally significant homes. Our team brings the sensitivity and expertise needed to work on distinguished properties, maintaining their character while ensuring modern weather protection.',
     painPoints: [
@@ -161,13 +167,20 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Can you work on historic properties?', answer: 'Yes. We have experience with historic homes in Alamo Heights and Olmos Park. We use techniques appropriate for older construction and can work within historic district guidelines when applicable.' },
       { question: 'How do you handle stucco on older homes?', answer: 'We assess the existing system carefully, identify original techniques and materials, and use compatible methods for repairs. We never compromise a home\'s historic integrity with inappropriate modern materials.' },
+      { question: 'Is stucco a good choice for Alamo Heights homes?', answer: 'Stucco is the predominant exterior finish in Alamo Heights for good reason. It complements the Spanish Colonial and Mediterranean Revival architecture that defines the neighborhood, and when properly maintained it lasts 50 to 80 years in our climate.' },
+      { question: 'Do you handle stucco work in Olmos Park too?', answer: 'Yes. We serve Alamo Heights, Olmos Park, Terrell Hills, and all of the 09 neighborhoods. These communities share similar architecture and our crews are experienced with the specific stucco systems found throughout the area.' },
+    ],
+    extendedContent: [
+      'Alamo Heights is one of the most architecturally distinctive neighborhoods in all of Texas. The tree-lined streets between Broadway and Austin Highway are filled with Spanish Colonial Revivals from the 1920s, Tudor cottages, mid-century ranches, and contemporary renovations — many of them clad in original stucco that has been in place for 60 to 90 years. Working on these homes requires a different mindset than new construction. The original stucco was often applied directly over clay-tile or wood lath without modern moisture barriers, and repairs have to be compatible with what is already there rather than forcing a modern system onto a historic wall assembly.',
+      'The Alamo Heights microclimate is shaped by the dense mature tree canopy that covers much of the neighborhood. Large live oaks, pecans, and elms shade walls unevenly, creating moisture traps on north-facing surfaces while south-facing walls absorb intense afternoon sun. Root systems from these mature trees push against foundations and drive the kind of stair-step cracking that radiates out from window and door corners. Fallen branches and limb contact cause impact damage to stucco surfaces, and years of leaf litter buildup against lower walls traps moisture and promotes efflorescence. Every Alamo Heights stucco project has to account for this specific tree-heavy environment.',
+      'Whether you own a 1920s Broadway estate that needs historically sensitive restoration, a mid-century Terrell Hills ranch with cracking from foundation movement, or a renovated Olmos Park property where the new addition needs to match the original texture perfectly, we handle it with the care these homes deserve. Our <a href="/stucco-repair">stucco repair team</a> works in the 09 neighborhoods weekly and knows the common systems, textures, and challenges specific to the area. See the full list of services we offer on our <a href="/">homepage</a>.',
     ],
   },
   {
     slug: 'live-oak',
     name: 'Live Oak',
     description: 'Professional stucco services for Live Oak homes and commercial properties.',
-    heroHeadline: 'Stucco Services in Live Oak, TX',
+    heroHeadline: 'Stucco Contractor in Live Oak, TX',
     heroDescription: 'Trusted stucco installation, repair, and replacement for Live Oak properties. Our experienced crews deliver quality workmanship that protects your investment from the South Texas climate.',
     localInfo: 'Live Oak is a thriving community in northeast Bexar County with a mix of established neighborhoods and newer developments along the I-35 corridor. Our team serves residential and commercial properties throughout the city, delivering stucco solutions built for long-term performance.',
     painPoints: [
@@ -179,13 +192,19 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Do you serve all of Live Oak?', answer: 'Yes. We serve all of Live Oak including neighborhoods near Toepperwein Road, Pat Booker Road, and the I-35 corridor. No additional travel fees apply.' },
       { question: 'Can you repair stucco damaged by settling?', answer: 'Yes. We regularly repair cracks and damage caused by foundation movement. We assess the underlying cause and provide repairs that account for potential future settling.' },
+      { question: 'How long does a stucco repair take in Live Oak?', answer: 'Most standard repairs are completed within 1 to 3 days. Larger projects involving multiple walls or substrate replacement typically take 5 to 10 business days depending on scope and weather.' },
+    ],
+    extendedContent: [
+      'Live Oak is a well-established northeast Bexar County city bordered by Windcrest to the south, Universal City and Randolph AFB to the east, and the I-35 corridor to the west. The housing stock ranges from 1970s and 1980s ranch-style homes near Toepperwein Road and Pat Booker Road to newer construction in the subdivisions along Shin Oak and Higgins Road. Many of the older homes feature original builder-grade stucco that has been on the wall for 30 to 40 years — long enough for sealant joints to fail, hairline cracks to widen into structural cracks, and finishes to chalk and fade beyond what cleaning alone can fix.',
+      'The Live Oak environment is straightforward but unforgiving. The terrain is flat with little tree cover on most residential streets, which means every wall face gets prolonged direct sun exposure. There is no shade relief to slow thermal cycling, and the lack of windbreaks means Gulf-driven rain events hit stucco surfaces at full force. Properties along the I-35 corridor also deal with higher road dust and particulate exposure that dulls finishes faster than in more sheltered neighborhoods. Clay soils under the flat terrain hold water after heavy rains and release it slowly, creating seasonal foundation movement that drives cracking in older stucco systems throughout the city.',
+      'We serve all of Live Oak with the same professional crews that handle our San Antonio, Schertz, and Universal City work — there is no quality difference because of geography. If your stucco is showing cracks, staining, or chalking, our <a href="/stucco-repair">stucco repair specialists</a> will come out for a free inspection and give you an honest assessment of what needs to be done. Visit our <a href="/">homepage</a> to browse the full range of services we offer, from targeted repairs to full installation and replacement.',
     ],
   },
   {
     slug: 'universal-city',
     name: 'Universal City',
     description: 'Quality stucco services for Universal City and the Randolph AFB community.',
-    heroHeadline: 'Stucco Services in Universal City, TX',
+    heroHeadline: 'Stucco Contractor in Universal City, TX',
     heroDescription: 'Expert stucco services for Universal City homes and businesses. From military families near Randolph AFB to established neighborhoods, we deliver reliable results you can count on.',
     localInfo: 'Universal City is home to many military families and working professionals who need dependable contractors. Located adjacent to Randolph Air Force Base, the community features well-maintained neighborhoods where curb appeal and property condition matter. We provide timely, professional service that respects your schedule.',
     painPoints: [
@@ -197,13 +216,19 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Do you offer military discounts?', answer: 'We proudly support our military community and offer competitive pricing for all Universal City residents. Contact us for a free estimate and we will work within your budget.' },
       { question: 'How quickly can you complete a repair?', answer: 'Most standard repairs in Universal City are completed within 1-3 days. Larger projects are scheduled within 1-2 weeks depending on scope and weather conditions.' },
+      { question: 'What stucco problems are most common in Universal City?', answer: 'The most common issues we see are hairline cracking from thermal cycling on sun-exposed walls, sealant failures around windows and doors, and fading or chalking of older finishes. All of these are repairable without full replacement in most cases.' },
+    ],
+    extendedContent: [
+      'Universal City sits immediately adjacent to Joint Base San Antonio–Randolph and draws much of its identity from the military community. The housing stock includes a mix of 1960s through 1990s ranch and two-story homes in established neighborhoods near Kitty Hawk and Aviation Boulevard, along with newer construction along the Pat Booker Road corridor. Many homeowners here are active-duty military families or veterans on fixed timelines — PCS moves, lease turnover, or pre-sale preparation — and they need a stucco contractor who shows up when promised, completes the work on schedule, and delivers a result that holds up to buyer scrutiny or landlord inspection.',
+      'The Universal City environment mirrors the broader northeast San Antonio corridor: flat terrain, full sun exposure, minimal tree canopy, and wind-driven rain from Gulf weather systems. Properties near the base runway approach path also experience additional vibration stress that can accelerate crack propagation in rigid stucco systems. Many of the older homes were built with single-coat or two-coat stucco systems that were common in the area during the 1970s and 1980s, and these thinner applications are less durable than the modern three-coat standard. We see a lot of cracking, sealant failure, and finish deterioration on homes in the 25-to-40-year-old range throughout Universal City.',
+      'Whether you are a military family getting a home ready for a PCS move, an investor maintaining a rental property near the base, or a long-time Universal City resident who wants to update an aging exterior, we deliver the same professional quality on every project. Our <a href="/stucco-repair">stucco repair page</a> covers the common repair scenarios we handle throughout the area, and you can browse our full service lineup on the <a href="/">homepage</a>. Free estimates, no pressure, and we work within military timelines.',
     ],
   },
   {
     slug: 'leon-valley',
     name: 'Leon Valley',
     description: 'Stucco services for Leon Valley residential and commercial properties.',
-    heroHeadline: 'Stucco Services in Leon Valley, TX',
+    heroHeadline: 'Stucco Contractor in Leon Valley, TX',
     heroDescription: 'Professional stucco installation and repair for Leon Valley properties. We serve both homeowners and business owners in this centrally located community with quality workmanship and honest pricing.',
     localInfo: 'Leon Valley is a well-established community in northwest San Antonio known for its convenient location and mix of residential and commercial properties. Our team understands the area and provides stucco services that meet the needs of both homeowners maintaining their properties and businesses wanting a professional exterior appearance.',
     painPoints: [
@@ -215,13 +240,19 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Do you do commercial stucco work in Leon Valley?', answer: 'Yes. We serve both residential and commercial properties in Leon Valley. We work with business owners, property managers, and HOAs to maintain and improve exterior surfaces.' },
       { question: 'Can you update outdated stucco textures?', answer: 'Absolutely. Many Leon Valley homes have older textures that look dated. We can apply a modern smooth or light sand finish over existing stucco to give your home a fresh, updated look.' },
+      { question: 'How much does stucco repair cost in Leon Valley?', answer: 'Most residential repairs in Leon Valley range from $500 to $3,000 depending on the scope. Commercial facade work varies based on square footage and accessibility. We provide free estimates for all Leon Valley properties.' },
+    ],
+    extendedContent: [
+      'Leon Valley is a small, independent city entirely surrounded by San Antonio, centered along Bandera Road between Loop 410 and Loop 1604. The community has a distinct identity with its own city services and building standards. Residential neighborhoods feature homes built primarily in the 1970s through 1990s, many with original stucco exteriors that are now 30 to 50 years old. The commercial corridor along Bandera Road includes strip centers, restaurants, medical offices, and retail spaces where exterior appearance directly affects business — a stained, cracked, or peeling stucco facade sends the wrong message to customers before they even walk through the door.',
+      'Leon Valley\'s central location and compact lot sizes create a stucco environment different from the suburban sprawl further out. Properties sit closer together, which means scaffold placement and material staging require careful planning to avoid impacting neighbors. Mature trees in the older residential areas create the same shade-and-moisture dynamics that Alamo Heights deals with, while commercial buildings along Bandera Road face higher exposure to road dust, vehicle vibration, and signage-related penetrations that need proper sealing. Many of the homes in Leon Valley were built with textures and colors that were popular in the 1980s — heavy skip-trowel patterns and dark earth tones — and homeowners are increasingly asking for modern re-coats with smoother textures and lighter, more contemporary colors.',
+      'We serve Leon Valley for both residential repairs and commercial facade work. If your home has aging stucco that needs repair or a fresh look, or your business needs a professional exterior update along the Bandera Road corridor, our <a href="/stucco-repair">stucco repair team</a> handles projects of all sizes across the city. Visit our <a href="/">homepage</a> to see the full lineup of services including installation, replacement, EIFS, and painting.',
     ],
   },
   {
     slug: 'selma',
     name: 'Selma',
     description: 'Trusted stucco contractor serving Selma and the I-35 northeast corridor.',
-    heroHeadline: 'Stucco Services in Selma, TX',
+    heroHeadline: 'Stucco Contractor in Selma, TX',
     heroDescription: 'Reliable stucco services for Selma homes and businesses along the I-35 growth corridor. Our team delivers professional results that stand up to Texas weather and keep your property looking great.',
     localInfo: 'Selma sits along the rapidly growing I-35 northeast corridor between San Antonio and New Braunfels. With new residential and commercial development happening throughout the area, demand for quality stucco contractors has never been higher. We bring San Antonio expertise to this fast-growing community.',
     painPoints: [
@@ -233,6 +264,12 @@ export const locations: Location[] = [
     faqs: [
       { question: 'Do you serve new construction in Selma?', answer: 'Yes. We work with homeowners, builders, and developers on new construction stucco throughout the Selma area. We also handle repairs and replacements on existing properties.' },
       { question: 'Is Selma within your regular service area?', answer: 'Yes. Selma is within our standard service area. We have crews working in the northeast corridor regularly and schedule projects without any additional travel fees.' },
+      { question: 'What should I look for in a Selma stucco contractor?', answer: 'Look for a licensed, insured contractor with experience in the northeast corridor climate. Ask about three-coat systems, expansion joint placement, and moisture barriers — these details separate quality work from builder-grade shortcuts that fail within a few years.' },
+    ],
+    extendedContent: [
+      'Selma straddles the I-35 corridor between Schertz, Universal City, and the southern edge of New Braunfels, placing it at the center of one of the fastest-growing residential zones in the entire San Antonio metro. Subdivisions like Retama Springs, Forum Pkwy communities, and the developments off FM 1518 and Evans Road have added thousands of new homes over the past decade, many of them featuring stucco as the primary exterior finish. At the same time, commercial construction along I-35 and the Forum shopping district has created demand for professional stucco and facade work on retail, restaurant, and office buildings throughout Selma.',
+      'The stucco challenges in Selma are similar to neighboring Schertz and Cibolo: flat, open terrain with minimal tree cover delivers punishing all-day sun exposure and unobstructed wind-driven rain. Many of the production homes in the newer subdivisions were built to hit price points, which sometimes means thinner stucco applications, skipped expansion joints, or lower-grade sealants that begin to fail within five to eight years. We regularly see homes in the eight-to-twelve-year-old range throughout Selma with hairline cracking around windows, corner bead issues, and sealant gaps that are letting moisture migrate behind the finish coat. Catching these early keeps repair costs low; ignoring them invites substrate damage that turns a $1,000 fix into a $10,000 replacement.',
+      'We work across all of Selma on both residential and commercial projects, bringing the same experienced crews and materials that serve our San Antonio core. If you are noticing cracks, staining, or sealant failure on your Selma home, our <a href="/stucco-repair">stucco repair specialists</a> will inspect it at no charge and give you a straightforward written estimate. For new construction or full replacement projects, visit our <a href="/">homepage</a> to see the complete range of stucco services we offer throughout the northeast corridor.',
     ],
   },
 ];

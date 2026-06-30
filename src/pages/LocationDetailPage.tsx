@@ -28,26 +28,35 @@ export default function LocationDetailPage() {
 
   const seoMeta = useMemo(() => {
     if (!location) return { title: 'Location Not Found', description: 'Page not found.' };
-    const cityDescriptions: Record<string, string> = {
-      'san-antonio': 'Top-rated stucco contractor in San Antonio, TX. Crack repair, water damage repair, installation & EIFS for San Antonio homes & businesses. Free on-site estimates.',
-      'boerne': 'Stucco contractor in Boerne, TX serving the Hill Country. Expert stucco repair, installation & finishing for Boerne homes. Licensed & insured. Free estimates.',
-      'new-braunfels': 'Stucco contractor in New Braunfels, TX serving Comal County. Repair, installation & EIFS for homes near Canyon Lake, Gruene & downtown. Free estimates.',
-      'schertz': 'Stucco contractor in Schertz, TX serving the Cibolo area. Crack & water damage repair, installation & finishing for Schertz and Cibolo homes. Free estimates.',
-      'helotes': 'Stucco contractor in Helotes, TX serving northwest San Antonio. Repair, installation & custom finishing for Helotes homes. Licensed & insured. Free estimates.',
-      'stone-oak': 'Stucco contractor in Stone Oak, San Antonio area. Premium repair & installation services. Licensed & insured. Call today for a free estimate!',
-      'alamo-heights': 'Stucco repair & installation in Alamo Heights, San Antonio area. Quality craftsmanship for fine homes. Licensed & insured. Free estimates available!',
-      'live-oak': 'Stucco contractor serving Live Oak in the San Antonio area. Expert repair & installation. Licensed & insured. Schedule your free estimate today!',
-      'universal-city': 'Professional stucco services in Universal City, San Antonio area. Repair & installation experts. Licensed & insured. Get your free estimate now!',
-      'leon-valley': 'Stucco contractor in Leon Valley, San Antonio area. Expert repair, installation & finishing. Licensed & insured. Call for a free estimate today!',
-      'selma': 'Stucco services in Selma, San Antonio area. Professional repair & installation for residential & commercial. Licensed & insured. Free estimates available!',
+    const cityTitles: Record<string, string> = {
+      'san-antonio': 'Stucco Contractor in San Antonio, TX | San Antonio Stucco',
+      'boerne': 'Stucco Contractor in Boerne, TX | San Antonio Stucco',
+      'new-braunfels': 'Stucco Contractor in New Braunfels, TX | San Antonio Stucco',
+      'schertz': 'Stucco Contractor in Schertz, TX | San Antonio Stucco',
+      'helotes': 'Stucco Contractor in Helotes, TX | San Antonio Stucco',
+      'stone-oak': 'Stucco Contractor in Stone Oak, TX | San Antonio Stucco',
+      'alamo-heights': 'Stucco Contractor in Alamo Heights, TX | San Antonio Stucco',
+      'live-oak': 'Stucco Contractor in Live Oak, TX | San Antonio Stucco',
+      'universal-city': 'Stucco Contractor in Universal City, TX | San Antonio Stucco',
+      'leon-valley': 'Stucco Contractor in Leon Valley, TX | San Antonio Stucco',
+      'selma': 'Stucco Contractor in Selma, TX | San Antonio Stucco',
     };
-    const focusedCities = ['san-antonio', 'boerne', 'new-braunfels', 'schertz', 'helotes'];
-    const title = focusedCities.includes(location.slug)
-      ? `Stucco Contractor in ${location.name} TX | San Antonio Stucco`
-      : `${location.name} Stucco Contractor | San Antonio Area | Licensed & Insured`;
+    const cityDescriptions: Record<string, string> = {
+      'san-antonio': 'Top-rated stucco contractor in San Antonio, TX. Crack repair, water damage repair, installation & EIFS for homes & businesses across Bexar County. Get a free estimate today.',
+      'boerne': 'Stucco contractor in Boerne, TX serving the Hill Country. Expert repair, installation & custom finishing for Boerne and Fair Oaks Ranch homes. Call for a free estimate.',
+      'new-braunfels': 'Stucco contractor in New Braunfels, TX serving Comal County. Repair, installation & EIFS for homes near Canyon Lake, Gruene & Vintage Oaks. Free estimates available.',
+      'schertz': 'Stucco contractor in Schertz, TX serving Schertz, Cibolo & the I-35 corridor. Crack repair, installation & finishing for homes and businesses. Get your free estimate.',
+      'helotes': 'Stucco contractor in Helotes, TX serving northwest San Antonio and the Hill Country corridor. Repair, installation & custom finishing. Call for a free estimate today.',
+      'stone-oak': 'Premium stucco contractor in Stone Oak, San Antonio, TX. HOA-compliant repairs, EIFS remediation & expert finish matching for upscale homes. Schedule a free estimate.',
+      'alamo-heights': 'Stucco contractor in Alamo Heights, San Antonio, TX. Historically sensitive repairs & restoration for Alamo Heights, Olmos Park & Terrell Hills homes. Free estimates.',
+      'live-oak': 'Stucco contractor in Live Oak, TX serving northeast Bexar County. Expert repair & installation for aging and new homes along the I-35 corridor. Book a free inspection.',
+      'universal-city': 'Stucco contractor in Universal City, TX near Randolph AFB. Fast, reliable repair & installation for military families and homeowners. Get a free estimate today.',
+      'leon-valley': 'Stucco contractor in Leon Valley, TX. Residential repair, commercial facade work & texture updates along the Bandera Road corridor. Call for a free estimate.',
+      'selma': 'Stucco contractor in Selma, TX serving the I-35 northeast growth corridor. New construction, repair & replacement for Selma homes and businesses. Free estimates.',
+    };
     return {
-      title,
-      description: cityDescriptions[location.slug] || `Professional stucco services in ${location.name}, San Antonio area. Expert repair & installation. Licensed & insured. Call for a free estimate!`,
+      title: cityTitles[location.slug] || `Stucco Contractor in ${location.name}, TX | San Antonio Stucco`,
+      description: cityDescriptions[location.slug] || `Professional stucco services in ${location.name}, TX. Expert repair & installation. Licensed & insured. Call for a free estimate!`,
     };
   }, [location]);
 
@@ -131,8 +140,14 @@ export default function LocationDetailPage() {
                 <Link to="/" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
                   San Antonio Stucco Home <ArrowRight size={14} />
                 </Link>
-                <Link to="/stucco-repair" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
-                  San Antonio Stucco Repair <ArrowRight size={14} />
+                <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco repair in San Antonio <ArrowRight size={14} />
+                </Link>
+                <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco installation in San Antonio <ArrowRight size={14} />
+                </Link>
+                <Link to="/stucco-painting" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+                  Stucco painting in San Antonio <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -174,8 +189,8 @@ export default function LocationDetailPage() {
                   <ArrowRight size={18} className="text-sand-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm">{s.name}</h3>
-                  <p className="text-xs text-slate-500">in {location.name}</p>
+                  <h3 className="font-semibold text-slate-800 text-sm">{s.name} in {location.name}</h3>
+                  <p className="text-xs text-slate-500">Professional {s.name.toLowerCase()} services</p>
                 </div>
               </Link>
             ))}
@@ -193,7 +208,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco project in ${location.name}`}
+                alt={`Residential stucco installation on a home exterior in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
@@ -205,7 +220,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco work in ${location.name}`}
+                alt={`Stucco crack repair on home wall in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
@@ -217,7 +232,7 @@ export default function LocationDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`Stucco exterior in ${location.name}`}
+                alt={`Exterior stucco remodel completed on a property in ${location.name} TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />

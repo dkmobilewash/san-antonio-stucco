@@ -16,7 +16,15 @@ export default function ServiceAreasPage() {
   return (
     <>
       <section className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <nav className="mb-6">
+            <ol className="flex items-center gap-2 text-sm text-slate-500">
+              <li><Link to="/" className="hover:text-sand-600 transition-colors">Home</Link></li>
+              <li>/</li>
+              <li className="text-slate-800 font-medium">Service Areas</li>
+            </ol>
+          </nav>
+          <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Service Areas
           </h1>
@@ -29,6 +37,7 @@ export default function ServiceAreasPage() {
           >
             Browse Our Services <ArrowRight size={16} />
           </Link>
+          </div>
         </div>
       </section>
 

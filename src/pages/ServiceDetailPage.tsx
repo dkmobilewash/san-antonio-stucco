@@ -52,6 +52,23 @@ const servicePhotos: Record<string, { src: string; alt: string; caption: string 
     { src: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'EIFS repair and restoration', caption: 'EIFS joint and sealant restoration' },
     { src: 'https://images.pexels.com/photos/2138126/pexels-photo-2138126.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Synthetic stucco maintenance', caption: 'Comprehensive EIFS inspection and repair' },
   ],
+  'stucco-painting': [
+    { src: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Freshly painted stucco home in San Antonio', caption: 'Elastomeric coating applied to a San Antonio home exterior' },
+    { src: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Stucco painting detail showing smooth finish', caption: 'Clean, consistent coverage with UV-stable coating' },
+    { src: 'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Professional stucco painting project', caption: 'Full exterior color change with proper surface preparation' },
+    { src: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800', alt: 'Completed stucco painting project', caption: 'Dramatic curb appeal improvement with elastomeric finish' },
+  ],
+};
+
+const relatedServicesMap: Record<string, string[]> = {
+  'stucco-installation': ['stucco-repairs', 'stucco-painting', 'residential-stucco'],
+  'stucco-replacement': ['stucco-repairs', 'stucco-installation', 'residential-stucco'],
+  'residential-stucco': ['stucco-repairs', 'stucco-painting', 'stucco-remodeling'],
+  'commercial-stucco': ['stucco-installation', 'stucco-repairs', 'eifs-synthetic-stucco'],
+  'stucco-remodeling': ['stucco-painting', 'residential-stucco', 'stucco-replacement'],
+  'stucco-repairs': ['stucco-replacement', 'stucco-painting', 'eifs-synthetic-stucco'],
+  'eifs-synthetic-stucco': ['stucco-repairs', 'stucco-replacement', 'commercial-stucco'],
+  'stucco-painting': ['stucco-remodeling', 'stucco-repairs', 'residential-stucco'],
 };
 
 const blogResources: Record<string, { slug: string; title: string; excerpt: string }[]> = {
@@ -86,6 +103,11 @@ const blogResources: Record<string, { slug: string; title: string; excerpt: stri
     { slug: 'eifs-vs-traditional-stucco-differences', title: 'EIFS vs. Traditional Stucco: What You Need to Know', excerpt: 'Understand the key differences between synthetic and traditional stucco systems.' },
     { slug: 'how-san-antonio-weather-affects-stucco', title: 'How San Antonio Weather Affects Your Stucco', excerpt: 'Learn how heat, humidity, and UV exposure create unique challenges for EIFS systems.' },
   ],
+  'stucco-painting': [
+    { slug: 'protecting-stucco-from-texas-heat', title: 'How to Protect Your Stucco in Texas Heat and Humidity', excerpt: 'Why the right coating matters more than the right color in the San Antonio climate.' },
+    { slug: 'choosing-stucco-colors-and-textures', title: 'Choosing the Right Stucco Color and Texture', excerpt: 'A guide to selecting paint colors that perform well on stucco in South Texas.' },
+    { slug: 'stucco-maintenance-checklist-san-antonio', title: 'Stucco Maintenance Tips for San Antonio Homes', excerpt: 'How regular maintenance extends the life of your stucco paint job.' },
+  ],
 };
 
 export default function ServiceDetailPage() {
@@ -93,9 +115,45 @@ export default function ServiceDetailPage() {
   const slug = location.pathname.replace(/^\//, '');
   const service = services.find((s) => s.slug === slug);
 
+  const servicePricing: Record<string, { low: string; high: string; unit?: string }> = {
+    'stucco-installation': { low: '8', high: '15', unit: 'per sqft' },
+    'stucco-replacement': { low: '10', high: '18', unit: 'per sqft' },
+    'residential-stucco': { low: '8', high: '15', unit: 'per sqft' },
+    'commercial-stucco': { low: '8', high: '18', unit: 'per sqft' },
+    'stucco-remodeling': { low: '5', high: '12', unit: 'per sqft' },
+    'stucco-repairs': { low: '300', high: '5000' },
+    'eifs-synthetic-stucco': { low: '500', high: '15000' },
+    'stucco-painting': { low: '2', high: '5', unit: 'per sqft' },
+  };
+
   const jsonLd = useMemo(() => {
     if (!service) return undefined;
-    return {
+    const pricing = servicePricing[service.slug];
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `${service.name} in San Antonio, TX`,
+      description: service.heroDescription,
+      provider: { '@id': 'https://sanantoniostucco.com/#business' },
+      areaServed: [
+        { '@type': 'City', name: 'San Antonio' },
+        { '@type': 'City', name: 'Boerne' },
+        { '@type': 'City', name: 'New Braunfels' },
+        { '@type': 'City', name: 'Schertz' },
+        { '@type': 'City', name: 'Helotes' },
+      ],
+      serviceType: service.name,
+      url: `https://sanantoniostucco.com/${service.slug}`,
+      ...(pricing && {
+        offers: {
+          '@type': 'AggregateOffer',
+          lowPrice: pricing.low,
+          highPrice: pricing.high,
+          priceCurrency: 'USD',
+        },
+      }),
+    };
+    const faqSchema = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: service.faqs.map((faq) => ({
@@ -104,30 +162,33 @@ export default function ServiceDetailPage() {
         acceptedAnswer: { '@type': 'Answer', text: faq.answer },
       })),
     };
+    return [serviceSchema, faqSchema];
   }, [service]);
 
   const seoMeta = useMemo(() => {
     if (!service) return { title: 'Service Not Found', description: 'Page not found.' };
     const titles: Record<string, string> = {
-      'stucco-installation': 'Stucco Installation San Antonio | New Construction & Additions | Licensed & Insured',
-      'stucco-replacement': 'Stucco Replacement San Antonio | Full System Removal & Rebuild | Free Estimates',
-      'residential-stucco': 'Residential Stucco San Antonio | Home Exteriors & Additions | Licensed & Insured',
-      'commercial-stucco': 'Commercial Stucco San Antonio | Office & Retail Exteriors | Free Estimates',
-      'stucco-remodeling': 'Stucco Remodeling San Antonio | Exterior Makeovers & Texture Updates | Free Estimates',
-      'stucco-repairs': 'Stucco Repair San Antonio | Crack Repair & Patching | Licensed & Insured',
-      'eifs-synthetic-stucco': 'EIFS & Synthetic Stucco San Antonio | Repair & Maintenance | Licensed & Insured',
+      'stucco-installation': 'Stucco Installation in San Antonio, TX | San Antonio Stucco',
+      'stucco-replacement': 'Stucco Replacement in San Antonio, TX | San Antonio Stucco',
+      'residential-stucco': 'Residential Stucco in San Antonio, TX | San Antonio Stucco',
+      'commercial-stucco': 'Commercial Stucco in San Antonio, TX | San Antonio Stucco',
+      'stucco-remodeling': 'Stucco Remodeling in San Antonio, TX | San Antonio Stucco',
+      'stucco-repairs': 'Stucco Repairs in San Antonio, TX | San Antonio Stucco',
+      'eifs-synthetic-stucco': 'EIFS & Synthetic Stucco in San Antonio, TX | San Antonio Stucco',
+      'stucco-painting': 'Stucco Painting in San Antonio, TX | San Antonio Stucco',
     };
     const descriptions: Record<string, string> = {
-      'stucco-installation': 'Professional stucco installation in San Antonio for new builds & additions. Engineered for Texas heat. Licensed & insured contractor. Get your free estimate today!',
-      'stucco-replacement': 'Expert stucco replacement in San Antonio. We remove failing systems & rebuild with modern materials. Licensed & insured. Call for a free on-site evaluation!',
-      'residential-stucco': 'Trusted residential stucco contractor in San Antonio. Beautiful, durable home exteriors built for Texas weather. Licensed & insured. Request a free estimate!',
-      'commercial-stucco': 'Commercial stucco services in San Antonio for offices, retail & multi-family. Minimal disruption, professional results. Licensed & insured. Free estimates available!',
-      'stucco-remodeling': 'Transform your San Antonio home with expert stucco remodeling. Updated textures, modern finishes & curb appeal. Licensed & insured. Call for a free consultation!',
-      'stucco-repairs': 'Fast, reliable stucco repair in San Antonio. We fix cracks, holes, water damage & more. Licensed & insured contractor. Schedule your free inspection today!',
-      'eifs-synthetic-stucco': 'EIFS and synthetic stucco repair in San Antonio. Expert diagnostics, sealant work & re-coating. Licensed & insured. Call for a free assessment today!',
+      'stucco-installation': 'Professional stucco installation in San Antonio, TX for new construction & additions. Three-coat systems engineered for Texas heat. Licensed & insured — call for a free estimate.',
+      'stucco-replacement': 'Full stucco replacement in San Antonio, TX. We remove failing systems and rebuild with modern materials and moisture barriers. Get a free on-site evaluation today.',
+      'residential-stucco': 'Trusted residential stucco contractor in San Antonio, TX. Beautiful, durable home exteriors built for the South Texas climate. Request your free estimate today.',
+      'commercial-stucco': 'Commercial stucco services in San Antonio, TX for offices, retail & multi-family properties. Minimal disruption, professional results. Call for a free estimate.',
+      'stucco-remodeling': 'Expert stucco remodeling in San Antonio, TX. Updated textures, modern finishes & dramatic curb appeal improvements. Schedule a free consultation today.',
+      'stucco-repairs': 'Fast, reliable stucco repairs in San Antonio, TX. We fix cracks, water damage & delamination with seamless texture matching. Book a free inspection now.',
+      'eifs-synthetic-stucco': 'EIFS and synthetic stucco services in San Antonio, TX. Expert repair, moisture remediation & re-coating for commercial and residential properties. Free assessments.',
+      'stucco-painting': 'Professional stucco painting in San Antonio, TX. Elastomeric coatings, color changes & UV protection for homes and businesses. Call for a free estimate.',
     };
     return {
-      title: titles[service.slug] || `${service.name} San Antonio | Licensed & Insured`,
+      title: titles[service.slug] || `${service.name} in San Antonio, TX | San Antonio Stucco`,
       description: descriptions[service.slug] || service.heroDescription.slice(0, 155),
     };
   }, [service]);
@@ -191,6 +252,7 @@ export default function ServiceDetailPage() {
       {/* Overview */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-800 mb-8">About {service.name} in San Antonio</h2>
           <div className="space-y-6">
             {service.overview.map((paragraph, i) => (
               <p key={i} className="text-slate-700 leading-relaxed text-lg">{paragraph}</p>
@@ -243,9 +305,9 @@ export default function ServiceDetailPage() {
       {/* Why Choose Us / Benefits */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco for {service.name}</h2>
           <p className="text-slate-600 mb-8 max-w-2xl">
-            Here is what you get when you work with our team for {service.name.toLowerCase()} in San Antonio:
+            Licensed, insured, and locally owned — here is what you get when you work with our experienced team for {service.name.toLowerCase()} in San Antonio:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.benefits.map((benefit, i) => (
@@ -301,10 +363,42 @@ export default function ServiceDetailPage() {
       {/* Testimonials */}
       <TestimonialsSection title={`What Clients Say About Our ${service.name}`} filter={service.name} />
 
+      {/* Related Services */}
+      {relatedServicesMap[service.slug] && (
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Related Stucco Services in San Antonio</h2>
+            <p className="text-slate-600 mb-8">
+              Homeowners who need {service.name.toLowerCase()} often benefit from these related services:
+            </p>
+            <div className="space-y-4">
+              {services.filter((s) => relatedServicesMap[service.slug]?.includes(s.slug)).map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/${s.slug}`}
+                  className="group flex items-start gap-4 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-5 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 bg-sand-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-sand-100 transition-colors">
+                    <Wrench size={20} className="text-sand-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-slate-800 group-hover:text-sand-700 transition-colors mb-1">
+                      {s.name} in San Antonio
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{s.shortDescription}</p>
+                  </div>
+                  <ArrowRight size={18} className="text-slate-400 group-hover:text-sand-600 shrink-0 mt-1 transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* All Services */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Explore Our Stucco Services</h2>
+          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">All Stucco Services in San Antonio</h2>
           <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
             We offer a full range of professional stucco services throughout San Antonio. Browse all our offerings below.
           </p>
@@ -315,10 +409,10 @@ export default function ServiceDetailPage() {
                 to={`/${s.slug}`}
                 className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-sand-200 transition-all"
               >
-                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">{s.name}</h3>
+                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">{s.name} in San Antonio</h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-3">{s.shortDescription}</p>
                 <span className="text-sand-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  {s.name} Details <ArrowRight size={14} />
+                  Learn about {s.name.toLowerCase()} <ArrowRight size={14} />
                 </span>
               </Link>
             ))}
@@ -349,7 +443,7 @@ export default function ServiceDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`${service.name} project`}
+                alt={`${service.name} project on a home exterior in San Antonio TX`}
                 loading="lazy"
                 className="w-full h-48 object-cover"
               />
@@ -377,9 +471,9 @@ export default function ServiceDetailPage() {
       {/* Why Professional */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional for {service.name} in San Antonio</h2>
           <p className="text-slate-600 mb-8">
-            Stucco work requires specialized skills, materials, and understanding of building science. Here is why professional service matters:
+            Stucco work requires specialized skills, materials, and understanding of building science. With over 500 completed projects across the San Antonio metro, here is why professional service matters:
           </p>
           <div className="space-y-4">
             {service.whyProfessional.map((reason, i) => (
@@ -396,7 +490,7 @@ export default function ServiceDetailPage() {
       {blogResources[service.slug] && (
         <section className="py-20 bg-slate-50">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Useful Resources</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">{service.name} Resources & Guides</h2>
             <p className="text-slate-600 mb-8">
               Learn more about {service.name.toLowerCase()} and caring for your stucco in San Antonio:
             </p>
@@ -446,7 +540,7 @@ export default function ServiceDetailPage() {
       {service.costTimeline && (
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8">Cost & Timeline Considerations</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {service.name} Cost in San Antonio?</h2>
             <div className="space-y-4">
               {service.costTimeline.map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-xl">

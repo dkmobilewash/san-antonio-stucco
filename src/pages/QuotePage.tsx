@@ -18,6 +18,13 @@ export default function QuotePage() {
     <>
       <section className="pt-32 md:pt-40 pb-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
+          <nav className="mb-6">
+            <ol className="flex items-center gap-2 text-sm text-slate-500">
+              <li><Link to="/" className="hover:text-sand-600 transition-colors">Home</Link></li>
+              <li>/</li>
+              <li className="text-slate-800 font-medium">Free Estimate</li>
+            </ol>
+          </nav>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">

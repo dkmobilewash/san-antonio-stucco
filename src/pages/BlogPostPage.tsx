@@ -2,8 +2,23 @@ import { useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, ArrowRight, Phone } from 'lucide-react';
 import { blogPosts } from '../data/blog';
+import { services } from '../data/services';
 import { usePageSEO } from '../lib/seo';
 import CTASection from '../components/CTASection';
+
+const MONTH_MAP: Record<string, string> = {
+  'January': '01', 'February': '02', 'March': '03', 'April': '04',
+  'May': '05', 'June': '06', 'July': '07', 'August': '08',
+  'September': '09', 'October': '10', 'November': '11', 'December': '12',
+};
+
+function toISODate(dateStr: string): string {
+  const parts = dateStr.split(' ');
+  if (parts.length === 2 && MONTH_MAP[parts[0]]) {
+    return `${parts[1]}-${MONTH_MAP[parts[0]]}-01`;
+  }
+  return dateStr;
+}
 
 export default function BlogPostPage() {
   const { pathname } = useLocation();
@@ -12,28 +27,51 @@ export default function BlogPostPage() {
 
   const jsonLd = useMemo(() => {
     if (!post) return undefined;
+    const isoDate = toISODate(post.date);
     return {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: post.title,
-      datePublished: post.date,
-      author: { '@type': 'Organization', name: 'San Antonio Stucco' },
       description: post.excerpt,
+      image: post.image,
+      datePublished: isoDate,
+      dateModified: isoDate,
+      author: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://sanantoniostucco.com/images/logo.png',
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://sanantoniostucco.com/blog/${post.slug}`,
+      },
     };
   }, [post]);
 
   const seoMeta = useMemo(() => {
     if (!post) return { title: 'Post Not Found', description: 'Blog post not found.' };
     const titles: Record<string, string> = {
-      'how-san-antonio-weather-affects-stucco': 'How San Antonio Weather Affects Stucco | Climate & Damage Guide',
-      'signs-your-stucco-needs-repair': 'Signs Your Stucco Needs Repair | San Antonio Stucco Damage Guide',
-      'stucco-repair-vs-replacement-guide': 'Stucco Repair vs. Replacement | San Antonio Homeowner Guide',
-      'eifs-vs-traditional-stucco-differences': 'EIFS vs Traditional Stucco | Differences, Maintenance & Cost Compared',
-      'protecting-stucco-from-texas-heat': 'Protecting Stucco from Texas Heat | San Antonio Maintenance Tips',
-      'stucco-maintenance-checklist-san-antonio': 'Stucco Maintenance Checklist for San Antonio Homes | Expert Tips',
-      'cost-of-stucco-installation-san-antonio': 'Stucco Installation Cost San Antonio | 2025 Pricing Guide',
-      'choosing-stucco-colors-and-textures': 'Choosing Stucco Colors & Textures | San Antonio Design Guide',
-      'stucco-vs-other-siding-materials': 'Stucco vs Other Siding | Stucco vs Vinyl, Brick & Fiber Cement in San Antonio',
+      'how-san-antonio-weather-affects-stucco': 'How San Antonio Weather Affects Stucco | Damage Guide',
+      'signs-your-stucco-needs-repair': 'Signs Your Stucco Needs Repair | San Antonio Guide',
+      'stucco-repair-vs-replacement-guide': 'Stucco Repair vs Replacement | San Antonio Guide',
+      'eifs-vs-traditional-stucco-differences': 'EIFS vs Traditional Stucco | Cost & Differences',
+      'protecting-stucco-from-texas-heat': 'Protecting Stucco from Texas Heat | Maintenance Tips',
+      'stucco-maintenance-checklist-san-antonio': 'Stucco Maintenance Checklist | San Antonio Tips',
+      'cost-of-stucco-installation-san-antonio': 'Stucco Installation Cost San Antonio | 2025 Pricing',
+      'choosing-stucco-colors-and-textures': 'Stucco Colors & Textures | San Antonio Design Guide',
+      'stucco-vs-other-siding-materials': 'Stucco vs Vinyl, Brick & Fiber Cement | SA Guide',
+      'stucco-repair-near-me-san-antonio-guide': 'Stucco Repair Near Me San Antonio | Hiring Guide',
+      'stucco-vs-brick-cost-san-antonio': 'Stucco vs Brick Cost San Antonio | 2025 Comparison',
+      'how-long-does-stucco-last-san-antonio': 'How Long Does Stucco Last in San Antonio? | Guide',
     };
     const descriptions: Record<string, string> = {
       'how-san-antonio-weather-affects-stucco': 'Learn how San Antonio heat, humidity & UV damage stucco systems. Expert tips on prevention & when to call a stucco contractor. Read our guide!',
@@ -45,6 +83,9 @@ export default function BlogPostPage() {
       'cost-of-stucco-installation-san-antonio': 'How much does stucco installation cost in San Antonio? Detailed pricing breakdown for 2025. Get a free, no-obligation estimate from local experts!',
       'choosing-stucco-colors-and-textures': 'Choose the perfect stucco color and texture for your San Antonio home. Expert guide on finishes, styles & what works best in Texas. Read now!',
       'stucco-vs-other-siding-materials': 'Stucco vs vinyl, brick, fiber cement & stone veneer for San Antonio homes. Compare cost, durability & climate fit. Free estimates from local stucco experts.',
+      'stucco-repair-near-me-san-antonio-guide': 'Searching for stucco repair near me in San Antonio, TX? Learn what to look for in a contractor, typical repair costs & how to avoid costly mistakes. Read now.',
+      'stucco-vs-brick-cost-san-antonio': 'Stucco vs brick cost comparison for San Antonio, TX homes. Installation pricing, maintenance, durability & which delivers the best long-term value. Read the guide.',
+      'how-long-does-stucco-last-san-antonio': 'How long does stucco last in San Antonio, TX? Lifespan by system type, what shortens it & how to maximize your exterior investment. Expert guide.',
     };
     return {
       title: titles[post.slug] || post.title,
@@ -118,7 +159,7 @@ export default function BlogPostPage() {
           <div className="rounded-2xl overflow-hidden mb-12">
             <img
               src={post.image}
-              alt={post.title}
+              alt={`Featured image for ${post.title} — San Antonio stucco guide`}
               className="w-full h-64 md:h-96 object-cover"
             />
           </div>
@@ -171,26 +212,33 @@ export default function BlogPostPage() {
             </div>
           )}
 
-          <div className="mt-12 p-6 bg-sand-50 border border-sand-200 rounded-2xl">
-            <h3 className="font-bold text-slate-800 mb-2">Need Professional Help?</h3>
-            <p className="text-slate-600 text-sm mb-4">
-              Our team is available for free inspections and estimates on any stucco project in San Antonio.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                to="/quote"
-                className="bg-sand-600 hover:bg-sand-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                Get a Free Estimate <ArrowRight size={14} />
-              </Link>
-              <Link
-                to={post.relatedService}
-                className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                View Related Service <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
+          {(() => {
+            const relatedServiceSlug = post.relatedService.replace(/^\//, '');
+            const relatedService = services.find((s) => s.slug === relatedServiceSlug);
+            const relatedServiceName = relatedService?.name || 'Our Services';
+            return (
+              <div className="mt-12 p-6 bg-sand-50 border border-sand-200 rounded-2xl">
+                <h3 className="font-bold text-slate-800 mb-2">Need Professional Help?</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Our team is available for free inspections and estimates on any stucco project in San Antonio.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    to="/quote"
+                    className="bg-sand-600 hover:bg-sand-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
+                  >
+                    Get a Free Estimate <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    to={post.relatedService}
+                    className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
+                  >
+                    {relatedServiceName} in San Antonio <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </article>
 
@@ -208,7 +256,7 @@ export default function BlogPostPage() {
                   <div className="overflow-hidden">
                     <img
                       src={related.image}
-                      alt={related.title}
+                      alt={`Preview image for ${related.title} — San Antonio stucco tips`}
                       loading="lazy"
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                     />

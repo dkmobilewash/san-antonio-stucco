@@ -15,11 +15,48 @@ export default function PlasterArticlePage() {
     path: '/blog/us-largest-plaster-producer-san-antonio',
     type: 'article',
     rawTitle: true,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'The US is the World\'s Largest Plaster Producer — Why That Matters for Your San Antonio Home',
+      description: 'America dominates global gypsum and lime plaster production. Learn how this supply advantage shapes stucco quality for San Antonio homes.',
+      datePublished: '2025-05-28',
+      dateModified: '2025-05-28',
+      author: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://sanantoniostucco.com/images/logo.png',
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': 'https://sanantoniostucco.com/blog/us-largest-plaster-producer-san-antonio',
+      },
+    },
   });
 
   return (
     <article className="pt-28 md:pt-36 pb-20 bg-stone-50">
       <div className="max-w-[820px] mx-auto px-6">
+        {/* Breadcrumb */}
+        <nav className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-slate-500">
+            <li><Link to="/" className="hover:text-[#C47A45] transition-colors">Home</Link></li>
+            <li>/</li>
+            <li><Link to="/blog" className="hover:text-[#C47A45] transition-colors">Blog</Link></li>
+            <li>/</li>
+            <li className="text-slate-800 font-medium truncate">US Plaster Production</li>
+          </ol>
+        </nav>
+
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {['Stucco', 'Building Materials', 'San Antonio'].map((tag) => (
