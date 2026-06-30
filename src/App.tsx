@@ -15,6 +15,11 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PlasterArticlePage from './pages/PlasterArticlePage';
 import StuccoRepairPage from './pages/StuccoRepairPage';
+import StuccoContractorPage from './pages/StuccoContractorPage';
+import StuccoRepairSanAntonioPage from './pages/StuccoRepairSanAntonioPage';
+import StuccoInstallationSanAntonioPage from './pages/StuccoInstallationSanAntonioPage';
+import EifsSanAntonioPage from './pages/EifsSanAntonioPage';
+import CommercialStuccoSanAntonioPage from './pages/CommercialStuccoSanAntonioPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { services } from './data/services';
 import { locations } from './data/locations';
@@ -38,6 +43,11 @@ function AppLayout() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/stucco-repair" element={<StuccoRepairPage />} />
+          <Route path="/stucco-contractor-san-antonio" element={<StuccoContractorPage />} />
+          <Route path="/stucco-repair-san-antonio" element={<StuccoRepairSanAntonioPage />} />
+          <Route path="/stucco-installation-san-antonio" element={<StuccoInstallationSanAntonioPage />} />
+          <Route path="/eifs-stucco-san-antonio" element={<EifsSanAntonioPage />} />
+          <Route path="/commercial-stucco-san-antonio" element={<CommercialStuccoSanAntonioPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/quote" element={<QuotePage />} />
           <Route path="/about" element={<AboutPage />} />

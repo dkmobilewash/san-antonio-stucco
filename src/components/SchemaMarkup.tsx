@@ -330,6 +330,30 @@ const BREADCRUMB_MAP: Record<string, { name: string; url: string }[]> = {
     { name: 'Home', url: SITE_URL },
     { name: 'Blog', url: `${SITE_URL}/blog` },
   ],
+  '/stucco-contractor-san-antonio': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Stucco Contractor San Antonio', url: `${SITE_URL}/stucco-contractor-san-antonio` },
+  ],
+  '/stucco-repair-san-antonio': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Stucco Contractor San Antonio', url: `${SITE_URL}/stucco-contractor-san-antonio` },
+    { name: 'Stucco Repair San Antonio', url: `${SITE_URL}/stucco-repair-san-antonio` },
+  ],
+  '/stucco-installation-san-antonio': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Stucco Contractor San Antonio', url: `${SITE_URL}/stucco-contractor-san-antonio` },
+    { name: 'Stucco Installation San Antonio', url: `${SITE_URL}/stucco-installation-san-antonio` },
+  ],
+  '/eifs-stucco-san-antonio': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Stucco Contractor San Antonio', url: `${SITE_URL}/stucco-contractor-san-antonio` },
+    { name: 'EIFS & Synthetic Stucco San Antonio', url: `${SITE_URL}/eifs-stucco-san-antonio` },
+  ],
+  '/commercial-stucco-san-antonio': [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Stucco Contractor San Antonio', url: `${SITE_URL}/stucco-contractor-san-antonio` },
+    { name: 'Commercial Stucco San Antonio', url: `${SITE_URL}/commercial-stucco-san-antonio` },
+  ],
 };
 
 export default function SchemaMarkup() {

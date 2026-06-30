@@ -147,7 +147,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-slate-800 mb-3 text-lg">Professional Results</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repairs in San Antonio</Link>, quality is never compromised.
+                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation-san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repair-san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
               </p>
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function HomePage() {
               San Antonio sits at the crossroads of extreme environmental conditions that make it one of the most demanding markets for exterior building materials in the United States. Summer temperatures regularly exceed 100 degrees, causing intense thermal cycling that expands and contracts stucco walls daily. Gulf Coast humidity averaging 60-70% drives moisture into every crack and joint, while South Texas UV exposure — among the highest in the country — degrades coatings faster than anywhere else in the state.
             </p>
             <p>
-              These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repairs in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
+              These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repair-san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
             </p>
             <p>
               We also provide <Link to="/boerne" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco in Boerne</Link> and throughout the Hill Country corridor where elevation and rocky terrain add additional challenges. As the leading stucco company in San Antonio, TX, our crews work across the entire metro daily.
@@ -381,12 +381,18 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3">
             <Link
               to="/service-areas"
               className="text-sand-600 hover:text-sand-700 font-medium inline-flex items-center gap-1.5 transition-colors"
             >
               View All Service Areas <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/stucco-contractor-san-antonio"
+              className="text-sand-600 hover:text-sand-700 font-medium inline-flex items-center gap-1.5 transition-colors"
+            >
+              Stucco Contractor in San Antonio <ArrowRight size={16} />
             </Link>
           </div>
         </div>

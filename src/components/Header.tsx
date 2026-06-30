@@ -27,7 +27,8 @@ export default function Header() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/services', label: 'Services', hasDropdown: 'services' as const },
-    { to: '/stucco-repair', label: 'Stucco Repair' },
+    { to: '/stucco-contractor-san-antonio', label: 'Stucco Contractor' },
+    { to: '/stucco-repair-san-antonio', label: 'Stucco Repair' },
     { to: '/service-areas', label: 'Service Areas', hasDropdown: 'areas' as const },
     { to: '/about', label: 'About' },
     { to: '/blog', label: 'Blog' },
@@ -42,6 +43,10 @@ export default function Header() {
     { to: '/stucco-repairs', label: 'Stucco Repairs' },
     { to: '/eifs-synthetic-stucco', label: 'EIFS / Synthetic Stucco' },
     { to: '/stucco-painting', label: 'Stucco Painting' },
+    { to: '/stucco-installation-san-antonio', label: 'Installation in San Antonio' },
+    { to: '/stucco-repair-san-antonio', label: 'Repair in San Antonio' },
+    { to: '/eifs-stucco-san-antonio', label: 'EIFS in San Antonio' },
+    { to: '/commercial-stucco-san-antonio', label: 'Commercial in San Antonio' },
   ];
 
   const areaLinks = locations.map((l) => ({ to: `/${l.slug}`, label: l.name }));
