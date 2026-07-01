@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { locations } from '../data/locations';
+import { services } from '../data/services';
 import { blogPosts } from '../data/blog';
 
 const SITE_URL = 'https://sanantoniostucco.com';
@@ -381,6 +382,21 @@ export default function SchemaMarkup() {
           { name: 'Service Areas', url: `${SITE_URL}/service-areas` },
           { name: loc.name, url: `${SITE_URL}/${loc.slug}` },
         ];
+      }
+    }
+
+    if (!breadcrumbs) {
+      const pathParts = pathname.replace(/^\//, '').split('/');
+      if (pathParts.length === 2) {
+        const svc = services.find((s) => s.slug === pathParts[0]);
+        const loc = locations.find((l) => l.slug === pathParts[1]);
+        if (svc && loc) {
+          breadcrumbs = [
+            { name: 'Home', url: SITE_URL },
+            { name: svc.name, url: `${SITE_URL}/${svc.slug}` },
+            { name: loc.name, url: `${SITE_URL}/${svc.slug}/${loc.slug}` },
+          ];
+        }
       }
     }
 
