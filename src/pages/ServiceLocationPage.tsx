@@ -3,6 +3,7 @@ import { useLocation as useRouterLocation, Link } from 'react-router-dom';
 import { ArrowRight, Phone, CheckCircle, AlertTriangle, MapPin, Wrench } from 'lucide-react';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
+import { serviceLocationData } from '../data/serviceLocationData';
 import { contact } from '../data/contact';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
@@ -16,23 +17,18 @@ export default function ServiceLocationPage() {
 
   const service = services.find((s) => s.slug === serviceSlug);
   const location = locations.find((l) => l.slug === locationSlug);
-
-  const localizedFaqs = useMemo(() => {
-    if (!service || !location) return [];
-    return service.faqs.slice(0, 4).map((faq) => ({
-      question: faq.question.replace(/San Antonio/g, location.name),
-      answer: faq.answer.replace(/San Antonio/g, location.name),
-    }));
-  }, [service, location]);
+  const pageData = serviceLocationData.find(
+    (d) => d.serviceSlug === serviceSlug && d.locationSlug === locationSlug,
+  );
 
   const jsonLd = useMemo(() => {
-    if (!service || !location) return undefined;
+    if (!service || !location || !pageData) return undefined;
     return [
       {
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: `${service.name} in ${location.name}, TX`,
-        description: `Professional ${service.name.toLowerCase()} services in ${location.name}, TX. Licensed & insured stucco contractor serving ${location.name} and the greater San Antonio metro area.`,
+        description: pageData.metaDescription,
         provider: { '@id': 'https://sanantoniostucco.com/#business' },
         areaServed: { '@type': 'City', name: location.name },
         serviceType: service.name,
@@ -41,28 +37,29 @@ export default function ServiceLocationPage() {
       {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: localizedFaqs.map((faq) => ({
+        mainEntity: pageData.faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: { '@type': 'Answer', text: faq.answer },
         })),
       },
     ];
-  }, [service, location, localizedFaqs]);
+  }, [service, location, pageData]);
 
   usePageSEO({
     title: service && location
       ? `${service.name} in ${location.name}, TX | San Antonio Stucco`
       : 'Page Not Found',
-    description: service && location
-      ? `Professional ${service.name.toLowerCase()} in ${location.name}, TX. Licensed & insured. Root-cause diagnosis, quality materials & workmanship guarantee. Free estimates — call (210) 871-8490.`
-      : 'Page not found.',
+    description: pageData?.metaDescription ||
+      (service && location
+        ? `Professional ${service.name.toLowerCase()} in ${location.name}, TX. Licensed & insured. Free estimates — call (210) 871-8490.`
+        : 'Page not found.'),
     path: `/${serviceSlug}/${locationSlug}`,
     rawTitle: true,
     jsonLd,
   });
 
-  if (!service || !location) {
+  if (!service || !location || !pageData) {
     return (
       <div className="pt-40 pb-20 text-center">
         <h1 className="text-2xl font-bold text-slate-800">Page not found</h1>
@@ -78,8 +75,6 @@ export default function ServiceLocationPage() {
         <div className="max-w-7xl mx-auto px-6">
           <ol className="flex items-center gap-2 text-sm text-slate-500 flex-wrap">
             <li><Link to="/" className="hover:text-sand-600 transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link to="/services" className="hover:text-sand-600 transition-colors">Services</Link></li>
             <li>/</li>
             <li><Link to={`/${service.slug}`} className="hover:text-sand-600 transition-colors">{service.name}</Link></li>
             <li>/</li>
@@ -100,7 +95,7 @@ export default function ServiceLocationPage() {
               {service.name} in {location.name}, TX
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              {service.heroDescription.replace(/San Antonio/g, location.name)}
+              {pageData.paragraphs[0]}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -125,24 +120,16 @@ export default function ServiceLocationPage() {
         </div>
       </section>
 
-      {/* About */}
+      {/* Body Content */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-slate-800 mb-8">
-            About {service.name} in {location.name}
+            {service.name} in {location.name}
           </h2>
           <div className="space-y-6">
-            <p className="text-slate-700 leading-relaxed text-lg">
-              {service.overview[0].replace(/San Antonio/g, location.name)}
-            </p>
-            <p className="text-slate-700 leading-relaxed text-lg">
-              {location.localInfo}
-            </p>
-            {service.overview.length > 1 && (
-              <p className="text-slate-700 leading-relaxed text-lg">
-                {service.overview[1].replace(/San Antonio/g, location.name)}
-              </p>
-            )}
+            {pageData.paragraphs.slice(1).map((paragraph, i) => (
+              <p key={i} className="text-slate-700 leading-relaxed text-lg">{paragraph}</p>
+            ))}
           </div>
         </div>
       </section>
@@ -164,26 +151,6 @@ export default function ServiceLocationPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">{service.process.heading}</h2>
-          <p className="text-slate-600 mb-8">
-            Here is what to expect when you hire us for {service.name.toLowerCase()} in {location.name}:
-          </p>
-          <ol className="space-y-4">
-            {service.process.steps.map((step, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <span className="bg-sand-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">
-                  {i + 1}
-                </span>
-                <span className="text-slate-700 leading-relaxed">{step}</span>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -222,6 +189,9 @@ export default function ServiceLocationPage() {
           </a>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection faqs={pageData.faqs} title={`${service.name} FAQ — ${location.name}`} />
 
       {/* Other Services in This Location */}
       <section className="py-20">
@@ -283,9 +253,6 @@ export default function ServiceLocationPage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ */}
-      <FAQSection faqs={localizedFaqs} title={`${service.name} FAQ — ${location.name}`} />
 
       {/* CTA */}
       <CTASection

@@ -393,7 +393,6 @@ export default function SchemaMarkup() {
         if (svc && loc) {
           breadcrumbs = [
             { name: 'Home', url: SITE_URL },
-            { name: 'Services', url: `${SITE_URL}/services` },
             { name: svc.name, url: `${SITE_URL}/${svc.slug}` },
             { name: loc.name, url: `${SITE_URL}/${svc.slug}/${loc.slug}` },
           ];
