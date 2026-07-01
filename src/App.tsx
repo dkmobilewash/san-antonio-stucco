@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -20,10 +20,11 @@ import StuccoRepairSanAntonioPage from './pages/StuccoRepairSanAntonioPage';
 import StuccoInstallationSanAntonioPage from './pages/StuccoInstallationSanAntonioPage';
 import EifsSanAntonioPage from './pages/EifsSanAntonioPage';
 import CommercialStuccoSanAntonioPage from './pages/CommercialStuccoSanAntonioPage';
-import ServiceLocationPage from './pages/ServiceLocationPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { services } from './data/services';
 import { locations } from './data/locations';
+
+const ServiceLocationPage = lazy(() => import('./pages/ServiceLocationPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -63,7 +64,7 @@ function AppLayout() {
           ))}
           {services.map((s) =>
             locations.map((l) => (
-              <Route key={`${s.slug}-${l.slug}`} path={`/${s.slug}/${l.slug}`} element={<ServiceLocationPage />} />
+              <Route key={`${s.slug}-${l.slug}`} path={`/${s.slug}/${l.slug}`} element={<Suspense fallback={null}><ServiceLocationPage /></Suspense>} />
             ))
           )}
           <Route path="*" element={<NotFoundPage />} />

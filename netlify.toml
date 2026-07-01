@@ -1,6 +1,15 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && npx react-snap"
   publish = "dist"
+
+[build.environment]
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "false"
+
+[[redirects]]
+  from = "https://www.sanantoniostucco.com/*"
+  to = "https://sanantoniostucco.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"

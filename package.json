@@ -17,6 +17,14 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.14.2"
   },
+  "reactSnap": {
+    "source": "dist",
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "skipThirdPartyRequests": true,
+    "crawl": true,
+    "headless": true,
+    "inlineCss": false
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
@@ -29,6 +37,7 @@
     "globals": "^15.9.0",
     "playwright": "^1.61.1",
     "postcss": "^8.4.35",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
