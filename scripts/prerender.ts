@@ -82,6 +82,28 @@ function faqHtml(faqs: { question: string; answer: string }[], heading: string):
   ).join('')}</section>`;
 }
 
+const PRIORITY_SERVICES = ['stucco-installation', 'stucco-repairs', 'stucco-replacement'];
+const PRIORITY_GEO_PAGES = [
+  { path: '/stucco-contractor-san-antonio', label: 'Stucco Contractor in San Antonio' },
+  { path: '/stucco-repair-san-antonio', label: 'Stucco Repair in San Antonio' },
+  { path: '/stucco-installation-san-antonio', label: 'Stucco Installation in San Antonio' },
+];
+
+const blogServiceMap: Record<string, string[]> = {
+  'how-san-antonio-weather-affects-stucco': ['stucco-repairs', 'stucco-installation'],
+  'eifs-vs-traditional-stucco-differences': ['eifs-synthetic-stucco', 'stucco-installation'],
+  'stucco-maintenance-tips': ['stucco-repairs', 'stucco-painting'],
+  'when-to-repair-vs-replace-stucco': ['stucco-repairs', 'stucco-replacement'],
+  'diy-vs-professional-stucco-repair': ['stucco-repairs', 'stucco-replacement'],
+  'stucco-color-trends': ['stucco-painting', 'stucco-remodeling'],
+  'energy-efficiency-stucco-homes': ['stucco-installation', 'residential-stucco'],
+  'commercial-stucco-considerations': ['commercial-stucco', 'stucco-installation'],
+  'stucco-moisture-problems': ['stucco-repairs', 'eifs-synthetic-stucco'],
+  'choosing-right-stucco-finish': ['stucco-installation', 'stucco-painting'],
+  'stucco-vs-other-exteriors': ['stucco-installation', 'residential-stucco'],
+  'stucco-building-codes-permits': ['stucco-installation', 'commercial-stucco'],
+};
+
 // ── Content Generators ──
 
 function renderHomePage(): string {
@@ -101,6 +123,15 @@ ${breadcrumb(crumbs)}
 <h1>San Antonio's Trusted Stucco Contractor</h1>
 <p>Expert stucco repair, installation &amp; finishing. Serving San Antonio &amp; surrounding areas. Licensed &amp; insured.</p>
 <p>Looking for a stucco contractor near me in San Antonio? ${SITE_NAME} provides professional stucco services for residential and commercial properties throughout the greater San Antonio metro area. From crack repair to full installations, our experienced crew delivers results built to last in South Texas conditions.</p>
+<section><h2>Most Searched Stucco Services in San Antonio</h2>
+<ul>
+${PRIORITY_GEO_PAGES.map(p => `<li><a href="${p.path}">${esc(p.label)}</a></li>`).join('\n')}
+${PRIORITY_SERVICES.map(slug => {
+  const s = services.find(x => x.slug === slug)!;
+  return `<li><a href="/${slug}/san-antonio">${esc(s.name)} in San Antonio</a></li>`;
+}).join('\n')}
+</ul>
+</section>
 <section><h2>Our Stucco Services</h2>
 <ul>${services.map(s => `<li><a href="/${s.slug}">${esc(s.name)}</a> — ${esc(s.shortDescription)}</li>`).join('')}</ul>
 </section>
@@ -112,7 +143,7 @@ ${breadcrumb(crumbs)}
 </ul>
 </section>
 <section><h2>Why San Antonio Homeowners Trust Us for Stucco</h2>
-<p>San Antonio's climate — triple-digit summers, Gulf humidity, UV exposure, and expansive clay soils — puts enormous stress on exterior finishes. We build stucco systems specifically engineered for these conditions, using commercial-grade materials and proven techniques refined over years of working in Bexar County and surrounding areas.</p>
+<p>San Antonio's climate — triple-digit summers, Gulf humidity, UV exposure, and expansive clay soils — puts enormous stress on exterior finishes. We build stucco systems specifically engineered for these conditions, using commercial-grade materials and techniques aligned with <a href="https://www.cement.org/learn/concrete-technology/concrete-construction/stucco-portland-cement-plaster" rel="noopener">Portland Cement Association standards</a> for three-coat portland cement plaster systems.</p>
 <p>Every project is handled by our own crew — no subcontractors. We are licensed, insured, and locally owned.</p>
 </section>
 <section><h2>Texas Climate Is Tough on Stucco</h2>
@@ -163,7 +194,14 @@ ${service.costTimeline ? `<section><h2>How Much Does ${esc(service.name)} Cost i
 </section>
 ${faqHtml(service.faqs, `${service.name} FAQ`)}
 <section><h2>${esc(service.name)} Across San Antonio</h2>
-<ul>${locations.map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+<p><strong>Featured:</strong> <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> — our most requested service area.</p>
+<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+</section>
+<section><h2>Related Articles</h2>
+<ul>${blogPosts.filter(p => {
+  const mapped = blogServiceMap[p.slug];
+  return mapped && mapped.includes(service.slug);
+}).slice(0, 3).map(p => `<li><a href="/blog/${p.slug}">${esc(p.title)}</a></li>`).join('')}</ul>
 </section>
 ${ctaBlock()}
 ${faqSchema(service.faqs)}
@@ -190,6 +228,12 @@ ${(location.extendedContent || []).map(p => `<p>${p}</p>`).join('\n')}
 ${faqHtml(location.faqs, `${location.name} Stucco FAQ`)}
 <section><h2>Other Areas We Serve</h2>
 <ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${l.slug}">Stucco Contractor in ${esc(l.name)}</a></li>`).join('')}</ul>
+</section>
+<section><h2>Learn More</h2>
+<ul>
+${PRIORITY_GEO_PAGES.map(p => `<li><a href="${p.path}">${esc(p.label)}</a></li>`).join('\n')}
+<li><a href="/blog">Stucco Tips &amp; Resources</a></li>
+</ul>
 </section>
 ${ctaBlock()}
 ${faqSchema(location.faqs)}
@@ -219,6 +263,18 @@ ${faqHtml(data.faqs, `${service.name} FAQ — ${location.name}`)}
 <section><h2>${esc(service.name)} Across San Antonio</h2>
 <ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
+${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/stucco-contractor-san-antonio">Stucco Contractor in San Antonio</a> | <a href="/${service.slug}">${esc(service.name)} — All Locations</a></p>`}
+<section><h2>Related Articles</h2>
+<ul>${blogPosts.filter(p => {
+  const mapped = blogServiceMap[p.slug];
+  return mapped && mapped.includes(service.slug);
+}).slice(0, 3).map(p => `<li><a href="/blog/${p.slug}">${esc(p.title)}</a></li>`).join('')}
+${blogPosts.filter(p => {
+  const mapped = blogServiceMap[p.slug];
+  return mapped && mapped.includes(service.slug);
+}).length === 0 ? `<li><a href="/blog">Stucco Tips &amp; Resources</a></li>` : ''}
+</ul>
+</section>
 ${ctaBlock()}
 ${faqSchema(data.faqs)}
 ${breadcrumbSchema(crumbs)}
@@ -232,6 +288,20 @@ ${breadcrumb(crumbs)}
 <h1>${esc(post.title)}</h1>
 <p><time>${esc(post.date)}</time> · ${esc(post.category)}</p>
 ${post.content.map(c => c.startsWith('## ') ? `<h2>${esc(c.slice(3))}</h2>` : `<p>${c}</p>`).join('\n')}
+<section><h2>Related Services</h2>
+<ul>${(() => {
+  const mapped = blogServiceMap[post.slug] || [];
+  const links = mapped.flatMap(slug => {
+    const s = services.find(x => x.slug === slug);
+    if (!s) return [];
+    return [
+      `<li><a href="/${slug}">${esc(s.name)}</a></li>`,
+      `<li><a href="/${slug}/san-antonio">${esc(s.name)} in San Antonio</a></li>`,
+    ];
+  });
+  return links.length ? links.join('') : `<li><a href="/services">View All Stucco Services</a></li>`;
+})()}</ul>
+</section>
 ${ctaBlock()}
 ${breadcrumbSchema(crumbs)}
 </article>`;
@@ -494,6 +564,33 @@ for (const post of blogPosts) {
     content: renderBlogPost(post),
   };
 }
+
+// Plaster article (separate component, not in blogPosts array)
+routes['/blog/us-largest-plaster-producer-san-antonio'] = {
+  title: `The U.S. Is the World's Largest Plaster Producer — And San Antonio Benefits | ${SITE_NAME}`,
+  description: 'Discover why the United States leads global plaster production and how San Antonio homeowners benefit from local access to premium stucco and plaster materials.',
+  content: `<article>
+${breadcrumb([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster-producer-san-antonio', "The U.S. Is the World's Largest Plaster Producer"]])}
+<h1>The U.S. Is the World's Largest Plaster Producer — And San Antonio Benefits</h1>
+<p>The United States produces more gypsum plaster than any other country in the world, with an annual output exceeding 22 million metric tons. This massive domestic production capacity directly benefits San Antonio homeowners and contractors with reliable access to high-quality plaster and stucco materials.</p>
+<h2>Why U.S. Plaster Production Matters for San Antonio</h2>
+<p>Texas is one of the top gypsum-producing states, with significant mining operations feeding plaster manufacturing plants across the region. This proximity means San Antonio stucco contractors have access to fresh, high-quality materials without the long supply chains and quality inconsistencies that affect other markets.</p>
+<h2>The Connection Between Plaster and Stucco</h2>
+<p>Traditional stucco is essentially portland cement plaster — a mixture of portland cement, sand, lime, and water applied in multiple coats over a lath system. The quality of these base materials directly impacts the durability and longevity of every stucco installation. With U.S. manufacturers producing to strict ASTM standards, local contractors can specify exact performance characteristics for South Texas conditions.</p>
+<h2>What This Means for Your Home</h2>
+<p>When you hire a local stucco contractor in San Antonio, you benefit from materials that are manufactured domestically to consistent quality standards, shipped short distances to maintain freshness, and formulated for regional climate conditions. This is one of the many advantages of choosing a contractor who understands both the materials science and the local environment.</p>
+<section><h2>Related Services</h2>
+<ul>
+<li><a href="/stucco-installation">Stucco Installation</a></li>
+<li><a href="/stucco-installation/san-antonio">Stucco Installation in San Antonio</a></li>
+<li><a href="/stucco-replacement">Stucco Replacement</a></li>
+<li><a href="/stucco-contractor-san-antonio">Stucco Contractor in San Antonio</a></li>
+</ul>
+</section>
+${ctaBlock()}
+${breadcrumbSchema([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster-producer-san-antonio', "The U.S. Is the World's Largest Plaster Producer"]])}
+</article>`,
+};
 
 // ── HTML Injection ──
 

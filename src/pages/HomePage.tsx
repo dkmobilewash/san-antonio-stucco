@@ -113,6 +113,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Priority Links */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-8">
+            Most Searched Stucco Services in San Antonio
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <Link to="/stucco-contractor-san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Contractor in San Antonio
+            </Link>
+            <Link to="/stucco-repair-san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Repair in San Antonio
+            </Link>
+            <Link to="/stucco-installation-san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Installation in San Antonio
+            </Link>
+            <Link to="/stucco-installation/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Installation in San Antonio, TX
+            </Link>
+            <Link to="/stucco-repairs/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Repairs in San Antonio, TX
+            </Link>
+            <Link to="/stucco-replacement/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Replacement in San Antonio, TX
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Badges */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -270,7 +299,9 @@ export default function HomePage() {
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-slate-300 leading-relaxed">
             <p>
-              San Antonio sits at the crossroads of extreme environmental conditions that make it one of the most demanding markets for exterior building materials in the United States. Summer temperatures regularly exceed 100 degrees, causing intense thermal cycling that expands and contracts stucco walls daily. Gulf Coast humidity averaging 60-70% drives moisture into every crack and joint, while South Texas UV exposure — among the highest in the country — degrades coatings faster than anywhere else in the state.
+              San Antonio sits at the crossroads of extreme environmental conditions that make it one of the most demanding markets for exterior building materials in the United States. Summer temperatures regularly exceed 100 degrees, causing intense thermal cycling that expands and contracts stucco walls daily. Gulf Coast humidity averaging 60-70% drives moisture into every crack and joint, while South Texas UV exposure — among the highest in the country — degrades coatings faster than anywhere else in the state. We build systems aligned with{' '}
+              <a href="https://www.cement.org/learn/concrete-technology/concrete-construction/stucco-portland-cement-plaster" rel="noopener" target="_blank" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">Portland Cement Association standards</a>{' '}
+              for three-coat portland cement plaster.
             </p>
             <p>
               These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repair-san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
