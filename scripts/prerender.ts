@@ -158,6 +158,7 @@ ${faqHtml(homeFaqs, 'Frequently Asked Questions')}
 ${ctaBlock()}
 ${faqSchema(homeFaqs)}
 ${breadcrumbSchema(crumbs)}
+${localBusinessSchema()}
 </article>`;
 }
 
@@ -596,11 +597,54 @@ ${breadcrumbSchema([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster
 
 const template = readFileSync(join(DIST, 'index.html'), 'utf8');
 
+function localBusinessSchema(): string {
+  return `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://sanantoniostucco.com/#business",
+    "name": "San Antonio Stucco",
+    "description": "San Antonio's trusted stucco contractor for residential & commercial projects. Expert stucco repair, installation, and EIFS services across the San Antonio, TX area.",
+    "url": "https://sanantoniostucco.com",
+    "telephone": contact.phone,
+    "email": contact.email,
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5802 Rocky Pt Dr",
+      "addressLocality": "San Antonio",
+      "addressRegion": "TX",
+      "postalCode": "78249",
+      "addressCountry": "US",
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 29.5574, "longitude": -98.6035 },
+    "areaServed": [
+      { "@type": "City", "name": "San Antonio", "@id": "https://en.wikipedia.org/wiki/San_Antonio" },
+      ...locations.map(l => ({ "@type": "City" as const, "name": l.name })),
+    ].filter((v, i, a) => a.findIndex(x => x.name === v.name) === i),
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" },
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Stucco Services",
+      "itemListElement": services.map(s => ({
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": s.name },
+      })),
+    },
+  })}</script>`;
+}
+
 function injectPage(html: string, path: string, entry: RouteEntry): string {
   const headTags = seoHead(path, entry.title, entry.description);
 
   return html
     .replace(/<title>[^<]*<\/title>/, '')
+    .replace(/<meta\s+name="description"[^>]*>/g, '')
+    .replace(/<meta\s+property="og:[^"]*"[^>]*>/g, '')
+    .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/g, '')
     .replace('</head>', `${headTags}\n  </head>`)
     .replace(/<div id="root">\s*<\/div>/, `<div id="root">${entry.content}</div>`);
 }
