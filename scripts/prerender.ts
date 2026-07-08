@@ -84,9 +84,9 @@ function faqHtml(faqs: { question: string; answer: string }[], heading: string):
 
 const PRIORITY_SERVICES = ['stucco-installation', 'stucco-repairs', 'stucco-replacement'];
 const PRIORITY_GEO_PAGES = [
-  { path: '/stucco-contractor-san-antonio', label: 'Stucco Contractor in San Antonio' },
-  { path: '/stucco-repair-san-antonio', label: 'Stucco Repair in San Antonio' },
-  { path: '/stucco-installation-san-antonio', label: 'Stucco Installation in San Antonio' },
+  { path: '/commercial-stucco/san-antonio', label: 'Commercial Stucco in San Antonio' },
+  { path: '/eifs-synthetic-stucco/san-antonio', label: 'EIFS Stucco in San Antonio' },
+  { path: '/residential-stucco/san-antonio', label: 'Residential Stucco in San Antonio' },
 ];
 
 const blogServiceMap: Record<string, string[]> = {
@@ -264,7 +264,7 @@ ${faqHtml(data.faqs, `${service.name} FAQ — ${location.name}`)}
 <section><h2>${esc(service.name)} Across San Antonio</h2>
 <ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
-${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/stucco-contractor-san-antonio">Stucco Contractor in San Antonio</a> | <a href="/${service.slug}">${esc(service.name)} — All Locations</a></p>`}
+${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/san-antonio">All Stucco Services in San Antonio</a> | <a href="/${service.slug}">${esc(service.name)} — All Locations</a></p>`}
 <section><h2>Related Articles</h2>
 <ul>${blogPosts.filter(p => {
   const mapped = blogServiceMap[p.slug];
@@ -425,22 +425,7 @@ ${breadcrumbSchema(crumbs)}
 </article>`;
 }
 
-function renderStaticSeoPage(path: string, title: string, description: string): string {
-  const crumbs: [string, string][] = [['/', 'Home'], [path, title.split(' | ')[0]]];
-  return `<article>
-${breadcrumb(crumbs)}
-<h1>${esc(title.split(' | ')[0])}</h1>
-<p>${esc(description)}</p>
-<section><h2>Our Services</h2>
-<ul>${services.map(s => `<li><a href="/${s.slug}">${esc(s.name)}</a></li>`).join('')}</ul>
-</section>
-<section><h2>Areas We Serve</h2>
-<ul>${locations.map(l => `<li><a href="/${l.slug}">${esc(l.name)}</a></li>`).join('')}</ul>
-</section>
-${ctaBlock()}
-${breadcrumbSchema(crumbs)}
-</article>`;
-}
+
 
 // ── Route Map ──
 
@@ -493,38 +478,6 @@ routes['/blog'] = {
   description: 'Expert stucco tips, guides, and advice from San Antonio Stucco. Learn about stucco repair, installation, maintenance, and more.',
   content: renderBlogListing(),
 };
-
-// Standalone geo landing pages
-const geoPages: Record<string, { title: string; description: string }> = {
-  '/stucco-repair': {
-    title: `Stucco Repair Services | ${SITE_NAME}`,
-    description: 'Professional stucco repair in San Antonio. We fix cracks, water damage, holes, and delamination. Licensed & insured. Free estimates — call (210) 871-8490.',
-  },
-  '/stucco-contractor-san-antonio': {
-    title: `Stucco Contractor San Antonio TX | Licensed & Insured | ${SITE_NAME}`,
-    description: 'Looking for a stucco contractor in San Antonio? Licensed, insured, locally owned. Expert repair, installation & EIFS. Free estimates — call (210) 871-8490.',
-  },
-  '/stucco-repair-san-antonio': {
-    title: `Stucco Repair San Antonio TX | ${SITE_NAME}`,
-    description: 'Expert stucco repair in San Antonio, TX. We fix cracks, water damage, and delamination throughout San Antonio. Free estimates — call (210) 871-8490.',
-  },
-  '/stucco-installation-san-antonio': {
-    title: `Stucco Installation San Antonio TX | ${SITE_NAME}`,
-    description: 'Professional stucco installation in San Antonio, TX. New construction and additions. Three-coat systems built for South Texas. Call (210) 871-8490.',
-  },
-  '/eifs-stucco-san-antonio': {
-    title: `EIFS Stucco San Antonio TX | ${SITE_NAME}`,
-    description: 'EIFS and synthetic stucco services in San Antonio, TX. Installation, repair, and moisture remediation. Free estimates — call (210) 871-8490.',
-  },
-  '/commercial-stucco-san-antonio': {
-    title: `Commercial Stucco San Antonio TX | ${SITE_NAME}`,
-    description: 'Commercial stucco contractor in San Antonio, TX. Offices, retail, multi-family, and institutional buildings. Licensed & insured. Call (210) 871-8490.',
-  },
-};
-
-for (const [path, seo] of Object.entries(geoPages)) {
-  routes[path] = { ...seo, content: renderStaticSeoPage(path, seo.title, seo.description) };
-}
 
 // Service detail pages
 for (const s of services) {
@@ -585,7 +538,7 @@ ${breadcrumb([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster-produ
 <li><a href="/stucco-installation">Stucco Installation</a></li>
 <li><a href="/stucco-installation/san-antonio">Stucco Installation in San Antonio</a></li>
 <li><a href="/stucco-replacement">Stucco Replacement</a></li>
-<li><a href="/stucco-contractor-san-antonio">Stucco Contractor in San Antonio</a></li>
+<li><a href="/san-antonio">Stucco Services in San Antonio</a></li>
 </ul>
 </section>
 ${ctaBlock()}
