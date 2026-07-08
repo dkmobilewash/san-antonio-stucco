@@ -1,5 +1,11 @@
 {
   "redirects": [
+    { "source": "/stucco-repair", "destination": "/stucco-repairs", "permanent": true },
+    { "source": "/stucco-repair-san-antonio", "destination": "/stucco-repairs/san-antonio", "permanent": true },
+    { "source": "/stucco-installation-san-antonio", "destination": "/stucco-installation/san-antonio", "permanent": true },
+    { "source": "/eifs-stucco-san-antonio", "destination": "/eifs-synthetic-stucco/san-antonio", "permanent": true },
+    { "source": "/commercial-stucco-san-antonio", "destination": "/commercial-stucco/san-antonio", "permanent": true },
+    { "source": "/stucco-contractor-san-antonio", "destination": "/", "permanent": true },
     {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "www.sanantoniostucco.com" }],
