@@ -208,7 +208,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Repairs',
     date: 'June 2025',
     image: 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-replacement-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXJlcGxhY2VtZW50LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDgxOSwiZXhwIjoxODA5MTE2ODE5fQ.uo6Gz1bu6exda7KdKjmgOkkt-iSb_01NiOa6njyu0Yk',
-    relatedService: '/stucco-repair',
+    relatedService: '/stucco-repairs',
     content: [
       'If you are searching for stucco repair near me in San Antonio, you are not alone. Thousands of San Antonio homeowners deal with cracked, stained, or deteriorating stucco every year, and finding the right contractor to fix it can be the difference between a repair that lasts a decade and one that fails again within a year. This guide covers what to look for, what to avoid, and how to get the best value on stucco repair in the San Antonio area.',
       '## Why Stucco Repair Is So Common in San Antonio',
