@@ -28,6 +28,25 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
         email: formData.email,
         description: formData.description,
       });
+
+            // Forward to Zapier webhook for lead tracking
+            try {
+                      await fetch('https://hooks.zapier.com/hooks/catch/20117350/44fmixd/', {
+                                  method: 'POST',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({
+                                                name: formData.name,
+                                                phone: formData.phone,
+                                                email: formData.email,
+                                                service: selectedService,
+                                                description: formData.description,
+                                                website: 'San Antonio Stucco',
+                                                submittedAt: new Date().toISOString(),
+                                  }),
+                      });
+            } catch (zapierError) {
+                      console.error('[Zapier Webhook Error]', zapierError);
+            }
     } catch {
       // still show success to user
     }
