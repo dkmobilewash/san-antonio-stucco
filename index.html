@@ -20,6 +20,103 @@
     <link rel="dns-prefetch" href="https://www.google.com" />
 
     <!-- Preload hero image (LCP element) -->
+    <link rel="preload" as="image" href="https://static.wixstatic.com/media/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg" />
+
+    <!-- Fonts with display=swap (non-render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+
+    <!-- Critical inline CSS for above-the-fold rendering -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box}
+      body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+      #root{min-height:100vh}
+      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    </style>
+
+    <!-- LocalBusiness Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://sanantoniostucco.com/#business",
+      "name": "San Antonio Stucco",
+      "url": "https://sanantoniostucco.com",
+      "telephone": "+1-210-871-8490",
+      "email": "info@sanantoniostucco.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5802 Rocky Pt Dr",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX",
+        "postalCode": "78249",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.5605,
+        "longitude": -98.6141
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "14:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "San Antonio",
+        "sameAs": "https://en.wikipedia.org/wiki/San_Antonio"
+      },
+      "serviceType": [
+        "Stucco Installation",
+        "Stucco Replacement",
+        "Residential Stucco",
+        "Commercial Stucco",
+        "Stucco Remodeling",
+        "Stucco Repairs",
+        "EIFS / Synthetic Stucco",
+        "Stucco Painting"
+      ],
+      "priceRange": "$$"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  </html><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stucco Contractor in San Antonio, TX | Repair, Installation &amp; EIFS</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Preconnect to third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://tsybcnnjylmvhsxzknug.supabase.co" crossorigin />
+    <link rel="preconnect" href="https://static.wixstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://tsybcnnjylmvhsxzknug.supabase.co" />
+    <link rel="dns-prefetch" href="https://static.wixstatic.com" />
+    <link rel="dns-prefetch" href="https://images.pexels.com" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+
+    <!-- Preload hero image (LCP element) -->
     <link rel="preload" as="image" href="https://static.wixstatic.com/media/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg" fetchpriority="high" />
 
     <!-- Fonts with display=swap (non-render-blocking) -->
