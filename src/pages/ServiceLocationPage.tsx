@@ -46,11 +46,27 @@ export default function ServiceLocationPage() {
     ];
   }, [service, location, pageData]);
 
+  const seoTitleOverrides: Record<string, string> = {
+    'stucco-repairs/san-antonio': 'Stucco Repair San Antonio TX | Same-Week Estimates | San Antonio Stucco',
+    'commercial-stucco/san-antonio': 'Commercial Stucco Contractor San Antonio TX | Licensed & Insured | San Antonio Stucco',
+    'eifs-synthetic-stucco/san-antonio': 'EIFS Stucco San Antonio TX | Installation & Repair Experts | San Antonio Stucco',
+    'residential-stucco/san-antonio': 'Residential Stucco Contractor San Antonio TX | Home Exteriors | San Antonio Stucco',
+    'stucco-installation/san-antonio': 'Stucco Installation San Antonio TX | New Builds & Retrofit | San Antonio Stucco',
+  };
+  const seoDescOverrides: Record<string, string> = {
+    'stucco-repairs/san-antonio': 'Cracked or water-damaged stucco in San Antonio? Same-week estimates for all stucco repair types. Seamless texture matching, licensed & insured. Call (210) 871-8490.',
+    'commercial-stucco/san-antonio': 'Commercial stucco installation and repair in San Antonio. Offices, retail & multi-family. Minimal disruption, professional results. Free quote — call (210) 871-8490.',
+    'eifs-synthetic-stucco/san-antonio': 'San Antonio EIFS and synthetic stucco specialists — installation, repair & moisture remediation. Licensed & insured. Free assessment — call (210) 871-8490.',
+    'residential-stucco/san-antonio': 'Residential stucco repair, installation & refinishing for San Antonio homes. Quality workmanship built for Texas heat. Free estimate — call (210) 871-8490.',
+    'stucco-installation/san-antonio': 'Professional stucco installation in San Antonio for new construction & retrofits. Three-coat systems engineered for South Texas. Free estimate — call (210) 871-8490.',
+  };
+  const comboKey = `${serviceSlug}/${locationSlug}`;
+
   usePageSEO({
-    title: service && location
+    title: seoTitleOverrides[comboKey] || (service && location
       ? `${service.name} in ${location.name}, TX | San Antonio Stucco`
-      : 'Page Not Found',
-    description: pageData?.metaDescription ||
+      : 'Page Not Found'),
+    description: seoDescOverrides[comboKey] || pageData?.metaDescription ||
       (service && location
         ? `Professional ${service.name.toLowerCase()} in ${location.name}, TX. Licensed & insured. Free estimates — call (210) 871-8490.`
         : 'Page not found.'),
