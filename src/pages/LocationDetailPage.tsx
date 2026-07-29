@@ -29,7 +29,7 @@ export default function LocationDetailPage() {
   const seoMeta = useMemo(() => {
     if (!location) return { title: 'Location Not Found', description: 'Page not found.' };
     const cityTitles: Record<string, string> = {
-      'san-antonio': 'Stucco Contractor in San Antonio, TX | San Antonio Stucco',
+      'san-antonio': 'Stucco Contractor San Antonio TX | Repair, Installation & EIFS | San Antonio Stucco',
       'boerne': 'Stucco Contractor in Boerne, TX | San Antonio Stucco',
       'new-braunfels': 'Stucco Contractor in New Braunfels, TX | San Antonio Stucco',
       'schertz': 'Stucco Contractor in Schertz, TX | San Antonio Stucco',
@@ -42,7 +42,7 @@ export default function LocationDetailPage() {
       'selma': 'Stucco Contractor in Selma, TX | San Antonio Stucco',
     };
     const cityDescriptions: Record<string, string> = {
-      'san-antonio': 'Top-rated stucco contractor in San Antonio, TX. Crack repair, water damage repair, installation & EIFS for homes & businesses across Bexar County. Get a free estimate today.',
+      'san-antonio': 'Top-rated stucco contractor in San Antonio, TX. Expert stucco repair, installation & EIFS for homes & businesses. Licensed & insured. Free estimate — call (210) 871-8490.',
       'boerne': 'Stucco contractor in Boerne, TX serving the Hill Country. Expert repair, installation & custom finishing for Boerne and Fair Oaks Ranch homes. Call for a free estimate.',
       'new-braunfels': 'Stucco contractor in New Braunfels, TX serving Comal County. Repair, installation & EIFS for homes near Canyon Lake, Gruene & Vintage Oaks. Free estimates available.',
       'schertz': 'Stucco contractor in Schertz, TX serving Schertz, Cibolo & the I-35 corridor. Crack repair, installation & finishing for homes and businesses. Get your free estimate.',

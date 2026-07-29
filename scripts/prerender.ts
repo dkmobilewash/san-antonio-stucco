@@ -13,6 +13,19 @@ const SITE_URL = 'https://sanantoniostucco.com';
 const SITE_NAME = 'San Antonio Stucco';
 const OG_IMAGE = 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/san-antonio-stucco.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc2FuLWFudG9uaW8tc3R1Y2NvLnBuZyIsImlhdCI6MTc3NzU3ODEzOSwiZXhwIjoxODA5MTE0MTM5fQ.1hP43qIGRyXlwLX02o92zUXeVzuLUpxvJDbBl_Ley_M';
 
+const seoServiceName: Record<string, string> = {
+  'stucco-repairs': 'Stucco Repair',
+  'eifs-synthetic-stucco': 'EIFS Stucco',
+};
+
+const comboH1Overrides: Record<string, string> = {
+  'eifs-synthetic-stucco/san-antonio': 'EIFS Stucco in San Antonio, TX',
+  'commercial-stucco/san-antonio': 'Commercial Stucco Contractor in San Antonio, TX',
+  'stucco-repairs/san-antonio': 'Stucco Repair in San Antonio, TX',
+  'stucco-installation/san-antonio': 'Stucco Installation in San Antonio, TX',
+  'residential-stucco/san-antonio': 'Residential Stucco Contractor in San Antonio, TX',
+};
+
 // ── Helpers ──
 
 function esc(str: string): string {
@@ -163,40 +176,41 @@ ${localBusinessSchema()}
 }
 
 function renderServicePage(service: typeof services[0]): string {
+  const dn = seoServiceName[service.slug] || service.name;
   const crumbs: [string, string][] = [['/', 'Home'], ['/services', 'Services'], [`/${service.slug}`, service.name]];
   return `<article>
 ${breadcrumb(crumbs)}
 <h1>${esc(service.heroHeadline)}</h1>
 <p>${esc(service.heroDescription)}</p>
-<section><h2>About ${esc(service.name)} in San Antonio</h2>
+<section><h2>About ${esc(dn)} in San Antonio</h2>
 ${service.overview.map(p => `<p>${esc(p)}</p>`).join('\n')}
 </section>
 <section><h2>${esc(service.whyItMatters.heading)}</h2>
 ${service.whyItMatters.paragraphs.map(p => `<p>${esc(p)}</p>`).join('\n')}
 </section>
-<section><h2>Why Choose ${SITE_NAME} for ${esc(service.name)}</h2>
+<section><h2>Why Choose ${SITE_NAME} for ${esc(dn)}</h2>
 <ul>${service.benefits.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
 </section>
 <section><h2>${esc(service.process.heading)}</h2>
 <ol>${service.process.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
 </section>
-${service.commonSigns ? `<section><h2>Signs You May Need ${esc(service.name)}</h2>
+${service.commonSigns ? `<section><h2>Signs You May Need ${esc(dn)}</h2>
 <ul>${service.commonSigns.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
 </section>` : ''}
-<section><h2>Why Hire a Professional for ${esc(service.name)} in San Antonio</h2>
+<section><h2>Why Hire a Professional for ${esc(dn)} in San Antonio</h2>
 <ul>${service.whyProfessional.map(w => `<li>${esc(w)}</li>`).join('')}</ul>
 </section>
-${service.costTimeline ? `<section><h2>How Much Does ${esc(service.name)} Cost in San Antonio?</h2>
+${service.costTimeline ? `<section><h2>How Much Does ${esc(dn)} Cost in San Antonio?</h2>
 <ul>${service.costTimeline.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
 </section>` : ''}
 <section><h2>${esc(service.painPoints.heading)}</h2>
 <p>${esc(service.painPoints.description)}</p>
 <ul>${service.painPoints.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
 </section>
-${faqHtml(service.faqs, `${service.name} FAQ`)}
-<section><h2>${esc(service.name)} Across San Antonio</h2>
-<p><strong>Featured:</strong> <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> — our most requested service area.</p>
-<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+${faqHtml(service.faqs, `${dn} FAQ`)}
+<section><h2>${esc(dn)} Across San Antonio</h2>
+<p><strong>Featured:</strong> <a href="/${service.slug}/san-antonio">${esc(dn)} in San Antonio</a> — our most requested service area.</p>
+<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(dn)} in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
 <section><h2>Related Articles</h2>
 <ul>${blogPosts.filter(p => {
@@ -243,28 +257,32 @@ ${breadcrumbSchema(crumbs)}
 }
 
 function renderComboPage(service: typeof services[0], location: typeof locations[0], data: typeof serviceLocationData[0]): string {
+  const comboKey = `${service.slug}/${location.slug}`;
+  const displayName = seoServiceName[service.slug] || service.name;
+  const h1 = comboH1Overrides[comboKey] || `${displayName} in ${location.name}, TX`;
+  const h2Label = comboH1Overrides[comboKey]?.replace(', TX', '') || `${displayName} in ${location.name}`;
   const crumbs: [string, string][] = [['/', 'Home'], [`/${service.slug}`, service.name], [`/${service.slug}/${location.slug}`, location.name]];
   return `<article>
 ${breadcrumb(crumbs)}
-<h1>${esc(service.name)} in ${esc(location.name)}, TX</h1>
+<h1>${esc(h1)}</h1>
 <p>${esc(data.paragraphs[0])}</p>
-<section><h2>${esc(service.name)} in ${esc(location.name)}</h2>
+<section><h2>${esc(h2Label)}</h2>
 ${data.paragraphs.slice(1).map(p => `<p>${esc(p)}</p>`).join('\n')}
 </section>
-<section><h2>Why Choose Us for ${esc(service.name)} in ${esc(location.name)}</h2>
+<section><h2>Why Choose Us for ${esc(displayName)} in ${esc(location.name)}</h2>
 <ul>${service.benefits.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
 </section>
 <section><h2>${esc(location.name)} Climate Challenges for Stucco</h2>
 <ul>${location.painPoints.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
 </section>
-${faqHtml(data.faqs, `${service.name} FAQ — ${location.name}`)}
+${faqHtml(data.faqs, `${displayName} FAQ — ${location.name}`)}
 <section><h2>Other Stucco Services in ${esc(location.name)}</h2>
-<ul>${services.filter(s => s.slug !== service.slug).map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
+<ul>${services.filter(s => s.slug !== service.slug).map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(seoServiceName[s.slug] || s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
 </section>
-<section><h2>${esc(service.name)} Across San Antonio</h2>
-<ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(service.name)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+<section><h2>${esc(displayName)} Across San Antonio</h2>
+<ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(displayName)} in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
-${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(service.name)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/san-antonio">All Stucco Services in San Antonio</a> | <a href="/${service.slug}">${esc(service.name)} — All Locations</a></p>`}
+${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(displayName)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/san-antonio">All Stucco Services in San Antonio</a> | <a href="/${service.slug}">${esc(displayName)} — All Locations</a></p>`}
 <section><h2>Related Articles</h2>
 <ul>${blogPosts.filter(p => {
   const mapped = blogServiceMap[p.slug];
@@ -563,6 +581,10 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
   '/stucco-installation/san-antonio': {
     title: `Stucco Installation San Antonio TX | New Builds & Retrofit | ${SITE_NAME}`,
     description: 'Professional stucco installation in San Antonio for new construction & retrofits. Three-coat systems engineered for South Texas. Free estimate — call (210) 871-8490.',
+  },
+  '/san-antonio': {
+    title: `Stucco Contractor San Antonio TX | Repair, Installation & EIFS | ${SITE_NAME}`,
+    description: 'Top-rated stucco contractor in San Antonio, TX. Expert stucco repair, installation & EIFS for homes & businesses. Licensed & insured. Free estimate — call (210) 871-8490.',
   },
 };
 
