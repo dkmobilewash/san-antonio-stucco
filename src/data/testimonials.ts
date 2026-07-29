@@ -49,4 +49,19 @@ export const testimonials: Testimonial[] = [
     service: 'Commercial Stucco',
     rating: 5,
   },
+  // TODO: Replace with real customer reviews for Stucco Painting and Residential Stucco once available
+  {
+    name: 'Sandra W.',
+    location: 'Terrell Hills, San Antonio',
+    text: 'They painted our entire stucco exterior with an elastomeric coating. The color is exactly what we wanted and they assured us it will hold up against the Texas sun for years. Very happy with the crew and the cleanup.',
+    service: 'Stucco Painting',
+    rating: 5,
+  },
+  {
+    name: 'Carlos & Ana G.',
+    location: 'Leon Valley, TX',
+    text: 'We had cracks and discoloration all over our home exterior. Their team repaired every crack, applied a fresh finish, and now the house looks better than when we bought it. Great communication from start to finish.',
+    service: 'Residential Stucco',
+    rating: 5,
+  },
 ];
