@@ -678,13 +678,19 @@ function localBusinessSchema(): string {
 function injectPage(html: string, path: string, entry: RouteEntry): string {
   const headTags = seoHead(path, entry.title, entry.description);
 
+  const jsonLdTags: string[] = [];
+  const contentWithoutJsonLd = entry.content.replace(
+    /<script type="application\/ld\+json">[^<]*<\/script>/g,
+    (match) => { jsonLdTags.push(match); return ''; },
+  );
+
   return html
     .replace(/<title>[^<]*<\/title>/, '')
     .replace(/<meta\s+name="description"[^>]*>/g, '')
     .replace(/<meta\s+property="og:[^"]*"[^>]*>/g, '')
     .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/g, '')
-    .replace('</head>', `${headTags}\n  </head>`)
-    .replace(/<div id="root">\s*<\/div>/, `<div id="root">${entry.content}</div>`);
+    .replace('</head>', `${headTags}\n  ${jsonLdTags.join('\n  ')}\n  </head>`)
+    .replace(/<div id="root">\s*<\/div>/, `<div id="root">${contentWithoutJsonLd}</div>`);
 }
 
 let count = 0;
