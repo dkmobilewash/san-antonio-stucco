@@ -7,6 +7,8 @@ import { serviceLocationData } from '../data/serviceLocationData';
 import { contact } from '../data/contact';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import ReviewCTA from '../components/ReviewCTA';
 import { usePageSEO } from '../lib/seo';
 
 export default function ServiceLocationPage() {
@@ -208,6 +210,12 @@ export default function ServiceLocationPage() {
 
       {/* FAQ */}
       <FAQSection faqs={pageData.faqs} title={`${service.name} FAQ — ${location.name}`} />
+
+      {/* Testimonials */}
+      <TestimonialsSection title={`${service.name} Reviews from ${location.name} Clients`} filter={service.name} />
+
+      {/* Review CTA */}
+      <ReviewCTA />
 
       {/* Other Services in This Location */}
       <section className="py-20">

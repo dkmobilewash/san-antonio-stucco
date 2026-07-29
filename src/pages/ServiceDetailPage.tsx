@@ -5,6 +5,7 @@ import { services } from '../data/services';
 import { locations } from '../data/locations';
 import { contact } from '../data/contact';
 import TestimonialsSection from '../components/TestimonialsSection';
+import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
 import { usePageSEO } from '../lib/seo';
@@ -362,6 +363,9 @@ export default function ServiceDetailPage() {
 
       {/* Testimonials */}
       <TestimonialsSection title={`What Clients Say About Our ${service.name}`} filter={service.name} />
+
+      {/* Review CTA */}
+      <ReviewCTA />
 
       {/* Related Services */}
       {relatedServicesMap[service.slug] && (

@@ -5,6 +5,7 @@ import { locations } from '../data/locations';
 import { contact } from '../data/contact';
 import EstimateForm from '../components/EstimateForm';
 import TestimonialsSection from '../components/TestimonialsSection';
+import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
 import SEO from '../components/SEO';
 
@@ -361,6 +362,9 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <TestimonialsSection />
+
+      {/* Review CTA */}
+      <ReviewCTA />
 
       {/* Service Areas */}
       <section className="py-20 bg-slate-50">

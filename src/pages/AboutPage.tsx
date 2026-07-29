@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, Award, Users, Calendar, Shield, ArrowRight, MapPin } from 'lucide-react';
 import CTASection from '../components/CTASection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import ReviewCTA from '../components/ReviewCTA';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
 import { usePageSEO } from '../lib/seo';
@@ -108,6 +109,8 @@ export default function AboutPage() {
       </section>
 
       <TestimonialsSection title="What Our Clients Say" />
+
+      <ReviewCTA />
 
       {/* Services We Offer */}
       <section className="py-16">
