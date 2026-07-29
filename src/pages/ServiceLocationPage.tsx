@@ -63,6 +63,13 @@ export default function ServiceLocationPage() {
     'stucco-installation/san-antonio': 'Professional stucco installation in San Antonio for new construction & retrofits. Three-coat systems engineered for South Texas. Free estimate — call (210) 871-8490.',
   };
   const comboKey = `${serviceSlug}/${locationSlug}`;
+  const h1Overrides: Record<string, string> = {
+    'eifs-synthetic-stucco/san-antonio': 'EIFS Stucco in San Antonio, TX',
+    'commercial-stucco/san-antonio': 'Commercial Stucco Contractor in San Antonio, TX',
+    'stucco-repairs/san-antonio': 'Stucco Repair in San Antonio, TX',
+    'stucco-installation/san-antonio': 'Stucco Installation in San Antonio, TX',
+    'residential-stucco/san-antonio': 'Residential Stucco Contractor in San Antonio, TX',
+  };
 
   usePageSEO({
     title: seoTitleOverrides[comboKey] || (service && location
@@ -110,7 +117,7 @@ export default function ServiceLocationPage() {
               <span className="text-sm font-medium text-sand-700">{location.name}, TX</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              {service.name} in {location.name}, TX
+              {h1Overrides[comboKey] || `${service.name} in ${location.name}, TX`}
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               {pageData.paragraphs[0]}
@@ -142,7 +149,7 @@ export default function ServiceLocationPage() {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-slate-800 mb-8">
-            {service.name} in {location.name}
+            {h1Overrides[comboKey]?.replace(', TX', '') || `${service.name} in ${location.name}`}
           </h2>
           <div className="space-y-6">
             {pageData.paragraphs.slice(1).map((paragraph, i) => (

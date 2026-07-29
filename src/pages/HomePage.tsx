@@ -118,26 +118,32 @@ export default function HomePage() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-8">
-            Most Searched Stucco Services in San Antonio
+            Stucco Services in San Antonio
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             <Link to="/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Contractor in San Antonio
+              Stucco Contractor San Antonio
             </Link>
             <Link to="/stucco-repairs/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Repair in San Antonio
+              Stucco Repair San Antonio
             </Link>
             <Link to="/stucco-installation/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Installation in San Antonio
+              Stucco Installation San Antonio
             </Link>
-            <Link to="/stucco-installation/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Installation in San Antonio, TX
+            <Link to="/eifs-synthetic-stucco/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              EIFS Stucco San Antonio
             </Link>
-            <Link to="/stucco-repairs/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Repairs in San Antonio, TX
+            <Link to="/commercial-stucco/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Commercial Stucco San Antonio
             </Link>
-            <Link to="/stucco-replacement/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Replacement in San Antonio, TX
+            <Link to="/stucco-replacement" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Replacement San Antonio
+            </Link>
+            <Link to="/stucco-painting" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Painting San Antonio
+            </Link>
+            <Link to="/stucco-remodeling" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+              Stucco Remodeling San Antonio
             </Link>
           </div>
         </div>
@@ -305,7 +311,10 @@ export default function HomePage() {
               for three-coat portland cement plaster.
             </p>
             <p>
-              These conditions demand a local stucco contractor who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
+              These conditions demand a local <Link to="/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco contractor in San Antonio</Link> who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
+            </p>
+            <p>
+              For commercial properties, our <Link to="/commercial-stucco/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">commercial stucco</Link> team handles offices, retail, and multi-family buildings with minimal disruption. We also specialize in <Link to="/eifs-synthetic-stucco/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">EIFS stucco</Link> systems that require specialized knowledge most contractors lack, and <Link to="/stucco-painting" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco painting</Link> with elastomeric coatings rated for South Texas UV.
             </p>
             <p>
               We also provide <Link to="/boerne" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco in Boerne</Link> and throughout the Hill Country corridor where elevation and rocky terrain add additional challenges. As the leading stucco company in San Antonio, TX, our crews work across the entire metro daily.

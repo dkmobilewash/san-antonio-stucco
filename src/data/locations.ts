@@ -16,8 +16,8 @@ export const locations: Location[] = [
     name: 'San Antonio',
     description: 'Serving all neighborhoods throughout San Antonio with professional stucco services.',
     heroHeadline: 'Stucco Contractor in San Antonio, TX',
-    heroDescription: 'San Antonio\'s leading stucco contractor delivering expert installation, repair, and replacement throughout the city. From Alamo Heights to the Westside, we serve every neighborhood.',
-    localInfo: 'As San Antonio\'s trusted stucco experts, we understand the unique challenges our city\'s climate presents. From the intense summer heat that causes thermal expansion to the humidity that tests moisture barriers, we build stucco systems designed specifically for local conditions.',
+    heroDescription: 'Looking for a stucco contractor in San Antonio? We deliver expert stucco repair, installation, and replacement throughout the city. From Alamo Heights to the Westside, our local crews serve every neighborhood with licensed, insured workmanship.',
+    localInfo: 'As San Antonio\'s trusted stucco contractor, we understand the unique challenges our city\'s climate presents. From the intense summer heat that causes thermal expansion to the humidity that tests moisture barriers, we build stucco systems designed specifically for local conditions.',
     painPoints: [
       'Summer temperatures exceeding 100°F cause severe thermal stress on stucco',
       'High humidity promotes moisture intrusion behind improperly sealed surfaces',
