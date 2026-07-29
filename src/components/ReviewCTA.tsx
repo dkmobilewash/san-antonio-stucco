@@ -1,8 +1,6 @@
 import { Star, ExternalLink } from 'lucide-react';
 
-// TODO: Replace with actual Google Business Profile review URL
-// Find it at: Google Business Profile > Home > "Get more reviews" > copy link
-const GOOGLE_REVIEW_URL = 'https://g.page/r/sanantoniostucco/review';
+const GOOGLE_REVIEW_URL = 'https://g.page/r/CQEnUEItMuMVEBM/review';
 
 export default function ReviewCTA() {
   return (
