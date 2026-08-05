@@ -115,6 +115,16 @@ const blogServiceMap: Record<string, string[]> = {
   'choosing-right-stucco-finish': ['stucco-installation', 'stucco-painting'],
   'stucco-vs-other-exteriors': ['stucco-installation', 'residential-stucco'],
   'stucco-building-codes-permits': ['stucco-installation', 'commercial-stucco'],
+  'which-type-of-stucco-is-best': ['stucco-installation', 'residential-stucco'],
+  'difference-between-20-30-and-30-30-stucco-finish': ['stucco-installation', 'stucco-painting'],
+  'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house': ['stucco-installation', 'residential-stucco'],
+  'what-are-the-three-stages-of-stucco': ['stucco-installation', 'stucco-repairs'],
+  'average-price-cement-stucco-installation-per-square-foot-san-antonio': ['stucco-installation', 'residential-stucco'],
+  'what-are-the-downsides-of-stucco': ['stucco-repairs', 'stucco-installation'],
+  'life-expectancy-of-a-stucco-house': ['stucco-repairs', 'residential-stucco'],
+  'what-is-the-issue-with-stucco': ['stucco-repairs', 'stucco-replacement'],
+  'does-homeowners-insurance-cover-stucco-issues': ['stucco-repairs', 'stucco-replacement'],
+  'what-does-failing-stucco-look-like': ['stucco-repairs', 'stucco-replacement'],
 };
 
 // ── Content Generators ──
