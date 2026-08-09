@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, CheckCircle, MapPin, Sun, Droplets, ThermometerSun, Shield, Star, DollarSign } from 'lucide-react';
+import { Phone, ArrowRight, CheckCircle, MapPin, Sun, Droplets, ThermometerSun, Shield, Star, DollarSign, BookOpen } from 'lucide-react';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
 import { contact } from '../data/contact';
@@ -8,6 +8,15 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
 import SEO from '../components/SEO';
+
+const featuredArticles = [
+  { slug: 'signs-your-stucco-needs-repair', title: 'Signs Your Stucco Needs Repair', excerpt: 'Cracks, bubbling, discoloration — spot the warning signs before problems worsen.', category: 'Repairs' },
+  { slug: 'cost-of-stucco-installation-san-antonio', title: 'How Much Does Stucco Installation Cost in San Antonio?', excerpt: 'A breakdown of real costs — materials, labor, and what affects pricing.', category: 'Education' },
+  { slug: 'which-type-of-stucco-is-best', title: 'Which Type of Stucco Is Best?', excerpt: 'Three-coat, one-coat, EIFS, or acrylic — compare systems side by side.', category: 'Education' },
+  { slug: 'what-does-failing-stucco-look-like', title: 'What Does Failing Stucco Look Like?', excerpt: 'Visual signs of stucco failure and what each one means for your home.', category: 'Repairs' },
+  { slug: 'how-long-does-stucco-last-san-antonio', title: 'How Long Does Stucco Last in San Antonio?', excerpt: 'Lifespan by system type and how to maximize your exterior investment.', category: 'Maintenance' },
+  { slug: 'stucco-vs-brick-cost-san-antonio', title: 'Stucco vs Brick Cost in San Antonio', excerpt: 'Installation, maintenance, and lifecycle cost compared for SA homes.', category: 'Education' },
+];
 
 const serviceImages: Record<string, string> = {
   'stucco-installation': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-top-coat-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXRvcC1jb2F0LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDczMiwiZXhwIjoxODA5MTE2NzMyfQ.c04kWDbJUcyX5-3_Ws_aeH9BuveIvzjTDX2zhlrM2xA',
@@ -365,6 +374,51 @@ export default function HomePage() {
                 Intense sunlight degrades coatings and accelerates aging. We use UV-resistant materials specifically rated for South Texas conditions.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Guides */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-4">
+            Stucco Guides & Expert Advice
+          </h2>
+          <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
+            From repair signs to installation costs — our guides answer the questions San Antonio homeowners ask most.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredArticles.map((article) => (
+              <Link
+                key={article.slug}
+                to={`/blog/${article.slug}`}
+                className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-sand-200 transition-all"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 bg-sand-50 rounded-lg flex items-center justify-center group-hover:bg-sand-100 transition-colors">
+                    <BookOpen size={16} className="text-sand-600" />
+                  </div>
+                  <span className="text-xs font-medium text-sand-700 bg-sand-50 px-2 py-0.5 rounded-full">
+                    {article.category}
+                  </span>
+                </div>
+                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-3">{article.excerpt}</p>
+                <span className="text-sand-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read guide <ArrowRight size={14} />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              to="/blog"
+              className="text-sand-600 hover:text-sand-700 font-semibold inline-flex items-center gap-1.5 transition-colors"
+            >
+              View All Articles <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>

@@ -72,6 +72,16 @@ export default function BlogPostPage() {
       'stucco-repair-near-me-san-antonio-guide': 'Stucco Repair Near Me San Antonio | Hiring Guide',
       'stucco-vs-brick-cost-san-antonio': 'Stucco vs Brick Cost San Antonio | 2025 Comparison',
       'how-long-does-stucco-last-san-antonio': 'How Long Does Stucco Last in San Antonio? | Guide',
+      'which-type-of-stucco-is-best': 'Which Type of Stucco Is Best? | System Comparison Guide',
+      'difference-between-20-30-and-30-30-stucco-finish': '20/30 vs 30/30 Stucco Finish | Texture Guide',
+      'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house': 'Cost to Stucco a 1,000 Sq Ft House | SA Pricing',
+      'what-are-the-three-stages-of-stucco': 'Three Stages of Stucco | Three-Coat Process Guide',
+      'average-price-cement-stucco-installation-per-square-foot-san-antonio': 'Cement Stucco Cost per Sq Ft San Antonio | Pricing',
+      'what-are-the-downsides-of-stucco': 'Downsides of Stucco | Honest Pros & Cons Guide',
+      'life-expectancy-of-a-stucco-house': 'Life Expectancy of a Stucco House | Lifespan Guide',
+      'what-is-the-issue-with-stucco': 'Common Stucco Problems Explained | Repair Guide',
+      'does-homeowners-insurance-cover-stucco-issues': 'Does Insurance Cover Stucco? | Homeowner Guide',
+      'what-does-failing-stucco-look-like': 'What Does Failing Stucco Look Like? | Warning Signs',
     };
     const descriptions: Record<string, string> = {
       'how-san-antonio-weather-affects-stucco': 'Learn how San Antonio heat, humidity & UV damage stucco systems. Expert tips on prevention & when to call a stucco contractor. Read our guide!',
@@ -86,6 +96,16 @@ export default function BlogPostPage() {
       'stucco-repair-near-me-san-antonio-guide': 'Searching for stucco repair near me in San Antonio, TX? Learn what to look for in a contractor, typical repair costs & how to avoid costly mistakes. Read now.',
       'stucco-vs-brick-cost-san-antonio': 'Stucco vs brick cost comparison for San Antonio, TX homes. Installation pricing, maintenance, durability & which delivers the best long-term value. Read the guide.',
       'how-long-does-stucco-last-san-antonio': 'How long does stucco last in San Antonio, TX? Lifespan by system type, what shortens it & how to maximize your exterior investment. Expert guide.',
+      'which-type-of-stucco-is-best': 'Which type of stucco is best? Compare three-coat, one-coat, EIFS & acrylic systems. San Antonio experts explain what works in the South Texas climate.',
+      'difference-between-20-30-and-30-30-stucco-finish': '20/30 vs 30/30 stucco finish — what the numbers mean, how each looks on a wall & which sand-float texture is right for your San Antonio home.',
+      'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house': 'How much does it cost to stucco a 1,000 sq ft house in San Antonio? Real pricing breakdown — materials, labor & what affects the final number.',
+      'what-are-the-three-stages-of-stucco': 'The three stages of stucco — scratch coat, brown coat & finish coat. Learn why each layer matters for a long-lasting exterior in San Antonio.',
+      'average-price-cement-stucco-installation-per-square-foot-san-antonio': 'Average cement stucco cost per square foot in San Antonio: $8–$15. Local pricing breakdown, what drives cost & how to compare estimates.',
+      'what-are-the-downsides-of-stucco': 'Honest downsides of stucco: cracking, moisture risk, repair complexity & cost. San Antonio experts explain how to minimize each drawback.',
+      'life-expectancy-of-a-stucco-house': 'Life expectancy of a stucco house: 50–80 years for three-coat systems. Learn what shortens lifespan & how to extend it in San Antonio.',
+      'what-is-the-issue-with-stucco': 'Common stucco issues explained — moisture intrusion, cracking, delamination & efflorescence. San Antonio repair experts cover causes & fixes.',
+      'does-homeowners-insurance-cover-stucco-issues': 'Does homeowners insurance cover stucco damage? What is covered, what is excluded & how to file a claim. San Antonio homeowner guide.',
+      'what-does-failing-stucco-look-like': 'What does failing stucco look like? Spot cracking patterns, bubbling, hollow sounds & staining before they become costly repairs. Photo guide.',
     };
     return {
       title: titles[post.slug] || post.title,
@@ -113,8 +133,14 @@ export default function BlogPostPage() {
   }
 
   const relatedPosts = blogPosts
-    .filter((p) => p.slug !== post.slug && p.category === post.category)
-    .slice(0, 3);
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => ({
+      post: p,
+      score: (p.relatedService === post.relatedService ? 2 : 0) + (p.category === post.category ? 1 : 0),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((s) => s.post);
 
   return (
     <>
@@ -186,31 +212,18 @@ export default function BlogPostPage() {
             })}
           </div>
 
-          {['stucco-vs-other-siding-materials', 'eifs-vs-traditional-stucco-differences'].includes(post.slug) && (
-            <div className="mt-12 p-8 bg-slate-800 rounded-2xl text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Get Expert Help in San Antonio</h3>
-              <p className="text-slate-300 mb-6 max-w-xl mx-auto">
-                Free, no-obligation estimates from a local crew that has been doing stucco work across San Antonio, Boerne, Schertz, Helotes, and New Braunfels for years.
-              </p>
-              <a
-                href="tel:+12108718490"
-                className="bg-sand-600 hover:bg-sand-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-sand-600/30"
-              >
-                <Phone size={20} /> Call (210) 871-8490 for a Free Estimate
-              </a>
-            </div>
-          )}
-
-          {['how-san-antonio-weather-affects-stucco', 'stucco-vs-other-siding-materials', 'stucco-repair-vs-replacement-guide', 'protecting-stucco-from-texas-heat'].includes(post.slug) && (
-            <div className="mt-8 p-5 bg-stone-50 border border-stone-200 rounded-xl">
-              <p className="text-slate-700 text-sm leading-relaxed">
-                Related reading:{' '}
-                <Link to="/blog/us-largest-plaster-producer-san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2 transition-colors font-medium">
-                  Learn why the US is the world's leading plaster producer and what that means for your home
-                </Link>
-              </p>
-            </div>
-          )}
+          <div className="mt-12 p-8 bg-slate-800 rounded-2xl text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Get Expert Help in San Antonio</h3>
+            <p className="text-slate-300 mb-6 max-w-xl mx-auto">
+              Free, no-obligation estimates from a local crew that has been doing stucco work across San Antonio, Boerne, Schertz, Helotes, and New Braunfels for years.
+            </p>
+            <Link
+              to="/quote"
+              className="bg-sand-600 hover:bg-sand-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-sand-600/30"
+            >
+              Get a Free Estimate <ArrowRight size={20} />
+            </Link>
+          </div>
 
           {(() => {
             const relatedServiceSlug = post.relatedService.replace(/^\//, '');
