@@ -63,6 +63,39 @@ function faqSchema(faqs: { question: string; answer: string }[]): string {
   })}</script>`;
 }
 
+function stripHtml(text: string): string {
+  return text.replace(/<[^>]+>/g, '');
+}
+
+function isQuestion(text: string): boolean {
+  return /\?|^(what|how|which|does|can|is|are|do|why|when|where)\b/i.test(text);
+}
+
+function extractBlogFaqs(post: typeof blogPosts[0]): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = [];
+
+  if (isQuestion(post.title)) {
+    const firstParagraph = post.content.find(c => !c.startsWith('## '));
+    if (firstParagraph) {
+      faqs.push({ question: post.title.replace(/\?*$/, '?'), answer: stripHtml(firstParagraph) });
+    }
+  }
+
+  for (let i = 0; i < post.content.length; i++) {
+    if (post.content[i].startsWith('## ')) {
+      const heading = post.content[i].slice(3);
+      if (isQuestion(heading)) {
+        const answerParagraph = post.content.slice(i + 1).find(c => !c.startsWith('## '));
+        if (answerParagraph) {
+          faqs.push({ question: heading.replace(/\?*$/, '?'), answer: stripHtml(answerParagraph) });
+        }
+      }
+    }
+  }
+
+  return faqs.slice(0, 10);
+}
+
 function breadcrumb(items: [string, string][]): string {
   return `<nav aria-label="Breadcrumb">${items.map(([href, label], i) =>
     i < items.length - 1
@@ -332,6 +365,7 @@ ${post.content.map(c => c.startsWith('## ') ? `<h2>${esc(c.slice(3))}</h2>` : `<
 })()}</ul>
 </section>
 ${ctaBlock()}
+${faqSchema(extractBlogFaqs(post))}
 ${breadcrumbSchema(crumbs)}
 </article>`;
 }
@@ -716,7 +750,7 @@ function injectPage(html: string, path: string, entry: RouteEntry): string {
 
   const jsonLdTags: string[] = [];
   const contentWithoutJsonLd = entry.content.replace(
-    /<script type="application\/ld\+json">[^<]*<\/script>/g,
+    /<script type="application\/ld\+json">[\s\S]*?<\/script>/g,
     (match) => { jsonLdTags.push(match); return ''; },
   );
 
