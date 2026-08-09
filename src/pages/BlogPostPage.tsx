@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, ArrowRight, Phone } from 'lucide-react';
+import { ArrowLeft, Calendar, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../data/blog';
 import { services } from '../data/services';
 import { usePageSEO } from '../lib/seo';
@@ -28,7 +28,8 @@ export default function BlogPostPage() {
   const jsonLd = useMemo(() => {
     if (!post) return undefined;
     const isoDate = toISODate(post.date);
-    return {
+
+    const articleSchema = {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: post.title,
@@ -55,6 +56,34 @@ export default function BlogPostPage() {
         '@id': `https://sanantoniostucco.com/blog/${post.slug}`,
       },
     };
+
+    const isQ = (t: string) => /\?|^(what|how|which|does|can|is|are|do|why|when|where)\b/i.test(t);
+    const strip = (t: string) => t.replace(/<[^>]+>/g, '');
+    const faqs: { name: string; acceptedAnswer: { '@type': string; text: string } }[] = [];
+
+    if (isQ(post.title)) {
+      const first = post.content.find((c) => !c.startsWith('## '));
+      if (first) faqs.push({ name: post.title.replace(/\?*$/, '?'), acceptedAnswer: { '@type': 'Answer', text: strip(first) } });
+    }
+    for (let i = 0; i < post.content.length; i++) {
+      if (post.content[i].startsWith('## ')) {
+        const heading = post.content[i].slice(3);
+        if (isQ(heading)) {
+          const ans = post.content.slice(i + 1).find((c) => !c.startsWith('## '));
+          if (ans) faqs.push({ name: heading.replace(/\?*$/, '?'), acceptedAnswer: { '@type': 'Answer', text: strip(ans) } });
+        }
+      }
+    }
+
+    if (faqs.length === 0) return articleSchema;
+
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.slice(0, 10).map((f) => ({ '@type': 'Question', ...f })),
+    };
+
+    return [articleSchema, faqSchema];
   }, [post]);
 
   const seoMeta = useMemo(() => {
