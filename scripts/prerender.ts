@@ -739,4 +739,14 @@ for (const [path, entry] of Object.entries(routes)) {
   count++;
 }
 
+// ── Generate sitemap.xml from routes ──
+const today = new Date().toISOString().slice(0, 10);
+const sitemapEntries = Object.keys(routes)
+  .sort()
+  .map(path => `  <url>\n    <loc>${SITE_URL}${path}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
+  .join('\n');
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries}\n</urlset>\n`;
+writeFileSync(join(DIST, 'sitemap.xml'), sitemapXml);
+
 console.log(`Pre-rendered ${count} pages with SEO meta + content`);
+console.log(`Generated sitemap.xml with ${Object.keys(routes).length} URLs`);
