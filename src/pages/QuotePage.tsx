@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { contact } from '../data/contact';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
 import EstimateForm from '../components/EstimateForm';
 import { usePageSEO } from '../lib/seo';
+
+const quoteResources = [
+  { slug: 'cost-of-stucco-installation-san-antonio', title: 'How Much Does Stucco Installation Cost in San Antonio?', excerpt: 'Understand real pricing before your estimate.' },
+  { slug: 'stucco-repair-vs-replacement-guide', title: 'Stucco Repair vs. Replacement: How to Decide', excerpt: 'Know which option fits your situation and budget.' },
+  { slug: 'stucco-repair-near-me-san-antonio-guide', title: 'Stucco Repair Near Me: What to Know Before You Hire', excerpt: 'What to look for in a contractor and typical costs.' },
+  { slug: 'does-homeowners-insurance-cover-stucco-issues', title: 'Does Homeowners Insurance Cover Stucco Issues?', excerpt: 'Learn what is covered before filing a claim.' },
+];
 
 export default function QuotePage() {
   usePageSEO({
@@ -129,8 +136,37 @@ export default function QuotePage() {
         </div>
       </section>
 
-      {/* Service Areas */}
+      {/* Helpful Resources */}
       <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-slate-800 mb-3">Helpful Resources Before Your Estimate</h2>
+          <p className="text-slate-600 mb-6">
+            Learn about costs, options, and what to expect so you are prepared for your free consultation.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {quoteResources.map((article) => (
+              <Link
+                key={article.slug}
+                to={`/blog/${article.slug}`}
+                className="group flex items-start gap-3 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-4 hover:shadow-sm transition-all"
+              >
+                <div className="w-9 h-9 bg-sand-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-sand-100 transition-colors">
+                  <BookOpen size={18} className="text-sand-600" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-sm text-slate-800 group-hover:text-sand-700 transition-colors mb-0.5">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{article.excerpt}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-slate-800 mb-3">We Serve Your Area</h2>
           <p className="text-slate-600 mb-6">
