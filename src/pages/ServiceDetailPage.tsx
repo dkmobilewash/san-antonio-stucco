@@ -184,27 +184,27 @@ export default function ServiceDetailPage() {
   const seoMeta = useMemo(() => {
     if (!service) return { title: 'Service Not Found', description: 'Page not found.' };
     const titles: Record<string, string> = {
-      'stucco-installation': 'Stucco Installation San Antonio | New Construction & Additions | San Antonio Stucco',
-      'stucco-replacement': 'Stucco Replacement San Antonio | Full Tear-Out & Re-Stucco | San Antonio Stucco',
-      'residential-stucco': 'Residential Stucco San Antonio | Repair, Install & Refinish | San Antonio Stucco',
-      'commercial-stucco': 'Commercial Stucco San Antonio | Offices, Retail & Multi-Family | San Antonio Stucco',
-      'stucco-remodeling': 'Stucco Remodeling San Antonio | Texture Updates & Exterior Makeovers | San Antonio Stucco',
-      'stucco-repairs': 'Stucco Repair in San Antonio, TX | Cracks, Water Damage & More | San Antonio Stucco',
-      'eifs-synthetic-stucco': 'EIFS Stucco San Antonio | Synthetic Stucco Installation & Repair | San Antonio Stucco',
-      'stucco-painting': 'Stucco Painting San Antonio | Elastomeric Coatings & Color Change | San Antonio Stucco',
+      'stucco-repairs': 'Expert Stucco Repair — Cracks, Water Damage & Patches',
+      'stucco-installation': 'Professional Stucco Installation | New Builds & Additions',
+      'stucco-replacement': 'Full Stucco Replacement — Tear-Out & New System',
+      'residential-stucco': 'Residential Stucco Services — Homes, HOAs & Exteriors',
+      'commercial-stucco': 'Commercial Stucco — Office, Retail & Multi-Family',
+      'eifs-synthetic-stucco': 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
+      'stucco-painting': 'Professional Stucco Painting | Elastomeric Coatings',
+      'stucco-remodeling': 'Stucco Remodeling — Modern Finishes & Texture Updates',
     };
     const descriptions: Record<string, string> = {
-      'stucco-installation': 'Professional stucco installation in San Antonio for new construction & additions. Three-coat systems engineered for Texas heat. Free estimate — call (210) 871-8490.',
-      'stucco-replacement': 'Full stucco replacement in San Antonio. Tear-out, substrate repair & new three-coat systems. Licensed & insured. Free on-site estimate — call (210) 871-8490.',
-      'residential-stucco': 'Residential stucco services in San Antonio — repair, installation & refinishing for homes. Locally owned, licensed contractors. Free estimate — call (210) 871-8490.',
-      'commercial-stucco': 'Commercial stucco services in San Antonio for offices, retail & multi-family properties. Minimal disruption, professional results. Free estimate — call (210) 871-8490.',
-      'stucco-remodeling': 'Stucco remodeling in San Antonio — modern texture updates, re-coats & exterior makeovers. Transform your home\'s curb appeal. Free consultation — call (210) 871-8490.',
-      'stucco-repairs': 'Expert stucco repair in San Antonio — cracks, water damage, delamination & EIFS repair. Seamless texture matching. Licensed & insured. Free inspection — call (210) 871-8490.',
-      'eifs-synthetic-stucco': 'EIFS and synthetic stucco services in San Antonio. Expert installation, repair & moisture remediation. Licensed & insured. Free assessment — call (210) 871-8490.',
-      'stucco-painting': 'Professional stucco painting in San Antonio. Elastomeric coatings, UV protection & full color changes for homes and businesses. Free estimate — call (210) 871-8490.',
+      'stucco-repairs': 'Cracked or water-damaged stucco? We diagnose the root cause and fix it right — seamless color and texture match. Licensed, insured, own crew.',
+      'stucco-installation': 'Three-coat stucco installation for new construction, additions & retrofits. Engineered for extreme heat and humidity. Licensed & insured.',
+      'stucco-replacement': 'Complete stucco replacement — full tear-out, substrate inspection & fresh three-coat system. When patching won\'t cut it. Free on-site assessment.',
+      'residential-stucco': 'Residential stucco repair, installation & refinishing for single-family homes and HOA communities. Own crew, no subcontractors. Free estimate.',
+      'commercial-stucco': 'Commercial stucco for offices, retail centers, restaurants & multi-family buildings. Phased scheduling with minimal business disruption.',
+      'eifs-synthetic-stucco': 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
+      'stucco-painting': 'Stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & full color changes. Free color consultation.',
+      'stucco-remodeling': 'Stucco remodeling — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
     };
     return {
-      title: titles[service.slug] || `${service.name} in San Antonio, TX | San Antonio Stucco`,
+      title: titles[service.slug] || `${service.name} | San Antonio Stucco`,
       description: descriptions[service.slug] || service.heroDescription.slice(0, 155),
     };
   }, [service]);
