@@ -590,38 +590,38 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
     title: 'Stucco Services San Antonio TX — All Repairs & Installs',
     description: 'Every stucco service in San Antonio — repair, installation, replacement, EIFS, painting & remodeling. Alamo Heights to the Westside. Call (210) 871-8490.',
   },
-  // ── Service Pages (generic — no location suffix) ──
+  // ── Service Pages (generic — broad service authority, NO geo-modifier to avoid cannibalization with combo pages) ──
   '/stucco-repairs': {
-    title: 'Stucco Repair San Antonio — Cracks & Water Damage Fix',
-    description: 'Cracked or water-damaged stucco? We diagnose the root cause and fix it right — seamless texture match. Licensed & insured. Call (210) 871-8490.',
+    title: 'Expert Stucco Repair — Cracks, Water Damage & Patches',
+    description: 'Cracked or water-damaged stucco? We diagnose the root cause and fix it right — seamless color and texture match. Licensed, insured, own crew.',
   },
   '/stucco-installation': {
-    title: 'Stucco Installation San Antonio | New Builds & Additions',
-    description: 'New construction stucco installation in San Antonio. Three-coat systems engineered for Texas heat. Licensed & insured. Free estimate — (210) 871-8490.',
+    title: 'Professional Stucco Installation | New Builds & Additions',
+    description: 'Three-coat stucco installation for new construction, additions & retrofits. Engineered for extreme heat and humidity. Licensed & insured.',
   },
   '/stucco-replacement': {
-    title: 'Stucco Replacement San Antonio | Full Tear-Out & Rebuild',
-    description: 'Complete stucco replacement in San Antonio — tear-out, substrate repair & fresh three-coat system. When patching won\'t cut it. Call (210) 871-8490.',
+    title: 'Full Stucco Replacement — Tear-Out & New System',
+    description: 'Complete stucco replacement — full tear-out, substrate inspection & fresh three-coat system. When patching won\'t cut it. Free on-site assessment.',
   },
   '/residential-stucco': {
-    title: 'Residential Stucco Contractor San Antonio | Homes & HOAs',
-    description: 'Residential stucco in San Antonio — repair, installation & refinishing for homes. Own crew, no subcontractors. Free estimate — (210) 871-8490.',
+    title: 'Residential Stucco Services — Homes, HOAs & Exteriors',
+    description: 'Residential stucco repair, installation & refinishing for single-family homes and HOA communities. Own crew, no subcontractors. Free estimate.',
   },
   '/commercial-stucco': {
-    title: 'Commercial Stucco San Antonio | Office & Retail Exteriors',
-    description: 'Commercial stucco for offices, retail, restaurants & multi-family in San Antonio. Minimal disruption, phased scheduling. Free quote — (210) 871-8490.',
+    title: 'Commercial Stucco — Office, Retail & Multi-Family',
+    description: 'Commercial stucco for offices, retail centers, restaurants & multi-family buildings. Phased scheduling with minimal business disruption.',
   },
   '/eifs-synthetic-stucco': {
-    title: 'EIFS & Synthetic Stucco San Antonio | Dryvit Experts',
-    description: 'EIFS and synthetic stucco repair, installation & moisture remediation in San Antonio. Dryvit repair specialists. Free assessment — (210) 871-8490.',
+    title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
+    description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
   },
   '/stucco-painting': {
-    title: 'Stucco Painting San Antonio | Elastomeric Coatings',
-    description: 'Stucco painting in San Antonio with elastomeric coatings that last 10–15 years. UV protection & full color changes. Free estimate — (210) 871-8490.',
+    title: 'Professional Stucco Painting | Elastomeric Coatings',
+    description: 'Stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & full color changes. Free color consultation.',
   },
   '/stucco-remodeling': {
-    title: 'Stucco Remodeling San Antonio | Modern Texture Updates',
-    description: 'Stucco remodeling in San Antonio — modern finishes, texture updates & exterior makeovers. Transform your curb appeal. Call (210) 871-8490.',
+    title: 'Stucco Remodeling — Modern Finishes & Texture Updates',
+    description: 'Stucco remodeling — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
   },
   // ── San Antonio Combo Pages (service + location) ──
   '/stucco-repairs/san-antonio': {
