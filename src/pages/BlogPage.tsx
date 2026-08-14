@@ -45,7 +45,10 @@ export default function BlogPage() {
                   <img
                     src={article.image}
                     alt={`Preview image for ${article.title} — San Antonio stucco insights`}
+                    width={400}
+                    height={192}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

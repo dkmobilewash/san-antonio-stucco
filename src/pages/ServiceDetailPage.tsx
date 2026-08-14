@@ -292,7 +292,10 @@ export default function ServiceDetailPage() {
                     <img
                       src={photo.src}
                       alt={photo.alt}
+                      width={400}
+                      height={300}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -451,7 +454,10 @@ export default function ServiceDetailPage() {
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`${service.name} project in San Antonio`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -463,7 +469,10 @@ export default function ServiceDetailPage() {
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`${service.name} project on a home exterior in San Antonio TX`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -475,7 +484,10 @@ export default function ServiceDetailPage() {
               <img
                 src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`${service.name} for commercial property`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">

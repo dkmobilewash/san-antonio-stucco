@@ -745,6 +745,18 @@ function localBusinessSchema(): string {
   })}</script>`;
 }
 
+function getLcpPreload(path: string): string {
+  if (path === '/') return '';
+  const blogMatch = path.match(/^\/blog\/(.+)$/);
+  if (blogMatch) {
+    const post = blogPosts.find(p => p.slug === blogMatch[1]);
+    if (post) {
+      return `<link rel="preload" as="image" href="${post.image}" fetchpriority="high" />`;
+    }
+  }
+  return '';
+}
+
 function injectPage(html: string, path: string, entry: RouteEntry): string {
   const headTags = seoHead(path, entry.title, entry.description);
 
@@ -754,12 +766,20 @@ function injectPage(html: string, path: string, entry: RouteEntry): string {
     (match) => { jsonLdTags.push(match); return ''; },
   );
 
-  return html
+  let result = html;
+
+  if (path !== '/') {
+    result = result.replace(/<link rel="preload" as="image"[^>]*fetchpriority="high"[^>]*\/?>[\n\r]*/g, '');
+  }
+
+  const lcpPreload = getLcpPreload(path);
+
+  return result
     .replace(/<title>[^<]*<\/title>/, '')
     .replace(/<meta\s+name="description"[^>]*>/g, '')
     .replace(/<meta\s+property="og:[^"]*"[^>]*>/g, '')
     .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/g, '')
-    .replace('</head>', `${headTags}\n  ${jsonLdTags.join('\n  ')}\n  </head>`)
+    .replace('</head>', `${lcpPreload ? lcpPreload + '\n  ' : ''}${headTags}\n  ${jsonLdTags.join('\n  ')}\n  </head>`)
     .replace(/<div id="root">\s*<\/div>/, `<div id="root">${contentWithoutJsonLd}</div>`);
 }
 
