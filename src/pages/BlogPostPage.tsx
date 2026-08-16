@@ -215,6 +215,10 @@ export default function BlogPostPage() {
             <img
               src={post.image}
               alt={`Featured image for ${post.title} — San Antonio stucco guide`}
+              width={800}
+              height={400}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-64 md:h-96 object-cover"
             />
           </div>
@@ -299,7 +303,10 @@ export default function BlogPostPage() {
                     <img
                       src={related.image}
                       alt={`Preview image for ${related.title} — San Antonio stucco tips`}
+                      width={400}
+                      height={160}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

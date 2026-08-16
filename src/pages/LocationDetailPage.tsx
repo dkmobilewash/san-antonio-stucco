@@ -209,7 +209,10 @@ export default function LocationDetailPage() {
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`Residential stucco installation on a home exterior in ${location.name} TX`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -221,7 +224,10 @@ export default function LocationDetailPage() {
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`Stucco crack repair on home wall in ${location.name} TX`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -233,7 +239,10 @@ export default function LocationDetailPage() {
               <img
                 src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt={`Exterior stucco remodel completed on a property in ${location.name} TX`}
+                width={600}
+                height={192}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
