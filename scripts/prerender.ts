@@ -253,7 +253,7 @@ ${service.costTimeline ? `<section><h2>How Much Does ${esc(dn)} Cost in San Anto
 ${faqHtml(service.faqs, `${dn} FAQ`)}
 <section><h2>${esc(dn)} Across San Antonio</h2>
 <p><strong>Featured:</strong> <a href="/${service.slug}/san-antonio">${esc(dn)} in San Antonio</a> — our most requested service area.</p>
-<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(dn)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${l.slug}">Stucco Services in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
 <section><h2>Related Articles</h2>
 <ul>${blogPosts.filter(p => {
@@ -278,7 +278,10 @@ ${breadcrumb(crumbs)}
 ${(location.extendedContent || []).map(p => `<p>${p}</p>`).join('\n')}
 </section>
 <section><h2>Services Available in ${esc(location.name)}</h2>
-<ul>${services.map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
+<ul>${services.map(s => location.slug === 'san-antonio'
+  ? `<li><a href="/${s.slug}/san-antonio">${esc(s.name)} in San Antonio</a></li>`
+  : `<li><a href="/${s.slug}">${esc(s.name)}</a></li>`
+).join('')}</ul>
 </section>
 <section><h2>Local Climate Challenges in ${esc(location.name)}</h2>
 <ul>${location.painPoints.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
@@ -319,11 +322,11 @@ ${data.paragraphs.slice(1).map(p => `<p>${esc(p)}</p>`).join('\n')}
 <ul>${location.painPoints.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
 </section>
 ${faqHtml(data.faqs, `${displayName} FAQ — ${location.name}`)}
-<section><h2>Other Stucco Services in ${esc(location.name)}</h2>
-<ul>${services.filter(s => s.slug !== service.slug).map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(seoServiceName[s.slug] || s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
+<section><h2>Other Stucco Services in San Antonio</h2>
+<ul>${services.filter(s => s.slug !== service.slug).map(s => `<li><a href="/${s.slug}/san-antonio">${esc(seoServiceName[s.slug] || s.name)} in San Antonio</a></li>`).join('')}</ul>
 </section>
-<section><h2>${esc(displayName)} Across San Antonio</h2>
-<ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(displayName)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+<section><h2>Stucco Services Across the San Antonio Metro</h2>
+<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${l.slug}">Stucco Services in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
 ${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(displayName)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/san-antonio">All Stucco Services in San Antonio</a> | <a href="/${service.slug}">${esc(displayName)} — All Locations</a></p>`}
 <section><h2>Related Articles</h2>
@@ -559,8 +562,9 @@ for (const l of locations) {
   };
 }
 
-// Service × Location combo pages
+// Service × Location combo pages (San Antonio only — suburb combos consolidated to location pages)
 for (const entry of serviceLocationData) {
+  if (entry.locationSlug !== 'san-antonio') continue;
   const s = services.find(x => x.slug === entry.serviceSlug);
   const l = locations.find(x => x.slug === entry.locationSlug);
   if (s && l) {

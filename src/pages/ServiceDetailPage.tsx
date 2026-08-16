@@ -604,11 +604,13 @@ export default function ServiceDetailPage() {
             {locations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/${service.slug}/${loc.slug}`}
+                to={loc.slug === 'san-antonio' ? `/${service.slug}/san-antonio` : `/${loc.slug}`}
                 className="flex items-center gap-2 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-3 hover:shadow-sm transition-all"
               >
                 <MapPin size={16} className="text-sand-600" />
-                <span className="text-sm font-medium text-slate-700">{service.name} in {loc.name}</span>
+                <span className="text-sm font-medium text-slate-700">
+                  {loc.slug === 'san-antonio' ? `${service.name} in San Antonio` : `Stucco Services in ${loc.name}`}
+                </span>
               </Link>
             ))}
           </div>
