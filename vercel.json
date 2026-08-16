@@ -21,7 +21,12 @@
     { "source": "/stucco-replacements", "destination": "/stucco-replacement", "permanent": true },
     { "source": "/stucco-contractors", "destination": "/", "permanent": true },
     { "source": "/stucco-san-antonio", "destination": "/san-antonio", "permanent": true },
-    { "source": "/stucco-services", "destination": "/services", "permanent": true }
+    { "source": "/stucco-services", "destination": "/services", "permanent": true },
+    {
+      "source": "/:service(stucco-repairs|stucco-installation|stucco-replacement|residential-stucco|commercial-stucco|eifs-synthetic-stucco|stucco-painting|stucco-remodeling)/:location(boerne|new-braunfels|schertz|helotes|stone-oak|alamo-heights|live-oak|universal-city|leon-valley|selma)",
+      "destination": "/:location",
+      "permanent": true
+    }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
