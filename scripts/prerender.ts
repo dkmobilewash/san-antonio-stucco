@@ -581,8 +581,8 @@ for (const entry of serviceLocationData) {
 const seoOverrides: Record<string, { title: string; description: string }> = {
   // ── Homepage ──
   '/': {
-    title: `Stucco Contractor San Antonio TX | ${SITE_NAME}`,
-    description: 'Locally owned stucco contractor in San Antonio — repair, installation, EIFS & painting. Licensed & insured, own crew. Free estimate — (210) 871-8490.',
+    title: `Stucco Repair & Contractor San Antonio TX | ${SITE_NAME}`,
+    description: 'San Antonio stucco contractor — expert stucco repair, installation, EIFS & painting. Locally owned, licensed & insured, own crew. Free estimate — (210) 871-8490.',
   },
   // ── Lead / Quote Page ──
   '/quote': {
@@ -620,8 +620,8 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
     description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
   },
   '/stucco-painting': {
-    title: 'Professional Stucco Painting | Elastomeric Coatings',
-    description: 'Stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & full color changes. Free color consultation.',
+    title: 'Stucco Painting Services | Elastomeric & UV Coatings',
+    description: 'Professional stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & color changes. Free consultation — (210) 871-8490.',
   },
   '/stucco-remodeling': {
     title: 'Stucco Remodeling — Modern Finishes & Texture Updates',

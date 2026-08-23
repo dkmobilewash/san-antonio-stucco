@@ -42,9 +42,9 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Stucco Contractor in San Antonio, TX | Repair, Installation & EIFS"
-        description="Looking for a stucco contractor near me in San Antonio? Trusted stucco repair, installation & EIFS services for residential & commercial projects. Licensed & insured. Free estimates — call today."
-        keywords="stucco repair near me, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
+        title="Stucco Repair & Contractor in San Antonio, TX | Installation & EIFS"
+        description="San Antonio stucco contractor — expert stucco repair, installation & EIFS services for residential & commercial projects. Licensed & insured, own crew. Free estimates — call (210) 871-8490."
+        keywords="stucco repair, stucco repair near me, stucco contractor, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 
       {/* Hero Section */}
