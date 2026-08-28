@@ -133,16 +133,16 @@ export default function HomePage() {
             <Link to="/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               Stucco Contractor San Antonio
             </Link>
-            <Link to="/stucco-repairs/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+            <Link to="/stucco-repairs" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               Stucco Repair San Antonio
             </Link>
-            <Link to="/stucco-installation/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+            <Link to="/stucco-installation" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               Stucco Installation San Antonio
             </Link>
-            <Link to="/eifs-synthetic-stucco/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+            <Link to="/eifs-synthetic-stucco" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               EIFS Stucco San Antonio
             </Link>
-            <Link to="/commercial-stucco/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
+            <Link to="/commercial-stucco" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               Commercial Stucco San Antonio
             </Link>
             <Link to="/stucco-replacement" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
@@ -192,7 +192,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-slate-800 mb-3 text-lg">Professional Results</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation/san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs/san-antonio" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
+                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
               </p>
             </div>
           </div>
@@ -320,10 +320,10 @@ export default function HomePage() {
               for three-coat portland cement plaster.
             </p>
             <p>
-              These conditions demand a local <Link to="/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco contractor in San Antonio</Link> who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
+              These conditions demand a local <Link to="/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco contractor in San Antonio</Link> who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
             </p>
             <p>
-              For commercial properties, our <Link to="/commercial-stucco/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">commercial stucco</Link> team handles offices, retail, and multi-family buildings with minimal disruption. We also specialize in <Link to="/eifs-synthetic-stucco/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">EIFS stucco</Link> systems that require specialized knowledge most contractors lack, and <Link to="/stucco-painting" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco painting</Link> with elastomeric coatings rated for South Texas UV.
+              For commercial properties, our <Link to="/commercial-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">commercial stucco</Link> team handles offices, retail, and multi-family buildings with minimal disruption. We also specialize in <Link to="/eifs-synthetic-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">EIFS stucco</Link> systems that require specialized knowledge most contractors lack, and <Link to="/stucco-painting" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco painting</Link> with elastomeric coatings rated for South Texas UV.
             </p>
             <p>
               We also provide <Link to="/boerne" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco in Boerne</Link> and throughout the Hill Country corridor where elevation and rocky terrain add additional challenges. As the leading stucco company in San Antonio, TX, our crews work across the entire metro daily.

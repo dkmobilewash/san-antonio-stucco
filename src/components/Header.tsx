@@ -28,7 +28,7 @@ export default function Header() {
     { to: '/', label: 'Home' },
     { to: '/services', label: 'Services', hasDropdown: 'services' as const },
     { to: '/san-antonio', label: 'Stucco Contractor' },
-    { to: '/stucco-repairs/san-antonio', label: 'Stucco Repair' },
+    { to: '/stucco-repairs', label: 'Stucco Repair' },
     { to: '/service-areas', label: 'Service Areas', hasDropdown: 'areas' as const },
     { to: '/about', label: 'About' },
     { to: '/blog', label: 'Blog' },
@@ -43,10 +43,10 @@ export default function Header() {
     { to: '/stucco-repairs', label: 'Stucco Repair' },
     { to: '/eifs-synthetic-stucco', label: 'EIFS Stucco' },
     { to: '/stucco-painting', label: 'Stucco Painting' },
-    { to: '/stucco-installation/san-antonio', label: 'Installation in San Antonio' },
-    { to: '/stucco-repairs/san-antonio', label: 'Repair in San Antonio' },
-    { to: '/eifs-synthetic-stucco/san-antonio', label: 'EIFS Stucco San Antonio' },
-    { to: '/commercial-stucco/san-antonio', label: 'Commercial in San Antonio' },
+    { to: '/stucco-installation', label: 'Installation in San Antonio' },
+    { to: '/stucco-repairs', label: 'Repair in San Antonio' },
+    { to: '/eifs-synthetic-stucco', label: 'EIFS Stucco San Antonio' },
+    { to: '/commercial-stucco', label: 'Commercial in San Antonio' },
   ];
 
   const areaLinks = locations.map((l) => ({ to: `/${l.slug}`, label: l.name }));

@@ -184,24 +184,24 @@ export default function ServiceDetailPage() {
   const seoMeta = useMemo(() => {
     if (!service) return { title: 'Service Not Found', description: 'Page not found.' };
     const titles: Record<string, string> = {
-      'stucco-repairs': 'Expert Stucco Repair — Cracks, Water Damage & Patches',
-      'stucco-installation': 'Professional Stucco Installation | New Builds & Additions',
-      'stucco-replacement': 'Full Stucco Replacement — Tear-Out & New System',
-      'residential-stucco': 'Residential Stucco Services — Homes, HOAs & Exteriors',
-      'commercial-stucco': 'Commercial Stucco — Office, Retail & Multi-Family',
+      'stucco-repairs': 'Stucco Repair San Antonio TX | Licensed & Insured',
+      'stucco-installation': 'Stucco Installation San Antonio TX | Licensed Crew',
+      'stucco-replacement': 'Stucco Replacement San Antonio TX | Free Assessment',
+      'residential-stucco': 'Residential Stucco San Antonio TX | Homes & HOAs',
+      'commercial-stucco': 'Commercial Stucco Contractor San Antonio TX | Free Quote',
       'eifs-synthetic-stucco': 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
-      'stucco-painting': 'Professional Stucco Painting | Elastomeric Coatings',
-      'stucco-remodeling': 'Stucco Remodeling — Modern Finishes & Texture Updates',
+      'stucco-painting': 'Stucco Painting San Antonio TX | Elastomeric Coating',
+      'stucco-remodeling': 'Stucco Remodeling San Antonio TX | Exterior Makeover',
     };
     const descriptions: Record<string, string> = {
-      'stucco-repairs': 'Cracked or water-damaged stucco? We diagnose the root cause and fix it right — seamless color and texture match. Licensed, insured, own crew.',
-      'stucco-installation': 'Three-coat stucco installation for new construction, additions & retrofits. Engineered for extreme heat and humidity. Licensed & insured.',
-      'stucco-replacement': 'Complete stucco replacement — full tear-out, substrate inspection & fresh three-coat system. When patching won\'t cut it. Free on-site assessment.',
-      'residential-stucco': 'Residential stucco repair, installation & refinishing for single-family homes and HOA communities. Own crew, no subcontractors. Free estimate.',
-      'commercial-stucco': 'Commercial stucco for offices, retail centers, restaurants & multi-family buildings. Phased scheduling with minimal business disruption.',
+      'stucco-repairs': 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
+      'stucco-installation': 'Three-coat stucco installation in San Antonio for new builds, additions and retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
+      'stucco-replacement': 'Full stucco tear-out and replacement in San Antonio — substrate inspection plus a fresh three-coat system. Licensed & insured. Free on-site assessment.',
+      'residential-stucco': 'Residential stucco repair, installation and refinishing across San Antonio for homes and HOA communities. Own crew, no subs. Free estimate today.',
+      'commercial-stucco': 'Commercial stucco contractor in San Antonio for offices, retail & multi-family. Phased scheduling, minimal disruption. Call (210) 871-8490.',
       'eifs-synthetic-stucco': 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
-      'stucco-painting': 'Stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & full color changes. Free color consultation.',
-      'stucco-remodeling': 'Stucco remodeling — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
+      'stucco-painting': 'Stucco painting in San Antonio with elastomeric coatings that last 10–15 years. UV protection and crack bridging. Free color consult — (210) 871-8490.',
+      'stucco-remodeling': 'Stucco remodeling in San Antonio — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
     };
     return {
       title: titles[service.slug] || `${service.name} | San Antonio Stucco`,

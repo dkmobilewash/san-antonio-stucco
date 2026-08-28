@@ -48,9 +48,7 @@ function AppLayout() {
             {locations.map((l) => (
               <Route key={l.slug} path={`/${l.slug}`} element={<LocationDetailPage />} />
             ))}
-            {services.map((s) => (
-              <Route key={`${s.slug}-san-antonio`} path={`/${s.slug}/san-antonio`} element={<ServiceLocationPage />} />
-            ))}
+            {/* SA combo pages consolidated into parent service pages — redirected via vercel.json */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
