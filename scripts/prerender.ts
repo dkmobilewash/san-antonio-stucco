@@ -3,7 +3,6 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { services } from '../src/data/services.ts';
 import { locations } from '../src/data/locations.ts';
-import { serviceLocationData } from '../src/data/serviceLocationData.ts';
 import { blogPosts } from '../src/data/blog.ts';
 import { contact } from '../src/data/contact.ts';
 
@@ -16,14 +15,6 @@ const OG_IMAGE = 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sig
 const seoServiceName: Record<string, string> = {
   'stucco-repairs': 'Stucco Repair',
   'eifs-synthetic-stucco': 'EIFS Stucco',
-};
-
-const comboH1Overrides: Record<string, string> = {
-  'eifs-synthetic-stucco/san-antonio': 'EIFS Stucco in San Antonio, TX',
-  'commercial-stucco/san-antonio': 'Commercial Stucco Contractor in San Antonio, TX',
-  'stucco-repairs/san-antonio': 'Stucco Repair in San Antonio, TX',
-  'stucco-installation/san-antonio': 'Stucco Installation in San Antonio, TX',
-  'residential-stucco/san-antonio': 'Residential Stucco Contractor in San Antonio, TX',
 };
 
 // ── Helpers ──
@@ -129,11 +120,6 @@ function faqHtml(faqs: { question: string; answer: string }[], heading: string):
 }
 
 const PRIORITY_SERVICES = ['stucco-installation', 'stucco-repairs', 'stucco-replacement'];
-const PRIORITY_GEO_PAGES = [
-  { path: '/commercial-stucco/san-antonio', label: 'Commercial Stucco in San Antonio' },
-  { path: '/eifs-synthetic-stucco/san-antonio', label: 'EIFS Stucco in San Antonio' },
-  { path: '/residential-stucco/san-antonio', label: 'Residential Stucco in San Antonio' },
-];
 
 const blogServiceMap: Record<string, string[]> = {
   'how-san-antonio-weather-affects-stucco': ['stucco-repairs', 'stucco-installation'],
@@ -181,11 +167,13 @@ ${breadcrumb(crumbs)}
 <p>Looking for a stucco contractor near me in San Antonio? ${SITE_NAME} provides professional stucco services for residential and commercial properties throughout the greater San Antonio metro area. From crack repair to full installations, our experienced crew delivers results built to last in South Texas conditions.</p>
 <section><h2>Most Searched Stucco Services in San Antonio</h2>
 <ul>
-${PRIORITY_GEO_PAGES.map(p => `<li><a href="${p.path}">${esc(p.label)}</a></li>`).join('\n')}
 ${PRIORITY_SERVICES.map(slug => {
   const s = services.find(x => x.slug === slug)!;
-  return `<li><a href="/${slug}/san-antonio">${esc(s.name)} in San Antonio</a></li>`;
+  return `<li><a href="/${slug}">${esc(s.name)} in San Antonio</a></li>`;
 }).join('\n')}
+<li><a href="/commercial-stucco">Commercial Stucco in San Antonio</a></li>
+<li><a href="/eifs-synthetic-stucco">EIFS Stucco in San Antonio</a></li>
+<li><a href="/residential-stucco">Residential Stucco in San Antonio</a></li>
 </ul>
 </section>
 <section><h2>Our Stucco Services</h2>
@@ -252,8 +240,8 @@ ${service.costTimeline ? `<section><h2>How Much Does ${esc(dn)} Cost in San Anto
 </section>
 ${faqHtml(service.faqs, `${dn} FAQ`)}
 <section><h2>${esc(dn)} Across San Antonio</h2>
-<p><strong>Featured:</strong> <a href="/${service.slug}/san-antonio">${esc(dn)} in San Antonio</a> — our most requested service area.</p>
-<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(dn)} in ${esc(l.name)}</a></li>`).join('')}</ul>
+<p>We serve all of San Antonio and surrounding areas for ${esc(dn.toLowerCase())}.</p>
+<ul>${locations.filter(l => l.slug !== 'san-antonio').map(l => `<li><a href="/${l.slug}">Stucco Services in ${esc(l.name)}</a></li>`).join('')}</ul>
 </section>
 <section><h2>Related Articles</h2>
 <ul>${blogPosts.filter(p => {
@@ -278,7 +266,8 @@ ${breadcrumb(crumbs)}
 ${(location.extendedContent || []).map(p => `<p>${p}</p>`).join('\n')}
 </section>
 <section><h2>Services Available in ${esc(location.name)}</h2>
-<ul>${services.map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
+<ul>${services.map(s => `<li><a href="/${s.slug}">${esc(s.name)}${location.slug === 'san-antonio' ? ' in San Antonio' : ''}</a></li>`
+).join('')}</ul>
 </section>
 <section><h2>Local Climate Challenges in ${esc(location.name)}</h2>
 <ul>${location.painPoints.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
@@ -289,56 +278,14 @@ ${faqHtml(location.faqs, `${location.name} Stucco FAQ`)}
 </section>
 <section><h2>Learn More</h2>
 <ul>
-${PRIORITY_GEO_PAGES.map(p => `<li><a href="${p.path}">${esc(p.label)}</a></li>`).join('\n')}
+<li><a href="/commercial-stucco">Commercial Stucco</a></li>
+<li><a href="/eifs-synthetic-stucco">EIFS &amp; Synthetic Stucco</a></li>
+<li><a href="/residential-stucco">Residential Stucco</a></li>
 <li><a href="/blog">Stucco Tips &amp; Resources</a></li>
 </ul>
 </section>
 ${ctaBlock()}
 ${faqSchema(location.faqs)}
-${breadcrumbSchema(crumbs)}
-</article>`;
-}
-
-function renderComboPage(service: typeof services[0], location: typeof locations[0], data: typeof serviceLocationData[0]): string {
-  const comboKey = `${service.slug}/${location.slug}`;
-  const displayName = seoServiceName[service.slug] || service.name;
-  const h1 = comboH1Overrides[comboKey] || `${displayName} in ${location.name}, TX`;
-  const h2Label = comboH1Overrides[comboKey]?.replace(', TX', '') || `${displayName} in ${location.name}`;
-  const crumbs: [string, string][] = [['/', 'Home'], [`/${service.slug}`, service.name], [`/${service.slug}/${location.slug}`, location.name]];
-  return `<article>
-${breadcrumb(crumbs)}
-<h1>${esc(h1)}</h1>
-<p>${esc(data.paragraphs[0])}</p>
-<section><h2>${esc(h2Label)}</h2>
-${data.paragraphs.slice(1).map(p => `<p>${esc(p)}</p>`).join('\n')}
-</section>
-<section><h2>Why Choose Us for ${esc(displayName)} in ${esc(location.name)}</h2>
-<ul>${service.benefits.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
-</section>
-<section><h2>${esc(location.name)} Climate Challenges for Stucco</h2>
-<ul>${location.painPoints.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
-</section>
-${faqHtml(data.faqs, `${displayName} FAQ — ${location.name}`)}
-<section><h2>Other Stucco Services in ${esc(location.name)}</h2>
-<ul>${services.filter(s => s.slug !== service.slug).map(s => `<li><a href="/${s.slug}/${location.slug}">${esc(seoServiceName[s.slug] || s.name)} in ${esc(location.name)}</a></li>`).join('')}</ul>
-</section>
-<section><h2>${esc(displayName)} Across San Antonio</h2>
-<ul>${locations.filter(l => l.slug !== location.slug).map(l => `<li><a href="/${service.slug}/${l.slug}">${esc(displayName)} in ${esc(l.name)}</a></li>`).join('')}</ul>
-</section>
-${location.slug !== 'san-antonio' ? `<p>See also: <a href="/${service.slug}/san-antonio">${esc(displayName)} in San Antonio</a> | <a href="/${location.slug}">All services in ${esc(location.name)}</a></p>` : `<p>See also: <a href="/san-antonio">All Stucco Services in San Antonio</a> | <a href="/${service.slug}">${esc(displayName)} — All Locations</a></p>`}
-<section><h2>Related Articles</h2>
-<ul>${blogPosts.filter(p => {
-  const mapped = blogServiceMap[p.slug];
-  return mapped && mapped.includes(service.slug);
-}).slice(0, 3).map(p => `<li><a href="/blog/${p.slug}">${esc(p.title)}</a></li>`).join('')}
-${blogPosts.filter(p => {
-  const mapped = blogServiceMap[p.slug];
-  return mapped && mapped.includes(service.slug);
-}).length === 0 ? `<li><a href="/blog">Stucco Tips &amp; Resources</a></li>` : ''}
-</ul>
-</section>
-${ctaBlock()}
-${faqSchema(data.faqs)}
 ${breadcrumbSchema(crumbs)}
 </article>`;
 }
@@ -358,7 +305,6 @@ ${post.content.map(c => c.startsWith('## ') ? `<h2>${esc(c.slice(3))}</h2>` : `<
     if (!s) return [];
     return [
       `<li><a href="/${slug}">${esc(s.name)}</a></li>`,
-      `<li><a href="/${slug}/san-antonio">${esc(s.name)} in San Antonio</a></li>`,
     ];
   });
   return links.length ? links.join('') : `<li><a href="/services">View All Stucco Services</a></li>`;
@@ -559,26 +505,13 @@ for (const l of locations) {
   };
 }
 
-// Service × Location combo pages
-for (const entry of serviceLocationData) {
-  const s = services.find(x => x.slug === entry.serviceSlug);
-  const l = locations.find(x => x.slug === entry.locationSlug);
-  if (s && l) {
-    routes[`/${entry.serviceSlug}/${entry.locationSlug}`] = {
-      title: `${s.name} in ${l.name}, TX | ${SITE_NAME}`,
-      description: entry.metaDescription,
-      content: renderComboPage(s, l, entry),
-    };
-  }
-}
-
 // SEO title/description overrides — every title ≤60 chars, every description ≤155 chars
 // to prevent Google truncation. Keywords front-loaded from actual GSC query data.
 const seoOverrides: Record<string, { title: string; description: string }> = {
   // ── Homepage ──
   '/': {
-    title: `Stucco Contractor San Antonio TX | ${SITE_NAME}`,
-    description: 'Locally owned stucco contractor in San Antonio — repair, installation, EIFS & painting. Licensed & insured, own crew. Free estimate — (210) 871-8490.',
+    title: `Stucco Repair & Contractor San Antonio TX | ${SITE_NAME}`,
+    description: 'San Antonio stucco contractor — expert stucco repair, installation, EIFS & painting. Locally owned, licensed & insured, own crew. Free estimate — (210) 871-8490.',
   },
   // ── Lead / Quote Page ──
   '/quote': {
@@ -590,71 +523,38 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
     title: 'Stucco Services San Antonio TX — All Repairs & Installs',
     description: 'Every stucco service in San Antonio — repair, installation, replacement, EIFS, painting & remodeling. Alamo Heights to the Westside. Call (210) 871-8490.',
   },
-  // ── Service Pages (generic — broad service authority, NO geo-modifier to avoid cannibalization with combo pages) ──
+  // ── Service Pages ──
   '/stucco-repairs': {
-    title: 'Expert Stucco Repair — Cracks, Water Damage & Patches',
-    description: 'Cracked or water-damaged stucco? We diagnose the root cause and fix it right — seamless color and texture match. Licensed, insured, own crew.',
+    title: 'Stucco Repair San Antonio TX | Licensed & Insured',
+    description: 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
   },
   '/stucco-installation': {
-    title: 'Professional Stucco Installation | New Builds & Additions',
-    description: 'Three-coat stucco installation for new construction, additions & retrofits. Engineered for extreme heat and humidity. Licensed & insured.',
+    title: 'Stucco Installation San Antonio TX | Licensed Crew',
+    description: 'Three-coat stucco installation in San Antonio for new builds, additions and retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
   },
   '/stucco-replacement': {
-    title: 'Full Stucco Replacement — Tear-Out & New System',
-    description: 'Complete stucco replacement — full tear-out, substrate inspection & fresh three-coat system. When patching won\'t cut it. Free on-site assessment.',
+    title: 'Stucco Replacement San Antonio TX | Free Assessment',
+    description: 'Full stucco tear-out and replacement in San Antonio — substrate inspection plus a fresh three-coat system. Licensed & insured. Free on-site assessment.',
   },
   '/residential-stucco': {
-    title: 'Residential Stucco Services — Homes, HOAs & Exteriors',
-    description: 'Residential stucco repair, installation & refinishing for single-family homes and HOA communities. Own crew, no subcontractors. Free estimate.',
+    title: 'Residential Stucco San Antonio TX | Homes & HOAs',
+    description: 'Residential stucco repair, installation and refinishing across San Antonio for homes and HOA communities. Own crew, no subs. Free estimate today.',
   },
   '/commercial-stucco': {
-    title: 'Commercial Stucco — Office, Retail & Multi-Family',
-    description: 'Commercial stucco for offices, retail centers, restaurants & multi-family buildings. Phased scheduling with minimal business disruption.',
+    title: 'Commercial Stucco Contractor San Antonio TX | Free Quote',
+    description: 'Commercial stucco contractor in San Antonio for offices, retail & multi-family. Phased scheduling, minimal disruption. Call (210) 871-8490.',
   },
   '/eifs-synthetic-stucco': {
     title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
     description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
   },
   '/stucco-painting': {
-    title: 'Professional Stucco Painting | Elastomeric Coatings',
-    description: 'Stucco painting with elastomeric coatings that last 10–15 years. UV protection, crack bridging & full color changes. Free color consultation.',
+    title: 'Stucco Painting San Antonio TX | Elastomeric Coating',
+    description: 'Stucco painting in San Antonio with elastomeric coatings that last 10–15 years. UV protection and crack bridging. Free color consult — (210) 871-8490.',
   },
   '/stucco-remodeling': {
-    title: 'Stucco Remodeling — Modern Finishes & Texture Updates',
-    description: 'Stucco remodeling — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
-  },
-  // ── San Antonio Combo Pages (service + location) ──
-  '/stucco-repairs/san-antonio': {
-    title: 'Stucco Repair San Antonio TX — Same-Week Estimates',
-    description: 'Need stucco repair near you in San Antonio? Same-week estimates for cracks, water damage & delamination. Licensed & insured. Call (210) 871-8490.',
-  },
-  '/stucco-installation/san-antonio': {
-    title: 'Stucco Installation San Antonio TX — Free Estimate',
-    description: 'Stucco installers in San Antonio for new construction, additions & retrofits. Three-coat systems built for South Texas. Call (210) 871-8490.',
-  },
-  '/eifs-synthetic-stucco/san-antonio': {
-    title: 'EIFS & Dryvit Repair San Antonio TX | Synthetic Stucco',
-    description: 'EIFS and synthetic stucco repair in San Antonio — Dryvit, moisture remediation & UV-stable re-coating. Free assessment — (210) 871-8490.',
-  },
-  '/commercial-stucco/san-antonio': {
-    title: 'Commercial Stucco Contractor San Antonio TX | Free Quote',
-    description: 'Commercial stucco contractor in San Antonio for offices, retail & multi-family. Phased scheduling, minimal disruption. Call (210) 871-8490.',
-  },
-  '/residential-stucco/san-antonio': {
-    title: 'Residential Stucco San Antonio TX — Home Exteriors',
-    description: 'Residential stucco repair, installation & refinishing in San Antonio. Built for Texas heat. Own crew, no subs. Free estimate — (210) 871-8490.',
-  },
-  '/stucco-replacement/san-antonio': {
-    title: 'Stucco Replacement San Antonio TX | Full Re-Stucco',
-    description: 'Failing stucco in San Antonio? Complete tear-out, substrate repair & new system installed. Free on-site estimate — call (210) 871-8490.',
-  },
-  '/stucco-painting/san-antonio': {
-    title: 'Stucco Painting San Antonio TX — UV-Rated Coatings',
-    description: 'Elastomeric stucco painting in San Antonio — coatings that fight UV, heat & cracking for 10–15 years. Color changes available. Call (210) 871-8490.',
-  },
-  '/stucco-remodeling/san-antonio': {
     title: 'Stucco Remodeling San Antonio TX | Exterior Makeover',
-    description: 'Stucco remodeling in San Antonio — modern smooth finishes, texture updates & curb appeal upgrades. Free consultation — call (210) 871-8490.',
+    description: 'Stucco remodeling in San Antonio — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
   },
 };
 
@@ -668,7 +568,7 @@ for (const [path, override] of Object.entries(seoOverrides)) {
 // Blog posts
 for (const post of blogPosts) {
   routes[`/blog/${post.slug}`] = {
-    title: `${post.title} | ${SITE_NAME}`,
+    title: post.title,
     description: post.excerpt,
     content: renderBlogPost(post),
   };
@@ -691,7 +591,6 @@ ${breadcrumb([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster-produ
 <section><h2>Related Services</h2>
 <ul>
 <li><a href="/stucco-installation">Stucco Installation</a></li>
-<li><a href="/stucco-installation/san-antonio">Stucco Installation in San Antonio</a></li>
 <li><a href="/stucco-replacement">Stucco Replacement</a></li>
 <li><a href="/san-antonio">Stucco Services in San Antonio</a></li>
 </ul>

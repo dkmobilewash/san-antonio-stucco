@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import { services } from './data/services';
-import { locations } from './data/locations';
 
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
@@ -49,11 +48,7 @@ function AppLayout() {
             {locations.map((l) => (
               <Route key={l.slug} path={`/${l.slug}`} element={<LocationDetailPage />} />
             ))}
-            {services.map((s) =>
-              locations.map((l) => (
-                <Route key={`${s.slug}-${l.slug}`} path={`/${s.slug}/${l.slug}`} element={<ServiceLocationPage />} />
-              ))
-            )}
+            {/* SA combo pages consolidated into parent service pages — redirected via vercel.json */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

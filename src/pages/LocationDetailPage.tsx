@@ -182,14 +182,14 @@ export default function LocationDetailPage() {
             {services.map((s) => (
               <Link
                 key={s.slug}
-                to={`/${s.slug}/${location.slug}`}
+                to={slug === 'san-antonio' ? `/${s.slug}/san-antonio` : `/${s.slug}`}
                 className="group flex items-center gap-4 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-4 hover:shadow-md transition-all"
               >
                 <div className="w-10 h-10 bg-sand-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-sand-100 transition-colors">
                   <ArrowRight size={18} className="text-sand-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm">{s.name} in {location.name}</h3>
+                  <h3 className="font-semibold text-slate-800 text-sm">{s.name}{slug === 'san-antonio' ? ` in ${location.name}` : ''}</h3>
                   <p className="text-xs text-slate-500">Professional {s.name.toLowerCase()} services</p>
                 </div>
               </Link>

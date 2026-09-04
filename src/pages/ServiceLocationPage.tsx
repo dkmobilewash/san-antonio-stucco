@@ -224,24 +224,24 @@ export default function ServiceLocationPage() {
       {/* Review CTA */}
       <ReviewCTA />
 
-      {/* Other Services in This Location */}
+      {/* Other Services in San Antonio */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-slate-800 mb-8">
-            Other Stucco Services in {location.name}
+            Other Stucco Services in San Antonio
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.filter((s) => s.slug !== service.slug).map((s) => (
               <Link
                 key={s.slug}
-                to={`/${s.slug}/${location.slug}`}
+                to={`/${s.slug}/san-antonio`}
                 className="group flex items-center gap-4 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-4 hover:shadow-md transition-all"
               >
                 <div className="w-10 h-10 bg-sand-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-sand-100 transition-colors">
                   <Wrench size={18} className="text-sand-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm group-hover:text-sand-700 transition-colors">{s.name} in {location.name}</h3>
+                  <h3 className="font-semibold text-slate-800 text-sm group-hover:text-sand-700 transition-colors">{s.name} in San Antonio</h3>
                   <p className="text-xs text-slate-500">Professional {s.name.toLowerCase()}</p>
                 </div>
               </Link>
@@ -250,24 +250,24 @@ export default function ServiceLocationPage() {
         </div>
       </section>
 
-      {/* This Service in Other Locations */}
+      {/* Stucco Services Across the Metro */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
-            {service.name} Across San Antonio
+            Stucco Services Across the San Antonio Metro
           </h2>
           <p className="text-slate-600 mb-6">
-            We provide professional {service.name.toLowerCase()} throughout the greater San Antonio metro area:
+            We provide professional stucco services throughout the greater San Antonio metro area:
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {locations.filter((l) => l.slug !== location.slug).map((loc) => (
+            {locations.filter((l) => l.slug !== 'san-antonio').map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/${service.slug}/${loc.slug}`}
+                to={`/${loc.slug}`}
                 className="flex items-center gap-2 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-3 hover:shadow-sm transition-all"
               >
                 <MapPin size={16} className="text-sand-600" />
-                <span className="text-sm font-medium text-slate-700">{service.name} in {loc.name}</span>
+                <span className="text-sm font-medium text-slate-700">Stucco Services in {loc.name}</span>
               </Link>
             ))}
           </div>
@@ -275,8 +275,8 @@ export default function ServiceLocationPage() {
             <Link to={`/${service.slug}`} className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
               About {service.name} <ArrowRight size={14} />
             </Link>
-            <Link to={`/${location.slug}`} className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
-              All Services in {location.name} <ArrowRight size={14} />
+            <Link to="/san-antonio" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
+              All Services in San Antonio <ArrowRight size={14} />
             </Link>
             <Link to="/service-areas" className="text-sand-600 hover:text-sand-700 font-medium text-sm inline-flex items-center gap-1">
               All Service Areas <ArrowRight size={14} />
