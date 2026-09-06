@@ -112,6 +112,11 @@ export default function BlogPostPage() {
       'what-is-the-issue-with-stucco': 'Common Stucco Problems Explained | Repair Guide',
       'does-homeowners-insurance-cover-stucco-issues': 'Does Insurance Cover Stucco Repair? | Claim Guide',
       'what-does-failing-stucco-look-like': 'What Does Failing Stucco Look Like? | Warning Signs',
+      'can-you-stucco-over-existing-stucco': 'Can You Stucco Over Existing Stucco? | Expert Answer',
+      'how-to-clean-stucco': 'How to Clean Stucco Without Damaging It | Safe Methods',
+      'hire-stucco-contractor-san-antonio': 'Questions to Ask a Stucco Contractor Before Hiring',
+      'can-you-paint-stucco': 'Can You Paint Stucco? | San Antonio Homeowner Guide',
+      'stucco-vs-hardie-board': 'Stucco vs Hardie Board | San Antonio Cost Comparison',
     };
     const descriptions: Record<string, string> = {
       'how-san-antonio-weather-affects-stucco': 'Learn how San Antonio heat, humidity & UV damage stucco systems. Expert tips on prevention & when to call a stucco contractor. Read our guide!',
@@ -137,6 +142,11 @@ export default function BlogPostPage() {
       'what-is-the-issue-with-stucco': 'Common stucco issues explained — moisture intrusion, cracking, delamination & efflorescence. San Antonio repair experts cover causes & fixes.',
       'does-homeowners-insurance-cover-stucco-issues': 'Does homeowners insurance cover stucco repair? What\'s covered, what\'s excluded & how to file a stucco damage claim. San Antonio homeowner guide.',
       'what-does-failing-stucco-look-like': 'What does failing stucco look like? Spot cracking patterns, bubbling, hollow sounds & staining before they become costly repairs. Photo guide.',
+      'can-you-stucco-over-existing-stucco': 'Can you apply new stucco over old stucco? When re-coating works, when full removal is needed, and what San Antonio\'s climate means for the decision.',
+      'how-to-clean-stucco': 'How to clean stucco safely — pressure washer settings, cleaning solutions, what to avoid, and stains that signal a deeper problem than dirt.',
+      'hire-stucco-contractor-san-antonio': 'Ten questions to ask before hiring a stucco contractor in San Antonio — licensing, experience, moisture barriers, warranty, and red flags to walk away from.',
+      'can-you-paint-stucco': 'Can you paint stucco? Best paint types for San Antonio heat, how long each lasts, surface prep steps, and when re-coating beats repainting.',
+      'stucco-vs-hardie-board': 'Stucco vs Hardie Board for San Antonio homes — cost per square foot, lifespan, maintenance, climate performance, and which adds more resale value.',
     };
     return {
       title: titles[post.slug] || post.title,

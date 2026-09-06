@@ -144,6 +144,11 @@ const blogServiceMap: Record<string, string[]> = {
   'what-is-the-issue-with-stucco': ['stucco-repairs', 'stucco-replacement'],
   'does-homeowners-insurance-cover-stucco-issues': ['stucco-repairs', 'stucco-replacement'],
   'what-does-failing-stucco-look-like': ['stucco-repairs', 'stucco-replacement'],
+  'can-you-stucco-over-existing-stucco': ['stucco-installation', 'stucco-replacement'],
+  'how-to-clean-stucco': ['stucco-painting', 'stucco-repairs'],
+  'hire-stucco-contractor-san-antonio': ['stucco-installation', 'stucco-repairs'],
+  'can-you-paint-stucco': ['stucco-painting', 'stucco-repairs'],
+  'stucco-vs-hardie-board': ['stucco-installation', 'residential-stucco'],
 };
 
 // ── Content Generators ──
