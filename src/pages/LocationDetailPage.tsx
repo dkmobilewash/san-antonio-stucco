@@ -3,6 +3,7 @@ import { useLocation as useRouterLocation, Link } from 'react-router-dom';
 import { ArrowRight, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import { locations } from '../data/locations';
 import { services } from '../data/services';
+import { contact } from '../data/contact';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
@@ -15,15 +16,60 @@ export default function LocationDetailPage() {
 
   const jsonLd = useMemo(() => {
     if (!location) return undefined;
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: location.faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-      })),
-    };
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: location.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HomeAndConstructionBusiness',
+        '@id': 'https://sanantoniostucco.com/#business',
+        name: 'San Antonio Stucco',
+        url: 'https://sanantoniostucco.com',
+        telephone: contact.phone,
+        email: contact.email,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '5802 Rocky Pt Dr',
+          addressLocality: 'San Antonio',
+          addressRegion: 'TX',
+          postalCode: '78249',
+          addressCountry: 'US',
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: 29.5574, longitude: -98.6035 },
+        areaServed: {
+          '@type': 'City',
+          name: location.name,
+          containedInPlace: {
+            '@type': 'AdministrativeArea',
+            name: 'Texas',
+          },
+        },
+        makesOffer: services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: s.name,
+            url: `https://sanantoniostucco.com/${s.slug}`,
+            areaServed: {
+              '@type': 'City',
+              name: location.name,
+            },
+          },
+        })),
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '18:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '08:00', closes: '14:00' },
+        ],
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '87' },
+      },
+    ];
   }, [location]);
 
   const seoMeta = useMemo(() => {

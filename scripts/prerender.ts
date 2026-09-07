@@ -292,6 +292,7 @@ ${faqHtml(location.faqs, `${location.name} Stucco FAQ`)}
 ${ctaBlock()}
 ${faqSchema(location.faqs)}
 ${breadcrumbSchema(crumbs)}
+${locationBusinessSchema(location)}
 </article>`;
 }
 
@@ -646,6 +647,52 @@ function localBusinessSchema(): string {
         "itemOffered": { "@type": "Service", "name": s.name },
       })),
     },
+  })}</script>`;
+}
+
+function locationBusinessSchema(location: typeof locations[0]): string {
+  return `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://sanantoniostucco.com/#business",
+    "name": "San Antonio Stucco",
+    "url": SITE_URL,
+    "telephone": contact.phone,
+    "email": contact.email,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5802 Rocky Pt Dr",
+      "addressLocality": "San Antonio",
+      "addressRegion": "TX",
+      "postalCode": "78249",
+      "addressCountry": "US",
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 29.5574, "longitude": -98.6035 },
+    "areaServed": {
+      "@type": "City",
+      "name": location.name,
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Texas",
+      },
+    },
+    "makesOffer": services.map(s => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": s.name,
+        "url": `${SITE_URL}/${s.slug}`,
+        "areaServed": {
+          "@type": "City",
+          "name": location.name,
+        },
+      },
+    })),
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" },
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" },
   })}</script>`;
 }
 
