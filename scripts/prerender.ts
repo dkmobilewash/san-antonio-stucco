@@ -271,7 +271,7 @@ ${breadcrumb(crumbs)}
 ${(location.extendedContent || []).map(p => `<p>${p}</p>`).join('\n')}
 </section>
 <section><h2>Services Available in ${esc(location.name)}</h2>
-<ul>${services.map(s => `<li><a href="/${s.slug}">${esc(s.name)}${location.slug === 'san-antonio' ? ' in San Antonio' : ''}</a></li>`
+<ul>${services.map(s => `<li><a href="/${s.slug}">${esc(s.name)}</a></li>`
 ).join('')}</ul>
 </section>
 <section><h2>Local Climate Challenges in ${esc(location.name)}</h2>
