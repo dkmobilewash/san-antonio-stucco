@@ -8,7 +8,9 @@
     "build": "vite build && tsx scripts/prerender.ts",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "seo:lint": "tsx scripts/seo-lint.ts",
+    "seo:gsc": "tsx scripts/seo/gsc-fetch.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
