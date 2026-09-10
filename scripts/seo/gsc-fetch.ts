@@ -9,7 +9,8 @@
  * Console property. No npm dependency — the JWT is signed with node:crypto.
  *
  * Env:
- *   GSC_SERVICE_ACCOUNT_JSON  the service-account key file contents, OR a path to it
+ *   GSC_SERVICE_ACCOUNT_JSON  the service-account key: raw JSON on one line, base64 of the JSON
+ *                             (`base64 -i key.json | tr -d '\n'`), OR a path to the key file
  *   GSC_SITE_URL              property id, default "sc-domain:sanantoniostucco.com"
  *                             (use "https://sanantoniostucco.com/" for a URL-prefix property)
  *
@@ -52,7 +53,11 @@ function loadServiceAccount(): { client_email: string; private_key: string } {
     console.error('GSC_SERVICE_ACCOUNT_JSON is not set. See scripts/seo/README.md for setup.');
     process.exit(2);
   }
-  const text = raw.trim().startsWith('{') ? raw : readFileSync(raw, 'utf8');
+  const trimmed = raw.trim();
+  let text: string;
+  if (trimmed.startsWith('{')) text = trimmed;                       // raw JSON on one line
+  else if (/^[A-Za-z0-9+/=]+$/.test(trimmed)) text = Buffer.from(trimmed, 'base64').toString('utf8'); // base64 of the JSON
+  else text = readFileSync(trimmed, 'utf8');                          // path to the key file
   return JSON.parse(text);
 }
 

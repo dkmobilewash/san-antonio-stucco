@@ -14,8 +14,9 @@ Three pieces, layered:
 2. Create a **service account**, then create a JSON key for it and download the file.
 3. In Search Console, open the `sanantoniostucco.com` property → Settings → Users and permissions → Add user. Paste the service account's email (`...@...iam.gserviceaccount.com`) with **Full** or **Restricted** permission.
 4. Store the key where the agent runs:
-   - Claude Code on the web: environment settings → environment variables → `GSC_SERVICE_ACCOUNT_JSON` = the full contents of the JSON file.
+   - Claude Code on the web: at claude.ai/code, click the cloud icon showing the environment name above the message box, hover the environment and click its gear icon, then add a line to **Environment variables**. Either paste the JSON on one line wrapped in single quotes, `GSC_SERVICE_ACCOUNT_JSON='{...}'`, or paste a base64 version with no quotes: `GSC_SERVICE_ACCOUNT_JSON=<output of base64 -i key.json | tr -d '\n'>`.
    - Locally: `export GSC_SERVICE_ACCOUNT_JSON=/path/to/key.json`.
+   - Only sessions started after saving see the variable.
 5. If the property is a URL-prefix property rather than a domain property, also set `GSC_SITE_URL=https://sanantoniostucco.com/`.
 
 Verify with `npm run seo:gsc`. It prints totals and the top opportunities.
