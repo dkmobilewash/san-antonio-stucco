@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'eifs-vs-traditional-stucco-differences',
-    title: 'EIFS vs Traditional Stucco: Differences, Maintenance & Cost in San Antonio',
+    title: 'EIFS vs Traditional Stucco: Cost & Care in San Antonio',
     excerpt: 'Understanding the differences between synthetic (EIFS) and traditional stucco systems helps you make informed decisions about your exterior.',
     category: 'Education',
     date: 'December 2024',
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
       'Here is how the two systems stack up across the factors that matter most in the San Antonio climate. Thickness: traditional stucco is about 7/8 inch; EIFS is 1 to 4 inches (mostly foam). Weight: traditional stucco weighs about 10 lbs per square foot; EIFS weighs about 1 to 3 lbs. Impact resistance: traditional stucco is excellent (hard cement shell); EIFS is poor (soft foam behind thin acrylic). Moisture handling: traditional stucco breathes and drains through weep screed; EIFS relies on sealed joints and drainage plane. Insulation value: traditional stucco provides minimal R-value; EIFS provides R-4 to R-12 depending on foam thickness. Lifespan: traditional stucco lasts 50 to 80 years; EIFS lasts 30 to 50 years with proper maintenance. Installation cost in San Antonio: traditional runs $8 to $15 per square foot; EIFS runs $9 to $18 per square foot. Maintenance: traditional stucco needs crack fill and re-coat every 15 to 25 years; EIFS needs annual sealant inspection and immediate repair of any impact damage.',
       '## Which System Is Right for Your San Antonio Home?',
       'There is no universally correct answer — it depends on the home, the budget, and how the system will be maintained. Traditional stucco is the right call for homeowners who prioritize durability, impact resistance, and traditional San Antonio architecture, and who do not want to fuss over annual sealant inspections. EIFS makes sense for energy-conscious homeowners building custom homes who want intricate design details and superior insulation, and who are willing to maintain the system rigorously.',
-      'If you have an existing EIFS home in San Antonio and you are seeing signs of moisture damage — staining, soft spots, mold smell, or sealant failures around windows — do not delay. Our <a href="/stucco-repairs">stucco repair team</a> handles EIFS moisture damage repair routinely, and the longer it sits, the more substrate has to be replaced. If you are weighing a new install or full replacement, visit our <a href="/">homepage</a> to see the full range of stucco services we offer across the San Antonio metro.',
+      'If you have an existing EIFS home in San Antonio and you are seeing signs of moisture damage — staining, soft spots, mold smell, or sealant failures around windows — do not delay. Our <a href="/stucco-repairs">stucco repair team</a> handles EIFS moisture damage repair routinely, and the longer it sits, the more substrate has to be replaced. If you are weighing a new install or full replacement, visit our <a href="/eifs-synthetic-stucco">EIFS stucco services page</a> to see the full range of EIFS repair, installation, and moisture remediation services we offer across the San Antonio metro.',
     ],
   },
   {
@@ -303,7 +303,7 @@ export const blogPosts: BlogPost[] = [
     image: 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-project-san-antonio.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXByb2plY3Qtc2FuLWFudG9uaW8ud2VicCIsImlhdCI6MTc3NzU4MDIxOCwiZXhwIjoxODA5MTE2MjE4fQ.f8dkPFoycjo-pRM0B_iOp1XidpqogtYZKcA9NNKBfcA',
     relatedService: '/stucco-installation',
     content: [
-      'Which type of stucco is best? The answer depends on your climate, your budget, and the look you want. There are four main stucco systems used in residential and commercial construction, and each has distinct strengths and weaknesses. Here is what you need to know to make the right choice — especially if you are building or renovating in San Antonio.',
+      'Which type of stucco is best? The answer depends on your climate, your budget, and the look you want. There are four main stucco systems used in residential and <a href="/commercial-stucco">commercial construction</a>, and each has distinct strengths and weaknesses. Here is what you need to know to make the right choice — especially if you are building or renovating in San Antonio.',
       '## Traditional Three-Coat Cement Stucco',
       'Three-coat stucco is the gold standard. It consists of a scratch coat, brown coat, and finish coat applied over metal lath, totaling about seven-eighths of an inch thick. It is fire-resistant, breathable, impact-resistant, and lasts 50 to 80 years when properly installed. For San Antonio homes, three-coat cement stucco is the best all-around choice because it handles our extreme heat, humidity, and UV exposure better than any alternative. The downside is that it is rigid and will crack with foundation movement, but cracks are easy to repair.',
       '## One-Coat Stucco',
@@ -414,7 +414,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'what-are-the-downsides-of-stucco',
     title: 'Stucco Pros and Cons: An Honest Guide for Homeowners',
-    excerpt: 'Is stucco right for your home? An honest look at the pros and cons of stucco — durability, cost, maintenance, and the real downsides you should know before you commit.',
+    excerpt: 'An honest look at stucco pros and cons for San Antonio homeowners — durability, cost, maintenance and the real downsides to know before you commit.',
     category: 'Education',
     date: 'August 2025',
     image: 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-replacement-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXJlcGxhY2VtZW50LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDgxOSwiZXhwIjoxODA5MTE2ODE5fQ.uo6Gz1bu6exda7KdKjmgOkkt-iSb_01NiOa6njyu0Yk',
@@ -550,7 +550,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'what-does-failing-stucco-look-like',
-    title: 'What Does Failing Stucco Look Like? Signs Your Stucco Is Failing',
+    title: 'What Does Failing Stucco Look Like? Warning Signs',
     excerpt: 'How to spot failing stucco before it becomes a major problem. Visual signs, what to listen for, and when to call a professional for stucco repair.',
     category: 'Repairs',
     date: 'August 2025',
