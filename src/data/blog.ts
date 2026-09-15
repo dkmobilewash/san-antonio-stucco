@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'eifs-vs-traditional-stucco-differences',
-    title: 'EIFS vs Traditional Stucco: Differences, Maintenance & Cost in San Antonio',
+    title: 'EIFS vs Traditional Stucco: Cost & Maintenance Compared',
     excerpt: 'Understanding the differences between synthetic (EIFS) and traditional stucco systems helps you make informed decisions about your exterior.',
     category: 'Education',
     date: 'December 2024',
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
       'Here is how the two systems stack up across the factors that matter most in the San Antonio climate. Thickness: traditional stucco is about 7/8 inch; EIFS is 1 to 4 inches (mostly foam). Weight: traditional stucco weighs about 10 lbs per square foot; EIFS weighs about 1 to 3 lbs. Impact resistance: traditional stucco is excellent (hard cement shell); EIFS is poor (soft foam behind thin acrylic). Moisture handling: traditional stucco breathes and drains through weep screed; EIFS relies on sealed joints and drainage plane. Insulation value: traditional stucco provides minimal R-value; EIFS provides R-4 to R-12 depending on foam thickness. Lifespan: traditional stucco lasts 50 to 80 years; EIFS lasts 30 to 50 years with proper maintenance. Installation cost in San Antonio: traditional runs $8 to $15 per square foot; EIFS runs $9 to $18 per square foot. Maintenance: traditional stucco needs crack fill and re-coat every 15 to 25 years; EIFS needs annual sealant inspection and immediate repair of any impact damage.',
       '## Which System Is Right for Your San Antonio Home?',
       'There is no universally correct answer — it depends on the home, the budget, and how the system will be maintained. Traditional stucco is the right call for homeowners who prioritize durability, impact resistance, and traditional San Antonio architecture, and who do not want to fuss over annual sealant inspections. EIFS makes sense for energy-conscious homeowners building custom homes who want intricate design details and superior insulation, and who are willing to maintain the system rigorously.',
-      'If you have an existing EIFS home in San Antonio and you are seeing signs of moisture damage — staining, soft spots, mold smell, or sealant failures around windows — do not delay. Our <a href="/stucco-repairs">stucco repair team</a> handles EIFS moisture damage repair routinely, and the longer it sits, the more substrate has to be replaced. If you are weighing a new install or full replacement, visit our <a href="/">homepage</a> to see the full range of stucco services we offer across the San Antonio metro.',
+      'If you have an existing EIFS home in San Antonio and you are seeing signs of moisture damage — staining, soft spots, mold smell, or sealant failures around windows — do not delay. Our <a href="/stucco-repairs">stucco repair team</a> handles <a href="/eifs-synthetic-stucco">EIFS moisture damage repair</a> routinely, and the longer it sits, the more substrate has to be replaced. If you are weighing a new install or full replacement, visit our <a href="/">homepage</a> to see the full range of stucco services we offer across the San Antonio metro.',
     ],
   },
   {
@@ -215,7 +215,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'stucco-repair-near-me-san-antonio-guide',
-    title: 'Stucco Repair Near Me in San Antonio: What to Know Before You Hire',
+    title: 'Stucco Repair San Antonio: What to Know Before You Hire',
     excerpt: 'Searching for stucco repair near me in San Antonio? Learn what to look for in a contractor, common repair costs, and how to avoid expensive mistakes.',
     category: 'Repairs',
     date: 'June 2025',
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
       'San Antonio sits in one of the most demanding climates for exterior stucco in the entire country. Summer surface temperatures on south-facing walls can exceed 150 degrees Fahrenheit. The temperature swing between a 100-degree afternoon and a 70-degree morning means stucco expands and contracts every single day for months on end. Add Gulf humidity, seasonal monsoon downpours, and the expansive clay soils that shift under foundations across most of Bexar County, and you have a recipe for cracking, moisture intrusion, and finish deterioration that no amount of quality installation can completely prevent over time.',
       'The most common repairs we see across San Antonio are hairline cracking from thermal cycling, stair-step cracking radiating from window and door corners caused by foundation movement, sealant failures at penetrations that allow water behind the stucco, bubbling or delamination from trapped moisture, and cosmetic issues like chalking, fading, and efflorescence. Most of these are straightforward to fix when caught early — and expensive to fix when ignored.',
       '## What to Look for in a Stucco Repair Contractor Near You',
-      'Not all stucco contractors are equal, and in a market as large as San Antonio, you will find everyone from skilled specialists to handymen and painters who dabble in stucco on the side. Here is what separates a quality repair from a patch job that fails. First, the contractor should inspect the wall before quoting. A reputable stucco contractor will look at the damage, check for underlying causes like moisture or substrate failure, and tell you what is actually going on — not just slap caulk in a crack and call it done. Second, they should be able to match your existing texture and color. San Antonio has dozens of common stucco textures across different eras and builders. A skilled crew can replicate skip-trowel, sand float, dash, lace, and smooth finishes so the patch blends invisibly. Third, look for proper licensing and insurance. Stucco work involves scaffolding, heavy materials, and potential moisture damage — you need a contractor who carries general liability and workers compensation.',
+      'Not all stucco contractors are equal, and in a market as large as San Antonio, you will find everyone from skilled specialists to handymen and painters who dabble in stucco on the side. Here is what separates a quality repair from a patch job that fails. First, the contractor should inspect the wall before quoting. A reputable stucco contractor will look at the damage, check for underlying causes like moisture or substrate failure, and tell you what is actually going on — not just slap caulk in a crack and call it done. Second, they should be able to match your existing texture and color. San Antonio has dozens of common stucco textures across different eras and builders. A skilled crew can replicate skip-trowel, sand float, dash, lace, and smooth finishes so the patch blends invisibly. Third, look for <a href="/blog/hire-stucco-contractor-san-antonio">proper licensing and insurance</a>. Stucco work involves scaffolding, heavy materials, and potential moisture damage — you need a contractor who carries general liability and workers compensation.',
       '## How Much Does Stucco Repair Cost in San Antonio?',
       'Stucco repair pricing in San Antonio varies widely based on the scope of work. Small cosmetic repairs — filling a few hairline cracks, replacing sealant around a window, touching up a damaged corner — typically run $300 to $800. Moderate repairs that involve cutting out and rebuilding a section of stucco, replacing damaged lath, or addressing moisture intrusion on one wall generally cost $1,000 to $3,000. Major repairs involving multiple walls, substrate replacement, or EIFS moisture remediation can range from $5,000 to $15,000 or more.',
       'The key factor that drives cost is what is happening behind the surface. A crack that is purely cosmetic and only affects the finish coat is inexpensive to fix. A crack that has allowed water to reach the sheathing, causing rot or mold, requires the stucco to be removed, the substrate repaired or replaced, and the entire section rebuilt from scratch. This is why a proper inspection matters — it tells you what you are actually dealing with before any work starts.',
@@ -371,7 +371,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'what-are-the-three-stages-of-stucco',
-    title: 'What Are the Three Stages of Stucco? The Three-Coat Stucco Process Explained',
+    title: 'What Are the Three Stages of Stucco? Process Explained',
     excerpt: 'Learn the three stages of stucco application — scratch coat, brown coat, and finish coat — and why each layer matters for a durable, long-lasting exterior.',
     category: 'Education',
     date: 'August 2025',
@@ -414,7 +414,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'what-are-the-downsides-of-stucco',
     title: 'Stucco Pros and Cons: An Honest Guide for Homeowners',
-    excerpt: 'Is stucco right for your home? An honest look at the pros and cons of stucco — durability, cost, maintenance, and the real downsides you should know before you commit.',
+    excerpt: 'Is stucco right for your home? An honest look at the pros, cons, durability, cost, and maintenance of stucco for San Antonio homeowners.',
     category: 'Education',
     date: 'August 2025',
     image: 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-replacement-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXJlcGxhY2VtZW50LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDgxOSwiZXhwIjoxODA5MTE2ODE5fQ.uo6Gz1bu6exda7KdKjmgOkkt-iSb_01NiOa6njyu0Yk',

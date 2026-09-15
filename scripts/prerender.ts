@@ -162,6 +162,7 @@ function renderHomePage(): string {
     { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, discoloration or staining, areas that sound hollow when tapped, bubbling or blistering, and moisture or mold near stucco walls. If you notice any of these, contact us for a free inspection.' },
     { question: 'How do I find a stucco contractor near me in San Antonio?', answer: 'San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving the entire San Antonio metro area. Call (210) 871-8490 for a free estimate.' },
     { question: 'What is stucco repair near me going to cost?', answer: 'Minor stucco crack repairs in San Antonio typically start around $300–$800. Larger repairs involving water damage, delamination, or structural issues can range from $1,500–$5,000+. We provide free on-site estimates so you know the exact cost before work begins.' },
+    { question: 'Are you a licensed stucco contractor in San Antonio?', answer: 'Yes. San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving Bexar County and the surrounding metro. We use our own crew — no subcontractors — for every repair, installation, and painting project. Call (210) 871-8490 for proof of license and insurance.' },
   ];
 
   const crumbs: [string, string][] = [['/', 'Home']];
@@ -516,8 +517,8 @@ for (const l of locations) {
 const seoOverrides: Record<string, { title: string; description: string }> = {
   // ── Homepage ──
   '/': {
-    title: `Stucco Repair & Contractor San Antonio TX | ${SITE_NAME}`,
-    description: 'San Antonio stucco contractor — expert stucco repair, installation, EIFS & painting. Locally owned, licensed & insured, own crew. Free estimate — (210) 871-8490.',
+    title: 'Stucco Repair, Painting & Installation | San Antonio TX',
+    description: 'Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490.',
   },
   // ── Lead / Quote Page ──
   '/quote': {

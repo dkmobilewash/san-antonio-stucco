@@ -36,14 +36,15 @@ const homeFAQs = [
   { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, bubbling or bulging areas, discoloration, moisture stains inside walls, and sections that sound hollow when tapped. We offer free inspections for all San Antonio homeowners.' },
   { question: 'How do I find a good stucco contractor near me?', answer: 'Look for a licensed and insured contractor with local experience, verifiable reviews, and knowledge of your area climate. San Antonio Stucco serves the entire metro area including Boerne, New Braunfels, Schertz, Helotes, and Stone Oak. Call (210) 871-8490 for a free on-site estimate.' },
   { question: 'Where can I find stucco repair near me in San Antonio?', answer: 'San Antonio Stucco provides stucco repair throughout the San Antonio metro area with same-day inspections available. We serve all neighborhoods from Alamo Heights to the Westside, plus surrounding cities like Boerne, Schertz, and New Braunfels. Call us or submit a free estimate request online.' },
+  { question: 'Are you a licensed stucco contractor in San Antonio?', answer: 'Yes. San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving Bexar County and the surrounding metro. We use our own crew — no subcontractors — for every repair, installation, and painting project. Call (210) 871-8490 for proof of license and insurance.' },
 ];
 
 export default function HomePage() {
   return (
     <>
       <SEO
-        title="Stucco Repair & Contractor in San Antonio, TX | Installation & EIFS"
-        description="San Antonio stucco contractor — expert stucco repair, installation & EIFS services for residential & commercial projects. Licensed & insured, own crew. Free estimates — call (210) 871-8490."
+        title="Stucco Repair, Painting & Installation | San Antonio TX"
+        description="Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490."
         keywords="stucco repair, stucco repair near me, stucco contractor, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 
