@@ -119,21 +119,11 @@ function faqHtml(faqs: { question: string; answer: string }[], heading: string):
   ).join('')}</section>`;
 }
 
-const PRIORITY_SERVICES = ['stucco-installation', 'stucco-repairs', 'stucco-replacement'];
+const PRIORITY_SERVICES = ['stucco-installation', 'stucco-repairs', 'stucco-painting', 'stucco-replacement'];
 
 const blogServiceMap: Record<string, string[]> = {
   'how-san-antonio-weather-affects-stucco': ['stucco-repairs', 'stucco-installation'],
   'eifs-vs-traditional-stucco-differences': ['eifs-synthetic-stucco', 'stucco-installation'],
-  'stucco-maintenance-tips': ['stucco-repairs', 'stucco-painting'],
-  'when-to-repair-vs-replace-stucco': ['stucco-repairs', 'stucco-replacement'],
-  'diy-vs-professional-stucco-repair': ['stucco-repairs', 'stucco-replacement'],
-  'stucco-color-trends': ['stucco-painting', 'stucco-remodeling'],
-  'energy-efficiency-stucco-homes': ['stucco-installation', 'residential-stucco'],
-  'commercial-stucco-considerations': ['commercial-stucco', 'stucco-installation'],
-  'stucco-moisture-problems': ['stucco-repairs', 'eifs-synthetic-stucco'],
-  'choosing-right-stucco-finish': ['stucco-installation', 'stucco-painting'],
-  'stucco-vs-other-exteriors': ['stucco-installation', 'residential-stucco'],
-  'stucco-building-codes-permits': ['stucco-installation', 'commercial-stucco'],
   'which-type-of-stucco-is-best': ['stucco-installation', 'residential-stucco'],
   'difference-between-20-30-and-30-30-stucco-finish': ['stucco-installation', 'stucco-painting'],
   'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house': ['stucco-installation', 'residential-stucco'],
@@ -149,6 +139,17 @@ const blogServiceMap: Record<string, string[]> = {
   'hire-stucco-contractor-san-antonio': ['stucco-installation', 'stucco-repairs'],
   'can-you-paint-stucco': ['stucco-painting', 'stucco-repairs'],
   'stucco-vs-hardie-board': ['stucco-installation', 'residential-stucco'],
+  'signs-your-stucco-needs-repair': ['stucco-repairs', 'stucco-replacement'],
+  'stucco-repair-vs-replacement-guide': ['stucco-repairs', 'stucco-replacement'],
+  'protecting-stucco-from-texas-heat': ['stucco-painting', 'stucco-repairs'],
+  'stucco-maintenance-checklist-san-antonio': ['stucco-repairs', 'stucco-painting'],
+  'cost-of-stucco-installation-san-antonio': ['stucco-installation', 'residential-stucco'],
+  'choosing-stucco-colors-and-textures': ['stucco-painting', 'stucco-remodeling'],
+  'stucco-vs-other-siding-materials': ['stucco-installation', 'residential-stucco'],
+  'stucco-repair-near-me-san-antonio-guide': ['stucco-repairs'],
+  'stucco-vs-brick-cost-san-antonio': ['stucco-installation', 'residential-stucco'],
+  'how-long-does-stucco-last-san-antonio': ['stucco-repairs', 'stucco-replacement'],
+  'what-is-stucco': ['stucco-installation', 'residential-stucco'],
 };
 
 // ── Content Generators ──
@@ -161,7 +162,7 @@ function renderHomePage(): string {
     { question: 'What areas do you serve?', answer: 'We serve San Antonio and surrounding communities including Boerne, New Braunfels, Schertz, Helotes, Stone Oak, Alamo Heights, Live Oak, Universal City, Leon Valley, and Selma.' },
     { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, discoloration or staining, areas that sound hollow when tapped, bubbling or blistering, and moisture or mold near stucco walls. If you notice any of these, contact us for a free inspection.' },
     { question: 'How do I find a stucco contractor near me in San Antonio?', answer: 'San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving the entire San Antonio metro area. Call (210) 871-8490 for a free estimate.' },
-    { question: 'What is stucco repair near me going to cost?', answer: 'Minor stucco crack repairs in San Antonio typically start around $300–$800. Larger repairs involving water damage, delamination, or structural issues can range from $1,500–$5,000+. We provide free on-site estimates so you know the exact cost before work begins.' },
+    { question: 'Are you a licensed stucco contractor in San Antonio?', answer: 'Yes. San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving Bexar County and the surrounding metro. We use our own crew — no subcontractors — for every repair, installation, and painting project. Call (210) 871-8490 for proof of license and insurance.' },
   ];
 
   const crumbs: [string, string][] = [['/', 'Home']];
@@ -211,6 +212,21 @@ ${localBusinessSchema()}
 </article>`;
 }
 
+function serviceSchema(service: typeof services[0]): string {
+  const dn = seoServiceName[service.slug] || service.name;
+  return `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/${service.slug}#service`,
+    "name": `${dn} in San Antonio, TX`,
+    "serviceType": dn,
+    "url": `${SITE_URL}/${service.slug}`,
+    "description": service.shortDescription,
+    "provider": { "@id": `${SITE_URL}/#business` },
+    "areaServed": locations.map(l => ({ "@type": "City", "name": l.name })),
+  })}</script>`;
+}
+
 function renderServicePage(service: typeof services[0]): string {
   const dn = seoServiceName[service.slug] || service.name;
   const crumbs: [string, string][] = [['/', 'Home'], ['/services', 'Services'], [`/${service.slug}`, service.name]];
@@ -257,6 +273,7 @@ ${faqHtml(service.faqs, `${dn} FAQ`)}
 ${ctaBlock()}
 ${faqSchema(service.faqs)}
 ${breadcrumbSchema(crumbs)}
+${serviceSchema(service)}
 </article>`;
 }
 
@@ -516,8 +533,8 @@ for (const l of locations) {
 const seoOverrides: Record<string, { title: string; description: string }> = {
   // ── Homepage ──
   '/': {
-    title: `Stucco Repair & Contractor San Antonio TX | ${SITE_NAME}`,
-    description: 'San Antonio stucco contractor — expert stucco repair, installation, EIFS & painting. Locally owned, licensed & insured, own crew. Free estimate — (210) 871-8490.',
+    title: 'Stucco Repair, Painting & Installation | San Antonio TX',
+    description: 'Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490.',
   },
   // ── Lead / Quote Page ──
   '/quote': {
