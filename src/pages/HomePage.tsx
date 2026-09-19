@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, CheckCircle, MapPin, Sun, Droplets, ThermometerSun, Shield, Star, DollarSign, BookOpen } from 'lucide-react';
 import { services } from '../data/services';
+import { projects } from '../data/projects';
 import { locations } from '../data/locations';
 import { contact } from '../data/contact';
 import EstimateForm from '../components/EstimateForm';
@@ -50,10 +51,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex items-center pt-24 md:pt-28 pb-8 overflow-hidden">
         <img
-          src="https://static.wixstatic.com/media/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9d320c_cbbc36ac2d784c3c9b6fb42e5703bbe0~mv2.jpg"
-          alt="Professional stucco installation on a San Antonio home exterior"
-          width={1200}
-          height={800}
+          src="/images/hero-commercial-stucco.webp"
+          alt="San Antonio Stucco crew finishing a new stucco and stone exterior on a two-story commercial building"
+          width={1400}
+          height={986}
           fetchPriority="high"
           decoding="sync"
           className="hero-bg"
@@ -153,6 +154,42 @@ export default function HomePage() {
             </Link>
             <Link to="/stucco-remodeling" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
               Stucco Remodeling San Antonio
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Projects */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">Recent Stucco Projects</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">Our own crew, our own jobs. Residential and commercial work across the San Antonio area.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {projects.slice(0, 3).map((p) => (
+              <Link key={p.slug} to={`/projects#${p.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg transition-all">
+                <div className="relative bg-slate-100" style={{ aspectRatio: '4 / 3' }}>
+                  <img
+                    src={p.images[0].thumb}
+                    alt={p.images[0].alt}
+                    width={p.images[0].width}
+                    height={p.images[0].height}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-slate-800 mb-1">{p.title}</h3>
+                  <span className="text-sand-600 text-sm font-medium inline-flex items-center gap-1">View project <ArrowRight size={14} /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/projects" className="inline-flex items-center gap-2 bg-sand-600 hover:bg-sand-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+              See All Projects <ArrowRight size={16} />
             </Link>
           </div>
         </div>

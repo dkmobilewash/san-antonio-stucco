@@ -5,6 +5,7 @@ import { services } from '../src/data/services.ts';
 import { locations } from '../src/data/locations.ts';
 import { blogPosts } from '../src/data/blog.ts';
 import { contact } from '../src/data/contact.ts';
+import { projects } from '../src/data/projects.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -201,6 +202,10 @@ ${PRIORITY_SERVICES.map(slug => {
 <li>High Humidity: Gulf moisture promotes mold and tests moisture barriers</li>
 <li>UV Exposure: Intense sun degrades finishes and breaks down elastomeric coatings</li></ul>
 </section>
+<section><h2>Recent Stucco Projects</h2>
+<p>Our own crew, our own jobs. <a href="/projects">See all stucco projects</a>.</p>
+<ul>${projects.slice(0, 3).map(p => `<li><a href="/projects#${p.slug}">${esc(p.title)}</a></li>`).join('')}</ul>
+</section>
 ${faqHtml(homeFaqs, 'Frequently Asked Questions')}
 <section><h2>Stucco Throughout the San Antonio Metro</h2>
 <ul>${locations.map(l => `<li><a href="/${l.slug}">Stucco Contractor in ${esc(l.name)}</a></li>`).join('')}</ul>
@@ -390,6 +395,32 @@ ${breadcrumbSchema(crumbs)}
 </article>`;
 }
 
+function renderProjectsPage(): string {
+  const crumbs: [string, string][] = [['/', 'Home'], ['/projects', 'Projects']];
+  return `<article>
+${breadcrumb(crumbs)}
+<h1>Our Stucco Projects</h1>
+<p>Every photo here is our own crew on our own job. Residential and commercial stucco work: new installs, repairs, EIFS, and full recoats.</p>
+${projects.map(p => {
+  const s = services.find(x => x.slug === p.service);
+  return `<section id="${p.slug}"><h2>${esc(p.title)}</h2>
+<p><a href="/${p.service}">${esc(s ? s.name : 'Stucco')}</a>${p.area ? ` · ${esc(p.area)}` : ''}</p>
+<p>${esc(p.summary)}</p>
+${p.images.map(img => `<img src="${img.src}" alt="${esc(img.alt)}" width="${img.width}" height="${img.height}" loading="lazy">`).join('\n')}
+</section>`;
+}).join('\n')}
+${ctaBlock()}
+${breadcrumbSchema(crumbs)}
+<script type="application/ld+json">${JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "San Antonio Stucco project photos",
+  "url": `${SITE_URL}/projects`,
+  "image": projects.flatMap(p => p.images.map(img => `${SITE_URL}${img.src}`)),
+})}</script>
+</article>`;
+}
+
 function renderAboutPage(): string {
   const crumbs: [string, string][] = [['/', 'Home'], ['/about', 'About']];
   return `<article>
@@ -501,6 +532,13 @@ routes['/about'] = {
   title: `About Us | ${SITE_NAME}`,
   description: 'Learn about San Antonio Stucco — locally owned, licensed & insured stucco contractor serving the greater San Antonio metro area.',
   content: renderAboutPage(),
+};
+
+// Projects
+routes['/projects'] = {
+  title: 'Stucco Projects in San Antonio | Before & After Photos',
+  description: 'Real stucco jobs by our own crew: repairs, new installs, EIFS, commercial recoats. Before-and-after photos from San Antonio Stucco. Free estimates.',
+  content: renderProjectsPage(),
 };
 
 // Blog listing
