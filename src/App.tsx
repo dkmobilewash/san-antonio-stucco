@@ -17,6 +17,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const PlasterArticlePage = lazy(() => import('./pages/PlasterArticlePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,6 +40,7 @@ function AppLayout() {
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/quote" element={<QuotePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/us-largest-plaster-producer-san-antonio" element={<PlasterArticlePage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />

@@ -129,7 +129,7 @@ for (const r of vercel.redirects ?? []) {
 }
 const isRedirected = (p: string) => redirectSources.has(p) || redirectPatterns.some(re => re.test(p));
 
-const publicFiles = new Set(readdirSync(PUBLIC).map(f => `/${f}`));
+const isPublicFile = (p: string) => existsSync(join(PUBLIC, p)) && statSync(join(PUBLIC, p)).isFile();
 
 const signedChecked = new Set<string>();
 function checkSignedUrl(where: string, url: string) {
@@ -207,7 +207,7 @@ for (const [path, html] of pages) {
   for (const href of tag(html, /href="(\/[^"#?]*)/)) {
     if (href.startsWith('/assets/') || href.startsWith('/src/')) continue;
     const target = href.length > 1 && href.endsWith('/') ? href.slice(0, -1) : href;
-    if (pagePaths.has(target) || publicFiles.has(target)) continue;
+    if (pagePaths.has(target) || isPublicFile(target)) continue;
     if (isRedirected(target)) {
       warn(path, `links to redirected URL ${target}; link the destination directly`);
       continue;

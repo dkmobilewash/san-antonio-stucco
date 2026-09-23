@@ -70,6 +70,7 @@ export default function Footer() {
               <li><Link to="/services" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">All Services</Link></li>
               <li><Link to="/service-areas" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">All Service Areas</Link></li>
               <li><Link to="/about" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">About Us</Link></li>
+              <li><Link to="/projects" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">Our Projects</Link></li>
               <li><Link to="/blog" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">Blog & Resources</Link></li>
               <li><Link to="/quote" className="text-sm text-slate-400 hover:text-sand-400 transition-colors">Get a Free Estimate</Link></li>
             </ul>
