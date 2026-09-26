@@ -584,34 +584,39 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
     title: 'Stucco Services San Antonio TX — All Repairs & Installs',
     description: 'Every stucco service in San Antonio — repair, installation, replacement, EIFS, painting & remodeling. Alamo Heights to the Westside. Call (210) 871-8490.',
   },
+  // ── Services listing ──
+  '/services': {
+    title: 'All Stucco Services in San Antonio | Licensed Local Crew',
+    description: 'Stucco services in San Antonio: repair, installation, replacement, EIFS, painting and remodeling for homes & businesses. One licensed crew. (210) 871-8490.',
+  },
   // ── Service Pages ──
   '/stucco-repairs': {
     title: 'Stucco Repair San Antonio TX | Licensed & Insured',
     description: 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
   },
   '/stucco-installation': {
-    title: 'Stucco Installation San Antonio TX | Licensed Crew',
-    description: 'Three-coat stucco installation in San Antonio for new builds, additions and retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
+    title: 'Stucco Installers San Antonio TX | Licensed Installation',
+    description: 'Licensed San Antonio stucco installers for new builds, additions and siding-to-stucco retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
   },
   '/stucco-replacement': {
     title: 'Stucco Replacement San Antonio TX | Free Assessment',
     description: 'Full stucco tear-out and replacement in San Antonio — substrate inspection plus a fresh three-coat system. Licensed & insured. Free on-site assessment.',
   },
   '/residential-stucco': {
-    title: 'Residential Stucco San Antonio TX | Homes & HOAs',
-    description: 'Residential stucco repair, installation and refinishing across San Antonio for homes and HOA communities. Own crew, no subs. Free estimate today.',
+    title: 'Residential Stucco Contractors San Antonio TX | Homes & HOAs',
+    description: 'Residential stucco contractors in San Antonio for repair, installation and refinishing on homes and HOAs. Own crew, no subs. Free estimate: (210) 871-8490.',
   },
   '/commercial-stucco': {
-    title: 'Commercial Stucco Contractor San Antonio TX | Free Quote',
-    description: 'Commercial stucco contractor in San Antonio for offices, retail & multi-family. Phased scheduling, minimal disruption. Call (210) 871-8490.',
+    title: 'Commercial Stucco Contractors San Antonio | Repair & Install',
+    description: 'Commercial stucco contractors in San Antonio for offices, retail & multi-family. New installation, repair and recoating, phased. Call (210) 871-8490.',
   },
   '/eifs-synthetic-stucco': {
     title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
     description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
   },
   '/stucco-painting': {
-    title: 'Stucco Painting San Antonio TX | Elastomeric Coating',
-    description: 'Stucco painting in San Antonio with elastomeric coatings that last 10–15 years. UV protection and crack bridging. Free color consult — (210) 871-8490.',
+    title: 'Stucco Painting San Antonio TX | Exterior Texture & Paint',
+    description: 'Exterior stucco texture and paint services in San Antonio. Elastomeric coatings that last 10–15 years and bridge cracks. Free estimate — (210) 871-8490.',
   },
   '/stucco-remodeling': {
     title: 'Stucco Remodeling San Antonio TX | Exterior Makeover',

@@ -160,7 +160,7 @@ export const blogPosts: BlogPost[] = [
       'Square footage determines your overall project total. A typical 2,000 square foot San Antonio home with standard wall heights might have 2,500-3,500 square feet of wall surface to cover, putting the total project cost in the $20,000-$52,000 range. Partial applications (one or two walls) are proportionally less.',
       'Additional cost factors include the number of stories (scaffolding adds cost), the number of windows and doors (detailed work around openings takes time), foam trim or architectural details, and the condition of existing surfaces on renovation projects.',
       'When comparing estimates, make sure each contractor is quoting the same scope. A complete installation should include lath, three coats of stucco, moisture barriers, expansion joints, and finish. Some lower estimates may omit steps that are essential for long-term performance in our climate.',
-      'We provide free, detailed estimates that break down costs by scope so you can make informed decisions. There is no pressure and no hidden fees — just honest pricing based on what your specific project requires.',
+      'Our <a href="/stucco-installation">San Antonio stucco installers</a> provide free, detailed estimates that break down costs by scope so you can make informed decisions. There is no pressure and no hidden fees — just honest pricing based on what your specific project requires.',
     ],
   },
   {
@@ -178,7 +178,7 @@ export const blogPosts: BlogPost[] = [
       'Texture options range from glass-smooth (Santa Barbara finish) to heavily textured (dash or lace patterns). Smooth finishes create a modern, refined look but show imperfections more readily and may require more frequent touch-up. Medium textures like skip trowel or sand float are versatile, forgiving, and the most popular choice in San Antonio. Heavy textures hide imperfections well but can trap more dirt and be harder to clean.',
       'Always view color samples on your actual home, at different times of day, and in both sun and shade. Colors look dramatically different on a small chip versus a large wall surface, and San Antonio sunlight washes out colors differently than indoor lighting suggests. Most suppliers offer large sample boards you can hold against your walls.',
       'Consider your roof color, trim color, front door, and hardscape when selecting stucco color. The stucco is the largest color field on your home, so it should complement rather than compete with these elements. Many homeowners find that a neutral stucco with a contrasting trim color creates the most appealing result.',
-      'We help our clients navigate these decisions by providing large color samples applied to their actual walls before final selection. This eliminates guesswork and ensures you are confident in your choice before we coat the entire home.',
+      'We help our clients navigate these decisions by providing large color samples applied to their actual walls before final selection. This eliminates guesswork and ensures you are confident in your choice before our <a href="/stucco-painting">exterior stucco texture and paint crew</a> coats the entire home.',
     ],
   },
   {
