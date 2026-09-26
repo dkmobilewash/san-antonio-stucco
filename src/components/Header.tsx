@@ -43,10 +43,6 @@ export default function Header() {
     { to: '/stucco-repairs', label: 'Stucco Repair' },
     { to: '/eifs-synthetic-stucco', label: 'EIFS Stucco' },
     { to: '/stucco-painting', label: 'Stucco Painting' },
-    { to: '/stucco-installation', label: 'Installation in San Antonio' },
-    { to: '/stucco-repairs', label: 'Repair in San Antonio' },
-    { to: '/eifs-synthetic-stucco', label: 'EIFS Stucco San Antonio' },
-    { to: '/commercial-stucco', label: 'Commercial in San Antonio' },
   ];
 
   const areaLinks = locations.map((l) => ({ to: `/${l.slug}`, label: l.name }));
@@ -155,13 +151,22 @@ export default function Header() {
           </Link>
         </div>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-slate-700"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <a
+            href={`tel:${contact.phoneRaw}`}
+            className="md:hidden p-2 text-sand-700"
+            aria-label={`Call ${contact.phone}`}
+          >
+            <Phone size={22} />
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 text-slate-700"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {mobileOpen && (

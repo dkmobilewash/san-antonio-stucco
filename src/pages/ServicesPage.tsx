@@ -5,11 +5,11 @@ import { locations } from '../data/locations';
 import ServiceCard from '../components/ServiceCard';
 import CTASection from '../components/CTASection';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 export default function ServicesPage() {
   usePageSEO({
-    title: 'Stucco Services San Antonio | Installation, Repair & Replacement | Free Estimates',
-    description: 'Full-service stucco contractor in San Antonio offering installation, repair, replacement, remodeling & EIFS. Licensed & insured. Call for a free estimate today!',
+    ...pageSeo['/services'],
     path: '/services',
     rawTitle: true,
   });

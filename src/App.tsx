@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MobileCallBar from './components/MobileCallBar';
 import HomePage from './pages/HomePage';
 import { services } from './data/services';
 import { locations } from './data/locations';
@@ -56,6 +57,7 @@ function AppLayout() {
         </Suspense>
       </main>
       <Footer />
+      <MobileCallBar />
     </>
   );
 }

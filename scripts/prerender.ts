@@ -6,6 +6,7 @@ import { locations } from '../src/data/locations.ts';
 import { blogPosts } from '../src/data/blog.ts';
 import { contact } from '../src/data/contact.ts';
 import { projects } from '../src/data/projects.ts';
+import { pageSeo } from '../src/data/seo.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -213,7 +214,6 @@ ${faqHtml(homeFaqs, 'Frequently Asked Questions')}
 ${ctaBlock()}
 ${faqSchema(homeFaqs)}
 ${breadcrumbSchema(crumbs)}
-${localBusinessSchema()}
 </article>`;
 }
 
@@ -314,7 +314,7 @@ ${faqHtml(location.faqs, `${location.name} Stucco FAQ`)}
 ${ctaBlock()}
 ${faqSchema(location.faqs)}
 ${breadcrumbSchema(crumbs)}
-${locationBusinessSchema(location)}
+${locationServiceSchema(location)}
 </article>`;
 }
 
@@ -568,74 +568,12 @@ for (const l of locations) {
 
 // SEO title/description overrides — every title ≤60 chars, every description ≤155 chars
 // to prevent Google truncation. Keywords front-loaded from actual GSC query data.
-const seoOverrides: Record<string, { title: string; description: string }> = {
-  // ── Homepage ──
-  '/': {
-    title: 'Stucco Repair, Painting & Installation | San Antonio TX',
-    description: 'Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490.',
-  },
-  // ── Lead / Quote Page ──
-  '/quote': {
-    title: 'Free Stucco Estimate San Antonio | Call (210) 871-8490',
-    description: 'Get a free on-site stucco estimate in San Antonio. Repair, installation, EIFS & painting — transparent pricing, no obligation. Call (210) 871-8490 today.',
-  },
-  // ── San Antonio Location Hub (differentiated from homepage to prevent cannibalization) ──
-  '/san-antonio': {
-    title: 'Stucco Services San Antonio TX — All Repairs & Installs',
-    description: 'Every stucco service in San Antonio — repair, installation, replacement, EIFS, painting & remodeling. Alamo Heights to the Westside. Call (210) 871-8490.',
-  },
-  // ── Services listing ──
-  '/services': {
-    title: 'All Stucco Services in San Antonio | Licensed Local Crew',
-    description: 'Stucco services in San Antonio: repair, installation, replacement, EIFS, painting and remodeling for homes & businesses. One licensed crew. (210) 871-8490.',
-  },
-  // ── Service Pages ──
-  '/stucco-repairs': {
-    title: 'Stucco Repair San Antonio TX | Licensed & Insured',
-    description: 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
-  },
-  '/stucco-installation': {
-    title: 'Stucco Installers San Antonio TX | Licensed Installation',
-    description: 'Licensed San Antonio stucco installers for new builds, additions and siding-to-stucco retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
-  },
-  '/stucco-replacement': {
-    title: 'Stucco Replacement San Antonio TX | Free Assessment',
-    description: 'Full stucco tear-out and replacement in San Antonio — substrate inspection plus a fresh three-coat system. Licensed & insured. Free on-site assessment.',
-  },
-  '/residential-stucco': {
-    title: 'Residential Stucco Contractors San Antonio TX | Homes & HOAs',
-    description: 'Residential stucco contractors in San Antonio for repair, installation and refinishing on homes and HOAs. Own crew, no subs. Free estimate: (210) 871-8490.',
-  },
-  '/commercial-stucco': {
-    title: 'Commercial Stucco Contractors San Antonio | Repair & Install',
-    description: 'Commercial stucco contractors in San Antonio for offices, retail & multi-family. New installation, repair and recoating, phased. Call (210) 871-8490.',
-  },
-  '/eifs-synthetic-stucco': {
-    title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
-    description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
-  },
-  '/stucco-painting': {
-    title: 'Stucco Painting San Antonio TX | Exterior Texture & Paint',
-    description: 'Exterior stucco texture and paint services in San Antonio. Elastomeric coatings that last 10–15 years and bridge cracks. Free estimate — (210) 871-8490.',
-  },
-  '/stucco-remodeling': {
-    title: 'Stucco Remodeling San Antonio TX | Exterior Makeover',
-    description: 'Stucco remodeling in San Antonio — smooth finishes, texture changes & full exterior makeovers. Transform dated stucco into modern curb appeal.',
-  },
-};
-
-for (const [path, override] of Object.entries(seoOverrides)) {
-  if (routes[path]) {
-    routes[path].title = override.title;
-    routes[path].description = override.description;
-  }
-}
 
 // Blog posts
 for (const post of blogPosts) {
   routes[`/blog/${post.slug}`] = {
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle ?? post.title,
+    description: post.seoDescription ?? post.excerpt,
     content: renderBlogPost(post),
   };
 }
@@ -666,93 +604,39 @@ ${breadcrumbSchema([['/', 'Home'], ['/blog', 'Blog'], ['/blog/us-largest-plaster
 </article>`,
 };
 
+// ── Page titles / descriptions (src/data/seo.ts is the single source; React pages read the same map) ──
+for (const [path, meta] of Object.entries(pageSeo)) {
+  if (!routes[path]) throw new Error(`pageSeo has an entry for ${path} but no route renders it`);
+  routes[path].title = meta.title;
+  routes[path].description = meta.description;
+}
+
 // ── HTML Injection ──
 
 const template = readFileSync(join(DIST, 'index.html'), 'utf8');
 
-function localBusinessSchema(): string {
+function locationServiceSchema(location: typeof locations[0]): string {
   return `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "@id": "https://sanantoniostucco.com/#business",
-    "name": "San Antonio Stucco",
-    "description": "San Antonio's trusted stucco contractor for residential & commercial projects. Expert stucco repair, installation, and EIFS services across the San Antonio, TX area.",
-    "url": "https://sanantoniostucco.com",
-    "telephone": contact.phone,
-    "email": contact.email,
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "5802 Rocky Pt Dr",
-      "addressLocality": "San Antonio",
-      "addressRegion": "TX",
-      "postalCode": "78249",
-      "addressCountry": "US",
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 29.5574, "longitude": -98.6035 },
-    "areaServed": [
-      { "@type": "City", "name": "San Antonio", "@id": "https://en.wikipedia.org/wiki/San_Antonio" },
-      ...locations.map(l => ({ "@type": "City" as const, "name": l.name })),
-    ].filter((v, i, a) => a.findIndex(x => x.name === v.name) === i),
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" },
-    ],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Stucco Services",
-      "itemListElement": services.map(s => ({
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": s.name },
-      })),
-    },
-  })}</script>`;
-}
-
-function locationBusinessSchema(location: typeof locations[0]): string {
-  return `<script type="application/ld+json">${JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "@id": "https://sanantoniostucco.com/#business",
-    "name": "San Antonio Stucco",
-    "url": SITE_URL,
-    "telephone": contact.phone,
-    "email": contact.email,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "5802 Rocky Pt Dr",
-      "addressLocality": "San Antonio",
-      "addressRegion": "TX",
-      "postalCode": "78249",
-      "addressCountry": "US",
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 29.5574, "longitude": -98.6035 },
+    "@type": "Service",
+    "@id": `${SITE_URL}/${location.slug}#service`,
+    "name": `Stucco Services in ${location.name}, TX`,
+    "serviceType": "Stucco Contractor",
+    "url": `${SITE_URL}/${location.slug}`,
+    "provider": { "@id": `${SITE_URL}/#business` },
     "areaServed": {
       "@type": "City",
       "name": location.name,
-      "containedInPlace": {
-        "@type": "AdministrativeArea",
-        "name": "Texas",
-      },
+      "containedInPlace": { "@type": "AdministrativeArea", "name": "Texas" },
     },
-    "makesOffer": services.map(s => ({
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": s.name,
-        "url": `${SITE_URL}/${s.slug}`,
-        "areaServed": {
-          "@type": "City",
-          "name": location.name,
-        },
-      },
-    })),
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" },
-    ],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `Stucco Services in ${location.name}`,
+      "itemListElement": services.map(s => ({
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": s.name, "url": `${SITE_URL}/${s.slug}` },
+      })),
+    },
   })}</script>`;
 }
 
@@ -804,14 +688,52 @@ for (const [path, entry] of Object.entries(routes)) {
   count++;
 }
 
+// ── 404 page (Vercel serves dist/404.html with a real 404 status for unknown paths) ──
+function render404(): string {
+  const head = `
+    <title>Page Not Found | ${SITE_NAME}</title>
+    <meta name="description" content="The page you are looking for could not be found. Browse our stucco services, read our blog, or request a free estimate in San Antonio.">
+    <meta name="robots" content="noindex, follow">`;
+  const body = `<article>
+<h1>Page Not Found</h1>
+<p>Sorry, the page you're looking for doesn't exist or has been moved. Let us help you find what you need.</p>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/services">Stucco Services</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="/quote">Get a Free Estimate</a></li>
+</ul>
+<p>Call <a href="tel:${contact.phoneRaw}">${esc(contact.phone)}</a> for a free stucco estimate in San Antonio.</p>
+</article>`;
+  return template
+    .replace(/<link rel="preload" as="image"[^>]*fetchpriority="high"[^>]*\/?>[\n\r]*/g, '')
+    .replace(/<title>[^<]*<\/title>/, '')
+    .replace(/<meta\s+name="description"[^>]*>/g, '')
+    .replace(/<meta\s+property="og:[^"]*"[^>]*>/g, '')
+    .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/g, '')
+    .replace('</head>', `${head}\n  </head>`)
+    .replace(/<div id="root">\s*<\/div>/, `<div id="root">${body}</div>`);
+}
+writeFileSync(join(DIST, '404.html'), render404());
+
 // ── Generate sitemap.xml from routes ──
+// <lastmod> comes from scripts/seo/lastmod.json (git-derived, refreshed with `npm run seo:lastmod`).
+// A route missing from the snapshot falls back to the build date.
 const today = new Date().toISOString().slice(0, 10);
+const LASTMOD_FILE = join(__dirname, 'seo', 'lastmod.json');
+const lastmod: Record<string, string> = existsSync(LASTMOD_FILE)
+  ? (JSON.parse(readFileSync(LASTMOD_FILE, 'utf8')) as { routes: Record<string, string> }).routes
+  : {};
+let lastmodMissing = 0;
 const sitemapEntries = Object.keys(routes)
   .sort()
-  .map(path => `  <url>\n    <loc>${SITE_URL}${path}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
+  .map(path => {
+    const date = lastmod[path] ?? (lastmodMissing++, today);
+    return `  <url>\n    <loc>${SITE_URL}${path}</loc>\n    <lastmod>${date}</lastmod>\n  </url>`;
+  })
   .join('\n');
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries}\n</urlset>\n`;
 writeFileSync(join(DIST, 'sitemap.xml'), sitemapXml);
 
 console.log(`Pre-rendered ${count} pages with SEO meta + content`);
-console.log(`Generated sitemap.xml with ${Object.keys(routes).length} URLs`);
+console.log(`Generated sitemap.xml with ${Object.keys(routes).length} URLs${lastmodMissing ? ` (${lastmodMissing} without a lastmod snapshot; run npm run seo:lastmod)` : ''}`);

@@ -9,6 +9,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
 import SEO from '../components/SEO';
+import { pageSeo } from '../data/seo';
 
 const featuredArticles = [
   { slug: 'signs-your-stucco-needs-repair', title: 'Signs Your Stucco Needs Repair', excerpt: 'Cracks, bubbling, discoloration — spot the warning signs before problems worsen.', category: 'Repairs' },
@@ -43,8 +44,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Stucco Repair, Painting & Installation | San Antonio TX"
-        description="Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490."
+        title={pageSeo['/'].title}
+        description={pageSeo['/'].description}
         keywords="stucco repair, stucco repair near me, stucco contractor, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
       />
 

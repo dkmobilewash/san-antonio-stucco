@@ -6,6 +6,7 @@ import ReviewCTA from '../components/ReviewCTA';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 const values = [
   { icon: Award, title: 'Quality First', description: 'Every project gets the same attention to detail whether it\'s a small repair or a full installation. We never cut corners on materials or technique.' },
@@ -16,8 +17,7 @@ const values = [
 
 export default function AboutPage() {
   usePageSEO({
-    title: 'About San Antonio Stucco | 10+ Years Experience | Licensed & Insured Contractor',
-    description: 'Locally owned stucco contractor in San Antonio with 10+ years experience. Expert installation, repair & replacement. Licensed & insured. Call us today!',
+    ...pageSeo['/about'],
     path: '/about',
     rawTitle: true,
   });

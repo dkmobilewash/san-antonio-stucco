@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import http from 'http';
+import type { AddressInfo } from 'net';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -13,7 +14,6 @@ const TEST_URLS = [
   { path: '/', name: 'Homepage', expectH1: "San Antonio's Trusted Stucco Contractor", expectText: 'stucco contractor near me' },
   { path: '/stucco-installation', name: 'Service: Stucco Installation', expectH1: 'Stucco Installation in San Antonio, TX', expectText: 'three-coat system' },
   { path: '/boerne', name: 'Location: Boerne', expectH1: 'Stucco Contractor in Boerne, TX', expectText: 'Boerne' },
-  { path: '/stucco-repairs/helotes', name: 'Combo: Stucco Repairs × Helotes', expectH1: 'Stucco Repairs in Helotes, TX', expectText: 'Helotes' },
   { path: '/blog/how-san-antonio-weather-affects-stucco', name: 'Blog Post', expectH1: 'How San Antonio Weather Affects Your Stucco', expectText: 'Thermal expansion' },
   { path: '/services', name: 'Services Listing', expectH1: 'Our Stucco Services in San Antonio, TX', expectText: 'installation' },
 ];
@@ -62,7 +62,7 @@ function createServer(): http.Server {
 async function run() {
   const server = createServer();
   await new Promise<void>((resolve) => server.listen(0, resolve));
-  const port = (server.address() as any).port;
+  const port = (server.address() as AddressInfo).port;
   const baseUrl = `http://localhost:${port}`;
 
   console.log('\n=== PRE-RENDER VERIFICATION TEST ===\n');

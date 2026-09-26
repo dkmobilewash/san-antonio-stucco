@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "seo:lint": "tsx scripts/seo-lint.ts",
-    "seo:gsc": "tsx scripts/seo/gsc-fetch.ts"
+    "seo:gsc": "tsx scripts/seo/gsc-fetch.ts",
+    "seo:lastmod": "tsx scripts/seo/lastmod.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

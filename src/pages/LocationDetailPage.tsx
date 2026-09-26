@@ -3,11 +3,11 @@ import { useLocation as useRouterLocation, Link } from 'react-router-dom';
 import { ArrowRight, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import { locations } from '../data/locations';
 import { services } from '../data/services';
-import { contact } from '../data/contact';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 export default function LocationDetailPage() {
   const { pathname } = useRouterLocation();
@@ -28,81 +28,34 @@ export default function LocationDetailPage() {
       },
       {
         '@context': 'https://schema.org',
-        '@type': 'HomeAndConstructionBusiness',
-        '@id': 'https://sanantoniostucco.com/#business',
-        name: 'San Antonio Stucco',
-        url: 'https://sanantoniostucco.com',
-        telephone: contact.phone,
-        email: contact.email,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: '5802 Rocky Pt Dr',
-          addressLocality: 'San Antonio',
-          addressRegion: 'TX',
-          postalCode: '78249',
-          addressCountry: 'US',
-        },
-        geo: { '@type': 'GeoCoordinates', latitude: 29.5574, longitude: -98.6035 },
+        '@type': 'Service',
+        '@id': `https://sanantoniostucco.com/${location.slug}#service`,
+        name: `Stucco Services in ${location.name}, TX`,
+        serviceType: 'Stucco Contractor',
+        url: `https://sanantoniostucco.com/${location.slug}`,
+        provider: { '@id': 'https://sanantoniostucco.com/#business' },
         areaServed: {
           '@type': 'City',
           name: location.name,
-          containedInPlace: {
-            '@type': 'AdministrativeArea',
-            name: 'Texas',
-          },
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'Texas' },
         },
-        makesOffer: services.map((s) => ({
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: s.name,
-            url: `https://sanantoniostucco.com/${s.slug}`,
-            areaServed: {
-              '@type': 'City',
-              name: location.name,
-            },
-          },
-        })),
-        openingHoursSpecification: [
-          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '18:00' },
-          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '08:00', closes: '14:00' },
-        ],
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '87' },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `Stucco Services in ${location.name}`,
+          itemListElement: services.map((s) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: s.name, url: `https://sanantoniostucco.com/${s.slug}` },
+          })),
+        },
       },
     ];
   }, [location]);
 
   const seoMeta = useMemo(() => {
     if (!location) return { title: 'Location Not Found', description: 'Page not found.' };
-    const cityTitles: Record<string, string> = {
-      'san-antonio': 'Stucco Contractor San Antonio TX | Repair, Installation & EIFS | San Antonio Stucco',
-      'boerne': 'Stucco Contractor in Boerne, TX | San Antonio Stucco',
-      'new-braunfels': 'Stucco Contractor in New Braunfels, TX | San Antonio Stucco',
-      'schertz': 'Stucco Contractor in Schertz, TX | San Antonio Stucco',
-      'helotes': 'Stucco Contractor in Helotes, TX | San Antonio Stucco',
-      'stone-oak': 'Stucco Contractor in Stone Oak, TX | San Antonio Stucco',
-      'alamo-heights': 'Stucco Contractor in Alamo Heights, TX | San Antonio Stucco',
-      'live-oak': 'Stucco Contractor in Live Oak, TX | San Antonio Stucco',
-      'universal-city': 'Stucco Contractor in Universal City, TX | San Antonio Stucco',
-      'leon-valley': 'Stucco Contractor in Leon Valley, TX | San Antonio Stucco',
-      'selma': 'Stucco Contractor in Selma, TX | San Antonio Stucco',
-    };
-    const cityDescriptions: Record<string, string> = {
-      'san-antonio': 'Top-rated stucco contractor in San Antonio, TX. Expert stucco repair, installation & EIFS for homes & businesses. Licensed & insured. Free estimate — call (210) 871-8490.',
-      'boerne': 'Stucco contractor in Boerne, TX serving the Hill Country. Expert repair, installation & custom finishing for Boerne and Fair Oaks Ranch homes. Call for a free estimate.',
-      'new-braunfels': 'Stucco contractor in New Braunfels, TX serving Comal County. Repair, installation & EIFS for homes near Canyon Lake, Gruene & Vintage Oaks. Free estimates available.',
-      'schertz': 'Stucco contractor in Schertz, TX serving Schertz, Cibolo & the I-35 corridor. Crack repair, installation & finishing for homes and businesses. Get your free estimate.',
-      'helotes': 'Stucco contractor in Helotes, TX serving northwest San Antonio and the Hill Country corridor. Repair, installation & custom finishing. Call for a free estimate today.',
-      'stone-oak': 'Premium stucco contractor in Stone Oak, San Antonio, TX. HOA-compliant repairs, EIFS remediation & expert finish matching for upscale homes. Schedule a free estimate.',
-      'alamo-heights': 'Stucco contractor in Alamo Heights, San Antonio, TX. Historically sensitive repairs & restoration for Alamo Heights, Olmos Park & Terrell Hills homes. Free estimates.',
-      'live-oak': 'Stucco contractor in Live Oak, TX serving northeast Bexar County. Expert repair & installation for aging and new homes along the I-35 corridor. Book a free inspection.',
-      'universal-city': 'Stucco contractor in Universal City, TX near Randolph AFB. Fast, reliable repair & installation for military families and homeowners. Get a free estimate today.',
-      'leon-valley': 'Stucco contractor in Leon Valley, TX. Residential repair, commercial facade work & texture updates along the Bandera Road corridor. Call for a free estimate.',
-      'selma': 'Stucco contractor in Selma, TX serving the I-35 northeast growth corridor. New construction, repair & replacement for Selma homes and businesses. Free estimates.',
-    };
-    return {
-      title: cityTitles[location.slug] || `Stucco Contractor in ${location.name}, TX | San Antonio Stucco`,
-      description: cityDescriptions[location.slug] || `Professional stucco services in ${location.name}, TX. Expert repair & installation. Licensed & insured. Call for a free estimate!`,
+    return pageSeo[`/${location.slug}`] ?? {
+      title: `Stucco Contractor in ${location.name}, TX | San Antonio Stucco`,
+      description: `Professional stucco services in ${location.name}, TX. Expert repair & installation. Licensed & insured. Call for a free estimate!`,
     };
   }, [location]);
 

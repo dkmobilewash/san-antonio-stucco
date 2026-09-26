@@ -38,16 +38,23 @@
       .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     </style>
 
-    <!-- LocalBusiness Schema Markup -->
+    <!-- Business entity (single source of truth; every prerendered page carries this block) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "HomeAndConstructionBusiness",
       "@id": "https://sanantoniostucco.com/#business",
       "name": "San Antonio Stucco",
+      "description": "Licensed San Antonio stucco contractor for repair, installation, replacement, EIFS and painting on homes and commercial buildings. Locally owned, insured, own crew.",
       "url": "https://sanantoniostucco.com",
-      "telephone": "+1-210-871-8490",
+      "telephone": "+12108718490",
       "email": "info@sanantoniostucco.com",
+      "priceRange": "$$",
+      "image": "https://sanantoniostucco.com/images/hero-commercial-stucco.webp",
+      "logo": "https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/san-antonio-stucco.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc2FuLWFudG9uaW8tc3R1Y2NvLnBuZyIsImlhdCI6MTc3NzU3ODEzOSwiZXhwIjoxODA5MTE0MTM5fQ.1hP43qIGRyXlwLX02o92zUXeVzuLUpxvJDbBl_Ley_M",
+      "sameAs": [
+        "https://www.google.com/maps?cid=15390624256042206788"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "5802 Rocky Pt Dr",
@@ -58,39 +65,51 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 29.5605,
-        "longitude": -98.6141
+        "latitude": 29.5574,
+        "longitude": -98.6035
       },
+      "hasMap": "https://www.google.com/maps?cid=15390624256042206788",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
           "opens": "07:00",
           "closes": "18:00"
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
+          "dayOfWeek": ["Saturday"],
           "opens": "08:00",
           "closes": "14:00"
         }
       ],
-      "areaServed": {
-        "@type": "City",
-        "name": "San Antonio",
-        "sameAs": "https://en.wikipedia.org/wiki/San_Antonio"
-      },
-      "serviceType": [
-        "Stucco Installation",
-        "Stucco Replacement",
-        "Residential Stucco",
-        "Commercial Stucco",
-        "Stucco Remodeling",
-        "Stucco Repairs",
-        "EIFS / Synthetic Stucco",
-        "Stucco Painting"
+      "areaServed": [
+        { "@type": "City", "name": "San Antonio", "sameAs": "https://en.wikipedia.org/wiki/San_Antonio" },
+        { "@type": "City", "name": "Boerne" },
+        { "@type": "City", "name": "New Braunfels" },
+        { "@type": "City", "name": "Schertz" },
+        { "@type": "City", "name": "Helotes" },
+        { "@type": "City", "name": "Stone Oak" },
+        { "@type": "City", "name": "Alamo Heights" },
+        { "@type": "City", "name": "Live Oak" },
+        { "@type": "City", "name": "Universal City" },
+        { "@type": "City", "name": "Leon Valley" },
+        { "@type": "City", "name": "Selma" }
       ],
-      "priceRange": "$$"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stucco Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Installation", "url": "https://sanantoniostucco.com/stucco-installation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Replacement", "url": "https://sanantoniostucco.com/stucco-replacement" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Stucco", "url": "https://sanantoniostucco.com/residential-stucco" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Stucco", "url": "https://sanantoniostucco.com/commercial-stucco" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Remodeling", "url": "https://sanantoniostucco.com/stucco-remodeling" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Repairs", "url": "https://sanantoniostucco.com/stucco-repairs" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "EIFS / Synthetic Stucco", "url": "https://sanantoniostucco.com/eifs-synthetic-stucco" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Painting", "url": "https://sanantoniostucco.com/stucco-painting" } }
+        ]
+      }
     }
     </script>
   </head>

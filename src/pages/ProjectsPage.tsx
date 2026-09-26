@@ -4,11 +4,11 @@ import { projects } from '../data/projects';
 import { services } from '../data/services';
 import CTASection from '../components/CTASection';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 export default function ProjectsPage() {
   usePageSEO({
-    title: 'Stucco Projects in San Antonio | Before & After Photos',
-    description: 'Real stucco jobs by our own crew: repairs, new installs, EIFS, commercial recoats. Before-and-after photos from San Antonio Stucco. Free estimates.',
+    ...pageSeo['/projects'],
     path: '/projects',
     rawTitle: true,
   });
