@@ -53,7 +53,7 @@ export default function ServiceAreasPage() {
                 <div className="w-12 h-12 bg-sand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-sand-100 transition-colors">
                   <MapPin size={24} className="text-sand-600" />
                 </div>
-                <h3 className="font-bold text-slate-800 text-lg mb-2">{loc.name}</h3>
+                <h2 className="font-bold text-slate-800 text-lg mb-2">Stucco Contractor in {loc.name}, TX</h2>
                 <p className="text-slate-600 text-sm leading-relaxed mb-4">{loc.description}</p>
                 <span className="text-sand-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
                   View Details <ArrowRight size={14} />

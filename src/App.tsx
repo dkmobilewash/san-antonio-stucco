@@ -28,7 +28,7 @@ function ScrollToTop() {
   return null;
 }
 
-function AppLayout() {
+export function AppLayout() {
   return (
     <>
       <ScrollToTop />

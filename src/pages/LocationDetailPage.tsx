@@ -14,42 +14,6 @@ export default function LocationDetailPage() {
   const slug = pathname.replace(/^\//, '');
   const location = locations.find((l) => l.slug === slug);
 
-  const jsonLd = useMemo(() => {
-    if (!location) return undefined;
-    return [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: location.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-        })),
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        '@id': `https://sanantoniostucco.com/${location.slug}#service`,
-        name: `Stucco Services in ${location.name}, TX`,
-        serviceType: 'Stucco Contractor',
-        url: `https://sanantoniostucco.com/${location.slug}`,
-        provider: { '@id': 'https://sanantoniostucco.com/#business' },
-        areaServed: {
-          '@type': 'City',
-          name: location.name,
-          containedInPlace: { '@type': 'AdministrativeArea', name: 'Texas' },
-        },
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: `Stucco Services in ${location.name}`,
-          itemListElement: services.map((s) => ({
-            '@type': 'Offer',
-            itemOffered: { '@type': 'Service', name: s.name, url: `https://sanantoniostucco.com/${s.slug}` },
-          })),
-        },
-      },
-    ];
-  }, [location]);
 
   const seoMeta = useMemo(() => {
     if (!location) return { title: 'Location Not Found', description: 'Page not found.' };
@@ -64,7 +28,6 @@ export default function LocationDetailPage() {
     description: seoMeta.description,
     path: `/${slug}`,
     rawTitle: true,
-    jsonLd,
   });
 
   if (!location) {

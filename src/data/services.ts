@@ -1,6 +1,7 @@
 export interface Service {
   slug: string;
   name: string;
+  seoName?: string; // shorter query-matching name for headings, e.g. 'Stucco Repair'; defaults to name
   shortDescription: string;
   heroHeadline: string;
   heroDescription: string;
@@ -412,6 +413,7 @@ export const services: Service[] = [
   {
     slug: 'stucco-repairs',
     name: 'Stucco Repairs',
+    seoName: 'Stucco Repair',
     shortDescription: 'Fast, reliable stucco repairs for cracks, chips, delamination, and water damage.',
     heroHeadline: 'Stucco Repair in San Antonio, TX',
     heroDescription: 'Need stucco repair in San Antonio? Cracks are often a symptom, not the whole problem. Our repair specialists diagnose root causes, fix damage properly with compatible materials, and match your existing texture so you would never know we were there.',
@@ -500,6 +502,7 @@ export const services: Service[] = [
   {
     slug: 'eifs-synthetic-stucco',
     name: 'EIFS / Synthetic Stucco',
+    seoName: 'EIFS Stucco',
     shortDescription: 'Expert EIFS repair, maintenance, and replacement for synthetic stucco systems.',
     heroHeadline: 'EIFS Stucco in San Antonio, TX',
     heroDescription: 'Looking for EIFS stucco repair or installation in San Antonio? Synthetic stucco systems face unique challenges in Texas heat. Our EIFS specialists understand thermal movement, UV degradation, coating breakdown, and hidden moisture issues that general contractors miss.',

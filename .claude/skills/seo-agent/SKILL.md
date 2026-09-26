@@ -12,9 +12,12 @@ reviewed by a human before it ships.
 
 ## How the site works (read this before touching anything)
 
-- Vite + React SPA. `npm run build` runs Vite and then `scripts/prerender.ts`, which renders
-  every route to static HTML in `dist/`, injects title/description/canonical/OpenGraph,
-  FAQ + breadcrumb JSON-LD, and writes `dist/sitemap.xml`. Vercel serves `dist/`.
+- Vite + React SPA. `npm run build` runs the client build, an SSR build of `src/entry-server.tsx`,
+  then `scripts/prerender.ts`, which renders every route through the real React tree to static
+  HTML in `dist/`, injects title/description/canonical/OpenGraph and the page's JSON-LD (FAQ,
+  breadcrumb, Service, BlogPosting), and writes `dist/404.html` and `dist/sitemap.xml`. Vercel
+  serves `dist/`. Whatever a React page renders is what Google indexes; there is no separate
+  hand-written copy to keep in sync.
 - **All SEO content lives in data files.** Edit these, not the React pages:
   - `src/data/services.ts` — 9 services (`/<slug>`): hero copy, overview, FAQs, cost info
   - `src/data/locations.ts` — 12 service areas (`/<slug>`): local copy, pain points, FAQs
@@ -27,8 +30,9 @@ reviewed by a human before it ships.
   (falling back to `title` / `excerpt`); the H1 is always `title`.
 - `scripts/seo/lastmod.json` feeds the sitemap's `<lastmod>`; refresh it with `npm run seo:lastmod`
   after editing data files and commit it with the change.
-- `blogServiceMap` in `scripts/prerender.ts` links each post to 1–2 services. Add an entry for
-  every new post so it gets "Related Services" links and shows up on the service page.
+- `blogServiceMap` in `src/data/blogServiceMap.ts` links each post to 1–2 services. Add an entry
+  for every new post so it gets "Related Services" links and shows up on the service page.
+- Homepage FAQs live in `src/data/faqs.ts` (`homeFaqs`); the page and its FAQPage schema both read it.
 - Question-style H2s in a post (`## How much does ...?`) are auto-extracted into FAQPage schema.
   Write H2s as real questions when the section answers one.
 - Redirects live in `vercel.json`. `scripts/seo/routes.json` is the list of URLs the site must
