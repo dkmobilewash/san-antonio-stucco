@@ -3,6 +3,8 @@ import { useLocation, Link } from 'react-router-dom';
 import { ArrowRight, Phone, CheckCircle, AlertTriangle, MapPin, Clock, DollarSign, Wrench, BookOpen } from 'lucide-react';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
+import { blogPosts } from '../data/blog';
+import { blogServiceMap } from '../data/blogServiceMap';
 import { contact } from '../data/contact';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
@@ -73,114 +75,11 @@ const relatedServicesMap: Record<string, string[]> = {
   'stucco-painting': ['stucco-remodeling', 'stucco-repairs', 'residential-stucco'],
 };
 
-const blogResources: Record<string, { slug: string; title: string; excerpt: string }[]> = {
-  'stucco-installation': [
-    { slug: 'cost-of-stucco-installation-san-antonio', title: 'How Much Does Stucco Installation Cost in San Antonio?', excerpt: 'A detailed breakdown of installation costs and what affects pricing.' },
-    { slug: 'what-are-the-three-stages-of-stucco', title: 'What Are the Three Stages of Stucco?', excerpt: 'Learn the three-coat process and why each layer matters for durability.' },
-    { slug: 'which-type-of-stucco-is-best', title: 'Which Type of Stucco Is Best?', excerpt: 'Compare three-coat, one-coat, EIFS, and acrylic finish systems.' },
-    { slug: 'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house', title: 'How Much Does It Cost to Stucco a 1,000 Sq Ft House?', excerpt: 'Real cost breakdown for stuccoing a small home in San Antonio.' },
-    { slug: 'average-price-cement-stucco-installation-per-square-foot-san-antonio', title: 'Average Price for Cement Stucco per Square Foot', excerpt: 'Local per-square-foot pricing and what drives cost in San Antonio.' },
-  ],
-  'stucco-replacement': [
-    { slug: 'stucco-repair-vs-replacement-guide', title: 'Stucco Repair vs. Replacement: How to Decide', excerpt: 'When repair is enough and when full replacement is the better investment.' },
-    { slug: 'what-does-failing-stucco-look-like', title: 'What Does Failing Stucco Look Like?', excerpt: 'Visual signs your stucco is failing and when to call a professional.' },
-    { slug: 'what-is-the-issue-with-stucco', title: 'What Is the Issue with Stucco?', excerpt: 'Common stucco problems — cracking, moisture, delamination — and fixes.' },
-    { slug: 'signs-your-stucco-needs-repair', title: 'Signs Your Stucco Needs Repair', excerpt: 'Recognize warning signs that your stucco may need replacement.' },
-  ],
-  'residential-stucco': [
-    { slug: 'life-expectancy-of-a-stucco-house', title: 'What Is the Life Expectancy of a Stucco House?', excerpt: 'How long stucco lasts and what you can do to extend its lifespan.' },
-    { slug: 'stucco-maintenance-checklist-san-antonio', title: 'Stucco Maintenance Tips for San Antonio Homes', excerpt: 'Simple routines that keep your home exterior looking pristine.' },
-    { slug: 'how-much-does-it-cost-to-stucco-a-1000-sq-ft-house', title: 'How Much Does It Cost to Stucco a 1,000 Sq Ft House?', excerpt: 'Real cost breakdown for stuccoing a home in San Antonio.' },
-    { slug: 'choosing-stucco-colors-and-textures', title: 'Choosing the Right Stucco Color and Texture', excerpt: 'A guide to selecting finishes that complement your home.' },
-    { slug: 'stucco-vs-brick-cost-san-antonio', title: 'Stucco vs Brick Cost in San Antonio', excerpt: 'Compare cost, durability, and long-term value for your home.' },
-  ],
-  'commercial-stucco': [
-    { slug: 'stucco-vs-other-siding-materials', title: 'Stucco vs Other Siding Materials', excerpt: 'Compare stucco to vinyl, brick, and fiber cement for commercial properties.' },
-    { slug: 'protecting-stucco-from-texas-heat', title: 'How to Protect Your Stucco in Texas Heat and Humidity', excerpt: 'Strategies for maintaining commercial exteriors through intense summers.' },
-    { slug: 'stucco-repair-vs-replacement-guide', title: 'Stucco Repair vs. Replacement: How to Decide', excerpt: 'Help your property management team make informed maintenance decisions.' },
-    { slug: 'how-long-does-stucco-last-san-antonio', title: 'How Long Does Stucco Last in San Antonio?', excerpt: 'Lifespan by system type and how to maximize your exterior investment.' },
-  ],
-  'stucco-remodeling': [
-    { slug: 'choosing-stucco-colors-and-textures', title: 'Choosing the Right Stucco Color and Texture', excerpt: 'Find the perfect finish for your remodeled exterior.' },
-    { slug: 'difference-between-20-30-and-30-30-stucco-finish', title: '20/30 vs 30/30 Stucco Finish Explained', excerpt: 'Understand sand-float texture options for your remodel.' },
-    { slug: 'stucco-vs-other-siding-materials', title: 'Stucco vs Other Siding Materials', excerpt: 'Why stucco remains the top exterior choice for San Antonio remodels.' },
-    { slug: 'protecting-stucco-from-texas-heat', title: 'How to Protect Your Stucco in Texas Heat', excerpt: 'Protect your remodeled exterior in the San Antonio climate.' },
-  ],
-  'stucco-repairs': [
-    { slug: 'what-does-failing-stucco-look-like', title: 'What Does Failing Stucco Look Like?', excerpt: 'Visual signs of stucco failure and what each one means.' },
-    { slug: 'signs-your-stucco-needs-repair', title: 'Signs Your Stucco Needs Repair', excerpt: 'Spot early warning signs before small issues become expensive.' },
-    { slug: 'what-is-the-issue-with-stucco', title: 'What Is the Issue with Stucco?', excerpt: 'Common stucco problems and how to fix them properly.' },
-    { slug: 'does-homeowners-insurance-cover-stucco-issues', title: 'Does Homeowners Insurance Cover Stucco Issues?', excerpt: 'What insurance covers, what it excludes, and how to file a claim.' },
-    { slug: 'stucco-repair-vs-replacement-guide', title: 'Stucco Repair vs. Replacement: How to Decide', excerpt: 'When repair is enough vs. when replacement makes more sense.' },
-  ],
-  'eifs-synthetic-stucco': [
-    { slug: 'eifs-vs-traditional-stucco-differences', title: 'EIFS vs. Traditional Stucco: What You Need to Know', excerpt: 'Key differences between synthetic and traditional stucco systems.' },
-    { slug: 'which-type-of-stucco-is-best', title: 'Which Type of Stucco Is Best?', excerpt: 'Compare all stucco systems including EIFS and when each fits.' },
-    { slug: 'what-are-the-downsides-of-stucco', title: 'What Are the Downsides of Stucco?', excerpt: 'Honest pros and cons including EIFS moisture considerations.' },
-    { slug: 'how-san-antonio-weather-affects-stucco', title: 'How San Antonio Weather Affects Your Stucco', excerpt: 'How heat, humidity, and UV create unique challenges for EIFS.' },
-  ],
-  'stucco-painting': [
-    { slug: 'choosing-stucco-colors-and-textures', title: 'Choosing the Right Stucco Color and Texture', excerpt: 'Guide to selecting paint colors that perform well on stucco.' },
-    { slug: 'difference-between-20-30-and-30-30-stucco-finish', title: '20/30 vs 30/30 Stucco Finish Explained', excerpt: 'How texture affects paint application and appearance.' },
-    { slug: 'protecting-stucco-from-texas-heat', title: 'How to Protect Your Stucco in Texas Heat', excerpt: 'Why the right coating matters more than color in San Antonio.' },
-    { slug: 'stucco-maintenance-checklist-san-antonio', title: 'Stucco Maintenance Tips for San Antonio Homes', excerpt: 'How regular maintenance extends the life of your stucco paint job.' },
-  ],
-};
-
 export default function ServiceDetailPage() {
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
   const service = services.find((s) => s.slug === slug);
 
-  const servicePricing: Record<string, { low: string; high: string; unit?: string }> = {
-    'stucco-installation': { low: '8', high: '15', unit: 'per sqft' },
-    'stucco-replacement': { low: '10', high: '18', unit: 'per sqft' },
-    'residential-stucco': { low: '8', high: '15', unit: 'per sqft' },
-    'commercial-stucco': { low: '8', high: '18', unit: 'per sqft' },
-    'stucco-remodeling': { low: '5', high: '12', unit: 'per sqft' },
-    'stucco-repairs': { low: '300', high: '5000' },
-    'eifs-synthetic-stucco': { low: '500', high: '15000' },
-    'stucco-painting': { low: '2', high: '5', unit: 'per sqft' },
-  };
-
-  const jsonLd = useMemo(() => {
-    if (!service) return undefined;
-    const pricing = servicePricing[service.slug];
-    const serviceSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: `${service.name} in San Antonio, TX`,
-      description: service.heroDescription,
-      provider: { '@id': 'https://sanantoniostucco.com/#business' },
-      areaServed: [
-        { '@type': 'City', name: 'San Antonio' },
-        { '@type': 'City', name: 'Boerne' },
-        { '@type': 'City', name: 'New Braunfels' },
-        { '@type': 'City', name: 'Schertz' },
-        { '@type': 'City', name: 'Helotes' },
-      ],
-      serviceType: service.name,
-      url: `https://sanantoniostucco.com/${service.slug}`,
-      ...(pricing && {
-        offers: {
-          '@type': 'AggregateOffer',
-          lowPrice: pricing.low,
-          highPrice: pricing.high,
-          priceCurrency: 'USD',
-        },
-      }),
-    };
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: service.faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-      })),
-    };
-    return [serviceSchema, faqSchema];
-  }, [service]);
 
   const seoMeta = useMemo(() => {
     if (!service) return { title: 'Service Not Found', description: 'Page not found.' };
@@ -195,7 +94,6 @@ export default function ServiceDetailPage() {
     description: seoMeta.description,
     path: `/${slug}`,
     rawTitle: true,
-    jsonLd,
   });
 
   if (!service) {
@@ -207,6 +105,10 @@ export default function ServiceDetailPage() {
     );
   }
 
+  // Query-matching display name ("Stucco Repair", "EIFS Stucco") for headings; the H1 stays heroHeadline.
+  const displayName = service.seoName ?? service.name;
+  const resourcePosts = blogPosts.filter((p) => blogServiceMap[p.slug]?.includes(service.slug)).slice(0, 6);
+
   return (
     <>
       {/* Breadcrumb */}
@@ -217,7 +119,7 @@ export default function ServiceDetailPage() {
             <li>/</li>
             <li><Link to="/services" className="hover:text-sand-600 transition-colors">Services</Link></li>
             <li>/</li>
-            <li className="text-slate-800 font-medium">{service.name}</li>
+            <li className="text-slate-800 font-medium">{displayName}</li>
           </ol>
         </div>
       </nav>
@@ -249,7 +151,7 @@ export default function ServiceDetailPage() {
       {/* Overview */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8">About {service.name} in San Antonio</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-8">About {displayName} in San Antonio</h2>
           <div className="space-y-6">
             {service.overview.map((paragraph, i) => (
               <p key={i} className="text-slate-700 leading-relaxed text-lg">{paragraph}</p>
@@ -262,9 +164,9 @@ export default function ServiceDetailPage() {
       {servicePhotos[service.slug] && (
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Our {service.name} Work</h2>
+            <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Our {displayName} Work</h2>
             <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-              Browse examples of our {service.name.toLowerCase()} projects across the San Antonio area.
+              Browse examples of our {displayName.toLowerCase()} projects across the San Antonio area.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {servicePhotos[service.slug].map((photo, i) => (
@@ -305,9 +207,9 @@ export default function ServiceDetailPage() {
       {/* Why Choose Us / Benefits */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco for {service.name}</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Choose San Antonio Stucco for {displayName}</h2>
           <p className="text-slate-600 mb-8 max-w-2xl">
-            Licensed, insured, and locally owned — here is what you get when you work with our experienced team for {service.name.toLowerCase()} in San Antonio:
+            Licensed, insured, and locally owned — here is what you get when you work with our experienced team for {displayName.toLowerCase()} in San Antonio:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.benefits.map((benefit, i) => (
@@ -344,7 +246,7 @@ export default function ServiceDetailPage() {
       {service.commonSigns && (
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Signs You May Need {service.name}</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Signs You May Need {displayName}</h2>
             <p className="text-slate-600 mb-8">
               If you notice any of these issues on your San Antonio property, it is time to call a professional:
             </p>
@@ -361,7 +263,7 @@ export default function ServiceDetailPage() {
       )}
 
       {/* Testimonials */}
-      <TestimonialsSection title={`What Clients Say About Our ${service.name}`} filter={service.name} />
+      <TestimonialsSection title={`What Clients Say About Our ${displayName}`} filter={displayName} />
 
       {/* Review CTA */}
       <ReviewCTA />
@@ -372,7 +274,7 @@ export default function ServiceDetailPage() {
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-800 mb-4">Related Stucco Services in San Antonio</h2>
             <p className="text-slate-600 mb-8">
-              Homeowners who need {service.name.toLowerCase()} often benefit from these related services:
+              Homeowners who need {displayName.toLowerCase()} often benefit from these related services:
             </p>
             <div className="space-y-4">
               {services.filter((s) => relatedServicesMap[service.slug]?.includes(s.slug)).map((s) => (
@@ -426,15 +328,15 @@ export default function ServiceDetailPage() {
       {/* Recent Projects */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Recent {service.name} Projects</h2>
+          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">Recent {displayName} Projects</h2>
           <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-            Examples of {service.name.toLowerCase()} work completed for San Antonio homeowners and businesses.
+            Examples of {displayName.toLowerCase()} work completed for San Antonio homeowners and businesses.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`${service.name} project in San Antonio`}
+                alt={`${displayName} project in San Antonio`}
                 width={600}
                 height={192}
                 loading="lazy"
@@ -442,14 +344,14 @@ export default function ServiceDetailPage() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="font-semibold text-slate-800">Residential {service.name}</h3>
+                <h3 className="font-semibold text-slate-800">Residential {displayName}</h3>
                 <p className="text-sm text-slate-500">Stone Oak, San Antonio</p>
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`${service.name} project on a home exterior in San Antonio TX`}
+                alt={`${displayName} project on a home exterior in San Antonio TX`}
                 width={600}
                 height={192}
                 loading="lazy"
@@ -464,7 +366,7 @@ export default function ServiceDetailPage() {
             <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white">
               <img
                 src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt={`${service.name} for commercial property`}
+                alt={`${displayName} for commercial property`}
                 width={600}
                 height={192}
                 loading="lazy"
@@ -483,7 +385,7 @@ export default function ServiceDetailPage() {
       {/* Why Professional */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional for {service.name} in San Antonio</h2>
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Hire a Professional for {displayName} in San Antonio</h2>
           <p className="text-slate-600 mb-8">
             Stucco work requires specialized skills, materials, and understanding of building science. With over 500 completed projects across the San Antonio metro, here is why professional service matters:
           </p>
@@ -499,15 +401,15 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* Useful Resources */}
-      {blogResources[service.slug] && (
+      {resourcePosts.length > 0 && (
         <section className="py-20 bg-slate-50">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">{service.name} Resources & Guides</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">{displayName} Resources & Guides</h2>
             <p className="text-slate-600 mb-8">
-              Learn more about {service.name.toLowerCase()} and caring for your stucco in San Antonio:
+              Learn more about {displayName.toLowerCase()} and caring for your stucco in San Antonio:
             </p>
             <div className="space-y-4">
-              {blogResources[service.slug].map((post) => (
+              {resourcePosts.map((post) => (
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
@@ -552,7 +454,7 @@ export default function ServiceDetailPage() {
       {service.costTimeline && (
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {service.name} Cost in San Antonio?</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {displayName} Cost in San Antonio?</h2>
             <div className="space-y-4">
               {service.costTimeline.map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-xl">
@@ -570,27 +472,27 @@ export default function ServiceDetailPage() {
       )}
 
       {/* FAQ */}
-      <FAQSection faqs={service.faqs} title={`${service.name} FAQ`} />
+      <FAQSection faqs={service.faqs} title={`${displayName} FAQ`} />
 
       {/* Location Links */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-slate-800 mb-3">
-            {service.name} Across San Antonio
+            {displayName} Across San Antonio
           </h2>
           <p className="text-slate-600 mb-6">
-            We provide professional {service.name.toLowerCase()} throughout the greater San Antonio metro area. Select your location for local details:
+            We provide professional {displayName.toLowerCase()} throughout the greater San Antonio metro area. Select your location for local details:
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {locations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={loc.slug === 'san-antonio' ? `/${service.slug}/san-antonio` : `/${loc.slug}`}
+                to={`/${loc.slug}`}
                 className="flex items-center gap-2 bg-white border border-slate-200 hover:border-sand-300 rounded-xl p-3 hover:shadow-sm transition-all"
               >
                 <MapPin size={16} className="text-sand-600" />
                 <span className="text-sm font-medium text-slate-700">
-                  {loc.slug === 'san-antonio' ? `${service.name} in San Antonio` : `Stucco Services in ${loc.name}`}
+                  {loc.slug === 'san-antonio' ? 'Stucco Contractor in San Antonio' : `Stucco Services in ${loc.name}`}
                 </span>
               </Link>
             ))}
@@ -605,8 +507,8 @@ export default function ServiceDetailPage() {
 
       {/* Final CTA */}
       <CTASection
-        headline={`Ready for ${service.name} in San Antonio?`}
-        description={`Get a free, no-obligation estimate for your ${service.name.toLowerCase()} project. We respond within one business day with honest, detailed pricing.`}
+        headline={`Ready for ${displayName} in San Antonio?`}
+        description={`Get a free, no-obligation estimate for your ${displayName.toLowerCase()} project. We respond within one business day with honest, detailed pricing.`}
       />
     </>
   );

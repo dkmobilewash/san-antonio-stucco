@@ -86,8 +86,8 @@ async function run() {
     const browserSize = Buffer.byteLength(browserHtml);
 
     // Check 1: Has H1 heading
-    const h1Match = botHtml.match(/<h1>(.*?)<\/h1>/);
-    const h1Text = h1Match ? h1Match[1].replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&#39;/g, "'") : '';
+    const h1Match = botHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+    const h1Text = h1Match ? h1Match[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&#39;/g, "'") : '';
     const hasH1 = h1Match && h1Text.includes(test.expectH1);
     console.log(`  H1 heading: ${hasH1 ? '✓ PASS' : '✗ FAIL'} ${h1Match ? `"${h1Match[1].slice(0, 60)}"` : '(none)'}`);
 

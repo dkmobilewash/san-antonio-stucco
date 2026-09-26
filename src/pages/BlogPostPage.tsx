@@ -3,88 +3,15 @@ import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../data/blog';
 import { services } from '../data/services';
+import { blogServiceMap } from '../data/blogServiceMap';
 import { usePageSEO } from '../lib/seo';
 import CTASection from '../components/CTASection';
-
-const MONTH_MAP: Record<string, string> = {
-  'January': '01', 'February': '02', 'March': '03', 'April': '04',
-  'May': '05', 'June': '06', 'July': '07', 'August': '08',
-  'September': '09', 'October': '10', 'November': '11', 'December': '12',
-};
-
-function toISODate(dateStr: string): string {
-  const parts = dateStr.split(' ');
-  if (parts.length === 2 && MONTH_MAP[parts[0]]) {
-    return `${parts[1]}-${MONTH_MAP[parts[0]]}-01`;
-  }
-  return dateStr;
-}
 
 export default function BlogPostPage() {
   const { pathname } = useLocation();
   const slug = pathname.replace('/blog/', '');
   const post = blogPosts.find((p) => p.slug === slug);
 
-  const jsonLd = useMemo(() => {
-    if (!post) return undefined;
-    const isoDate = toISODate(post.date);
-
-    const articleSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: post.title,
-      description: post.excerpt,
-      image: post.image,
-      datePublished: isoDate,
-      dateModified: isoDate,
-      author: {
-        '@type': 'Organization',
-        name: 'San Antonio Stucco',
-        url: 'https://sanantoniostucco.com',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'San Antonio Stucco',
-        url: 'https://sanantoniostucco.com',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://sanantoniostucco.com/images/logo.png',
-        },
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `https://sanantoniostucco.com/blog/${post.slug}`,
-      },
-    };
-
-    const isQ = (t: string) => /\?|^(what|how|which|does|can|is|are|do|why|when|where)\b/i.test(t);
-    const strip = (t: string) => t.replace(/<[^>]+>/g, '');
-    const faqs: { name: string; acceptedAnswer: { '@type': string; text: string } }[] = [];
-
-    if (isQ(post.title)) {
-      const first = post.content.find((c) => !c.startsWith('## '));
-      if (first) faqs.push({ name: post.title.replace(/\?*$/, '?'), acceptedAnswer: { '@type': 'Answer', text: strip(first) } });
-    }
-    for (let i = 0; i < post.content.length; i++) {
-      if (post.content[i].startsWith('## ')) {
-        const heading = post.content[i].slice(3);
-        if (isQ(heading)) {
-          const ans = post.content.slice(i + 1).find((c) => !c.startsWith('## '));
-          if (ans) faqs.push({ name: heading.replace(/\?*$/, '?'), acceptedAnswer: { '@type': 'Answer', text: strip(ans) } });
-        }
-      }
-    }
-
-    if (faqs.length === 0) return articleSchema;
-
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.slice(0, 10).map((f) => ({ '@type': 'Question', ...f })),
-    };
-
-    return [articleSchema, faqSchema];
-  }, [post]);
 
   const seoMeta = useMemo(() => {
     if (!post) return { title: 'Post Not Found', description: 'Blog post not found.' };
@@ -101,7 +28,6 @@ export default function BlogPostPage() {
     image: post?.image,
     type: 'article',
     rawTitle: true,
-    jsonLd,
   });
 
   if (!post) {
@@ -169,7 +95,7 @@ export default function BlogPostPage() {
               alt={`Featured image for ${post.title} — San Antonio stucco guide`}
               width={800}
               height={400}
-              fetchPriority="high"
+              {...{ fetchpriority: 'high' }}
               decoding="async"
               className="w-full h-64 md:h-96 object-cover"
             />
@@ -211,12 +137,11 @@ export default function BlogPostPage() {
           </div>
 
           {(() => {
-            const relatedServiceSlug = post.relatedService.replace(/^\//, '');
-            const relatedService = services.find((s) => s.slug === relatedServiceSlug);
-            const relatedServiceName = relatedService?.name || 'Our Services';
+            const relatedSlugs = blogServiceMap[post.slug] ?? [post.relatedService.replace(/^\//, '')];
+            const relatedServices = relatedSlugs.flatMap((slug) => services.filter((s) => s.slug === slug));
             return (
               <div className="mt-12 p-6 bg-sand-50 border border-sand-200 rounded-2xl">
-                <h3 className="font-bold text-slate-800 mb-2">Need Professional Help?</h3>
+                <h3 className="font-bold text-slate-800 mb-2">Related Stucco Services</h3>
                 <p className="text-slate-600 text-sm mb-4">
                   Our team is available for free inspections and estimates on any stucco project in San Antonio.
                 </p>
@@ -227,12 +152,15 @@ export default function BlogPostPage() {
                   >
                     Get a Free Estimate <ArrowRight size={14} />
                   </Link>
-                  <Link
-                    to={post.relatedService}
-                    className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
-                  >
-                    {relatedServiceName} in San Antonio <ArrowRight size={14} />
-                  </Link>
+                  {relatedServices.map((s) => (
+                    <Link
+                      key={s.slug}
+                      to={`/${s.slug}`}
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors inline-flex items-center gap-2"
+                    >
+                      {s.seoName ?? s.name} in San Antonio <ArrowRight size={14} />
+                    </Link>
+                  ))}
                 </div>
               </div>
             );

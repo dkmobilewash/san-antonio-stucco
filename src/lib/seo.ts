@@ -11,10 +11,9 @@ interface PageSEO {
   image?: string;
   type?: string;
   rawTitle?: boolean;
-  jsonLd?: object | object[];
 }
 
-export function usePageSEO({ title, description, path, image, type = 'website', rawTitle, jsonLd }: PageSEO) {
+export function usePageSEO({ title, description, path, image, type = 'website', rawTitle }: PageSEO) {
   useEffect(() => {
     const fullTitle = rawTitle ? title : `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${SITE_URL}${path}`;
@@ -42,24 +41,7 @@ export function usePageSEO({ title, description, path, image, type = 'website', 
     }
     canonical.href = canonicalUrl;
 
-    let ldScript = document.querySelector('script[data-seo-jsonld]') as HTMLScriptElement | null;
-    if (jsonLd) {
-      if (!ldScript) {
-        ldScript = document.createElement('script');
-        ldScript.type = 'application/ld+json';
-        ldScript.setAttribute('data-seo-jsonld', 'true');
-        document.head.appendChild(ldScript);
-      }
-      const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
-      ldScript.textContent = JSON.stringify(schemas.length === 1 ? schemas[0] : schemas);
-    } else if (ldScript) {
-      ldScript.remove();
-    }
-
-    return () => {
-      if (ldScript) ldScript.remove();
-    };
-  }, [title, description, path, image, type, rawTitle, jsonLd]);
+  }, [title, description, path, image, type, rawTitle]);
 }
 
 function setMeta(name: string, content: string) {

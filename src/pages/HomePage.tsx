@@ -8,7 +8,8 @@ import EstimateForm from '../components/EstimateForm';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
-import SEO from '../components/SEO';
+import { usePageSEO } from '../lib/seo';
+import { homeFaqs } from '../data/faqs';
 import { pageSeo } from '../data/seo';
 
 const featuredArticles = [
@@ -30,24 +31,11 @@ const serviceImages: Record<string, string> = {
   'eifs-synthetic-stucco': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/eifs-stucco-san-antonio.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vZWlmcy1zdHVjY28tc2FuLWFudG9uaW8uanBlZyIsImlhdCI6MTc3NzU4MTI2MywiZXhwIjoxODA5MTE3MjYzfQ.xirvbH_TuTaJluEwjdKO5OUM0wFDj5wBo6YzJSyIElw',
 };
 
-const homeFAQs = [
-  { question: 'How much does stucco cost in San Antonio?', answer: 'Stucco installation in San Antonio typically costs $8-$15 per square foot for a complete three-coat system. Repairs start at $300-$1,500 depending on scope. We provide free, detailed estimates after an on-site evaluation.' },
-  { question: 'How long does stucco installation take?', answer: 'Most residential installations take 7-14 business days. Repairs take 1-3 days. Each coat requires proper curing time between applications. We provide clear timelines before work begins.' },
-  { question: 'Do you offer warranties on stucco work?', answer: 'Yes. All our work is backed by a workmanship guarantee. We stand behind every project and address any issues that arise from our installation or repair work at no additional cost.' },
-  { question: 'What areas do you serve besides San Antonio?', answer: 'We serve the entire San Antonio metro including Boerne, New Braunfels, Schertz, Helotes, Stone Oak, Alamo Heights, Live Oak, Universal City, Leon Valley, and Selma.' },
-  { question: 'How do I know if my stucco needs repair?', answer: 'Common signs include visible cracks, bubbling or bulging areas, discoloration, moisture stains inside walls, and sections that sound hollow when tapped. We offer free inspections for all San Antonio homeowners.' },
-  { question: 'How do I find a good stucco contractor near me?', answer: 'Look for a licensed and insured contractor with local experience, verifiable reviews, and knowledge of your area climate. San Antonio Stucco serves the entire metro area including Boerne, New Braunfels, Schertz, Helotes, and Stone Oak. Call (210) 871-8490 for a free on-site estimate.' },
-  { question: 'Are you a licensed stucco contractor in San Antonio?', answer: 'Yes. San Antonio Stucco is a locally owned, licensed, and insured stucco contractor serving Bexar County and the surrounding metro. We use our own crew — no subcontractors — for every repair, installation, and painting project. Call (210) 871-8490 for proof of license and insurance.' },
-];
 
 export default function HomePage() {
+  usePageSEO({ ...pageSeo['/'], path: '/', rawTitle: true });
   return (
     <>
-      <SEO
-        title={pageSeo['/'].title}
-        description={pageSeo['/'].description}
-        keywords="stucco repair, stucco repair near me, stucco contractor, stucco contractors near me, stucco companies near me, stucco contractor near me, san antonio stucco contractor, stucco repair san antonio, stucco installation san antonio, stucco schertz, stucco boerne, stucco helotes, stucco new braunfels, free stucco estimates"
-      />
 
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex items-center pt-24 md:pt-28 pb-8 overflow-hidden">
@@ -56,7 +44,7 @@ export default function HomePage() {
           alt="San Antonio Stucco crew finishing a new stucco and stone exterior on a two-story commercial building"
           width={1400}
           height={986}
-          fetchPriority="high"
+          {...{ fetchpriority: 'high' }}
           decoding="sync"
           className="hero-bg"
         />
@@ -535,7 +523,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <FAQSection faqs={homeFAQs} />
+      <FAQSection faqs={homeFaqs} />
 
       {/* Final CTA */}
       <section className="py-20 bg-sand-600">

@@ -19,6 +19,7 @@ export default function FAQSection({ faqs, title = 'Frequently Asked Questions' 
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-slate-50 transition-colors"
+                aria-expanded={openIndex === i}
               >
                 <span className="font-medium text-slate-800 pr-4">{faq.question}</span>
                 <ChevronDown
@@ -26,11 +27,9 @@ export default function FAQSection({ faqs, title = 'Frequently Asked Questions' 
                   className={`text-slate-400 shrink-0 transition-transform ${openIndex === i ? 'rotate-180' : ''}`}
                 />
               </button>
-              {openIndex === i && (
-                <div className="px-6 pb-4">
-                  <p className="text-slate-600 text-sm leading-relaxed">{faq.answer}</p>
-                </div>
-              )}
+              <div className={`px-6 pb-4 ${openIndex === i ? '' : 'hidden'}`}>
+                <p className="text-slate-600 text-sm leading-relaxed">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>
