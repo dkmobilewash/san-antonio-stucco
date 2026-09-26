@@ -16,6 +16,7 @@
  *      or a vercel.json redirect
  *   W  internal links that point at a redirect source (link the final URL instead)
  *   E  sitemap.xml lists every prerendered page and nothing else
+ *   W  a prerendered page has no entry in scripts/seo/lastmod.json (sitemap <lastmod> falls back to build date)
  *   E  a route present in scripts/seo/routes.json disappeared with no redirect in vercel.json
  *   E  slugs are unique across blog posts, services, and locations
  *   E  blog post dates parse ("March 2025" style)
@@ -233,6 +234,16 @@ const sitemapPaths = new Set(
 );
 for (const p of pagePaths) if (!sitemapPaths.has(p)) error('sitemap.xml', `prerendered page ${p} is missing from the sitemap`);
 for (const p of sitemapPaths) if (!pagePaths.has(p)) error('sitemap.xml', `sitemap lists ${p} but no page was prerendered`);
+
+// ── lastmod snapshot (scripts/seo/lastmod.json feeds sitemap <lastmod>) ──
+const LASTMOD_SNAPSHOT = join(__dirname, 'seo', 'lastmod.json');
+if (existsSync(LASTMOD_SNAPSHOT)) {
+  const lastmodRoutes = (JSON.parse(readFileSync(LASTMOD_SNAPSHOT, 'utf8')) as { routes: Record<string, string> }).routes;
+  const stale = [...pagePaths].filter(p => !lastmodRoutes[p]);
+  if (stale.length) warn('lastmod.json', `no lastmod for ${stale.length} page(s) (run npm run seo:lastmod): ${stale.slice(0, 5).join(', ')}${stale.length > 5 ? ', …' : ''}`);
+} else {
+  warn('lastmod.json', 'no lastmod snapshot; sitemap <lastmod> falls back to the build date (run npm run seo:lastmod)');
+}
 
 // ── Route snapshot: removed URLs must redirect somewhere ──
 

@@ -5,11 +5,11 @@ import { services } from '../data/services';
 import { locations } from '../data/locations';
 import { blogPosts } from '../data/blog';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 export default function BlogPage() {
   usePageSEO({
-    title: 'Stucco Blog | Tips, Maintenance & Repair Guides | San Antonio Stucco',
-    description: 'Expert stucco tips for San Antonio homeowners. Guides on repair, maintenance, installation & protecting your stucco from Texas heat. Read our latest articles!',
+    ...pageSeo['/blog'],
     path: '/blog',
     rawTitle: true,
   });

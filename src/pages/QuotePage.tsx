@@ -5,6 +5,7 @@ import { services } from '../data/services';
 import { locations } from '../data/locations';
 import EstimateForm from '../components/EstimateForm';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 const quoteResources = [
   { slug: 'cost-of-stucco-installation-san-antonio', title: 'How Much Does Stucco Installation Cost in San Antonio?', excerpt: 'Understand real pricing before your estimate.' },
@@ -15,8 +16,7 @@ const quoteResources = [
 
 export default function QuotePage() {
   usePageSEO({
-    title: 'Free Stucco Estimate San Antonio | No-Obligation Quote | Fast Response',
-    description: 'Request a free stucco estimate in San Antonio. No-obligation quotes for repair, installation & replacement. Licensed & insured. We respond within one business day!',
+    ...pageSeo['/quote'],
     path: '/quote',
     rawTitle: true,
   });

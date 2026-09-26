@@ -37,8 +37,5 @@
       "destination": "/blog/what-are-the-downsides-of-stucco",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

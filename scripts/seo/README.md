@@ -5,6 +5,7 @@ Three pieces, layered:
 | Piece | What it does | Needs |
 |---|---|---|
 | `npm run seo:lint` | Deterministic checks on the prerendered site in `dist/` (titles, descriptions, canonicals, H1s, JSON-LD, internal links, sitemap, removed routes, signed image URLs). Runs in CI on every PR via `.github/workflows/seo-lint.yml`. | a prior `npm run build` |
+| `npm run seo:lastmod` | Rewrites `scripts/seo/lastmod.json` (per-route last-modified dates from git blame of the data files) which the prerender writes into `sitemap.xml` `<lastmod>`. Run after editing `src/data/*.ts` and commit the JSON. | full git history |
 | `npm run seo:gsc` | Pulls the last 28 days of Search Console data and writes `scripts/seo/reports/gsc-<date>.json` with an `opportunities` list (queries ranking 4–20). | `GSC_SERVICE_ACCOUNT_JSON` |
 | `.claude/skills/seo-agent/SKILL.md` | The playbook a Claude Code session follows to turn that data into a small PR. | both of the above |
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 const stats = [
   { value: '22M+', label: 'Tons of gypsum produced annually (US)' },
@@ -10,8 +11,7 @@ const stats = [
 
 export default function PlasterArticlePage() {
   usePageSEO({
-    title: 'The US is the World\'s Largest Plaster Producer — Why That Matters for Your San Antonio Home',
-    description: 'America dominates global gypsum and lime plaster production. Learn how this supply advantage shapes stucco quality for San Antonio homes. Expert insights inside.',
+    ...pageSeo['/blog/us-largest-plaster-producer-san-antonio'],
     path: '/blog/us-largest-plaster-producer-san-antonio',
     type: 'article',
     rawTitle: true,
@@ -176,7 +176,7 @@ export default function PlasterArticlePage() {
 
         {/* Sources */}
         <div className="mt-16 pt-8 border-t border-slate-200">
-          <h4 className="text-sm font-sans font-semibold text-slate-500 uppercase tracking-wide mb-3">Sources</h4>
+          <h2 className="text-sm font-sans font-semibold text-slate-500 uppercase tracking-wide mb-3">Sources</h2>
           <p className="text-xs text-slate-400 leading-relaxed">
             [1] U.S. Geological Survey, Mineral Commodity Summaries — Gypsum (2021, 2022, 2024, 2025). Available at: pubs.usgs.gov/periodicals/mcs2024/mcs2024-gypsum.pdf<br />
             Production figures: United States estimated at 22–23 million tons of crude gypsum annually. Texas listed as a leading producing state. Domestic consumption approximately 44–45 million tons annually including imports.

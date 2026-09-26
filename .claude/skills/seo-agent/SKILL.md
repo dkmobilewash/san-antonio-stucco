@@ -21,9 +21,12 @@ reviewed by a human before it ships.
   - `src/data/blog.ts` — blog posts (`/blog/<slug>`): title, excerpt, category, date, image, `content[]`
     where a string starting with `## ` becomes an H2 and everything else a paragraph
     (inline `<a href="/...">` HTML is allowed in paragraphs).
-- Title/description overrides for the home, quote, service and location pages are in the
-  `seoOverrides` map in `scripts/prerender.ts`. Blog titles and excerpts come straight from
-  `blog.ts` (title is used raw, excerpt is the meta description).
+- Page titles and meta descriptions for every non-blog URL live in `pageSeo` in
+  `src/data/seo.ts`. The prerender and the React pages both read that map, so edit it there
+  and nowhere else. Blog posts use `seoTitle` / `seoDescription` on the post in `blog.ts`
+  (falling back to `title` / `excerpt`); the H1 is always `title`.
+- `scripts/seo/lastmod.json` feeds the sitemap's `<lastmod>`; refresh it with `npm run seo:lastmod`
+  after editing data files and commit it with the change.
 - `blogServiceMap` in `scripts/prerender.ts` links each post to 1–2 services. Add an entry for
   every new post so it gets "Related Services" links and shows up on the service page.
 - Question-style H2s in a post (`## How much does ...?`) are auto-extracted into FAQPage schema.
@@ -89,6 +92,7 @@ Rank candidates by `impressions × (1 − ctr)` and pick from the top. When in d
 ```
 npm run typecheck
 npm run lint
+npm run seo:lastmod              # refreshes scripts/seo/lastmod.json (sitemap <lastmod>) from git; commit it
 npm run build && npm run seo:lint
 ```
 

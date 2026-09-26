@@ -4,11 +4,11 @@ import { locations } from '../data/locations';
 import { services } from '../data/services';
 import CTASection from '../components/CTASection';
 import { usePageSEO } from '../lib/seo';
+import { pageSeo } from '../data/seo';
 
 export default function ServiceAreasPage() {
   usePageSEO({
-    title: 'Stucco Contractor Service Areas | San Antonio & Surrounding Cities | Free Estimates',
-    description: 'Stucco contractor serving San Antonio, Boerne, New Braunfels, Schertz, Helotes, Stone Oak & more. Licensed & insured. Call for a free estimate in your area!',
+    ...pageSeo['/service-areas'],
     path: '/service-areas',
     rawTitle: true,
   });
