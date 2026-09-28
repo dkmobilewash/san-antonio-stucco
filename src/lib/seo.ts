@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
+import { trackPageView } from './analytics';
 
 const SITE_NAME = 'San Antonio Stucco';
 const SITE_URL = 'https://sanantoniostucco.com';
-const DEFAULT_IMAGE = 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/san-antonio-stucco.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc2FuLWFudG9uaW8tc3R1Y2NvLnBuZyIsImlhdCI6MTc3NzU3ODEzOSwiZXhwIjoxODA5MTE0MTM5fQ.1hP43qIGRyXlwLX02o92zUXeVzuLUpxvJDbBl_Ley_M';
+const DEFAULT_IMAGE = `${SITE_URL}/images/hero-commercial-stucco.webp`;
+
+// The gtag snippet in index.html already reports the first page load.
+let firstPageView = true;
 
 interface PageSEO {
   title: string;
@@ -40,6 +44,9 @@ export function usePageSEO({ title, description, path, image, type = 'website', 
       document.head.appendChild(canonical);
     }
     canonical.href = canonicalUrl;
+
+    if (firstPageView) firstPageView = false;
+    else trackPageView(path, fullTitle);
 
   }, [title, description, path, image, type, rawTitle]);
 }

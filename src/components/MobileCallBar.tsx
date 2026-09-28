@@ -9,6 +9,7 @@ import { contact } from '../data/contact';
 export default function MobileCallBar() {
   return (
     <div
+      data-track="mobile_call_bar"
       className="md:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-2 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >

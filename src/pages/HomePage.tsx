@@ -38,7 +38,7 @@ export default function HomePage() {
     <>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex items-center pt-24 md:pt-28 pb-8 overflow-hidden">
+      <section data-track="hero" className="relative min-h-[100svh] flex items-center pt-24 md:pt-28 pb-8 overflow-hidden">
         <img
           src="/images/hero-commercial-stucco.webp"
           alt="San Antonio Stucco crew finishing a new stucco and stone exterior on a two-story commercial building"

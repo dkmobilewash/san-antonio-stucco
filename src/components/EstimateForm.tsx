@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { track } from '../lib/analytics';
 
 const serviceOptions = [
   'New Installation',
@@ -52,6 +53,11 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
     }
     setSubmitting(false);
     setSubmitted(true);
+    track('generate_lead', {
+      method: 'estimate_form',
+      service: selectedService || 'unspecified',
+      form_variant: compact ? 'compact' : 'full',
+    });
   };
 
   if (submitted) {
