@@ -17,7 +17,7 @@ export const pageSeo: Record<string, PageSeo> = {
   // ── Hub pages ──
 
   '/': {
-    title: 'Stucco Repair, Painting & Installation | San Antonio TX',
+    title: 'Stucco Contractor San Antonio, TX | Repair & Painting',
     description: 'Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490.',
   },
   '/services': {
