@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26",
+  "generatedAt": "2026-09-28",
   "routes": {
     "/": "2026-09-26",
     "/about": "2026-09-26",
@@ -36,7 +36,7 @@
     "/blog/which-type-of-stucco-is-best": "2026-09-26",
     "/boerne": "2026-07-08",
     "/commercial-stucco": "2026-09-23",
-    "/eifs-synthetic-stucco": "2026-09-26",
+    "/eifs-synthetic-stucco": "2026-09-28",
     "/helotes": "2026-07-08",
     "/leon-valley": "2026-07-08",
     "/live-oak": "2026-07-08",
@@ -50,11 +50,11 @@
     "/service-areas": "2026-09-26",
     "/services": "2026-09-26",
     "/stone-oak": "2026-07-08",
-    "/stucco-installation": "2026-09-23",
-    "/stucco-painting": "2026-09-23",
-    "/stucco-remodeling": "2026-06-17",
-    "/stucco-repairs": "2026-09-26",
-    "/stucco-replacement": "2026-06-17",
+    "/stucco-installation": "2026-09-28",
+    "/stucco-painting": "2026-09-28",
+    "/stucco-remodeling": "2026-09-28",
+    "/stucco-repairs": "2026-09-28",
+    "/stucco-replacement": "2026-09-28",
     "/universal-city": "2026-07-08"
   }
 }

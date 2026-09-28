@@ -69,6 +69,15 @@
         "longitude": -98.6035
       },
       "hasMap": "https://www.google.com/maps?cid=15390624256042206788",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+12108718490",
+        "email": "info@sanantoniostucco.com",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
+      "currenciesAccepted": "USD",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -94,7 +103,12 @@
         { "@type": "City", "name": "Live Oak" },
         { "@type": "City", "name": "Universal City" },
         { "@type": "City", "name": "Leon Valley" },
-        { "@type": "City", "name": "Selma" }
+        { "@type": "City", "name": "Selma" },
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 29.5574, "longitude": -98.6035 },
+          "geoRadius": "64000"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -110,6 +124,17 @@
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stucco Painting", "url": "https://sanantoniostucco.com/stucco-painting" } }
         ]
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://sanantoniostucco.com/#website",
+      "url": "https://sanantoniostucco.com",
+      "name": "San Antonio Stucco",
+      "publisher": { "@id": "https://sanantoniostucco.com/#business" },
+      "inLanguage": "en-US"
     }
     </script>
   </head>

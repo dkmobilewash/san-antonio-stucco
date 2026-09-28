@@ -125,6 +125,22 @@ function serviceSchema(service: typeof services[0]): string {
     "description": service.shortDescription,
     "provider": { "@id": `${SITE_URL}/#business` },
     "areaServed": locations.map(l => ({ "@type": "City", "name": l.name })),
+    ...(service.pricing && {
+      "offers": {
+        "@type": "Offer",
+        "url": `${SITE_URL}/${service.slug}`,
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": service.pricing.unit ? "UnitPriceSpecification" : "PriceSpecification",
+          "priceCurrency": "USD",
+          "minPrice": service.pricing.low,
+          "maxPrice": service.pricing.high,
+          ...(service.pricing.unit && { "unitText": "per square foot" }),
+        },
+        "availability": "https://schema.org/InStock",
+        "areaServed": { "@type": "City", "name": "San Antonio" },
+      },
+    }),
   })}</script>`;
 }
 
