@@ -85,7 +85,7 @@ perEntry(join(DATA, 'services.ts'), services.map(s => s.slug), slug => `/${slug}
 perEntry(join(DATA, 'locations.ts'), locations.map(l => l.slug), slug => `/${slug}`);
 
 const hubs: Record<string, string[]> = {
-  '/': [PRERENDER, join(DATA, 'services.ts'), join(DATA, 'locations.ts'), join(DATA, 'projects.ts')],
+  '/': [PRERENDER, join(ROOT, 'src', 'pages', 'HomePage.tsx'), join(DATA, 'services.ts'), join(DATA, 'locations.ts'), join(DATA, 'projects.ts')],
   '/services': [PRERENDER, join(DATA, 'services.ts')],
   '/service-areas': [PRERENDER, join(DATA, 'locations.ts')],
   '/quote': [PRERENDER, join(DATA, 'contact.ts')],

@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 import CTASection from '../components/CTASection';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
-import { blogPosts } from '../data/blog';
+import { blogIndex } from 'virtual:blog-index';
 import { usePageSEO } from '../lib/seo';
 import { pageSeo } from '../data/seo';
 
@@ -39,7 +39,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((article) => (
+            {blogIndex.map((article) => (
               <Link key={article.slug} to={`/blog/${article.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg transition-shadow">
                 <div className="overflow-hidden">
                   <img

@@ -5,6 +5,7 @@ import { projects } from '../data/projects';
 import { locations } from '../data/locations';
 import { contact } from '../data/contact';
 import EstimateForm from '../components/EstimateForm';
+import ServiceCard from '../components/ServiceCard';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
@@ -21,17 +22,6 @@ const featuredArticles = [
   { slug: 'stucco-vs-brick-cost-san-antonio', title: 'Stucco vs Brick Cost in San Antonio', excerpt: 'Installation, maintenance, and lifecycle cost compared for SA homes.', category: 'Education' },
 ];
 
-const serviceImages: Record<string, string> = {
-  'stucco-installation': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-top-coat-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXRvcC1jb2F0LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDczMiwiZXhwIjoxODA5MTE2NzMyfQ.c04kWDbJUcyX5-3_Ws_aeH9BuveIvzjTDX2zhlrM2xA',
-  'stucco-replacement': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/stucco-replacement-san-antonio.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc3R1Y2NvLXJlcGxhY2VtZW50LXNhbi1hbnRvbmlvLmpwZyIsImlhdCI6MTc3NzU4MDgxOSwiZXhwIjoxODA5MTE2ODE5fQ.uo6Gz1bu6exda7KdKjmgOkkt-iSb_01NiOa6njyu0Yk',
-  'residential-stucco': 'https://2.bp.blogspot.com/-bT2IY1wPeTE/Ul4lKrFF0hI/AAAAAAABD90/QdvEse4oRZw/s1600/a24.jpg',
-  'commercial-stucco': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/commercial-stucco-san-antonio.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vY29tbWVyY2lhbC1zdHVjY28tc2FuLWFudG9uaW8ud2VicCIsImlhdCI6MTc3NzU4MTEwOCwiZXhwIjoxODA5MTE3MTA4fQ.O-WjyrRMCcrXTBRTap4fyt0IgxjRtQDag8jIVq_a0uo',
-  'stucco-remodeling': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/commercial-stucco-san-antonio.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vY29tbWVyY2lhbC1zdHVjY28tc2FuLWFudG9uaW8ud2VicCIsImlhdCI6MTc3NzU4MTEwOCwiZXhwIjoxODA5MTE3MTA4fQ.O-WjyrRMCcrXTBRTap4fyt0IgxjRtQDag8jIVq_a0uo',
-  'stucco-repairs': 'https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'eifs-synthetic-stucco': 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/eifs-stucco-san-antonio.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vZWlmcy1zdHVjY28tc2FuLWFudG9uaW8uanBlZyIsImlhdCI6MTc3NzU4MTI2MywiZXhwIjoxODA5MTE3MjYzfQ.xirvbH_TuTaJluEwjdKO5OUM0wFDj5wBo6YzJSyIElw',
-};
-
-
 export default function HomePage() {
   usePageSEO({ ...pageSeo['/'], path: '/', rawTitle: true });
   return (
@@ -40,7 +30,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section data-track="hero" className="relative min-h-[100svh] flex items-center pt-24 md:pt-28 pb-8 overflow-hidden">
         <img
-          src="/images/hero-commercial-stucco.webp"
+          src="/images/hero-commercial-stucco-1400.webp"
+          srcSet="/images/hero-commercial-stucco-640.webp 640w, /images/hero-commercial-stucco-1024.webp 1024w, /images/hero-commercial-stucco-1400.webp 1400w"
+          sizes="100vw"
           alt="San Antonio Stucco crew finishing a new stucco and stone exterior on a two-story commercial building"
           width={1400}
           height={986}
@@ -113,36 +105,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Priority Links */}
-      <section className="py-12 bg-white">
+      {/* Services — one card per service. The detail (process, pricing, FAQs) lives on the service
+          page; the homepage only routes visitors there with exact-match anchor text. */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-3">
             Stucco Services in San Antonio
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            <Link to="/san-antonio" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Contractor San Antonio
-            </Link>
-            <Link to="/stucco-repairs" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Repair San Antonio
-            </Link>
-            <Link to="/stucco-installation" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Installation San Antonio
-            </Link>
-            <Link to="/eifs-synthetic-stucco" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              EIFS Stucco San Antonio
-            </Link>
-            <Link to="/commercial-stucco" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Commercial Stucco San Antonio
-            </Link>
-            <Link to="/stucco-replacement" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Replacement San Antonio
-            </Link>
-            <Link to="/stucco-painting" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Painting San Antonio
-            </Link>
-            <Link to="/stucco-remodeling" className="bg-slate-50 hover:bg-sand-50 border border-slate-200 hover:border-sand-300 rounded-xl p-4 text-center font-medium text-slate-700 hover:text-sand-700 transition-all">
-              Stucco Remodeling San Antonio
+          <p className="text-slate-600 text-center mb-10 max-w-2xl mx-auto">
+            One licensed crew for every kind of stucco work. Pick a service for pricing, process and answers to common questions.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <ServiceCard key={service.slug} service={service} anchor={`${service.seoName ?? service.name} San Antonio`} />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/services" className="text-sand-600 hover:text-sand-700 font-semibold inline-flex items-center gap-1.5 transition-colors">
+              All Stucco Services <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -225,52 +205,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Service Sections */}
-      {services.map((service, index) => (
-        <section
-          key={service.slug}
-          className={`py-20 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}`}
-        >
-          <div className="max-w-7xl mx-auto px-6">
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? 'lg:[direction:rtl]' : ''}`}>
-              <div className="overflow-hidden rounded-2xl shadow-lg">
-                <img
-                  src={serviceImages[service.slug]}
-                  alt={`${service.name} in San Antonio, TX — professional crew applying stucco finish`}
-                  loading="lazy"
-                  decoding="async"
-                  width={800}
-                  height={384}
-                  className="w-full h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className={index % 2 !== 0 ? 'lg:[direction:ltr]' : ''}>
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
-                  {service.name} in San Antonio
-                </h2>
-                <p className="text-slate-600 leading-relaxed mb-6">
-                  {service.heroDescription}
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {service.benefits.slice(0, 3).map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-3">
-                      <CheckCircle size={18} className="text-sand-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700 text-sm">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to={`/${service.slug}`}
-                  className="inline-flex items-center gap-2 bg-sand-600 hover:bg-sand-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors shadow-sm"
-                >
-                  {service.name} in San Antonio <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
       {/* Packages & Pricing */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -293,6 +227,9 @@ export default function HomePage() {
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> Seamless texture matching</li>
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> 1-3 day typical completion</li>
               </ul>
+              <Link to="/stucco-repairs" className="inline-flex items-center gap-1 text-sand-600 hover:text-sand-700 font-medium text-sm mt-5">
+                Stucco repair in San Antonio <ArrowRight size={14} />
+              </Link>
             </div>
             <div className="bg-slate-50 border-2 border-sand-400 rounded-2xl p-8 relative">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sand-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
@@ -307,6 +244,9 @@ export default function HomePage() {
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> Custom texture & color choice</li>
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> 7-14 day typical timeline</li>
               </ul>
+              <Link to="/stucco-installation" className="inline-flex items-center gap-1 text-sand-600 hover:text-sand-700 font-medium text-sm mt-5">
+                Stucco installation in San Antonio <ArrowRight size={14} />
+              </Link>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8">
               <div className="w-12 h-12 bg-sand-50 rounded-xl flex items-center justify-center mb-4">
@@ -320,6 +260,9 @@ export default function HomePage() {
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> Modern moisture management</li>
                 <li className="flex items-start gap-2"><CheckCircle size={14} className="text-sand-600 mt-0.5 shrink-0" /> 2-4 week typical timeline</li>
               </ul>
+              <Link to="/stucco-replacement" className="inline-flex items-center gap-1 text-sand-600 hover:text-sand-700 font-medium text-sm mt-5">
+                Stucco replacement in San Antonio <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
           <p className="text-center text-sm text-slate-500 mt-8">

@@ -82,6 +82,15 @@ Rank candidates by `impressions × (1 − ctr)` and pick from the top. When in d
   reasons; put it in the report as a proposal instead.
 - Never touch prices, warranty terms, licensing claims, hours, phone, or address. If a
   ranking query is about price, reuse the ranges already stated on the site.
+- **The homepage targets one query family: "stucco contractor san antonio".** Service intent
+  (repair, painting, installation, replacement, EIFS, commercial, residential, remodeling)
+  belongs to the service page for that service. Never add a service term to the homepage
+  `<title>`, and never add a homepage FAQ or H2 whose purpose is to catch a service query.
+  When Search Console shows the homepage ranking for a service query while the dedicated
+  service page ranks below it, that is cannibalization: strengthen the service page instead
+  (its title/description, an FAQ that answers the query literally, and links to it from posts
+  using the query as anchor text). The homepage already links to every service page with
+  exact-match anchors; leave that grid alone.
 - New posts: 700–1,200 words, lowercase-kebab slug matching the target query, `date` in
   "Month YYYY" form for the current month, a category that already exists in `blog.ts`,
   an `image` reused from an existing post on the same topic, `relatedService` set, 2–4 links
