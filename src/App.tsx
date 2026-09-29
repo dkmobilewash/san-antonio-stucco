@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileCallBar from './components/MobileCallBar';
+import { installContactLinkTracking } from './lib/analytics';
 import HomePage from './pages/HomePage';
 import { services } from './data/services';
 import { locations } from './data/locations';
@@ -29,6 +30,7 @@ function ScrollToTop() {
 }
 
 export function AppLayout() {
+  useEffect(() => installContactLinkTracking(), []);
   return (
     <>
       <ScrollToTop />

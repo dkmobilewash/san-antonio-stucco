@@ -22,7 +22,9 @@ const DIST = join(__dirname, '..', 'dist');
 const SSR_ENTRY = join(__dirname, '..', 'dist-ssr', 'entry-server.js');
 const SITE_URL = 'https://sanantoniostucco.com';
 const SITE_NAME = 'San Antonio Stucco';
-const OG_IMAGE = 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/san-antonio-stucco.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc2FuLWFudG9uaW8tc3R1Y2NvLnBuZyIsImlhdCI6MTc3NzU3ODEzOSwiZXhwIjoxODA5MTE0MTM5fQ.1hP43qIGRyXlwLX02o92zUXeVzuLUpxvJDbBl_Ley_M';
+const LOGO_URL = 'https://tsybcnnjylmvhsxzknug.supabase.co/storage/v1/object/sign/San%20Antonio%20Stucco/san-antonio-stucco.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81N2ZkNDYwMC00NmYxLTQ0YWItYmZiYi1jODY3N2Y3YjM1MzgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW4gQW50b25pbyBTdHVjY28vc2FuLWFudG9uaW8tc3R1Y2NvLnBuZyIsImlhdCI6MTc3NzU3ODEzOSwiZXhwIjoxODA5MTE0MTM5fQ.1hP43qIGRyXlwLX02o92zUXeVzuLUpxvJDbBl_Ley_M';
+// Default share image: the local hero photo (1400×986). Blog posts and the projects page use their own.
+const OG_IMAGE = `${SITE_URL}/images/hero-commercial-stucco.webp`;
 
 if (!existsSync(SSR_ENTRY)) {
   console.error('dist-ssr/entry-server.js is missing. Run `vite build --ssr src/entry-server.tsx --outDir dist-ssr` first (npm run build does).');
@@ -36,8 +38,9 @@ function esc(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function seoHead(path: string, title: string, description: string): string {
+function seoHead(path: string, title: string, description: string, image: string = OG_IMAGE): string {
   const canonical = `${SITE_URL}${path}`;
+  const isHero = image === OG_IMAGE;
   return `
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
@@ -46,12 +49,16 @@ function seoHead(path: string, title: string, description: string): string {
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonical}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="${OG_IMAGE}">
+    <meta property="og:image" content="${esc(image)}">${isHero ? `
+    <meta property="og:image:width" content="1400">
+    <meta property="og:image:height" content="986">` : ''}
+    <meta property="og:image:alt" content="${esc(title)}">
     <meta property="og:site_name" content="${SITE_NAME}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:image" content="${OG_IMAGE}">`;
+    <meta name="twitter:image" content="${esc(image)}">
+    <meta name="twitter:image:alt" content="${esc(title)}">`;
 }
 
 function faqSchema(faqs: { question: string; answer: string }[]): string {
@@ -193,7 +200,7 @@ const publisher = {
   "@id": `${SITE_URL}/#business`,
   "name": SITE_NAME,
   "url": SITE_URL,
-  "logo": { "@type": "ImageObject", "url": OG_IMAGE },
+  "logo": { "@type": "ImageObject", "url": LOGO_URL },
 };
 
 function blogPostingSchema(post: typeof blogPosts[0]): string {
@@ -255,6 +262,7 @@ interface RouteEntry {
   title: string;
   description: string;
   jsonLd: string[];
+  image?: string; // share image; defaults to the hero photo
 }
 
 const routes: Record<string, RouteEntry> = {};
@@ -265,7 +273,7 @@ routes['/services'] = { title: '', description: '', jsonLd: [breadcrumbSchema(cr
 routes['/service-areas'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/service-areas', 'Service Areas']))] };
 routes['/quote'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/quote', 'Free Estimate']))] };
 routes['/about'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/about', 'About']))] };
-routes['/projects'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/projects', 'Projects'])), imageGallerySchema()] };
+routes['/projects'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/projects', 'Projects'])), imageGallerySchema()], image: projects[0]?.images[0] ? `${SITE_URL}${projects[0].images[0].src}` : undefined };
 routes['/blog'] = { title: '', description: '', jsonLd: [breadcrumbSchema(crumbs(['/blog', 'Blog']))] };
 
 for (const s of services) {
@@ -287,6 +295,7 @@ for (const post of blogPosts) {
     title: post.seoTitle ?? post.title,
     description: post.seoDescription ?? post.excerpt,
     jsonLd: [faqSchema(extractBlogFaqs(post)), breadcrumbSchema(crumbs(['/blog', 'Blog'], [`/blog/${post.slug}`, post.title])), blogPostingSchema(post)],
+    image: post.image,
   };
 }
 
@@ -328,7 +337,7 @@ function injectPage(path: string, entry: RouteEntry, body: string): string {
     html = html.replace(/<link rel="preload" as="image"[^>]*fetchpriority="high"[^>]*\/?>[\n\r]*/g, '');
   }
   const lcpPreload = getLcpPreload(path);
-  const head = `${lcpPreload ? lcpPreload + '\n  ' : ''}${seoHead(path, entry.title, entry.description)}\n  ${entry.jsonLd.join('\n  ')}\n  </head>`;
+  const head = `${lcpPreload ? lcpPreload + '\n  ' : ''}${seoHead(path, entry.title, entry.description, entry.image)}\n  ${entry.jsonLd.join('\n  ')}\n  </head>`;
   return stripDefaultHead(html)
     .replace('</head>', () => head)
     .replace(/<div id="root">\s*<\/div>/, () => `<div id="root">${body}</div>`);
