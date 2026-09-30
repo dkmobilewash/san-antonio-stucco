@@ -14,16 +14,16 @@
     <title>Stucco Contractor in San Antonio, TX | Repair, Installation &amp; EIFS</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Preconnect to critical origins (fonts + hero image host) -->
+    <!-- Preconnect only to origins every page needs above the fold (fonts, header logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://static.wixstatic.com" crossorigin />
-    <!-- DNS-prefetch for secondary image origins -->
-    <link rel="dns-prefetch" href="https://tsybcnnjylmvhsxzknug.supabase.co" />
+    <link rel="preconnect" href="https://tsybcnnjylmvhsxzknug.supabase.co" crossorigin />
+    <!-- DNS-prefetch for image hosts used below the fold or only on some pages -->
+    <link rel="dns-prefetch" href="https://static.wixstatic.com" />
     <link rel="dns-prefetch" href="https://images.pexels.com" />
 
     <!-- Preload hero image (LCP element) -->
-    <link rel="preload" as="image" href="/images/hero-commercial-stucco.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero-commercial-stucco-1400.webp" imagesrcset="/images/hero-commercial-stucco-640.webp 640w, /images/hero-commercial-stucco-1024.webp 1024w, /images/hero-commercial-stucco-1400.webp 1400w" imagesizes="100vw" fetchpriority="high" />
 
     <!-- Fonts with display=swap (non-render-blocking) -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CheckCircle, ArrowRight } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { track } from '../lib/analytics';
 
 const serviceOptions = [
@@ -22,6 +21,8 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
     e.preventDefault();
     setSubmitting(true);
     try {
+      // supabase-js is ~130 KB; load it on submit instead of with every page.
+      const { supabase } = await import('../lib/supabase');
       await supabase.from('leads').insert({
         service: selectedService,
         name: formData.name,

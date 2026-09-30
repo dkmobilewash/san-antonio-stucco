@@ -11,6 +11,9 @@ export interface BlogPost {
   content: string[];
 }
 
+/** A post without its body — what `virtual:blog-index` exports for list views. */
+export type BlogPostMeta = Omit<BlogPost, 'content'>;
+
 export const blogPosts: BlogPost[] = [
   {
     slug: 'how-san-antonio-weather-affects-stucco',

@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { ArrowRight, Phone, CheckCircle, AlertTriangle, MapPin, Clock, DollarSign, Wrench, BookOpen } from 'lucide-react';
 import { services } from '../data/services';
 import { locations } from '../data/locations';
-import { blogPosts } from '../data/blog';
+import { blogIndex } from 'virtual:blog-index';
 import { blogServiceMap } from '../data/blogServiceMap';
 import { contact } from '../data/contact';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -107,7 +107,7 @@ export default function ServiceDetailPage() {
 
   // Query-matching display name ("Stucco Repair", "EIFS Stucco") for headings; the H1 stays heroHeadline.
   const displayName = service.seoName ?? service.name;
-  const resourcePosts = blogPosts.filter((p) => blogServiceMap[p.slug]?.includes(service.slug)).slice(0, 6);
+  const resourcePosts = blogIndex.filter((p) => blogServiceMap[p.slug]?.includes(service.slug)).slice(0, 6);
 
   return (
     <>
