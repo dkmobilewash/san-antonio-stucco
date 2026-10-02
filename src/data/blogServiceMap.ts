@@ -33,4 +33,5 @@ export const blogServiceMap: Record<string, string[]> = {
   'stucco-vs-brick-cost-san-antonio': ['stucco-installation', 'residential-stucco'],
   'how-long-does-stucco-last-san-antonio': ['stucco-repairs', 'stucco-replacement'],
   'what-is-stucco': ['stucco-installation', 'residential-stucco'],
+  'commercial-stucco-repair-san-antonio': ['commercial-stucco', 'stucco-repairs'],
 };
