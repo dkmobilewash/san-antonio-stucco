@@ -6,6 +6,8 @@ Three pieces, layered:
 |---|---|---|
 | `npm run seo:lint` | Deterministic checks on the prerendered site in `dist/` (titles, descriptions, canonicals, H1s, JSON-LD, internal links, sitemap, removed routes, signed image URLs). Runs in CI on every PR via `.github/workflows/seo-lint.yml`. | a prior `npm run build` |
 | `npm run seo:lastmod` | Rewrites `scripts/seo/lastmod.json` (per-route last-modified dates from git blame of the data files) which the prerender writes into `sitemap.xml` `<lastmod>`. Run after editing `src/data/*.ts` and commit the JSON. | full git history |
+| `npm run seo:keywords` | Regenerates `scripts/seo/keywords/seeds.txt` and `candidates*.txt`, the phrase lists to feed Google Keyword Planner (see below). | nothing |
+| `npm run seo:keywords:ingest` | Merges every Keyword Planner CSV in `scripts/seo/keywords/planner/` into `scripts/seo/keywords/map.json` (volume, trend, competition, bids, service/geo classification, suggested URL per phrase). | Planner CSVs |
 | `npm run seo:gsc` | Pulls the last 28 days of Search Console data and writes `scripts/seo/reports/gsc-<date>.json` with an `opportunities` list (queries ranking 4–20). | `GSC_SERVICE_ACCOUNT_JSON` |
 | `.claude/skills/seo-agent/SKILL.md` | The playbook a Claude Code session follows to turn that data into a small PR. | both of the above |
 
@@ -21,6 +23,17 @@ Three pieces, layered:
 5. If the property is a URL-prefix property rather than a domain property, also set `GSC_SITE_URL=https://sanantoniostucco.com/`.
 
 Verify with `npm run seo:gsc`. It prints totals and the top opportunities.
+
+## Keyword Planner data (one-time, then yearly)
+
+The keyword map is built from Google Keyword Planner volumes, which only an Ads account can export.
+
+1. Create a Google Ads account (Expert Mode, no campaign). Add a payment method and run a token campaign for a few days, then pause it: accounts with no spend only see volume ranges, not numbers.
+2. Tools → Keyword Planner → **Discover new keywords**. Paste one batch from `scripts/seo/keywords/seeds.txt` (10 terms, the tool's limit), set the location to San Antonio, TX plus a 50-mile radius, language English, and download the CSV. Repeat for each batch.
+3. Tools → Keyword Planner → **Get search volume and forecasts**. Paste `candidates-part-1.txt` through `candidates-part-6.txt` one at a time, same location, and download each CSV.
+4. Drop the CSVs into `scripts/seo/keywords/planner/` (gitignored) and run `npm run seo:keywords:ingest`. It merges them into `scripts/seo/keywords/map.json`: every phrase with volume, trend, competition and bid range, classified by service and geo and mapped to the page that should own it (`url: null` = informational or a gap). Commit `map.json`.
+
+Range mode: an Ads account with no spend history exports range midpoints (50, 500, 5000) and empty monthly columns. The ingester marks those rows `range: true`; they order phrases fine but are not counts. Exact numbers replace them automatically on the next ingest after the account has spend.
 
 ## Route snapshot
 

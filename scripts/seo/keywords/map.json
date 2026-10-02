@@ -1,0 +1,2213 @@
+{
+  "generatedAt": "2026-10-02",
+  "files": [
+    "discover-batch-1.csv"
+  ],
+  "note": "avg is a Planner range midpoint where range=true (10–100 → 50, 100–1K → 500, 1K–10K → 5000).",
+  "rows": [
+    {
+      "keyword": "best stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "best stucco repair contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "best stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "buy stucco near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "commercial stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "Low",
+      "competitionIndex": 0,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "commercial",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/commercial-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "-100%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit stucco near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "∞",
+      "competition": "Medium",
+      "competitionIndex": 64,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs installers near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs suppliers near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "exterior stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "exterior stucco painters near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "exterior stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "Low",
+      "competitionIndex": 14,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "lahabra stucco near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "local stucco companies",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "local stucco contractors",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "plaster and stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "-100%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "popcorn removal near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "replacement",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "residential stucco repair",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "none",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "residential stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "small stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco and plaster contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco and stone contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco cleaning near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco companies in san antonio",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Medium",
+      "competitionIndex": 64,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco companies near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 68,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco companies san antonio",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco contractor san antonio",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Medium",
+      "competitionIndex": 64,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco contractors in my area",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "-100%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 68,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco crack repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco experts near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco finish coat near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco guys near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco house near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "residential",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/residential-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco house painters near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco installers near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "installation",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-installation",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco mix near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 90,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco painters near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco painting near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco plastering near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco removal near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "replacement",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-replacement",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair and painting near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Medium",
+      "competitionIndex": 64,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair san antonio",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 87,
+      "bidLow": 6.05,
+      "bidHigh": 37.72,
+      "service": "repair",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair san antonio tx",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 87,
+      "bidLow": 6.05,
+      "bidHigh": 37.72,
+      "service": "repair",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair services near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco san antonio",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 78,
+      "bidLow": 5.74,
+      "bidHigh": 11.56,
+      "service": "other",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco san antonio tx",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 78,
+      "bidLow": 5.74,
+      "bidHigh": 11.56,
+      "service": "other",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco services near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco siding contractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "installation",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-installation",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco specialist near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco subcontractors near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco supply near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "High",
+      "competitionIndex": 78,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco wall repair near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "∞",
+      "yoy": "∞",
+      "competition": "High",
+      "competitionIndex": 100,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco workers near me",
+      "avg": 50,
+      "range": true,
+      "threeMonth": "-100%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "acrylic stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "best stucco company near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "commercial stucco repair",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "commercial",
+      "geo": "none",
+      "informational": false,
+      "relevant": true,
+      "url": "/commercial-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "concrete and stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit installers near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit repair contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "dryvit repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "drywall and stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs companies near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "-100%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "exterior painting and stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "fog coat stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "home stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "local stucco repair",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "painting and stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "parex stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "residential stucco contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "residential",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/residential-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "sto stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco and drywall repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco and plastering near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco business near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco companies in my area",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco masonry near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco molding near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco painting companies near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco painting contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco place near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco plaster companies near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco plastering contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco remediation near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair companies near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "-100%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair in my area",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "repair",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-repairs",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco repair painting near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco replacement near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "replacement",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-replacement",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco siding installation near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "installation",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-installation",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco siding near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "installation",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-installation",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco supply companies near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco supply house near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "residential",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "synthetic stucco near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "synthetic stucco repair near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "synthetic stucco suppliers near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "top stucco contractors near me",
+      "avg": 0,
+      "range": false,
+      "threeMonth": "0%",
+      "yoy": "0%",
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "california stucco near me",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "commercial stucco san antonio",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "commercial",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/commercial-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "eifs repair san antonio",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "eifs",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/eifs-synthetic-stucco",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "find stucco contractor",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "none",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "merlex stucco near me",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "omega flex stucco near me",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "other",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "popcorn removal service near me",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "replacement",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": false,
+      "url": null,
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco companies around me",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "contractor",
+      "geo": "near-me",
+      "informational": false,
+      "relevant": true,
+      "url": "/san-antonio",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco installation san antonio",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "installation",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-installation",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco painting san antonio",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "painting",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-painting",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    },
+    {
+      "keyword": "stucco replacement san antonio",
+      "avg": null,
+      "range": false,
+      "threeMonth": null,
+      "yoy": null,
+      "competition": "Unknown",
+      "competitionIndex": null,
+      "bidLow": null,
+      "bidHigh": null,
+      "service": "replacement",
+      "geo": "san-antonio",
+      "informational": false,
+      "relevant": true,
+      "url": "/stucco-replacement",
+      "sources": [
+        "discover-batch-1.csv"
+      ]
+    }
+  ]
+}
