@@ -52,8 +52,8 @@ export const pageSeo: Record<string, PageSeo> = {
   // ── Service pages ──
 
   '/stucco-installation': {
-    title: 'Stucco Installers San Antonio TX | Licensed Installation',
-    description: 'Licensed San Antonio stucco installers for new builds, additions and siding-to-stucco retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
+    title: 'Stucco Installation San Antonio TX | Licensed Local Crew',
+    description: 'Stucco installation in San Antonio for new builds, additions & retrofits. Three-coat systems, own crew, no subs. Free estimate — (210) 871-8490.',
   },
   '/stucco-replacement': {
     title: 'Stucco Replacement San Antonio TX | Free Assessment',
@@ -65,7 +65,7 @@ export const pageSeo: Record<string, PageSeo> = {
   },
   '/commercial-stucco': {
     title: 'Commercial Stucco Contractors San Antonio | Repair & Install',
-    description: 'Commercial stucco contractors in San Antonio for offices, retail & multi-family. New installation, repair and recoating, phased. Call (210) 871-8490.',
+    description: 'Commercial stucco contractors in San Antonio — offices, retail & multi-family. Repair, installation & recoating phased around tenants. (210) 871-8490.',
   },
   '/stucco-remodeling': {
     title: 'Stucco Remodeling San Antonio TX | Exterior Makeover',
@@ -76,8 +76,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
   },
   '/eifs-synthetic-stucco': {
-    title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
-    description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
+    title: 'EIFS & Synthetic Stucco San Antonio | Dryvit Repair',
+    description: 'EIFS and synthetic stucco repair in San Antonio — Dryvit patching, moisture remediation & sealant work by trained EIFS specialists. Free assessment.',
   },
   '/stucco-painting': {
     title: 'Stucco Painting San Antonio TX | Exterior Texture & Paint',
