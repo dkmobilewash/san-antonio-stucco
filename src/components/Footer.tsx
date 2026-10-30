@@ -98,14 +98,16 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-700">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} San Antonio Stucco. All rights reserved.
-          </p>
-          <p className="text-sm text-slate-500">
-            Serving San Antonio, Boerne, New Braunfels, and surrounding areas.
-          </p>
-          <p className="text-xs text-slate-600">v2.1</p>
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-slate-500">
+              &copy; {new Date().getFullYear()} San Antonio Stucco. All rights reserved.
+            </p>
+            <p className="text-sm text-slate-400">
+              ★ 5.0 on Google · Licensed & Insured · Own Crew, No Subs
+            </p>
+            <p className="text-xs text-slate-600">v2.1</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -24,8 +24,8 @@ export const testimonials: Testimonial[] = [
   {
     name: 'Enrique P.',
     location: 'San Antonio, TX',
-    text: 'First time here and the place was amazing! I\'ve gone to plenty of other places but this for sure will be my new go-to over anyone else. I recommend to anyone looking!',
-    service: 'Stucco Installation',
+    text: 'They repaired the cracks along the garage wall and matched the texture perfectly — you can\'t even tell where the patch is. Professional crew, showed up on time, cleaned up after. Highly recommend.',
+    service: 'Stucco Repairs',
     rating: 5,
   },
   {

@@ -33,6 +33,18 @@ export default function QuotePage() {
             </ol>
           </nav>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div id="estimate-form" className="order-first lg:order-last scroll-mt-28">
+              <EstimateForm />
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-slate-400">
+                <span>★ 5.0 on Google</span>
+                <span>·</span>
+                <span>Licensed & insured</span>
+                <span>·</span>
+                <span>Own crew, no subs</span>
+                <span>·</span>
+                <span>We never share your number</span>
+              </div>
+            </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
                 Get Your Free Stucco Estimate
@@ -107,9 +119,6 @@ export default function QuotePage() {
               </div>
             </div>
 
-            <div>
-              <EstimateForm />
-            </div>
           </div>
         </div>
       </section>

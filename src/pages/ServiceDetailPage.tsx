@@ -242,6 +242,50 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
+      {/* Mid-page CTA */}
+      <section className="py-12 bg-sand-600">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-white text-lg font-semibold mb-4">
+            Ready for a free {displayName.toLowerCase()} estimate?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/quote"
+              className="bg-white hover:bg-slate-50 text-sand-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Get My Free Estimate <ArrowRight size={16} />
+            </Link>
+            <a
+              href={`tel:${contact.phoneRaw}`}
+              className="bg-sand-700 hover:bg-sand-800 text-white border border-sand-500 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              <Phone size={16} /> {contact.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost / Timeline */}
+      {service.costTimeline && (
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {displayName} Cost in San Antonio?</h2>
+            <div className="space-y-4">
+              {service.costTimeline.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-xl">
+                  {i === 0 ? (
+                    <Clock size={18} className="text-sand-600 shrink-0 mt-0.5" />
+                  ) : (
+                    <DollarSign size={18} className="text-sand-600 shrink-0 mt-0.5" />
+                  )}
+                  <span className="text-slate-700 leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Common Signs */}
       {service.commonSigns && (
         <section className="py-20">
@@ -267,6 +311,30 @@ export default function ServiceDetailPage() {
 
       {/* Review CTA */}
       <ReviewCTA />
+
+      {/* Post-reviews CTA */}
+      <section className="py-12 bg-sand-50 border-y border-sand-100">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-slate-800 text-lg font-semibold mb-2">
+            Join our happy customers — get your free estimate today
+          </p>
+          <p className="text-slate-500 text-sm mb-4">★ 5.0 on Google · Licensed & insured · Own crew, no subs</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/quote"
+              className="bg-sand-600 hover:bg-sand-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Get My Free Estimate <ArrowRight size={16} />
+            </Link>
+            <a
+              href={`tel:${contact.phoneRaw}`}
+              className="bg-white hover:bg-slate-50 text-sand-700 border border-sand-200 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              <Phone size={16} /> {contact.phone}
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Related Services */}
       {relatedServicesMap[service.slug] && (
@@ -299,31 +367,6 @@ export default function ServiceDetailPage() {
           </div>
         </section>
       )}
-
-      {/* All Services */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-800 text-center mb-4">All Stucco Services in San Antonio</h2>
-          <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-            We offer a full range of professional stucco services throughout San Antonio. Browse all our offerings below.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.filter((s) => s.slug !== slug).map((s) => (
-              <Link
-                key={s.slug}
-                to={`/${s.slug}`}
-                className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-sand-200 transition-all"
-              >
-                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-sand-700 transition-colors">{s.name} in San Antonio</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-3">{s.shortDescription}</p>
-                <span className="text-sand-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Learn about {s.name.toLowerCase()} <ArrowRight size={14} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Recent Projects */}
       <section className="py-20 bg-slate-50">
@@ -449,27 +492,6 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
-
-      {/* Cost / Timeline */}
-      {service.costTimeline && (
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8">How Much Does {displayName} Cost in San Antonio?</h2>
-            <div className="space-y-4">
-              {service.costTimeline.map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-xl">
-                  {i === 0 ? (
-                    <Clock size={18} className="text-sand-600 shrink-0 mt-0.5" />
-                  ) : (
-                    <DollarSign size={18} className="text-sand-600 shrink-0 mt-0.5" />
-                  )}
-                  <span className="text-slate-700 leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* FAQ */}
       <FAQSection faqs={service.faqs} title={`${displayName} FAQ`} />

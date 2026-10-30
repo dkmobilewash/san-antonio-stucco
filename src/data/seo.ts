@@ -17,8 +17,8 @@ export const pageSeo: Record<string, PageSeo> = {
   // ── Hub pages ──
 
   '/': {
-    title: 'Stucco Contractor San Antonio, TX | Licensed & Insured',
-    description: 'Licensed San Antonio stucco contractor for repair, painting, installation & EIFS. Locally owned, insured, own crew. Free estimate — (210) 871-8490.',
+    title: 'Stucco Repair & Contractor San Antonio | 5.0★ Google',
+    description: 'Cracked or leaking stucco? Licensed San Antonio crew for repair, painting & installation. 5.0★ on Google, own crew. Free estimate: (210) 871-8490.',
   },
   '/services': {
     title: 'All Stucco Services in San Antonio | Licensed Local Crew',
@@ -52,8 +52,8 @@ export const pageSeo: Record<string, PageSeo> = {
   // ── Service pages ──
 
   '/stucco-installation': {
-    title: 'Stucco Installers San Antonio TX | Licensed Installation',
-    description: 'Licensed San Antonio stucco installers for new builds, additions and siding-to-stucco retrofits. Our own crew, no subs. Free estimate — (210) 871-8490.',
+    title: 'Stucco Installation San Antonio | $8–$14/sq ft',
+    description: 'New builds, additions & siding-to-stucco in San Antonio. Typical installs $8–$14 per sq ft. Own crew, no subs. Free estimate: (210) 871-8490.',
   },
   '/stucco-replacement': {
     title: 'Stucco Replacement San Antonio TX | Free Assessment',
@@ -73,15 +73,15 @@ export const pageSeo: Record<string, PageSeo> = {
   },
   '/stucco-repairs': {
     title: 'Stucco Repair San Antonio TX | Licensed & Insured',
-    description: 'Cracked or water-damaged stucco in San Antonio? Licensed, insured crews fix the root cause and match texture. Free estimate — (210) 871-8490.',
+    description: 'Stucco crack repair from $300. We fix the root cause and match your texture — licensed, own crew, no subs. Free estimate: (210) 871-8490.',
   },
   '/eifs-synthetic-stucco': {
-    title: 'EIFS & Synthetic Stucco Experts | Dryvit Repair',
-    description: 'EIFS and synthetic stucco repair, installation & moisture remediation. Dryvit-certified repair specialists. Free moisture assessment.',
+    title: 'EIFS & Dryvit Repair San Antonio | Synthetic Stucco',
+    description: 'EIFS and Dryvit repair in San Antonio: moisture checks, panel repair & recoating by trained specialists. Free assessment: (210) 871-8490.',
   },
   '/stucco-painting': {
     title: 'Stucco Painting San Antonio TX | Exterior Texture & Paint',
-    description: 'Exterior stucco texture and paint services in San Antonio. Elastomeric coatings that last 10–15 years and bridge cracks. Free estimate — (210) 871-8490.',
+    description: 'Repaint your San Antonio stucco with elastomeric coatings that bridge hairline cracks and last 10–15 years. Free estimate: (210) 871-8490.',
   },
 
   // ── Location pages ──

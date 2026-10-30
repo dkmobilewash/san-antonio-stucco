@@ -14,6 +14,7 @@ const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'));
 const LocationDetailPage = lazy(() => import('./pages/LocationDetailPage'));
 const QuotePage = lazy(() => import('./pages/QuotePage'));
+const QuoteThanksPage = lazy(() => import('./pages/QuoteThanksPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
@@ -42,6 +43,7 @@ export function AppLayout() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/quote" element={<QuotePage />} />
+            <Route path="/quote/thanks" element={<QuoteThanksPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog" element={<BlogPage />} />

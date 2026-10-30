@@ -1,12 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Phone, FileText } from 'lucide-react';
 import { contact } from '../data/contact';
 
-/**
- * Sticky call / estimate bar for phones. The header's phone strip is hidden below `md`,
- * so this is the only always-visible phone number on small screens.
- */
 export default function MobileCallBar() {
+  const location = useLocation();
+  const isQuotePage = location.pathname === '/quote';
+
+  const handleEstimateClick = (e: React.MouseEvent) => {
+    if (isQuotePage) {
+      e.preventDefault();
+      document.getElementById('estimate-form')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div
       data-track="mobile_call_bar"
@@ -19,10 +25,11 @@ export default function MobileCallBar() {
         aria-label={`Call ${contact.phone}`}
       >
         <Phone size={18} />
-        {contact.phone}
+        Call Now
       </a>
       <Link
         to="/quote"
+        onClick={handleEstimateClick}
         className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold bg-sand-600 text-white"
       >
         <FileText size={18} />
