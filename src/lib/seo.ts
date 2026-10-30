@@ -15,9 +15,10 @@ interface PageSEO {
   image?: string;
   type?: string;
   rawTitle?: boolean;
+  noindex?: boolean;
 }
 
-export function usePageSEO({ title, description, path, image, type = 'website', rawTitle }: PageSEO) {
+export function usePageSEO({ title, description, path, image, type = 'website', rawTitle, noindex }: PageSEO) {
   useEffect(() => {
     const fullTitle = rawTitle ? title : `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${SITE_URL}${path}`;
@@ -37,6 +38,13 @@ export function usePageSEO({ title, description, path, image, type = 'website', 
     setMeta('twitter:description', description);
     setMeta('twitter:image', ogImage);
 
+    if (noindex) {
+      setMeta('robots', 'noindex, follow');
+    } else {
+      const robotsEl = document.querySelector('meta[name="robots"]');
+      if (robotsEl) robotsEl.remove();
+    }
+
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
       canonical = document.createElement('link');
@@ -48,7 +56,7 @@ export function usePageSEO({ title, description, path, image, type = 'website', 
     if (firstPageView) firstPageView = false;
     else trackPageView(path, fullTitle);
 
-  }, [title, description, path, image, type, rawTitle]);
+  }, [title, description, path, image, type, rawTitle, noindex]);
 }
 
 function setMeta(name: string, content: string) {

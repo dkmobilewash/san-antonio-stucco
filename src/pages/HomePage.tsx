@@ -337,6 +337,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials — social proof right after pricing */}
+      <TestimonialsSection />
+
+      {/* Review CTA */}
+      <ReviewCTA />
+
       {/* Climate Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -417,26 +423,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <TestimonialsSection />
-
-      {/* Review CTA */}
-      <ReviewCTA />
-
-      {/* Post-reviews CTA */}
-      <section className="py-12 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-white text-lg font-semibold mb-2">Join our satisfied customers</p>
-          <p className="text-slate-300 text-sm mb-4">★ 5.0 on Google · Licensed & insured · Own crew, no subs</p>
-          <Link
-            to="/quote"
-            className="bg-sand-600 hover:bg-sand-700 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors inline-flex items-center gap-2"
-          >
-            Get My Free Estimate <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
       {/* Service Areas */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -506,27 +492,6 @@ export default function HomePage() {
 
       {/* FAQ */}
       <FAQSection faqs={homeFaqs} />
-
-      {/* Post-FAQ CTA */}
-      <section className="py-12 bg-sand-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-white text-lg font-semibold mb-4">Still have questions? We are happy to help.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/quote"
-              className="bg-white hover:bg-slate-50 text-sand-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Get My Free Estimate <ArrowRight size={16} />
-            </Link>
-            <a
-              href={`tel:${contact.phoneRaw}`}
-              className="bg-sand-700 hover:bg-sand-800 text-white border border-sand-500 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
-            >
-              <Phone size={16} /> Call {contact.phone}
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA */}
       <section className="py-20 bg-sand-600">
