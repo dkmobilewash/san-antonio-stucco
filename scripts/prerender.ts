@@ -38,7 +38,7 @@ function esc(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function seoHead(path: string, title: string, description: string, image: string = OG_IMAGE): string {
+function seoHead(path: string, title: string, description: string, image: string = OG_IMAGE, ogType = 'website', publishedDate?: string): string {
   const canonical = `${SITE_URL}${path}`;
   const isHero = image === OG_IMAGE;
   return `
@@ -48,12 +48,12 @@ function seoHead(path: string, title: string, description: string, image: string
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonical}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="${ogType}">
     <meta property="og:image" content="${esc(image)}">${isHero ? `
     <meta property="og:image:width" content="1400">
     <meta property="og:image:height" content="986">` : ''}
     <meta property="og:image:alt" content="${esc(title)}">
-    <meta property="og:site_name" content="${SITE_NAME}">
+    <meta property="og:site_name" content="${SITE_NAME}">${publishedDate ? `\n    <meta property="article:published_time" content="${publishedDate}">` : ''}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
@@ -332,12 +332,21 @@ function stripDefaultHead(html: string): string {
 }
 
 function injectPage(path: string, entry: RouteEntry, body: string): string {
+  const isBlogPost = path.startsWith('/blog/') && path !== '/blog';
+  const ogType = isBlogPost ? 'article' : 'website';
+  let publishedDate: string | undefined;
+  if (isBlogPost) {
+    const slug = path.replace('/blog/', '');
+    const post = blogPosts.find(p => p.slug === slug);
+    if (post) publishedDate = isoDate(post.date);
+  }
+
   let html = template;
   if (path !== '/') {
     html = html.replace(/<link rel="preload" as="image"[^>]*fetchpriority="high"[^>]*\/?>[\n\r]*/g, '');
   }
   const lcpPreload = getLcpPreload(path);
-  const head = `${lcpPreload ? lcpPreload + '\n  ' : ''}${seoHead(path, entry.title, entry.description, entry.image)}\n  ${entry.jsonLd.join('\n  ')}\n  </head>`;
+  const head = `${lcpPreload ? lcpPreload + '\n  ' : ''}${seoHead(path, entry.title, entry.description, entry.image, ogType, publishedDate)}\n  ${entry.jsonLd.join('\n  ')}\n  </head>`;
   return stripDefaultHead(html)
     .replace('</head>', () => head)
     .replace(/<div id="root">\s*<\/div>/, () => `<div id="root">${body}</div>`);

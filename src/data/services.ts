@@ -94,6 +94,8 @@ export const services: Service[] = [
       { question: 'What kind of warranty do you provide?', answer: 'We provide a written workmanship guarantee on every installation. Material warranties from manufacturers also apply. We stand behind our work and address any installation-related issues at no additional cost.' },
       { question: 'Can stucco be applied over brick or siding?', answer: 'Stucco can be applied over most substrates with proper preparation. Brick requires a bonding agent or lath system. Siding usually needs to be removed or covered with appropriate sheathing and lath. We evaluate each situation individually.' },
       { question: 'Do you have stucco installers near me in San Antonio?', answer: 'Yes. Our own stucco installers cover the entire San Antonio metro, from Alamo Heights and Stone Oak to the Westside, plus Boerne, Helotes, Schertz, Selma, Universal City, Live Oak, Leon Valley and New Braunfels. We do not subcontract installation. The crew that hangs the lath applies all three coats, which is how we keep quality consistent from job to job. Call (210) 871-8490 for a free on-site estimate.' },
+      { question: 'Are you licensed and insured for stucco installation?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. We are happy to provide proof of insurance before work begins.' },
+      { question: 'What payment options do you accept?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected when you schedule, and the balance is due upon completion and your satisfaction. Full terms are outlined in your written estimate.' },
     ],
   },
   {
@@ -179,6 +181,9 @@ export const services: Service[] = [
       { question: 'Can I change the texture or color during replacement?', answer: 'Absolutely. Replacement is the perfect time to update your home exterior. Many clients choose to switch from heavy dash or rough textures to smoother, more modern finishes during the process.' },
       { question: 'Do you handle the permits?', answer: 'Yes. We manage all permit requirements and code inspections for replacement projects. Our work meets or exceeds current San Antonio building codes for exterior systems.' },
       { question: 'What if only part of my house needs replacement?', answer: 'We can replace stucco on specific walls or sections while leaving intact areas alone. We take care to create clean transitions and match textures where new and existing stucco meet.' },
+      { question: 'Do you offer a warranty on stucco replacement?', answer: 'Yes. Every replacement project includes a written workmanship warranty. The specific term depends on the scope of work and materials used, and is detailed in your estimate before we start.' },
+      { question: 'Are you licensed and insured?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. We provide proof of insurance on request.' },
+      { question: 'What payment options do you accept?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected when you schedule, and the balance is due upon completion. We never require full payment up front.' },
     ],
   },
   {
@@ -255,6 +260,9 @@ export const services: Service[] = [
       { question: 'What is the best stucco color for San Antonio homes?', answer: 'Earth tones, warm whites, and soft tans perform best in our climate. They hide minor imperfections, resist visible fading, and complement the South Texas landscape. We provide color consultations and can apply samples on your walls to see how they look in local light conditions.' },
       { question: 'Can you add stucco to a home that currently has siding?', answer: 'Yes. Converting from siding to stucco is a popular upgrade in San Antonio. It requires proper substrate preparation and moisture management, but the result is a dramatic improvement in both appearance and weather resistance.' },
       { question: 'How do you protect my plants and landscaping during the project?', answer: 'We use drop cloths, plastic sheeting, and temporary barriers to protect landscaping adjacent to work areas. Our crews are careful with equipment placement and debris management. We have never had a claim for landscape damage.' },
+      { question: 'Are you licensed and insured for residential stucco work?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. We are happy to provide proof of insurance and any documentation your HOA requires.' },
+      { question: 'Do you offer warranties on residential stucco work?', answer: 'Yes. Every project comes with a written workmanship warranty. The specific term depends on the scope and materials and is detailed in your estimate before we start.' },
+      { question: 'What payment options do you accept?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected at scheduling and the balance is due upon completion. Full terms are in your written estimate.' },
     ],
   },
   {
@@ -330,6 +338,9 @@ export const services: Service[] = [
       { question: 'What maintenance programs do you offer for commercial properties?', answer: 'We offer annual inspection and maintenance agreements that catch small problems before they become large expenses. Proactive maintenance dramatically extends stucco life and maintains consistent appearance across your property.' },
       { question: 'How do you handle tenant communication during projects?', answer: 'We work with property management to develop communication plans for tenants. This includes advance notice of work schedules, daily updates on affected areas, and clear signage directing foot traffic around work zones.' },
       { question: 'Where can I find commercial stucco contractors near me in San Antonio?', answer: 'San Antonio Stucco is a locally owned, licensed and insured commercial stucco contractor based in San Antonio, serving Bexar County and the surrounding metro. We handle new commercial stucco installation, commercial stucco repair, recoating and EIFS work for offices, retail centers, multi-family buildings and HOA communities. Property managers get one point of contact, a phased schedule and certificates of insurance on request. Call (210) 871-8490 for a free site visit.' },
+      { question: 'Are you licensed and insured for commercial stucco work?', answer: 'Yes. We carry general liability, workers compensation, and commercial auto coverage at levels appropriate for commercial construction. Certificates of insurance are provided to property managers and general contractors upon request.' },
+      { question: 'Do you offer a warranty on commercial stucco work?', answer: 'Yes. Every commercial project includes a written workmanship warranty. The term depends on the scope and is detailed in your estimate. We also offer ongoing maintenance agreements to extend the life of your investment.' },
+      { question: 'What payment options do you offer for commercial projects?', answer: 'We accept major credit cards, checks, and bank transfers. For larger projects, we offer phased billing aligned with project milestones. Terms are outlined in your written estimate.' },
     ],
   },
   {
@@ -412,6 +423,9 @@ export const services: Service[] = [
       { question: 'Do I need to repaint after a stucco remodel?', answer: 'No. Our remodeling finishes include integral color or premium coatings applied as part of the process. These products are more durable than paint and do not require repainting for many years.' },
       { question: 'Will a remodel fix underlying stucco problems?', answer: 'We assess and repair any underlying issues as part of the remodeling process. Cracks, moisture damage, and soft spots are addressed before any cosmetic work begins. You get both improved appearance and improved performance.' },
       { question: 'How much value does a stucco remodel add to my home?', answer: 'Exterior updates typically return 70 to 90 percent of their cost in added home value, and in competitive San Antonio markets, an updated exterior can be the factor that gets a buyer to schedule a showing versus passing by.' },
+      { question: 'Do you offer a warranty on stucco remodeling?', answer: 'Yes. Every remodeling project includes a written workmanship warranty. The specific term depends on scope and materials and is detailed in your estimate before we begin.' },
+      { question: 'What payment options do you accept for remodeling?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected when you schedule, and the balance is due upon completion. No full payment up front.' },
+      { question: 'Are you licensed and insured for stucco remodeling?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. We are happy to provide proof of insurance before work begins.' },
     ],
   },
   {
@@ -504,6 +518,9 @@ export const services: Service[] = [
       { question: 'What is stucco repair near me going to cost?', answer: 'Minor stucco crack repairs in San Antonio typically start around $300–$800. Larger repairs involving water damage, delamination, or structural issues can range from $1,500–$5,000+. We provide free on-site estimates so you know the exact cost before work begins.' },
       { question: 'How do I choose stucco repair contractors in San Antonio?', answer: 'Look for stucco repair contractors who inspect the wall before quoting, explain what caused the damage, match your existing texture and color, carry general liability and workers compensation insurance, and put the scope and warranty in writing. Ask for photos of texture-matched repairs in your part of San Antonio. San Antonio Stucco uses its own crews, never subcontractors, and gives free on-site estimates at (210) 871-8490.' },
       { question: 'How long does stucco repair take in San Antonio?', answer: 'Most residential stucco repairs in San Antonio take one to three days. Crack and patch work is usually done in a day, with a return visit if a finish coat needs to cure before texturing. Repairs that involve water-damaged substrate or lath run closer to a week, since the wall has to dry out before new coats go on. We confirm the timeline in writing with your estimate.' },
+      { question: 'Do you offer a warranty on stucco repairs?', answer: 'Yes. Every stucco repair we complete comes with a written workmanship warranty. The specific term depends on the scope of work and is spelled out in your estimate before we start. We stand behind our repairs because we fix root causes, not just surface damage.' },
+      { question: 'Are you licensed and insured for stucco work?', answer: 'Yes. We carry full general liability and workers compensation insurance, and we are licensed in Bexar County and surrounding areas. We are happy to provide proof of insurance before work begins — just ask.' },
+      { question: 'What payment options do you accept?', answer: 'We accept major credit cards, checks, and bank transfers. Payment terms are outlined in your written estimate. We never ask for full payment up front — a deposit is collected at scheduling and the balance is due upon completion and your satisfaction.' },
     ],
   },
   {
@@ -512,7 +529,7 @@ export const services: Service[] = [
     seoName: 'EIFS Stucco',
     pricing: { low: 500, high: 15000 },
     shortDescription: 'Expert EIFS repair, maintenance, and replacement for synthetic stucco systems.',
-    heroHeadline: 'EIFS Stucco in San Antonio, TX',
+    heroHeadline: 'EIFS & Dryvit Repair in San Antonio, TX',
     heroDescription: 'Looking for EIFS stucco repair or installation in San Antonio? Synthetic stucco systems face unique challenges in Texas heat. Our EIFS specialists understand thermal movement, UV degradation, coating breakdown, and hidden moisture issues that general contractors miss.',
     icon: 'Shield',
     overview: [
@@ -594,6 +611,9 @@ export const services: Service[] = [
       { question: 'Should I replace my EIFS with traditional stucco?', answer: 'Not necessarily. Modern drainage EIFS systems perform well when properly maintained. However, if moisture damage is extensive and remediation costs approach replacement costs, switching to traditional stucco eliminates the ongoing maintenance demands of EIFS. We help you evaluate both options based on your specific situation.' },
       { question: 'Do you provide EIFS maintenance programs?', answer: 'Yes. We offer annual inspection and maintenance programs specifically for EIFS properties. These include sealant evaluation, coating condition assessment, moisture spot-testing, and minor repairs to prevent small issues from becoming large problems.' },
       { question: 'Do you repair Dryvit stucco damage?', answer: 'Yes. Dryvit is one of the most common EIFS brands installed in San Antonio, and our crews are trained specifically on EIFS repair — patching impact damage, resealing joints, and rebuilding moisture-damaged sections with EIFS-compatible materials. Traditional stucco patch methods do not work on Dryvit and can make damage worse.' },
+      { question: 'Do you offer a warranty on EIFS repairs?', answer: 'Yes. Every EIFS repair comes with a written workmanship warranty. The specific duration depends on the scope of the project and is detailed in your estimate. We use only EIFS-compatible materials to ensure long-lasting results.' },
+      { question: 'Are you licensed and insured for EIFS work?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. EIFS work requires specialized knowledge — our team has specific EIFS training, not just general stucco experience.' },
+      { question: 'What payment options do you offer for EIFS projects?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected when you schedule, and the balance is due upon completion. Full payment terms are outlined in your written estimate.' },
     ],
   },
   {
@@ -683,6 +703,9 @@ export const services: Service[] = [
       { question: 'Is stucco painting the same as stucco remodeling?', answer: 'No. Painting changes the color and applies a protective coating over the existing texture. Remodeling changes the actual texture of the stucco surface through skim coating or overlay. If you want a different texture, that is a remodeling project. If you want a different color or protective coating over your current texture, that is painting.' },
       { question: 'Do you offer exterior stucco texture and paint services?', answer: 'Yes. Our exterior stucco texture and paint service is one scope, not two trades. We repair cracks and chips, re-texture the patched areas to match the surrounding finish, then apply an elastomeric or acrylic masonry coating across the whole elevation so color and texture read uniformly. If you want a new texture on the entire house rather than a new color, that is handled as a stucco remodeling project by the same crew.' },
       { question: 'When is the best time of year to paint stucco in San Antonio?', answer: 'Spring and fall are ideal for stucco painting in San Antonio. Elastomeric and acrylic coatings cure best between roughly 50 and 90 degrees on the wall surface, so we avoid the hottest summer afternoons, when a west-facing wall can pass 120 degrees and the coating skins over before it bonds. We also schedule around rain, since a fresh coat needs 24 hours dry. Summer jobs are done in morning shifts.' },
+      { question: 'Do you guarantee your stucco painting work?', answer: 'Yes. Every painting project comes with a written workmanship warranty. The duration depends on the scope and coating used and is detailed in your estimate before work begins.' },
+      { question: 'What payment options do you accept for painting?', answer: 'We accept major credit cards, checks, and bank transfers. A deposit is collected at scheduling and the balance is due upon completion and your satisfaction.' },
+      { question: 'Are you licensed and insured for stucco painting?', answer: 'Yes. We carry full general liability and workers compensation insurance and are licensed in Bexar County and surrounding areas. We are happy to provide proof of insurance before work begins.' },
     ],
   },
 ];

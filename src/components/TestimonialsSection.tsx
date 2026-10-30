@@ -1,4 +1,5 @@
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { testimonials, Testimonial } from '../data/testimonials';
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
@@ -10,9 +11,12 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         ))}
       </div>
       <p className="text-slate-700 text-sm leading-relaxed mb-4">"{testimonial.text}"</p>
-      <div className="border-t border-slate-100 pt-3">
-        <p className="font-semibold text-slate-800 text-sm">{testimonial.name}</p>
-        <p className="text-slate-500 text-xs">{testimonial.location} | {testimonial.service}</p>
+      <div className="border-t border-slate-100 pt-3 flex items-center justify-between">
+        <div>
+          <p className="font-semibold text-slate-800 text-sm">{testimonial.name}</p>
+          <p className="text-slate-500 text-xs">{testimonial.location} · {testimonial.service}</p>
+        </div>
+        <span className="text-xs text-slate-400">via Google</span>
       </div>
     </div>
   );
@@ -33,14 +37,25 @@ export default function TestimonialsSection({ title = 'What Our Clients Say', fi
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-4">{title}</h2>
-        <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
-          Hear from homeowners and property managers who trust San Antonio Stucco for their exterior projects.
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">{title}</h2>
+          <p className="text-sand-600 font-semibold mb-2">★ 5.0 · 23 Google Reviews</p>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            Hear from homeowners and property managers who trust San Antonio Stucco for their exterior projects.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {display.map((t, i) => (
             <TestimonialCard key={i} testimonial={t} />
           ))}
+        </div>
+        <div className="text-center mt-8">
+          <Link
+            to="/quote"
+            className="bg-sand-600 hover:bg-sand-700 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors inline-flex items-center gap-2"
+          >
+            Get My Free Estimate <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

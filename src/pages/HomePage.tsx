@@ -62,9 +62,9 @@ export default function HomePage() {
             </a>
             <a
               href="#estimate"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg transition-colors inline-flex items-center justify-center gap-2 backdrop-blur-sm"
+              className="bg-white hover:bg-slate-50 text-sand-700 px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg transition-colors inline-flex items-center justify-center gap-2 shadow-lg"
             >
-              Get a Free Quote <ArrowRight size={18} />
+              Get My Free Estimate <ArrowRight size={18} />
             </a>
           </div>
           <a
@@ -78,10 +78,10 @@ export default function HomePage() {
               <Shield size={14} className="text-sand-300" />
               Licensed & Insured
             </div>
-            <div className="flex items-center gap-1.5">
+            <a href="https://g.page/r/CQEnUEItMuMVEBM/review" target="_blank" rel="noopener" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Star size={14} className="text-sand-300" />
-              5-Star Rated
-            </div>
+              ★ 5.0 · 23 Google Reviews
+            </a>
             <div className="flex items-center gap-1.5">
               <CheckCircle size={14} className="text-sand-300" />
               Free Estimates
@@ -98,7 +98,7 @@ export default function HomePage() {
               Request a Free Estimate
             </h2>
             <p className="text-slate-600 max-w-xl mx-auto">
-              Tell us about your project and we'll get back to you the same day with a detailed, no-obligation quote.
+              Tell us about your project and we'll get back to you within one business day with a detailed, no-obligation quote.
             </p>
           </div>
           <EstimateForm />
@@ -198,7 +198,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-slate-800 mb-3 text-lg">Professional Results</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Over 500 completed projects with a 4.9-star average. From <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
+                Over 500 completed projects with a 5.0-star Google rating. From <Link to="/stucco-installation" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco installation in San Antonio</Link> to <Link to="/stucco-repairs" className="text-sand-600 hover:text-sand-700 underline underline-offset-2">stucco repair in San Antonio</Link>, quality is never compromised.
               </p>
             </div>
           </div>
@@ -276,41 +276,72 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why San Antonio Customers Choose Us */}
+      {/* Why Trust Us — Proof Block */}
       <section className="py-20 bg-slate-800">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-            Why San Antonio Homeowners Trust Us for Stucco
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            Why San Antonio Homeowners Trust Us
           </h2>
-          <div className="max-w-3xl mx-auto space-y-6 text-slate-300 leading-relaxed">
-            <p>
-              San Antonio sits at the crossroads of extreme environmental conditions that make it one of the most demanding markets for exterior building materials in the United States. Summer temperatures regularly exceed 100 degrees, causing intense thermal cycling that expands and contracts stucco walls daily. Gulf Coast humidity averaging 60-70% drives moisture into every crack and joint, while South Texas UV exposure — among the highest in the country — degrades coatings faster than anywhere else in the state. We build systems aligned with{' '}
-              <a href="https://www.cement.org/learn/concrete-technology/concrete-construction/stucco-portland-cement-plaster" rel="noopener" target="_blank" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">Portland Cement Association standards</a>{' '}
-              for three-coat portland cement plaster.
-            </p>
-            <p>
-              These conditions demand a local <Link to="/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco contractor in San Antonio</Link> who understands the science behind proper installation. Our most-requested service, <Link to="/stucco-repairs" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair in San Antonio</Link>, addresses the damage caused by these environmental stressors with root-cause diagnosis and permanent solutions.
-            </p>
-            <p>
-              For commercial properties, our <Link to="/commercial-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">commercial stucco</Link> team handles offices, retail, and multi-family buildings with minimal disruption. We also specialize in <Link to="/eifs-synthetic-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">EIFS stucco</Link> systems that require specialized knowledge most contractors lack, and <Link to="/stucco-painting" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco painting</Link> with elastomeric coatings rated for South Texas UV.
-            </p>
-            <p>
-              We also provide <Link to="/boerne" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco in Boerne</Link> and throughout the Hill Country corridor where elevation and rocky terrain add additional challenges. As the leading stucco company in San Antonio, TX, our crews work across the entire metro daily.
-            </p>
-            <p>
-              Every project is backed by our Licensed & Insured guarantee and completed by our own local crew — no subcontractors. Whether you live in an HOA community, a historic neighborhood, or a new development, San Antonio Stucco delivers the same standard of excellence.
-            </p>
+          <p className="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
+            We are a local <Link to="/san-antonio" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco contractor in San Antonio</Link> with real credentials, not just promises.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-sand-300 mb-2">5.0★</div>
+              <p className="text-slate-300 text-sm">Google Rating</p>
+              <p className="text-slate-400 text-xs">23 Reviews</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-sand-300 mb-2">500+</div>
+              <p className="text-slate-300 text-sm">Projects Completed</p>
+              <p className="text-slate-400 text-xs">Residential & Commercial</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-sand-300 mb-2">100%</div>
+              <p className="text-slate-300 text-sm">Own Crew</p>
+              <p className="text-slate-400 text-xs">No Subcontractors</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-sand-300 mb-2">Full</div>
+              <p className="text-slate-300 text-sm">Licensed & Insured</p>
+              <p className="text-slate-400 text-xs">Bexar County & Beyond</p>
+            </div>
           </div>
-          <div className="text-center mt-10">
-            <Link
-              to="/blog/us-largest-plaster-producer-san-antonio"
-              className="text-sand-300 hover:text-sand-200 font-medium inline-flex items-center gap-1.5 transition-colors underline underline-offset-2"
-            >
-              Learn why the US is the world's leading plaster producer and what that means for your home <ArrowRight size={16} />
-            </Link>
+          <div className="max-w-3xl mx-auto text-slate-300 leading-relaxed space-y-4 text-sm">
+            <p>
+              San Antonio's extreme heat, Gulf Coast humidity, and intense UV demand a contractor who understands the science behind stucco. Our most-requested service — <Link to="/stucco-repairs" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">stucco repair</Link> — addresses root causes, not just surface damage. We also specialize in <Link to="/eifs-synthetic-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">EIFS</Link>, <Link to="/commercial-stucco" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">commercial stucco</Link>, and <Link to="/stucco-painting" className="text-sand-300 hover:text-sand-200 underline underline-offset-2">elastomeric painting</Link> rated for South Texas UV.
+            </p>
+            {/* TODO: Add years in business once confirmed by owner */}
           </div>
         </div>
       </section>
+
+      {/* Mid-page CTA */}
+      <section className="py-12 bg-sand-600">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-white text-lg font-semibold mb-4">Cracked or damaged stucco? Get a free on-site estimate.</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/quote"
+              className="bg-white hover:bg-slate-50 text-sand-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Get My Free Estimate <ArrowRight size={16} />
+            </Link>
+            <a
+              href={`tel:${contact.phoneRaw}`}
+              className="bg-sand-700 hover:bg-sand-800 text-white border border-sand-500 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
+            >
+              <Phone size={16} /> Call {contact.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials — social proof right after pricing */}
+      <TestimonialsSection />
+
+      {/* Review CTA */}
+      <ReviewCTA />
 
       {/* Climate Section */}
       <section className="py-20">
@@ -391,12 +422,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <TestimonialsSection />
-
-      {/* Review CTA */}
-      <ReviewCTA />
 
       {/* Service Areas */}
       <section className="py-20 bg-slate-50">
@@ -482,7 +507,7 @@ export default function HomePage() {
               to="/quote"
               className="bg-white hover:bg-slate-50 text-sand-700 px-8 py-4 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2 shadow-lg"
             >
-              Get Free Quote <ArrowRight size={18} />
+              Get My Free Estimate <ArrowRight size={18} />
             </Link>
             <a
               href={`tel:${contact.phoneRaw}`}

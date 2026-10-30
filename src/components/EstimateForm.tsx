@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { CheckCircle, ArrowRight, Phone } from 'lucide-react';
 import { track } from '../lib/analytics';
 
 const serviceOptions = [
@@ -12,6 +13,7 @@ const serviceOptions = [
 ];
 
 export default function EstimateForm({ compact = false }: { compact?: boolean }) {
+  const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState('');
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', description: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -59,14 +61,37 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
       service: selectedService || 'unspecified',
       form_variant: compact ? 'compact' : 'full',
     });
+    navigate('/quote/thanks');
   };
 
   if (submitted) {
     return (
-      <div className={`bg-white rounded-2xl shadow-xl border border-slate-100 p-8 text-center ${compact ? '' : ''}`}>
+      <div className={`bg-white rounded-2xl shadow-xl border border-slate-100 p-8 ${compact ? '' : ''}`}>
         <CheckCircle className="mx-auto text-sage-600 mb-4" size={48} />
-        <h3 className="text-xl font-bold text-slate-800 mb-2">Estimate Request Received</h3>
-        <p className="text-slate-600">We'll contact you within one business day to discuss your project.</p>
+        <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">Estimate Request Received</h3>
+        <div className="space-y-3 mt-4">
+          <p className="text-slate-800 font-semibold text-sm">What happens next:</p>
+          <ol className="space-y-2 text-sm text-slate-600">
+            <li className="flex items-start gap-2">
+              <span className="bg-sand-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+              We call you within one business day
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="bg-sand-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
+              We schedule a free on-site look
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="bg-sand-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
+              You receive a detailed written estimate
+            </li>
+          </ol>
+          <div className="pt-3 border-t border-slate-100 text-center">
+            <p className="text-sm text-slate-600 mb-1">Need it sooner?</p>
+            <a href="tel:+12108718490" className="text-sand-600 hover:text-sand-700 font-semibold text-lg inline-flex items-center gap-1.5">
+              <Phone size={18} /> (210) 871-8490
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
@@ -110,32 +135,35 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
               type="text"
               placeholder="Full Name"
               required
+              autoComplete="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
             />
             <input
               type="tel"
               placeholder="Phone Number"
               required
+              autoComplete="tel"
+              inputMode="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
             />
             <input
               type="email"
-              placeholder="Email Address"
-              required
+              placeholder="Email (optional)"
+              autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all"
             />
             <textarea
-              placeholder="Brief Project Description"
+              placeholder="Brief Project Description (e.g. cracks by the garage, about 10 ft)"
               rows={3}
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all resize-none"
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:ring-2 focus:ring-sand-500 focus:border-sand-500 outline-none transition-all resize-none"
             />
             <button
               type="submit"
@@ -146,6 +174,13 @@ export default function EstimateForm({ compact = false }: { compact?: boolean })
               {!submitting && <ArrowRight size={16} />}
             </button>
             <p className="text-xs text-slate-500 text-center">No obligation. We respond within 1 business day.</p>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-slate-400 pt-1">
+              <span>★ 5.0 on Google</span>
+              <span>·</span>
+              <span>Licensed & insured</span>
+              <span>·</span>
+              <span>Own crew, no subs</span>
+            </div>
           </form>
         )}
       </div>
