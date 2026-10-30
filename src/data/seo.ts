@@ -65,7 +65,7 @@ export const pageSeo: Record<string, PageSeo> = {
   },
   '/commercial-stucco': {
     title: 'Commercial Stucco Contractors San Antonio | Repair & Install',
-    description: 'Commercial stucco contractors in San Antonio for offices, retail & multi-family. New installation, repair and recoating, phased. Call (210) 871-8490.',
+    description: 'Commercial stucco contractors in San Antonio — offices, retail & multi-family. Repair, installation & recoating phased around tenants. (210) 871-8490.',
   },
   '/stucco-remodeling': {
     title: 'Stucco Remodeling San Antonio TX | Exterior Makeover',
