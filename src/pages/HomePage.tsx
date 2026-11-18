@@ -80,7 +80,7 @@ export default function HomePage() {
             </div>
             <a href="https://g.page/r/CQEnUEItMuMVEBM/review" target="_blank" rel="noopener" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Star size={14} className="text-sand-300" />
-              ★ 5.0 · 23 Google Reviews
+              ★ 5.0 · 24 Google Reviews
             </a>
             <div className="flex items-center gap-1.5">
               <CheckCircle size={14} className="text-sand-300" />

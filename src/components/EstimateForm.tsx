@@ -8,7 +8,7 @@ const serviceOptions = [
   'New Installation',
   'Stucco Replacement',
   'Remodeling',
-  'Painting',
+  'Stucco Painting',
   'Commercial',
   'Not sure yet',
 ];
