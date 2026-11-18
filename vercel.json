@@ -29,7 +29,7 @@
     },
     {
       "source": "/:service(stucco-repairs|stucco-installation|stucco-replacement|residential-stucco|commercial-stucco|eifs-synthetic-stucco|stucco-painting|stucco-remodeling)/:location(boerne|new-braunfels|schertz|helotes|stone-oak|alamo-heights|live-oak|universal-city|leon-valley|selma)",
-      "destination": "/:location",
+      "destination": "/:service",
       "permanent": true
     },
     {

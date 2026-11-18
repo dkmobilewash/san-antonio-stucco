@@ -6,6 +6,7 @@ import { locations } from '../data/locations';
 import { blogIndex } from 'virtual:blog-index';
 import { blogServiceMap } from '../data/blogServiceMap';
 import { contact } from '../data/contact';
+import EstimateForm from '../components/EstimateForm';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ReviewCTA from '../components/ReviewCTA';
 import FAQSection from '../components/FAQSection';
@@ -131,18 +132,52 @@ export default function ServiceDetailPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">{service.heroHeadline}</h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">{service.heroDescription}</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/quote"
+              <a
+                href="#estimate-form"
                 className="bg-sand-600 hover:bg-sand-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors inline-flex items-center gap-2"
               >
                 Get Free Estimate <ArrowRight size={18} />
-              </Link>
+              </a>
               <a
                 href={`tel:${contact.phoneRaw}`}
                 className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-8 py-4 rounded-xl font-semibold transition-colors inline-flex items-center gap-2"
               >
                 <Phone size={18} /> Call {contact.phone}
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inline Estimate Form */}
+      <section id="estimate-form" className="py-16 bg-white scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-800 mb-3">Get a Free {displayName} Estimate</h2>
+              <p className="text-slate-600 mb-6">Tell us what's going on and we'll call you back within one business day with honest pricing. No obligation.</p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={18} className="text-sage-600 shrink-0" />
+                  <span className="text-slate-700 text-sm">Free on-site evaluation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={18} className="text-sage-600 shrink-0" />
+                  <span className="text-slate-700 text-sm">Detailed written estimate</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={18} className="text-sage-600 shrink-0" />
+                  <span className="text-slate-700 text-sm">Own crew — no subcontractors</span>
+                </div>
+              </div>
+              <div className="mt-6 flex items-center gap-2 text-sm text-slate-500">
+                <Phone size={16} className="text-sand-600" />
+                <span>Prefer to call?</span>
+                <a href={`tel:${contact.phoneRaw}`} className="text-sand-600 hover:text-sand-700 font-semibold">{contact.phone}</a>
+              </div>
+            </div>
+            <div>
+              <EstimateForm compact />
             </div>
           </div>
         </div>
@@ -249,12 +284,12 @@ export default function ServiceDetailPage() {
             Ready for a free {displayName.toLowerCase()} estimate?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/quote"
+            <a
+              href="#estimate-form"
               className="bg-white hover:bg-slate-50 text-sand-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
             >
               Get My Free Estimate <ArrowRight size={16} />
-            </Link>
+            </a>
             <a
               href={`tel:${contact.phoneRaw}`}
               className="bg-sand-700 hover:bg-sand-800 text-white border border-sand-500 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
@@ -320,12 +355,12 @@ export default function ServiceDetailPage() {
           </p>
           <p className="text-slate-500 text-sm mb-4">★ 5.0 on Google · Licensed & insured · Own crew, no subs</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/quote"
+            <a
+              href="#estimate-form"
               className="bg-sand-600 hover:bg-sand-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"
             >
               Get My Free Estimate <ArrowRight size={16} />
-            </Link>
+            </a>
             <a
               href={`tel:${contact.phoneRaw}`}
               className="bg-white hover:bg-slate-50 text-sand-700 border border-sand-200 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center gap-2"

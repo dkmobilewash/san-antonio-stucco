@@ -39,7 +39,7 @@ export default function TestimonialsSection({ title = 'What Our Clients Say', fi
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">{title}</h2>
-          <p className="text-sand-600 font-semibold mb-2">★ 5.0 · 23 Google Reviews</p>
+          <p className="text-sand-600 font-semibold mb-2">★ 5.0 · 24 Google Reviews</p>
           <p className="text-slate-600 max-w-2xl mx-auto">
             Hear from homeowners and property managers who trust San Antonio Stucco for their exterior projects.
           </p>
